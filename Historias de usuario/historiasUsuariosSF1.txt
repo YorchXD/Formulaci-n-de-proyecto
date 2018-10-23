@@ -1,0 +1,19 @@
+Visualizar rendición anteriores finalizadas
+Visualizar rendiciones anteriores en detalle
+Visualizar y editar rendiciones sin terminar
+Si una rendición esta sin terminar, se debe editar dentro del periodo establecido por la resolución n°2083 (20 días contados desde que finaliza el evento)
+Ingresar todos los gastos incurridos en un evento (montos de boletas y/o facturas) y que calcule el monto óptimo mas cercano al monto solicitado
+Búsqueda de resoluciones por fechas o por número de rendición
+Ingresar participantes de un evento (si es que existen) y sus gastos en este
+Ingresar rango de tiempo en que ocurre el evento
+Validar que las boletas ingresadas estén dentro del tiempo en que ocurrió el evento
+Exportar a excel la rendición una vez que sea validada
+En la rendición se debe detallar: fecha del documento, nombre del proveedor, breve descripción del gasto y monto del gasto.
+Adjuntar copias de los documentos solicitados(boletas, facturas, etc)
+Se debe realizar una lista de los documentos en el mismo orden en el cual se ingresaron en la rendición
+Visualizar los estado de una rendición
+Poder editar una rendición en caso de que esta se le han encontrado conflictos
+
+
+
+
