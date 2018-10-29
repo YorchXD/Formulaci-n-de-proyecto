@@ -1,14 +1,26 @@
 Como usuario de la aplicación, quiero tener respaldo de rendición anteriores finalizadas, para poder visualizarlas en cualquier instante.
 Como usuario de la aplicación, quiero visualizar y editar rendiciones sin terminar, para ver que cosas faltan y si es posible terminarla.
-Como usuario de la aplicación, quiero que solo se pueda editar una rendición sin llegar a su estado de finalizado dentro del periodo de gracia (20 días contados desde que finaliza el evento), para que no sea rechazada por contraloría por exceso de tiempo.
+Como usuario de la aplicación, quiero que solo se pueda editar una rendición sin llegar a su estado de finalizado dentro del periodo de gracia (20 días contados desde que finaliza el evento), para que no sea rechazada por contraloría por exceso de tiempo. 
+Como usuario de la aplicación, quiero visualizar la cantidad de días disponibles para realizar la rendición.
 Como usuario de la aplicación, quiero ingresar los gastos incurridos de un evento (montos de boletas y/o facturas) para que se calcule el optimo más cercano al monto solicitado.
+Como usuario de la aplicación, para una boleta y/o factura quiero ingresar la fecha del documento, nombre del proveedor, breve descripción del gasto y monto del gasto para cumplir con lo solicitado con la resolución.
 Como usuario de la aplicación, quiero realizar búsquedas de resoluciones por fecha o por numero de resolución para poder encontrarlas y verlas en detalle.
 Como usuario de la aplicación, quiero ingresar a los participantes de un evento, para detallar los gatos que estos realizaron en el evento (si es el caso).
 Como usuario de la aplicación, quiero ingresar el rango de tiempo en que ocurre el evento, para no ingresar boletas/facturas que no estén dentro de la fecha.
-Como usuario de la aplicación, quiero que se valide que las boletas ingresada estén dentro del periodo del evento, para no rechacen la rendición.
+Como usuario de la aplicación, quiero que se valide que las boletas y/o facturas ingresada estén dentro del periodo del evento, para no rechacen la rendición.
 Como usuario de la aplicación, quiero que una vez validada la rendición pueda ser exportada a excel, para poder ser revisada por la Directora de escuela o Decano según la O.E. que corresponda, para poder ser enviada a contraloría.
-Como usuario de la aplicación, quiero ingresar la fecha del documento, nombre del proveedor, breve descripción del gasto y monto del gasto para cumplir con lo solicitado con la resolución.
-Como usuario de la aplicación, quiero adjuntar copias de los documentos solicitados en la rendición (boletas/facturas), para tener un respaldo de lo que se enviará a revisión.
+Como usuario de la aplicación, quiero adjuntar copias digitales en formato PDF de los documentos solicitados en la rendición (boletas/facturas), para tener un respaldo de lo que se enviará a revisión.
 Como usuario de la aplicación, quiero tener un listado de los documentos que debo adjuntar en la rendición en el orden en que se encuentra en esta, para poder chequear que se están adjuntando en el mismo orden.
-Como usuario de la aplicación, quiero visualizar el estado de un fondo por rendir, para saber si es factible realizar el evento.
+Como usuario de la aplicación, quiero visualizar el estado de un fondo por rendir, para saber si es factible ejecutar la rendición del fondo.
 Como usuario de la aplicación, quiero poder editar una rendición en caso de ser rechazada por errores, para poder solucionar estos.
+Como usuario de la aplicación, quiero que las boletas este en categorías, para saber en si los gastos son de alojamiento, alimentación, gasto de incorporación e inscripción, etc.
+Como usuario de la aplicación, quiero visualizar información de la rendición, para saber como realizarlas. otra forma de escribirla->(Como usuario de la aplicación, quiero visualizar la forma de como realizar una rendición, para saber como realizarlas.)
+Como usuario de la aplicación, quiero realizar el documento de solicitud de fondos por rendir del evento, para tener un registro de este.
+Como usuario de la aplicación, quiero ingresar en la solicitud el monto del evento, participantes y categorías (alojamiento, alimentación, etc) en al que se invertirá el fondo, encargado del evento y a quien irá dirigida la solicitud, para generar el documento de solicitud de fondos.
+Como usuario de la aplicación, quiero que existan cuentas para federación y centros de alumnos, para poder realizar y visualizar rendiciones.
+ 
+
+
+
+
+Ver restricciones de boletas.
