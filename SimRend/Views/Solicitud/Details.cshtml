@@ -1,0 +1,54 @@
+@model SimRend.Models.Solicitud
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Solicitud</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaActual)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaActual)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Monto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreEvento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NombreEvento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaEvento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FechaEvento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LugarEvento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LugarEvento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Responsable)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Responsable)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

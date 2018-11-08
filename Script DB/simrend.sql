@@ -1,7 +1,7 @@
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `Solicitud`;
 DROP TABLE IF EXISTS `Persona`;
-DROP TABLE IF EXISTS `Federación`;
+DROP TABLE IF EXISTS `Organizacion`;
 DROP TABLE IF EXISTS `CAA`;
 DROP TABLE IF EXISTS `PerSol`;
 DROP TABLE IF EXISTS `Categoría`;
@@ -12,6 +12,7 @@ DROP TABLE IF EXISTS `Resolucion`;
 DROP TABLE IF EXISTS `Rendicion`;
 DROP TABLE IF EXISTS `Documento`;
 DROP TABLE IF EXISTS `DocPer`;
+DROP TABLE IF EXISTS `Federacion`;
 SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE `Solicitud` (
@@ -32,28 +33,23 @@ CREATE TABLE `Persona` (
     PRIMARY KEY (`matricula`)
 );
 
-CREATE TABLE `Federación` (
+CREATE TABLE `Organizacion` (
     `nomPresidente` VARCHAR(256) NOT NULL,
     `runPesidente` VARCHAR(256) NOT NULL,
-    `matPresidente` Integer NOT NULL,
-    `nombreSecFinza` VARCHAR(256) NOT NULL,
-    `runSecFinza` VARCHAR(256) NOT NULL,
-    `matSecFinza` Integer NOT NULL,
-    `nomDirDAAE` VARCHAR(256) NOT NULL,
-    `campus` VARCHAR(256) NOT NULL,
-    PRIMARY KEY (`campus`)
-);
-
-CREATE TABLE `CAA` (
-    `nomPresidente` VARCHAR(256) NOT NULL,
-    `runPresidente` VARCHAR(256) NOT NULL,
     `matPresidente` Integer NOT NULL,
     `nomSecFinza` VARCHAR(256) NOT NULL,
     `runSecFinza` VARCHAR(256) NOT NULL,
     `matSecFinza` Integer NOT NULL,
+    `nomDirDAAE` VARCHAR(256) NOT NULL,
+    `id` Integer NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `CAA` (
     `nomDirCarrera` VARCHAR(256) NOT NULL,
     `carrera` VARCHAR(256) NOT NULL,
-    PRIMARY KEY (`carrera`)
+    `refOrganizacion` Integer NOT NULL,
+    PRIMARY KEY (`refOrganizacion`)
 );
 
 CREATE TABLE `PerSol` (
@@ -72,12 +68,12 @@ CREATE TABLE `SolCat` (
 );
 
 CREATE TABLE `FedSol` (
-    `refFederacion` VARCHAR(256) NOT NULL,
+    `refFederacion` Integer NOT NULL,
     `refSolicitud` Integer NOT NULL
 );
 
 CREATE TABLE `CAASol` (
-    `refCAA` VARCHAR(256) NOT NULL,
+    `refCAA` Integer NOT NULL,
     `refSolicitud` Integer NOT NULL
 );
 
@@ -122,17 +118,26 @@ CREATE TABLE `DocPer` (
     `refPersona` Integer NOT NULL
 );
 
+CREATE TABLE `Federacion` (
+    `refOrganizacion` Integer NOT NULL,
+    `campus` VARCHAR(256) NOT NULL,
+    `nomDirDAAE` VARCHAR(256) NOT NULL,
+    PRIMARY KEY (`refOrganizacion`)
+);
+
+ALTER TABLE `CAA` ADD FOREIGN KEY (`refOrganizacion`) REFERENCES `Organizacion`(`id`);
 ALTER TABLE `PerSol` ADD FOREIGN KEY (`refSolicitud`) REFERENCES `Solicitud`(`id`);
 ALTER TABLE `PerSol` ADD FOREIGN KEY (`refPersona`) REFERENCES `Persona`(`matricula`);
 ALTER TABLE `SolCat` ADD FOREIGN KEY (`refSolicitud`) REFERENCES `Solicitud`(`id`);
 ALTER TABLE `SolCat` ADD FOREIGN KEY (`refCategoria`) REFERENCES `Categoría`(`nombre`);
 ALTER TABLE `FedSol` ADD FOREIGN KEY (`refSolicitud`) REFERENCES `Solicitud`(`id`);
-ALTER TABLE `FedSol` ADD FOREIGN KEY (`refFederacion`) REFERENCES `Federación`(`campus`);
-ALTER TABLE `CAASol` ADD FOREIGN KEY (`refCAA`) REFERENCES `CAA`(`carrera`);
+ALTER TABLE `FedSol` ADD FOREIGN KEY (`refFederacion`) REFERENCES `Federacion`(`refOrganizacion`);
 ALTER TABLE `CAASol` ADD FOREIGN KEY (`refSolicitud`) REFERENCES `Solicitud`(`id`);
+ALTER TABLE `CAASol` ADD FOREIGN KEY (`refCAA`) REFERENCES `CAA`(`refOrganizacion`);
 ALTER TABLE `Resolucion` ADD FOREIGN KEY (`refSolicitud`) REFERENCES `Solicitud`(`id`);
 ALTER TABLE `Rendicion` ADD FOREIGN KEY (`refResolucion`) REFERENCES `Resolucion`(`numero`);
-ALTER TABLE `Documento` ADD FOREIGN KEY (`refRendicion`) REFERENCES `Rendicion`(`id`);
 ALTER TABLE `Documento` ADD FOREIGN KEY (`refCategoria`) REFERENCES `Categoría`(`nombre`);
-ALTER TABLE `DocPer` ADD FOREIGN KEY (`refDocumento`) REFERENCES `Documento`(`numDoc`);
+ALTER TABLE `Documento` ADD FOREIGN KEY (`refRendicion`) REFERENCES `Rendicion`(`id`);
 ALTER TABLE `DocPer` ADD FOREIGN KEY (`refPersona`) REFERENCES `Persona`(`matricula`);
+ALTER TABLE `DocPer` ADD FOREIGN KEY (`refDocumento`) REFERENCES `Documento`(`numDoc`);
+ALTER TABLE `Federacion` ADD FOREIGN KEY (`refOrganizacion`) REFERENCES `Organizacion`(`id`);
