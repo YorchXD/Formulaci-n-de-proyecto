@@ -3712,7 +3712,8 @@
 							},
 							"name": "anio",
 							"type": "Date",
-							"length": 0
+							"length": 0,
+							"primaryKey": true
 						},
 						{
 							"_type": "ERDColumn",

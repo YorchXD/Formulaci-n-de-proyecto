@@ -16,7 +16,7 @@ DROP TABLE IF EXISTS `Federacion`;
 SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE `Solicitud` (
-    `id` Integer NOT NULL,
+    `id` Integer NOT NULL AUTO_INCREMENT,
     `estado` VARCHAR(256) NOT NULL,
     `fecha` Date NOT NULL,
     `monto` Integer NOT NULL,
@@ -37,11 +37,12 @@ CREATE TABLE `Organizacion` (
     `nomPresidente` VARCHAR(256) NOT NULL,
     `runPesidente` VARCHAR(256) NOT NULL,
     `matPresidente` Integer NOT NULL,
+    `sexoPresidente` VARCHAR(25) NOT NULL,
     `nomSecFinza` VARCHAR(256) NOT NULL,
     `runSecFinza` VARCHAR(256) NOT NULL,
     `matSecFinza` Integer NOT NULL,
-    `nomDirDAAE` VARCHAR(256) NOT NULL,
-    `id` Integer NOT NULL,
+    `sexoSecFinza` VARCHAR(25) NOT NULL,
+    `id` Integer NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (`id`)
 );
 
@@ -49,6 +50,7 @@ CREATE TABLE `CAA` (
     `nomDirCarrera` VARCHAR(256) NOT NULL,
     `carrera` VARCHAR(256) NOT NULL,
     `refOrganizacion` Integer NOT NULL,
+    `sexoDirCarrera` VARCHAR(20) NOT NULL,
     PRIMARY KEY (`refOrganizacion`)
 );
 
@@ -122,6 +124,7 @@ CREATE TABLE `Federacion` (
     `refOrganizacion` Integer NOT NULL,
     `campus` VARCHAR(256) NOT NULL,
     `nomDirDAAE` VARCHAR(256) NOT NULL,
+    `sexoDirDAAE` VARCHAR(20) NOT NULL,
     PRIMARY KEY (`refOrganizacion`)
 );
 

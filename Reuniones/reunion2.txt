@@ -1,16 +1,16 @@
-Historia de usuarios
+﻿Historia de usuarios
 añadir documentacion de como realizar una rendición y otras relevenate al tema
 Manual de operacion del sistema
-El administrador puede modificar la bodega de documento (cuenta de computación)
 El administrador puede agregar mas centros de alumnos
+El administrador puede modificar la bodega de documento (cuenta de computación)
 Administrador del sistema es el que puede añadir categorias
+La lista de documento generada de acuerdo a la rendición debe tener un área en donde se indique en que página se pego la documentación.
+Subir un respaldo de las páginas en donde se encuetran los documento rendidos.(copia de la rendición con boletas pegadas)
+
 Generacion de la solicitud puede ser en latex o html (ver opción)
 Impresion del documento solicitud
+
 Genero para directores de escuelas y DAAE
-
-La lista de documento generada de acuerdo a la rendición debe tener un área en donde se indique en que página se pego la documentación.
-
-Subir un respaldo de las páginas en donde se encuetran los documento rendidos.
 
 Falta
 Modificar mockups (atrasado)

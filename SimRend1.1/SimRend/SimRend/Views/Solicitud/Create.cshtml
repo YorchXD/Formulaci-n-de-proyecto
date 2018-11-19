@@ -1,0 +1,58 @@
+﻿@model SimRend.Models.Solicitud
+
+@{
+    ViewData["Title"] = "Crear Solicitud";
+}
+
+<h2>Crear Solicitud</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="NombreEvento" class="control-label">Nombre del evento</label>
+                <input asp-for="NombreEvento" class="form-control" />
+                <span asp-validation-for="NombreEvento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LugarEvento" class="control-label">Lugar del evento</label>
+                <input asp-for="LugarEvento" class="form-control" />
+                <span asp-validation-for="LugarEvento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FechaEvento" class="control-label">Fecha del evento</label>
+                <input asp-for="FechaEvento" type="date" class="form-control" />
+                <span asp-validation-for="FechaEvento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Monto" class="control-label">Monto a solicitar</label>
+                <input asp-for="Monto" class="form-control" />
+                <span asp-validation-for="Monto" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Responsable" class="control-label">Responsable de la solicitud</label>
+                <input asp-for="Responsable" class="form-control" />
+                <span asp-validation-for="Responsable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

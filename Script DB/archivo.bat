@@ -1,6 +1,6 @@
 SETLOCAL
 SET directory=.
-SET mysqldir="C:\xampp\mysql\bin
+SET mysqldir="D:\xampp\mysql\bin
 SET user=root
 SET pwd=
 SET dbname=simrend

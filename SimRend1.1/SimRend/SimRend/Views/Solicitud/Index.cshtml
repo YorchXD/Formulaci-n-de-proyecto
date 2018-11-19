@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SimRend.Models.Solicitud>
+
+@{
+    ViewData["Title"] = "Solicitudes";
+}
+
+<h2>Solicitudes pendientes</h2>
+
+<p>
+    <a asp-action="Create">Nueva solicitud</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaActual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Monto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LugarEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Responsable)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaActual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Monto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreEvento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaEvento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LugarEvento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Responsable)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
