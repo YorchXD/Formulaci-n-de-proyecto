@@ -63,7 +63,7 @@ using SimRend.Models;
             WriteLiteral("\r\n<h2>Solicitudes pendientes</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(141, 42, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c40f33105e864e0ba37e1b1f582724f8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c6916f3a63eb478ba5b15fa396f436d3", async() => {
                 BeginContext(164, 15, true);
                 WriteLiteral("Nueva solicitud");
                 EndContext();

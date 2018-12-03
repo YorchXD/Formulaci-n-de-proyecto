@@ -1,0 +1,8 @@
+complemento con drive para guardar archivos...
+disponibilidad de quien puede hacer una solicitud
+fecha de aprobacion de solicitud (emision de ru)
+id ed la ru
+email responsable en organización
+Crear una entidad responsable y que este anclada a organización para no perder los datos de estos cuando existan ambio de mandos.
+
+Preguntar si una resolucion se asocia al cargo o a la persona.

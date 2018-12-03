@@ -1,11 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6840 64-bit) (preloaded format=pdflatex 2018.10.8)  11 NOV 2018 18:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  2 DEC 2018 23:27
 entering extended mode
-**"D:/Repositorios/FormulaciÃ³n de proyecto/Informe/Propuesta/propuesta.tex"
-("D:/Repositorios/FormulaciÃ³n de proyecto/Informe/Propuesta/propuesta.tex"
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**"d:/Repositorios/Formulación de proyecto/Informe/Propuesta/propuesta"
+(d:/Repositorios/Formulación de proyecto/Informe/Propuesta/propuesta.tex
 LaTeX2e <2018-04-01> patch level 5
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+(d:/texlive/2018/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size11.clo"
+(d:/texlive/2018/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count80
@@ -19,8 +22,7 @@ File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\pslatex\pslatex.sty"
+) (d:/texlive/2018/texmf-dist/tex/latex/pslatex/pslatex.sty
 Package: pslatex 1996/07/24 v1.2 pslatex emulation (DPC)
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 65.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -54,29 +56,17 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> OT1/ptm/m/it on input line 75.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 75.
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
-Package: babel 2018/09/26 3.24 The Babel package
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\switch.def"
-File: switch.def 2018/09/26 3.24 Babel switching mechanism
-)
-*************************************
-* Local config file bblopts.cfg used
-*
-("C:\Program Files\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg"
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
- babel
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\babel-spanish\spanish.ldf"
+) (d:/texlive/2018/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2018/11/13 3.27 The Babel package
+ (d:/texlive/2018/texmf-dist/tex/generic/babel/switch.def
+File: switch.def 2018/11/13 3.27 Babel switching mechanism
+) (d:/texlive/2018/texmf-dist/tex/generic/babel-spanish/spanish.ldf
 Language: spanish.ldf 2016/03/03 v5.0p Spanish support from the babel system
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
-File: babel.def 2018/09/26 3.24 Babel common definitions
+ (d:/texlive/2018/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2018/11/13 3.27 Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen103
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\babel\txtbabel.def")
+ (d:/texlive/2018/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@dirlevel=\count89
 )
 \es@quottoks=\toks14
@@ -85,47 +75,39 @@ Package babel Info: Making " an active character on input line 561.
 Package babel Info: Making . an active character on input line 662.
 Package babel Info: Making < an active character on input line 707.
 Package babel Info: Making > an active character on input line 707.
-))
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+)) (d:/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/04/06 v1.3b Input encoding file
 \inpenc@prehook=\toks15
 \inpenc@posthook=\toks16
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\latexsym.sty"
+) (d:/texlive/2018/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 (Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+) (d:/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+ (d:/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks17
 \symAMSa=\mathgroup7
 \symAMSb=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+)) (d:/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+(d:/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+ (d:/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
 \ex@=\dimen104
-))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+)) (d:/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen105
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+) (d:/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count91
@@ -165,29 +147,22 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \mathdisplay@stack=\toks22
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
+) (d:/texlive/2018/texmf-dist/tex/latex/graphics/epsfig.sty
 Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+ (d:/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+ (d:/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks23
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+) (d:/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+ (d:/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+) (d:/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+ (d:/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen113
@@ -195,26 +170,20 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 )
 \epsfxsize=\dimen115
 \epsfysize=\dimen116
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+) (d:/texlive/2018/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\subfiles\subfiles.sty"
+) (d:/texlive/2018/texmf-dist/tex/latex/subfiles/subfiles.sty
 Package: subfiles 2018/07/31 Federico Garcia, Gernot Salzer
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+ (d:/texlive/2018/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks24
 \verbatim@line=\toks25
 \verbatim@in@stream=\read1
-))
-("C:\Program Files\MiKTeX 2.9\tex\latex\tasks\tasks.sty"
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty"
-Package: expl3 2018-09-24 L3 programming layer (loader) 
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\expl3-code.tex"
-Package: expl3 2018-09-24 L3 programming layer (code)
+)) (d:/texlive/2018/texmf-dist/tex/latex/tasks/tasks.sty (d:/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2018-11-19 L3 programming layer (loader) 
+ (d:/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2018-11-19 L3 programming layer (code)
 \c_max_int=\count103
 \l_tmpa_int=\count104
 \l_tmpb_int=\count105
@@ -359,20 +328,17 @@ Package: expl3 2018-09-24 L3 programming layer (code)
 \l__coffin_scaled_width_dim=\dimen148
 \l__seq_internal_a_int=\count185
 \l__seq_internal_b_int=\count186
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3kernel\l3pdfmode.def"
-File: l3pdfmode.def 2018-09-24 v L3 Experimental driver: PDF mode
+) (d:/texlive/2018/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+File: l3pdfmode.def 2018-11-19 v L3 Experimental driver: PDF mode
 \l__driver_color_stack_int=\count187
-))
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty"
-Package: xparse 2018-09-24 L3 Experimental document command parser
+)) (d:/texlive/2018/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2018-10-17 L3 Experimental document command parser
 \l__xparse_current_arg_int=\count188
 \g__xparse_grabber_int=\count189
 \l__xparse_m_args_int=\count190
 \l__xparse_mandatory_args_int=\count191
 \l__xparse_v_nesting_int=\count192
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\eepic\epic.sty"
+) (d:/texlive/2018/texmf-dist/tex/latex/eepic/epic.sty
 Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
 \@@multicnt=\count193
 \d@lta=\count194
@@ -390,46 +356,33 @@ Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
 \num@segments=\count199
 \num@segmentsi=\count266
 \@datafile=\read3
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\cntformats\cntformats.sty"
+) (d:/texlive/2018/texmf-dist/tex/latex/cntformats/cntformats.sty
 Package: cntformats 2014/07/20 v0.7 A different way to read counters. (CN)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
+ (d:/texlive/2018/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/08/19 v2.5f e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count267
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\cnltx\cnltx-base.sty"
-Package: cnltx-base 2015/08/17 v0.13 LaTeX tools and documenting facilities (CN
-)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\pgfopts\pgfopts.sty"
+) (d:/texlive/2018/texmf-dist/tex/latex/cnltx/cnltx-base.sty
+Package: cnltx-base 2015/08/17 v0.13 LaTeX tools and documenting facilities (CN)
+ (d:/texlive/2018/texmf-dist/tex/latex/pgfopts/pgfopts.sty
 Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty"
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"
+ (d:/texlive/2018/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (d:/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
 \pgfkeys@pathtoks=\toks26
 \pgfkeys@temptoks=\toks27
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.te
-x"
+ (d:/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
 \pgfkeys@tmptoks=\toks28
 )))
 \pgfopts@list@add@a@toks=\toks29
 \pgfopts@list@add@b@toks=\toks30
-) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+) (d:/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
-Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+) (d:/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO)
+ (d:/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+) (d:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-)
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+) (d:/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
 )
 Package pdftexcmds Info: LuaTeX not detected.
@@ -443,17 +396,13 @@ Package pdftexcmds Info: \pdfdraftmode found.
 \cnltx@tmpa@length=\skip52
 \cnltx@tmpb@length=\skip53
 \cnltx@tmpc@length=\skip54
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+ (d:/texlive/2018/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+ (d:/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
-Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: ModelRGB' extended on input line 1364.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
 Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
@@ -461,17 +410,17 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\trimspaces\trimspaces.sty"
+(d:/texlive/2018/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 )))
-("C:\Program Files\MiKTeX 2.9\tex\latex\l3packages\xtemplate\xtemplate.sty"
-Package: xtemplate 2018-09-24 L3 Experimental prototype document functions
+(d:/texlive/2018/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
+Package: xtemplate 2018-10-17 L3 Experimental prototype document functions
 \l__xtemplate_tmp_dim=\dimen155
 \l__xtemplate_tmp_int=\count271
 \l__xtemplate_tmp_muskip=\muskip18
 \l__xtemplate_tmp_skip=\skip55
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\environ\environ.sty"
+(d:/texlive/2018/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
 )
 Package: tasks 2016/08/13 v0.12 Horizontalcolumnedlists (CN)
@@ -501,72 +450,55 @@ Package: tasks 2016/08/13 v0.12 Horizontalcolumnedlists (CN)
 \l__tasks_tmpa_int=\count281
 \l__tasks_tmpb_int=\count282
 \l__tasks_tmpa_coffin=\box46
-.................................................
-. xtemplate info: "declare-object-type"
-. 
-. Declaring object type 'tasks' taking 3 argument(s) on line 379.
-.................................................
+
+Package xtemplate Info: Declaring object type 'tasks' taking 3 argument(s) on
+(xtemplate)             line 379.
+
 \l__tasks_choice_width_dim=\dimen164
 \l__tasks_choice_linewidth_dim=\dimen165
 \l__tasks_choice_checkwidth_dim=\dimen166
 \l__tasks_choice_raise_dim=\dimen167
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \startnewitemline with sig. '' on line 692.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \NewTasks with sig. 'O{}mO{\task }D(){1}' on line 701.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \RenewTasks with sig. 'O{}mO{\task }D(){1}' on line 708.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-environment"
-. 
-. Defining environment 'tasks' with sig. 'O{}D(){1}' on line 714.
-.................................................
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\tasks\tasks.cfg"
+(d:/texlive/2018/texmf-dist/tex/latex/tasks/tasks.cfg
 File: tasks.cfg 2016/08/13 v0.12 tasks instances
-)
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \settasks with sig. 'm' on line 722.
-.................................................
-) (propuesta.aux
+)) (./propuesta.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
-)
-\openout1 = `propuesta.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 14.
-LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 14
-.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omspzccm.fd"
-File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
-)
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.51 i
+      bcite{9}{7}
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.51 i
+      bcite{9}{7}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ 
+Here is how much of TeX's memory you used:
+ 14189 strings out of 492639
+ 259678 string characters out of 6133102
+ 309715 words of memory out of 5000000
+ 17991 multiletter control sequences out of 15000+600000
+ 533145 words of font info for 26 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 61i,0n,63p,856b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!
+ay on input line 14.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+ (d:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count283
 \scratchdimen=\dimen168
@@ -579,162 +511,167 @@ LaTeX Info: Redefining \% on input line 14.
 \MPnumerator=\count287
 \makeMPintoPDFobject=\count288
 \everyMPtoPDFconversion=\toks32
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+) (d:/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+ (d:/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+ (d:/texlive/2018/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-))
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+)) (d:/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+ (d:/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+ (d:/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 438.
 Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-)
-LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 30
-.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptmcm.fd"
+ (d:/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 30.
+ (d:/texlive/2018/texmf-dist/tex/latex/psnfss/ot1ptmcm.fd
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 30
-.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlptmcm.fd"
+LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 30.
+ (d:/texlive/2018/texmf-dist/tex/latex/psnfss/omlptmcm.fd
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+psycm on input line 30
-.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omxpsycm.fd"
+LaTeX Font Info:    Try loading font information for OMX+psycm on input line 30.
+ (d:/texlive/2018/texmf-dist/tex/latex/psnfss/omxpsycm.fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 30.
+ (d:/texlive/2018/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 30.
+ (d:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 30.
+ (d:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
-LaTeX Font Info:    Try loading font information for U+lasy on input line 30.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Font Info:    Try loading font information for U+msa on input line 30.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 30.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
-
-(1_Descripcion_del_proyecto/1_Conceptos_basicos.tex
+ (./1_Descripcion_del_proyecto/1_Conceptos_basicos.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
+ [1
 
+{d:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Overfull \hbox (5.50728pt too wide) in paragraph at lines 15--16
-[]\OT1/ptm/m/n/10.95 autoridad su-pe-rior de la Fa-cul-tad y di-ri-ge to-dos lo
-s asun-tos acad[]emi-
+[]\OT1/ptm/m/n/10.95 autoridad su-pe-rior de la Fa-cul-tad y di-ri-ge to-dos los asun-tos acad[]emi-
  []
 
-[1
 
-{C:/Users/YorchXD/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (13.85065pt too wide) in paragraph at lines 35--36
-[]\OT1/ptm/m/n/10.95 Organizaci[]on es-tu-dian-til que re-pre-sen-ta a los alum
--
+Overfull \hbox (13.85065pt too wide) in paragraph at lines 34--35
+[]\OT1/ptm/m/n/10.95 Organizaci[]on es-tu-dian-til que re-pre-sen-ta a los alum-
  []
 
-) (1_Descripcion_del_proyecto/2_Contexto_del_proyecto.tex [2] [3]
+[2]) (./1_Descripcion_del_proyecto/2_Contexto_del_proyecto.tex
+<Imagenes/Solicitud_Federacion.jpg, id=12, 1262.46657pt x 1362.59062pt>
+File: Imagenes/Solicitud_Federacion.jpg Graphic file (type jpg)
+<use Imagenes/Solicitud_Federacion.jpg>
+Package pdftex.def Info: Imagenes/Solicitud_Federacion.jpg  used on input line 4.
+(pdftex.def)             Requested size: 360.0pt x 388.55028pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 35.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 35.
-)
-(1_Descripcion_del_proyecto/3_Definicion_del_problema.tex [4])
-(1_Descripcion_del_proyecto/4_Trabajo_relacionado.tex)
-(1_Descripcion_del_proyecto/5_Propuesta_de_solucion.tex)
-(2_Objetivos/1_Objetivo_general.tex [5]) (2_Objetivos/2_Objetivo_especifico.tex
-) (3_Alcances/3_Alcances.tex) (4_Metodologia/1_Metodologia_de_desarrollo.tex
-[6]
-<Imagenes/mele.jpg, id=23, 1233.408pt x 856.3995pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 8.
+[3]
+Overfull \vbox (107.10074pt too high) has occurred while \output is active []
+
+ [4 <./Imagenes/Solicitud_Federacion.jpg>]
+<Imagenes/Solicitud_CCAA.jpg, id=19, 1262.46657pt x 1375.38844pt>
+File: Imagenes/Solicitud_CCAA.jpg Graphic file (type jpg)
+<use Imagenes/Solicitud_CCAA.jpg>
+Package pdftex.def Info: Imagenes/Solicitud_CCAA.jpg  used on input line 33.
+(pdftex.def)             Requested size: 360.0pt x 392.19965pt.
+ [5 <./Imagenes/Solicitud_CCAA.jpg>]) (./1_Descripcion_del_proyecto/3_Definicion_del_problema.tex) (./1_Descripcion_del_proyecto/4_Trabajo_relacionado.tex) (./1_Descripcion_del_proyecto/5_Propuesta_de_solucion.tex [6]) (./2_Objetivos/1_Objetivo_general.tex) (./2_Objetivos/2_Objetivo_especifico.tex) (./3_Alcances/3_Alcances.tex [7]) (./4_Metodologia/1_Metodologia_de_desarrollo.tex
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+<Imagenes/mele.jpg, id=30, 1233.408pt x 856.3995pt>
 File: Imagenes/mele.jpg Graphic file (type jpg)
 <use Imagenes/mele.jpg>
 Package pdftex.def Info: Imagenes/mele.jpg  used on input line 10.
 (pdftex.def)             Requested size: 360.0pt x 249.9568pt.
- [7 <./Imagenes/mele.jpg>]
+ [8]
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 30.
-)
-(4_Metodologia/2_Metodologia_de_evaluacion_del_proyecto.tex [8]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
-) (propuesta.bbl
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 29.
+ [9 <./Imagenes/mele.jpg>]) (./4_Metodologia/2_Metodologia_de_evaluacion_del_proyecto.tex) (./propuesta.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--7
-[]\OT1/ptm/m/n/10.95 Albert eins-tein and em-pi-ri-cal soft-wa-re en-gi-nee-rin
-g.
+[]\OT1/ptm/m/n/10.95 Albert eins-tein and em-pi-ri-cal soft-wa-re en-gi-nee-ring.
  []
 
 
-Overfull \hbox (38.21545pt too wide) in paragraph at lines 4--7
-\OT1/ptm/m/n/10.95 https://pdfs.semanticscholar.org/589a/8858795db3919bb1ca05ab
-44640ce038b76e.pdf. 
+Overfull \hbox (43.69044pt too wide) in paragraph at lines 4--7
+\OT1/ptm/m/n/10.95 https://pdfs.semanticscholar.org/589a/8858795db3919bb1ca05ab44640ce038b76e.pdf. 
  []
 
 
-Overfull \hbox (50.15968pt too wide) in paragraph at lines 9--11
-[]\OT1/ptm/m/n/10.95 Controlar[]a uni-ver-si-dad de tal-ca.  http://contralori
-a.utalca.cl/html/documentos.php?cat=26. 
+Overfull \hbox (55.63467pt too wide) in paragraph at lines 17--19
+[]\OT1/ptm/m/n/10.95 Controlar[]^^Pa uni-ver-si-dad de tal-ca.  http://contraloria.utalca.cl/html/documentos.php?cat=26. 
  []
 
 
-Overfull \hbox (25.25926pt too wide) in paragraph at lines 21--23
-[]\OT1/ptm/m/n/10.95 Vicerrectoria de desa-rro-llo es-tu-dian-til.  http://vde.
-utalca.cl/html/organizaciones.html. 
+Underfull \hbox (badness 1067) in paragraph at lines 29--35
+\OT1/ptm/m/n/10.95 y pa-ra ex-tran-je-ros sin re-si-den-cia de-fi-ni-ti-va en chi-le: Asig-na-ci[]on anual
  []
 
-) [9] (propuesta.aux
-LaTeX Info: Redefining \. on input line 11.
-LaTeX Info: Redefining \% on input line 11.
+
+Underfull \hbox (badness 1442) in paragraph at lines 29--35
+\OT1/ptm/m/n/10.95 pa-ra gas-tos ope-ra-cio-na-les del pro-yec-to de te-sis doc-to-ral eta-pas 2017.
+ []
+
+
+Overfull \hbox (25.79738pt too wide) in paragraph at lines 29--35
+\OT1/ptm/m/n/10.95 http://www.conicyt.cl/becasconicyt/files/2017/02/manual[]rendicionGOp[]2017.pdf. 
+ []
+
+[10]
+Overfull \hbox (30.73425pt too wide) in paragraph at lines 41--43
+[]\OT1/ptm/m/n/10.95 Vicerrectoria de desa-rro-llo es-tu-dian-til.  http://vde.utalca.cl/html/organizaciones.html. 
+ []
+
+) [11] (./propuesta.aux
+LaTeX Info: Redefining \. on input line 8.
+LaTeX Info: Redefining \% on input line 8.
 ) ) 
 Here is how much of TeX's memory you used:
- 14997 strings out of 492970
- 274166 string characters out of 3135849
- 340719 words of memory out of 3000000
- 18649 multiletter control sequences out of 15000+200000
- 572865 words of font info for 112 fonts, out of 3000000 for 9000
+ 15066 strings out of 492639
+ 274075 string characters out of 6133102
+ 345402 words of memory out of 5000000
+ 18735 multiletter control sequences out of 15000+600000
+ 580684 words of font info for 133 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,8n,63p,917b,362s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
-/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pf
-b>
-Output written on propuesta.pdf (9 pages, 424296 bytes).
+ 61i,8n,63p,1030b,365s stack positions out of 5000i,500n,10000p,200000b,80000s
+{d:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on propuesta.pdf (11 pages, 936279 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
+ 60 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

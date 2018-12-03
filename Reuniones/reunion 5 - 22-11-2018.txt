@@ -1,0 +1,17 @@
+Objetivo general: sistematizar el proceso de confección de la solicitud de un fondo por rendir para actividades estudiantiles y su posterior rendicion de gastos, de acuerdo al marco definido por la ruxxx.
+
+Objetivos especificos:
+
+1. modelar el proceso de confeccion de solicitudes de fondos por rendir
+2. modelar el proceso de rendicion de gastos
+3. desarrollar una app web que asista al proceso de solicitud de fondos por rendir y su posterior rendicion de gastos
+
+
+Titulo: Gestion de fondos para actividades estudiantiles conducidas por  CCAA o la Fedeut Curicó en acuerdo a la ruxxx
+
+Alcance principal: sistema opera bajo la ruxxxxx
+
+*Colocar todo en tiempo presente...
+
+
+ 
