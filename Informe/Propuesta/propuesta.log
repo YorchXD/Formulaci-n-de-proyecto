@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  2 DEC 2018 23:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  5 DEC 2018 17:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -402,25 +402,24 @@ Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
-Package xcolor Info: ModelRGB' extended on input line 1364.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
 Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-)
-(d:/texlive/2018/texmf-dist/tex/latex/trimspaces/trimspaces.sty
+) (d:/texlive/2018/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-)))
-(d:/texlive/2018/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
+))) (d:/texlive/2018/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
 Package: xtemplate 2018-10-17 L3 Experimental prototype document functions
 \l__xtemplate_tmp_dim=\dimen155
 \l__xtemplate_tmp_int=\count271
 \l__xtemplate_tmp_muskip=\muskip18
 \l__xtemplate_tmp_skip=\skip55
-)
-(d:/texlive/2018/texmf-dist/tex/latex/environ/environ.sty
+) (d:/texlive/2018/texmf-dist/tex/latex/environ/environ.sty
 Package: environ 2014/05/04 v0.3 A new way to define environments
 )
 Package: tasks 2016/08/13 v0.12 Horizontalcolumnedlists (CN)
@@ -458,42 +457,28 @@ Package xtemplate Info: Declaring object type 'tasks' taking 3 argument(s) on
 \l__tasks_choice_linewidth_dim=\dimen165
 \l__tasks_choice_checkwidth_dim=\dimen166
 \l__tasks_choice_raise_dim=\dimen167
-
-(d:/texlive/2018/texmf-dist/tex/latex/tasks/tasks.cfg
+ (d:/texlive/2018/texmf-dist/tex/latex/tasks/tasks.cfg
 File: tasks.cfg 2016/08/13 v0.12 tasks instances
 )) (./propuesta.aux
-LaTeX Info: Redefining \. on input line 11.
-LaTeX Info: Redefining \% on input line 11.
+LaTeX Info: Redefining \. on input line 8.
+LaTeX Info: Redefining \% on input line 8.
+)
+\openout1 = `propuesta.aux'.
 
-
-! LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.51 i
-      bcite{9}{7}
-? 
-! Emergency stop.
- ...                                              
-                                                  
-l.51 i
-      bcite{9}{7}
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
- 
-Here is how much of TeX's memory you used:
- 14189 strings out of 492639
- 259678 string characters out of 6133102
- 309715 words of memory out of 5000000
- 17991 multiletter control sequences out of 15000+600000
- 533145 words of font info for 26 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 61i,0n,63p,856b,359s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
-ay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 14.
+LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 14.
+ (d:/texlive/2018/texmf-dist/tex/latex/psnfss/omspzccm.fd
+File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
+)
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Info: Redefining \. on input line 14.
@@ -592,35 +577,32 @@ File: Imagenes/Solicitud_Federacion.jpg Graphic file (type jpg)
 <use Imagenes/Solicitud_Federacion.jpg>
 Package pdftex.def Info: Imagenes/Solicitud_Federacion.jpg  used on input line 4.
 (pdftex.def)             Requested size: 360.0pt x 388.55028pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 8.
-[3]
-Overfull \vbox (107.10074pt too high) has occurred while \output is active []
-
- [4 <./Imagenes/Solicitud_Federacion.jpg>]
+ [3] [4 <./Imagenes/Solicitud_Federacion.jpg>]
 <Imagenes/Solicitud_CCAA.jpg, id=19, 1262.46657pt x 1375.38844pt>
 File: Imagenes/Solicitud_CCAA.jpg Graphic file (type jpg)
 <use Imagenes/Solicitud_CCAA.jpg>
-Package pdftex.def Info: Imagenes/Solicitud_CCAA.jpg  used on input line 33.
+Package pdftex.def Info: Imagenes/Solicitud_CCAA.jpg  used on input line 38.
 (pdftex.def)             Requested size: 360.0pt x 392.19965pt.
- [5 <./Imagenes/Solicitud_CCAA.jpg>]) (./1_Descripcion_del_proyecto/3_Definicion_del_problema.tex) (./1_Descripcion_del_proyecto/4_Trabajo_relacionado.tex) (./1_Descripcion_del_proyecto/5_Propuesta_de_solucion.tex [6]) (./2_Objetivos/1_Objetivo_general.tex) (./2_Objetivos/2_Objetivo_especifico.tex) (./3_Alcances/3_Alcances.tex [7]) (./4_Metodologia/1_Metodologia_de_desarrollo.tex
+) (./1_Descripcion_del_proyecto/3_Definicion_del_problema.tex [5] [6 <./Imagenes/Solicitud_CCAA.jpg>]) (./1_Descripcion_del_proyecto/4_Trabajo_relacionado.tex) (./1_Descripcion_del_proyecto/5_Propuesta_de_solucion.tex [7]) (./2_Objetivos/1_Objetivo_general.tex) (./2_Objetivos/2_Objetivo_especifico.tex) (./3_Alcances/3_Alcances.tex [8]) (./4_Metodologia/1_Metodologia_de_desarrollo.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
-<Imagenes/mele.jpg, id=30, 1233.408pt x 856.3995pt>
+<Imagenes/mele.jpg, id=33, 1233.408pt x 856.3995pt>
 File: Imagenes/mele.jpg Graphic file (type jpg)
 <use Imagenes/mele.jpg>
 Package pdftex.def Info: Imagenes/mele.jpg  used on input line 10.
 (pdftex.def)             Requested size: 360.0pt x 249.9568pt.
- [8]
+
+Overfull \hbox (14.30464pt too wide) in paragraph at lines 18--19
+\OT1/ptm/m/n/10.95 prio-ri-dad, los cua-les pro-por-cio-nan va-lor co-mer-cial pa-ra el clien-te. Adem[]as,
+ []
+
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 29.
- [9 <./Imagenes/mele.jpg>]) (./4_Metodologia/2_Metodologia_de_evaluacion_del_proyecto.tex) (./propuesta.bbl
+[9] [10 <./Imagenes/mele.jpg>]) (./4_Metodologia/2_Metodologia_de_evaluacion_del_proyecto.tex) (./propuesta.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--7
 []\OT1/ptm/m/n/10.95 Albert eins-tein and em-pi-ri-cal soft-wa-re en-gi-nee-ring.
  []
@@ -650,28 +632,28 @@ Overfull \hbox (25.79738pt too wide) in paragraph at lines 29--35
 \OT1/ptm/m/n/10.95 http://www.conicyt.cl/becasconicyt/files/2017/02/manual[]rendicionGOp[]2017.pdf. 
  []
 
-[10]
+[11]
 Overfull \hbox (30.73425pt too wide) in paragraph at lines 41--43
 []\OT1/ptm/m/n/10.95 Vicerrectoria de desa-rro-llo es-tu-dian-til.  http://vde.utalca.cl/html/organizaciones.html. 
  []
 
-) [11] (./propuesta.aux
+) [12] (./propuesta.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 ) ) 
 Here is how much of TeX's memory you used:
  15066 strings out of 492639
- 274075 string characters out of 6133102
- 345402 words of memory out of 5000000
+ 274090 string characters out of 6133102
+ 356255 words of memory out of 5000000
  18735 multiletter control sequences out of 15000+600000
  580684 words of font info for 133 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,8n,63p,1030b,365s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,8n,63p,1030b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on propuesta.pdf (11 pages, 936279 bytes).
+Output written on propuesta.pdf (12 pages, 936925 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 63 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
