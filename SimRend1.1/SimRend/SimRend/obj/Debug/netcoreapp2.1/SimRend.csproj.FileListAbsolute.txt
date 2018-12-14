@@ -32,3 +32,6 @@ D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\ne
 D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\SimRend.csproj.CopyComplete
 D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\Razor\Views\Solicitud\Index.g.cshtml.cs
 D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\Razor\Views\Solicitud\Create.g.cshtml.cs
+D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\Razor\Views\Solicitud\Category.g.cshtml.cs
+D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\Razor\Views\Solicitud\Person.g.cshtml.cs
+D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Login.g.cshtml.cs

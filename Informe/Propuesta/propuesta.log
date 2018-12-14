@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  5 DEC 2018 17:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  10 DEC 2018 14:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -459,10 +459,8 @@ Package xtemplate Info: Declaring object type 'tasks' taking 3 argument(s) on
 \l__tasks_choice_raise_dim=\dimen167
  (d:/texlive/2018/texmf-dist/tex/latex/tasks/tasks.cfg
 File: tasks.cfg 2016/08/13 v0.12 tasks instances
-)) (./propuesta.aux
-LaTeX Info: Redefining \. on input line 8.
-LaTeX Info: Redefining \% on input line 8.
-)
+))
+No file propuesta.aux.
 \openout1 = `propuesta.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -473,7 +471,7 @@ LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 14.
 LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 14.
- (d:/texlive/2018/texmf-dist/tex/latex/psnfss/omspzccm.fd
+(d:/texlive/2018/texmf-dist/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
 LaTeX Font Info:    ... okay on input line 14.
@@ -559,19 +557,56 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
  (./1_Descripcion_del_proyecto/1_Conceptos_basicos.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
- [1
+
+
+LaTeX Warning: Citation `1' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Citation `1' on page 1 undefined on input line 7.
+
+[1
 
 {d:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Citation `1' on page 2 undefined on input line 11.
+
+
+LaTeX Warning: Citation `1' on page 2 undefined on input line 15.
+
+
 Overfull \hbox (5.50728pt too wide) in paragraph at lines 15--16
 []\OT1/ptm/m/n/10.95 autoridad su-pe-rior de la Fa-cul-tad y di-ri-ge to-dos los asun-tos acad[]emi-
  []
 
 
-Overfull \hbox (13.85065pt too wide) in paragraph at lines 34--35
-[]\OT1/ptm/m/n/10.95 Organizaci[]on es-tu-dian-til que re-pre-sen-ta a los alum-
- []
+LaTeX Warning: Citation `1' on page 2 undefined on input line 19.
 
-[2]) (./1_Descripcion_del_proyecto/2_Contexto_del_proyecto.tex
+
+LaTeX Warning: Citation `1' on page 2 undefined on input line 23.
+
+
+LaTeX Warning: Citation `2' on page 2 undefined on input line 26.
+
+
+LaTeX Warning: Citation `3' on page 2 undefined on input line 30.
+
+
+LaTeX Warning: Citation `2' on page 2 undefined on input line 34.
+
+
+LaTeX Warning: Citation `1' on page 2 undefined on input line 38.
+
+[2]
+
+LaTeX Warning: Citation `3' on page 3 undefined on input line 50.
+
+
+LaTeX Warning: Citation `4' on page 3 undefined on input line 54.
+
+) (./1_Descripcion_del_proyecto/2_Contexto_del_proyecto.tex
+
+LaTeX Warning: Citation `5' on page 3 undefined on input line 1.
+
 <Imagenes/Solicitud_Federacion.jpg, id=12, 1262.46657pt x 1362.59062pt>
 File: Imagenes/Solicitud_Federacion.jpg Graphic file (type jpg)
 <use Imagenes/Solicitud_Federacion.jpg>
@@ -581,79 +616,90 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 8.
- [3] [4 <./Imagenes/Solicitud_Federacion.jpg>]
+
+LaTeX Warning: Reference `fig: Solicitud_Federacion' on page 3 undefined on input line 43.
+
+
+LaTeX Warning: Reference `fig: Solicitud_CAA' on page 3 undefined on input line 43.
+
+[3] [4 <./Imagenes/Solicitud_Federacion.jpg>]
 <Imagenes/Solicitud_CCAA.jpg, id=19, 1262.46657pt x 1375.38844pt>
 File: Imagenes/Solicitud_CCAA.jpg Graphic file (type jpg)
 <use Imagenes/Solicitud_CCAA.jpg>
-Package pdftex.def Info: Imagenes/Solicitud_CCAA.jpg  used on input line 38.
+Package pdftex.def Info: Imagenes/Solicitud_CCAA.jpg  used on input line 46.
 (pdftex.def)             Requested size: 360.0pt x 392.19965pt.
-) (./1_Descripcion_del_proyecto/3_Definicion_del_problema.tex [5] [6 <./Imagenes/Solicitud_CCAA.jpg>]) (./1_Descripcion_del_proyecto/4_Trabajo_relacionado.tex) (./1_Descripcion_del_proyecto/5_Propuesta_de_solucion.tex [7]) (./2_Objetivos/1_Objetivo_general.tex) (./2_Objetivos/2_Objetivo_especifico.tex) (./3_Alcances/3_Alcances.tex [8]) (./4_Metodologia/1_Metodologia_de_desarrollo.tex
+ [5] [6 <./Imagenes/Solicitud_CCAA.jpg>]) (./1_Descripcion_del_proyecto/3_Definicion_del_problema.tex) (./1_Descripcion_del_proyecto/4_Trabajo_relacionado.tex
+
+LaTeX Warning: Citation `6' on page 7 undefined on input line 3.
+
+
+LaTeX Warning: Citation `9' on page 7 undefined on input line 4.
+
+
+LaTeX Warning: Citation `10' on page 7 undefined on input line 6.
+
+
+LaTeX Warning: Citation `11' on page 7 undefined on input line 6.
+
+
+LaTeX Warning: Citation `12 ' on page 7 undefined on input line 6.
+
+
+LaTeX Warning: Citation `13' on page 7 undefined on input line 6.
+
+) (./1_Descripcion_del_proyecto/5_Propuesta_de_solucion.tex [7]) (./2_Objetivos/1_Objetivo_general.tex) (./2_Objetivos/2_Objetivo_especifico.tex) (./3_Alcances/3_Alcances.tex [8]) (./4_Metodologia/1_Metodologia_de_desarrollo.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
-<Imagenes/mele.jpg, id=33, 1233.408pt x 856.3995pt>
-File: Imagenes/mele.jpg Graphic file (type jpg)
-<use Imagenes/mele.jpg>
-Package pdftex.def Info: Imagenes/mele.jpg  used on input line 10.
-(pdftex.def)             Requested size: 360.0pt x 249.9568pt.
 
-Overfull \hbox (14.30464pt too wide) in paragraph at lines 18--19
+
+LaTeX Warning: Citation `7' on page 9 undefined on input line 5.
+
+
+LaTeX Warning: Reference `fig: procesoMele' on page 9 undefined on input line 9.
+
+
+Overfull \hbox (14.30464pt too wide) in paragraph at lines 13--14
 \OT1/ptm/m/n/10.95 prio-ri-dad, los cua-les pro-por-cio-nan va-lor co-mer-cial pa-ra el clien-te. Adem[]as,
  []
 
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 29.
-[9] [10 <./Imagenes/mele.jpg>]) (./4_Metodologia/2_Metodologia_de_evaluacion_del_proyecto.tex) (./propuesta.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 4--7
-[]\OT1/ptm/m/n/10.95 Albert eins-tein and em-pi-ri-cal soft-wa-re en-gi-nee-ring.
- []
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 24.
+[9]
+<Imagenes/mele.jpg, id=37, 1233.408pt x 856.3995pt>
+File: Imagenes/mele.jpg Graphic file (type jpg)
+<use Imagenes/mele.jpg>
+Package pdftex.def Info: Imagenes/mele.jpg  used on input line 40.
+(pdftex.def)             Requested size: 360.0pt x 249.9568pt.
+ [10 <./Imagenes/mele.jpg>]) (./4_Metodologia/2_Metodologia_de_evaluacion_del_proyecto.tex
 
+LaTeX Warning: Citation `8' on page 11 undefined on input line 14.
 
-Overfull \hbox (43.69044pt too wide) in paragraph at lines 4--7
-\OT1/ptm/m/n/10.95 https://pdfs.semanticscholar.org/589a/8858795db3919bb1ca05ab44640ce038b76e.pdf. 
- []
-
-
-Overfull \hbox (55.63467pt too wide) in paragraph at lines 17--19
-[]\OT1/ptm/m/n/10.95 Controlar[]^^Pa uni-ver-si-dad de tal-ca.  http://contraloria.utalca.cl/html/documentos.php?cat=26. 
- []
-
-
-Underfull \hbox (badness 1067) in paragraph at lines 29--35
-\OT1/ptm/m/n/10.95 y pa-ra ex-tran-je-ros sin re-si-den-cia de-fi-ni-ti-va en chi-le: Asig-na-ci[]on anual
- []
-
-
-Underfull \hbox (badness 1442) in paragraph at lines 29--35
-\OT1/ptm/m/n/10.95 pa-ra gas-tos ope-ra-cio-na-les del pro-yec-to de te-sis doc-to-ral eta-pas 2017.
- []
-
-
-Overfull \hbox (25.79738pt too wide) in paragraph at lines 29--35
-\OT1/ptm/m/n/10.95 http://www.conicyt.cl/becasconicyt/files/2017/02/manual[]rendicionGOp[]2017.pdf. 
- []
-
-[11]
-Overfull \hbox (30.73425pt too wide) in paragraph at lines 41--43
-[]\OT1/ptm/m/n/10.95 Vicerrectoria de desa-rro-llo es-tu-dian-til.  http://vde.utalca.cl/html/organizaciones.html. 
- []
-
-) [12] (./propuesta.aux
+)
+No file propuesta.bbl.
+[11] (./propuesta.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
-) ) 
+)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 15066 strings out of 492639
- 274090 string characters out of 6133102
- 356255 words of memory out of 5000000
- 18735 multiletter control sequences out of 15000+600000
+ 15046 strings out of 492639
+ 273943 string characters out of 6133102
+ 358324 words of memory out of 5000000
+ 18719 multiletter control sequences out of 15000+600000
  580684 words of font info for 133 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 61i,8n,63p,1030b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,8n,63p,1278b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
 {d:/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on propuesta.pdf (12 pages, 936925 bytes).
+Output written on propuesta.pdf (11 pages, 934120 bytes).
 PDF statistics:
- 63 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

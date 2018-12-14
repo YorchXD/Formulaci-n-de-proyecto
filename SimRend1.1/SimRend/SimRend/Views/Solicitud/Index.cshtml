@@ -1,14 +1,10 @@
 ﻿@model IEnumerable<SimRend.Models.Solicitud>
 
 @{
-    ViewData["Title"] = "Solicitudes";
+    ViewData["Title"] = "Busqueda";
 }
 
-<h2>Solicitudes pendientes</h2>
-
-<p>
-    <a asp-action="Create">Nueva solicitud</a>
-</p>
+<h2>Búsqueda de Solicitudes</h2>
 
 <table class="table">
     <thead>
@@ -23,7 +19,10 @@
                 @Html.DisplayNameFor(model => model.NombreEvento)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FechaEvento)
+                @Html.DisplayNameFor(model => model.FechaInicioEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaTerminoEvento)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LugarEvento)
@@ -35,28 +34,36 @@
         </tr>
     </thead>
     <tbody>
-       @foreach (var item in Model)
+        @if (Model != null)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaActual)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Monto)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NombreEvento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FechaEvento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LugarEvento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Responsable)
-                </td>
-            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaActual)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Monto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NombreEvento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaInicioEvento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaTerminoEvento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LugarEvento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Responsable)
+                    </td>
+                </tr>
+            }
+
         }
+
     </tbody>
 </table>
