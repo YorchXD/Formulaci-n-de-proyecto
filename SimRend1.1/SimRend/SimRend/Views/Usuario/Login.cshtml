@@ -16,29 +16,50 @@
             <h1></h1> 
         </header>
         <section>
-            @using (Html.BeginForm("Validar", "Usuario", FormMethod.Post, new { @style = "border:none" }))
-            {
-                <div id="container_demo">
-                    <div id="wrapper">          
-                        <div id="login" class="animate form">
-                            <h1>Iniciar Sesión</h1>
-                            <form action="mysuperscript.php" autocomplete="on">
-                                <p>
-                                    <label for="username" class="uname"> Nombre de la Organización Estudiantil </label>
-                                    <input asp-for="Usuario" class="uname" required="required" type="text" placeholder="Nombre de la persona" />
-                                    <!--input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com" /-->
-                                </p>
-                                <p>
-                                    <label for="password" class="youpasswd"> Contraseña </label>
-                                    <input asp-for="Clave" class="uname" required="required" type="password" placeholder="eg. X8df!90EO" />
-                                    <!--input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /-->
-                                </p>
-                                <input type="submit" class="btn btn-primary" value="Ingresar" />
-                            </form>
-                        </div>
+            <div id="container_demo">
+                <a class="hiddenanchor" id="tologin"></a>
+                <a class="hiddenanchor" id="toregister"></a>
+                <div id="wrapper">
+                    <div id="login" class="animate form">
+                        <h1>Iniciar Sesión</h1>
+                        @using (Html.BeginForm("Validar", "Usuario", FormMethod.Post, new { @style = "border:none" }))
+                        {
+                            <p>
+                                <label for="username" class="uname"> Nombre de la Organización Estudiantil </label>
+                                <input asp-for="Usuario" class="uname" required="required" type="text" placeholder="Nombre de la persona" />
+                                <!--input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com" /-->
+                            </p>
+                            <p>
+                                <label for="password" class="youpasswd"> Contraseña </label>
+                                <input asp-for="Clave" class="uname" required="required" type="password" placeholder="eg. X8df!90EO" />
+                                <!--input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /-->
+                            </p>
+                            <input type="submit" class="btn btn-primary" value="Ingresar" />
+                        }
+                        <p class="change_link">
+                            ¿Olvido su contraseña?
+                            <a href="#toregister" class="to_register">Cambiar contraseña</a>
+                        </p>
+                    </div>
+
+                    <div id="register" class="animate form">
+                        <h1> Cambiar contraseña</h1>
+                        @using (Html.BeginForm("RecuperarClave", "Usuario", FormMethod.Post, new { @style = "border:none" }))
+                        {
+                            <p>
+                                <label for="username" class="uname"> Email de la Organización Estudiantil </label>
+                                <input asp-for="Email" class="email" required="required" type="text" placeholder="Email de la organización" />
+                            </p>
+                            <input type="submit" class="btn btn-primary" value="Enviar contraseña" />
+                        }
+                        <p class="change_link">
+                            ¿Recordó su contraseña?
+                            <a href="#tologin" class="to_register"> Volver</a>
+                        </p>
+
                     </div>
                 </div>
-            }
+            </div>
         </section>
 
         <hr />

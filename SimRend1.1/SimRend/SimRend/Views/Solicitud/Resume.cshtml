@@ -1,0 +1,70 @@
+﻿@model SimRend.Models.ModeloSolicitud
+
+@{
+    ViewData["Title"] = "Resumen de Solicitud";
+}
+
+<h2>Solicitud</h2>
+<hr />
+
+<div class="bodyStep">
+    <div class="mx-auto col-md-8">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Solicitud.NombreEvento)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Solicitud.NombreEvento)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Solicitud.LugarEvento)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Solicitud.LugarEvento)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Solicitud.Monto)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Solicitud.Monto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Solicitud.FechaInicioEvento)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Solicitud.FechaInicioEvento)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Solicitud.FechaInicioEvento)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Solicitud.FechaInicioEvento)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Solicitud.Responsable)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Solicitud.Responsable)
+            </dd>
+        </dl>
+
+    </div>
+
+    <div class="modal-footer">
+        @using (Html.BeginForm("GeneratePDF", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+        {
+            <button type="submit" class="btn btn-success  my-2 my-sm-0">Generar PDF</button>
+        }
+
+        @using (Html.BeginForm("VolverIndex", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+        {
+            <button type="submit" class="btn btn-success my-2 my-sm-0">Finalizar</button>
+        }
+    </div>
+</div>
+

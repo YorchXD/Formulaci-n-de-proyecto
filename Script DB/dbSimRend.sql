@@ -1,7 +1,7 @@
 SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `Solicitud`;
 DROP TABLE IF EXISTS `Persona`;
-DROP TABLE IF EXISTS `Federación`;
+DROP TABLE IF EXISTS `Federacion`;
 DROP TABLE IF EXISTS `CAA`;
 DROP TABLE IF EXISTS `PerSol`;
 DROP TABLE IF EXISTS `Categoria`;
@@ -23,8 +23,8 @@ CREATE TABLE `Solicitud` (
     `monto` Integer NOT NULL,
     `nomEvent` VARCHAR(256) NOT NULL,
     `fecIniEvent` Date NOT NULL,
-    `fechaTerEvent` Date NOT NULL,
-    `encargado` VARCHAR(256) NOT NULL,
+    `fecTerEvent` Date NOT NULL,
+    `runEncargado` VARCHAR(256) NOT NULL,
     `lugarEvent` VARCHAR(256) NOT NULL,
     PRIMARY KEY (`id`)
 );
@@ -39,6 +39,8 @@ CREATE TABLE `Federacion` (
     `nomDirDAAE` VARCHAR(256) NOT NULL,
     `campus` VARCHAR(256) NOT NULL,
     `sexoDirDAAE` VARCHAR(256) NOT NULL,
+    `cargo` VARCHAR(256) NOT NULL,
+    `nombreFederacion` VARCHAR(256) NOT NULL,
     `refOrganizacion` Integer NOT NULL,
     PRIMARY KEY (`refOrganizacion`)
 );
@@ -47,6 +49,7 @@ CREATE TABLE `CAA` (
     `nomDirCarrera` VARCHAR(256) NOT NULL,
     `carrera` VARCHAR(256) NOT NULL,
     `sexoDirCarrera` VARCHAR(256) NOT NULL,
+    `cargo` VARCHAR(256) NOT NULL,
     `refOrganizacion` Integer NOT NULL,
     PRIMARY KEY (`refOrganizacion`)
 );
@@ -132,6 +135,7 @@ CREATE TABLE `Organizacion` (
     `tipo` VARCHAR(256) NOT NULL,
     `usuario` VARCHAR(256) NOT NULL,
     `clave` VARCHAR(256) NOT NULL,
+    `email` VARCHAR(256) NOT NULL,
     PRIMARY KEY (`id`)
 );
 

@@ -21,5 +21,8 @@ namespace SimRend.Models
         public DateTime FechaTerminoEvento { get; set; }
         public string LugarEvento { get; set; }
         public string Responsable { get; set; }
+        public string FechaPdf { get; set; }
+        public int MontoPorPersona { get; set; }
+        public string FechaEvento { get; set; }
     }
 }
