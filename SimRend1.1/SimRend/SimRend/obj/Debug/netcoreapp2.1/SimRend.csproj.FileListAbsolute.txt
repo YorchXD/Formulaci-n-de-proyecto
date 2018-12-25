@@ -72,3 +72,5 @@ D:\2018-2\Formulación de proyecto\Formulación de proyecto\SimRend1.1\SimRend\S
 D:\2018-2\Formulación de proyecto\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\SimRend.dll
 D:\2018-2\Formulación de proyecto\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\SimRend.pdb
 D:\2018-2\Formulación de proyecto\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\SimRend.csproj.CopyComplete
+D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\Razor\Views\Solicitud\Resume.g.cshtml.cs
+D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\Razor\Views\Solicitud\GeneratePDF.g.cshtml.cs

@@ -328,7 +328,7 @@
 									"font": "Arial;13;1",
 									"left": 240,
 									"top": 357,
-									"width": 262.349609375,
+									"width": 280.40869140625,
 									"height": 13,
 									"text": "Federacion"
 								},
@@ -354,7 +354,7 @@
 											"font": "Arial;13;0",
 											"left": 245,
 											"top": 380,
-											"width": 252.349609375,
+											"width": 270.40869140625,
 											"height": 13
 										},
 										{
@@ -369,7 +369,7 @@
 											"font": "Arial;13;0",
 											"left": 245,
 											"top": 395,
-											"width": 252.349609375,
+											"width": 270.40869140625,
 											"height": 13
 										},
 										{
@@ -384,7 +384,37 @@
 											"font": "Arial;13;0",
 											"left": 245,
 											"top": 410,
-											"width": 252.349609375,
+											"width": 270.40869140625,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAFnvoGyLJ7xqaU=",
+											"_parent": {
+												"$ref": "AAAAAAFm3FvnO2G8XJk="
+											},
+											"model": {
+												"$ref": "AAAAAAFnvoGx0Z7u17E="
+											},
+											"font": "Arial;13;0",
+											"left": 245,
+											"top": 425,
+											"width": 270.40869140625,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAFnv1wdJMCwJy0=",
+											"_parent": {
+												"$ref": "AAAAAAFm3FvnO2G8XJk="
+											},
+											"model": {
+												"$ref": "AAAAAAFnv1wdEsCttfk="
+											},
+											"font": "Arial;13;0",
+											"left": 245,
+											"top": 440,
+											"width": 270.40869140625,
 											"height": 13
 										},
 										{
@@ -398,23 +428,23 @@
 											},
 											"font": "Arial;13;0",
 											"left": 245,
-											"top": 425,
-											"width": 252.349609375,
+											"top": 455,
+											"width": 270.40869140625,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 240,
 									"top": 375,
-									"width": 262.349609375,
-									"height": 68
+									"width": 280.40869140625,
+									"height": 98
 								}
 							],
 							"font": "Arial;13;0",
 							"left": 240,
 							"top": 352,
-							"width": 262.349609375,
-							"height": 91,
+							"width": 280.40869140625,
+							"height": 121,
 							"nameLabel": {
 								"$ref": "AAAAAAFm3FvnO2G7nDY="
 							},
@@ -502,6 +532,21 @@
 										},
 										{
 											"_type": "ERDColumnView",
+											"_id": "AAAAAAFnvdl5Uyt9Eak=",
+											"_parent": {
+												"$ref": "AAAAAAFm3FwUQmHJhfY="
+											},
+											"model": {
+												"$ref": "AAAAAAFnvdl5FCt6nbk="
+											},
+											"font": "Arial;13;0",
+											"left": 261,
+											"top": 681,
+											"width": 252.349609375,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
 											"_id": "AAAAAAFnXgPwNFqzBeE=",
 											"_parent": {
 												"$ref": "AAAAAAFm3FwUQmHJhfY="
@@ -511,7 +556,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 681,
+											"top": 696,
 											"width": 252.349609375,
 											"height": 13
 										}
@@ -520,14 +565,14 @@
 									"left": 256,
 									"top": 631,
 									"width": 262.349609375,
-									"height": 68
+									"height": 83
 								}
 							],
 							"font": "Arial;13;0",
 							"left": 256,
 							"top": 608,
 							"width": 262.349609375,
-							"height": 91,
+							"height": 106,
 							"nameLabel": {
 								"$ref": "AAAAAAFm3FwUQmHIUVU="
 							},
@@ -3300,7 +3345,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFm3Fr2dmGPNdU="
 							},
-							"name": "encargado",
+							"name": "runEncargado",
 							"type": "VARCHAR",
 							"length": "256"
 						},
@@ -3445,6 +3490,26 @@
 						},
 						{
 							"_type": "ERDColumn",
+							"_id": "AAAAAAFnvoGx0Z7u17E=",
+							"_parent": {
+								"$ref": "AAAAAAFm3FvnO2G4E8U="
+							},
+							"name": "cargo",
+							"type": "VARCHAR",
+							"length": "256"
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAFnv1wdEsCttfk=",
+							"_parent": {
+								"$ref": "AAAAAAFm3FvnO2G4E8U="
+							},
+							"name": "nombreFederacion",
+							"type": "VARCHAR",
+							"length": "256"
+						},
+						{
+							"_type": "ERDColumn",
 							"_id": "AAAAAAFnXgJoP1p7DIo=",
 							"_parent": {
 								"$ref": "AAAAAAFm3FvnO2G4E8U="
@@ -3495,6 +3560,16 @@
 								"$ref": "AAAAAAFm3FwUQWHF3Kw="
 							},
 							"name": "sexoDirCarrera",
+							"type": "VARCHAR",
+							"length": "256"
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAFnvdl5FCt6nbk=",
+							"_parent": {
+								"$ref": "AAAAAAFm3FwUQWHF3Kw="
+							},
+							"name": "cargo",
 							"type": "VARCHAR",
 							"length": "256"
 						},

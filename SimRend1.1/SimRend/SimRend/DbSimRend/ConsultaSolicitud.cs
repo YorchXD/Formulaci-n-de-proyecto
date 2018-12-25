@@ -10,7 +10,7 @@ namespace SimRend.DbSimRend
     public class ConsultaSolicitud
     {
 
-        public static List<Solicitud> LeerTodoSolicitud()
+        /*public static List<Solicitud> LeerTodoSolicitud()
         {
             try
             {
@@ -52,7 +52,7 @@ namespace SimRend.DbSimRend
             }
             return null;
 
-        }
+        }*/
 
         public static int CrearSolicitud(Solicitud solicitud)
         {
@@ -66,7 +66,7 @@ namespace SimRend.DbSimRend
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_nombreEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.NombreEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaInicioEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaInicioEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaTerminoEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaTerminoEvento });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_encargado", Direction = System.Data.ParameterDirection.Input, Value = solicitud.Responsable});
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_runEncargado", Direction = System.Data.ParameterDirection.Input, Value = solicitud.Responsable});
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_lugarEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.LugarEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
                 var datos = ContexDb.ExecuteProcedure(command);
@@ -309,7 +309,7 @@ namespace SimRend.DbSimRend
                             NombreEvento = prodData["nomEvent"].ToString(),
                             FechaInicioEvento = Convert.ToDateTime(prodData["fecIniEvent"]),
                             FechaTerminoEvento = Convert.ToDateTime(prodData["fecTerEvent"]),
-                            Responsable = prodData["encargado"].ToString(),
+                            Responsable = prodData["runEncargado"].ToString(),
                             LugarEvento = prodData["lugarEvent"].ToString()
                         };
 
@@ -342,6 +342,281 @@ namespace SimRend.DbSimRend
                 var datos = ContexDb.ExecuteProcedure(command);
 
                 //saber.Id = Convert.ToInt32(datos.Parameters["out_id"].Value);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        public static List<Responsable> LeerRepresetantes(int refOrganizacion)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "leer_responsables_organizacion", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refOrganizacion", Direction = System.Data.ParameterDirection.Input, Value = refOrganizacion });
+                var datos = ContexDb.GetDataSet(command);
+                List<Responsable> representantes = new List<Responsable>();
+                if (datos.Tables[0].Rows.Count > 0)
+                {
+                    foreach (System.Data.DataRow row in datos.Tables[0].Rows)
+                    {
+                        var prodData = row;
+                        var responsable = new Responsable()
+                        {
+                            Run = prodData["run"].ToString(),
+                            Nombre = prodData["nombre"].ToString(),
+                            Matricula = Convert.ToInt32(prodData["matricula"]),
+                            Cargo = prodData["cargo"].ToString(),
+                            Estado = prodData["estado"].ToString(),
+                            Sexo = prodData["sexo"].ToString()
+
+                        };
+                        representantes.Add(responsable);
+                    }
+                    return representantes;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+        }
+
+        public static String ModificarEstadoResponsable(string refResponsable, string estado)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "cambiar_estado_responsable", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refResponsable", Direction = System.Data.ParameterDirection.Input, Value = refResponsable });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_estado", Direction = System.Data.ParameterDirection.Input, Value = estado });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "out_nombre", Direction = System.Data.ParameterDirection.Output, Value = -1 });
+                var datos = ContexDb.ExecuteProcedure(command);
+                return datos.Parameters["out_nombre"].Value.ToString();
+
+                //saber.Id = Convert.ToInt32(datos.Parameters["out_id"].Value);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return null;
+        }
+
+        public static Solicitud Leer_Solicitud(int refSolicitud)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "obtener_solicitud", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = refSolicitud });
+                //ejemplo command.Parameters.Add(new MySqlParameter() { ParameterName = "in_id", Direction = System.Data.ParameterDirection.Input, Value = id });
+                var datos = ContexDb.GetDataSet(command);
+
+                if (datos.Tables[0].Rows.Count == 1)
+                {
+                    System.Data.DataRow row = datos.Tables[0].Rows[0];
+                    var prodData = row;
+
+                    Solicitud solicitud = new Solicitud()
+                    {
+                        Id = Convert.ToInt32(prodData["id"]),
+                        FechaActual = Convert.ToDateTime(prodData["fechaCreacion"]),
+                        Monto = Convert.ToInt32(prodData["monto"]),
+                        NombreEvento = prodData["nomEvent"].ToString(),
+                        FechaInicioEvento = Convert.ToDateTime(prodData["fecIniEvent"]),
+                        FechaTerminoEvento = Convert.ToDateTime(prodData["fecTerEvent"]),
+                        Responsable = prodData["runEncargado"].ToString(),
+                        LugarEvento = prodData["lugarEvent"].ToString()
+                    };
+                    return solicitud;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+
+        }
+
+        public static Responsable Leer_Responsable(int refSolicitud)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "responsable_solicitud", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = refSolicitud });
+                var datos = ContexDb.GetDataSet(command);
+                if (datos.Tables[0].Rows.Count == 1 )
+                {
+                    System.Data.DataRow row = datos.Tables[0].Rows[0];
+                    var prodData = row;
+                    var responsable = new Responsable()
+                    {
+                        Run = prodData["run"].ToString(),
+                        Nombre = prodData["nombre"].ToString(),
+                        Matricula = Convert.ToInt32(prodData["matricula"]),
+                        Cargo = prodData["cargo"].ToString()
+
+                    };
+                    
+                    return responsable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+        }
+
+        public static Organizacion Leer_Organizacion(int refSolicitud)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "leer_organizacion", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = refSolicitud });
+                var datos = ContexDb.GetDataSet(command);
+                if (datos.Tables[0].Rows.Count == 1)
+                {
+                    System.Data.DataRow row = datos.Tables[0].Rows[0];
+                    var prodData = row;
+                    var organizacion = new Organizacion()
+                    {
+                        Id = Convert.ToInt32(prodData["id"]),
+                        Tipo = prodData["tipo"].ToString()
+
+                    };
+
+                    return organizacion;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+        }
+
+        public static Federacion Leer_Federacion(int refOrganizacion)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "leer_Federacion", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refOrganizacion", Direction = System.Data.ParameterDirection.Input, Value = refOrganizacion });
+                var datos = ContexDb.GetDataSet(command);
+                if (datos.Tables[0].Rows.Count == 1)
+                {
+                    System.Data.DataRow row = datos.Tables[0].Rows[0];
+                    var prodData = row;
+                    var federacion = new Federacion()
+                    {
+                        NomDirDAAE = prodData["nomDirDAAE"].ToString(),
+                        Campus = prodData["campus"].ToString(),
+                        SexoDirDAAE = prodData["sexoDirDAAE"].ToString(),
+                        Cargo = prodData["cargo"].ToString(),
+                        NombreFederacion = prodData["nombreFederacion"].ToString()
+
+                    };
+
+                    return federacion;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+        }
+
+        public static CAA Leer_CAA(int refOrganizacion)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "leer_CAA", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refOrganizacion", Direction = System.Data.ParameterDirection.Input, Value = refOrganizacion });
+                var datos = ContexDb.GetDataSet(command);
+                if (datos.Tables[0].Rows.Count == 1)
+                {
+                    System.Data.DataRow row = datos.Tables[0].Rows[0];
+                    var prodData = row;
+                    var caa = new CAA()
+                    {
+                        NomDirCarrera = prodData["nomDirCarrera"].ToString(),
+                        Carrera = prodData["carrera"].ToString(),
+                        SexoDirCarrera = prodData["sexoDirCarrera"].ToString(),
+                        Cargo = prodData["cargo"].ToString()
+
+                    };
+
+                    return caa;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+        }
+
+        public static String Leer_Correo(string Email)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "leer_Correo", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_email", Direction = System.Data.ParameterDirection.Input, Value = Email });
+                var datos = ContexDb.GetDataSet(command);
+                if (datos.Tables[0].Rows.Count == 1)
+                {
+                    System.Data.DataRow row = datos.Tables[0].Rows[0];
+                    var prodData = row;
+                    return prodData["email"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+        }
+
+        public static void Cambiar_clave(string Email, string Clave)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "cambiar_clave", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_correo", Direction = System.Data.ParameterDirection.Input, Value = Email });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_clave", Direction = System.Data.ParameterDirection.Input, Value = Clave });
+                var datos = ContexDb.ExecuteProcedure(command);
             }
             catch (Exception ex)
             {

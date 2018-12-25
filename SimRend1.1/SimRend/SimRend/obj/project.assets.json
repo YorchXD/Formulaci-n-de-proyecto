@@ -12372,11 +12372,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\2018-2\\Formulación de proyecto\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\SimRend.csproj",
+      "projectUniqueName": "D:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\SimRend.csproj",
       "projectName": "SimRend",
-      "projectPath": "D:\\2018-2\\Formulación de proyecto\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\SimRend.csproj",
+      "projectPath": "D:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\SimRend.csproj",
       "packagesPath": "C:\\Users\\YorchXD\\.nuget\\packages\\",
-      "outputPath": "D:\\2018-2\\Formulación de proyecto\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\obj\\",
+      "outputPath": "D:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

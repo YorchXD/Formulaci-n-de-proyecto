@@ -1,5 +1,5 @@
 ﻿@using SimRend.Models
-@model SimRend.Models.Solicitud
+@model SimRend.Models.ModeloSolicitud
 
 @{
     ViewData["Title"] = "Crear Solicitud";
@@ -14,46 +14,60 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                 <div class="form-group">
-                    <label asp-for="NombreEvento" class="control-label">Nombre del evento</label>
-                    <input asp-for="NombreEvento" class="form-control" />
-                    <span asp-validation-for="NombreEvento" class="text-danger"></span>
+                    <label asp-for="Solicitud.NombreEvento" class="control-label">Nombre del evento</label>
+                    <input asp-for="Solicitud.NombreEvento" class="form-control" />
+                    <span asp-validation-for="Solicitud.NombreEvento" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="LugarEvento" class="control-label">Lugar del evento</label>
-                    <input asp-for="LugarEvento" class="form-control" />
-                    <span asp-validation-for="LugarEvento" class="text-danger"></span>
+                    <label asp-for="Solicitud.LugarEvento" class="control-label">Lugar del evento</label>
+                    <input asp-for="Solicitud.LugarEvento" class="form-control" />
+                    <span asp-validation-for="Solicitud.LugarEvento" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="FechaInicioEvento" class="control-label">Fecha inicio del evento</label>
-                    <input asp-for="FechaInicioEvento" type="date" class="form-control" />
-                    <span asp-validation-for="FechaInicioEvento" class="text-danger"></span>
+                    <label asp-for="Solicitud.FechaInicioEvento" class="control-label">Fecha inicio del evento</label>
+                    <input asp-for="Solicitud.FechaInicioEvento" type="date" class="form-control" />
+                    <span asp-validation-for="Solicitud.FechaInicioEvento" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="FechaTerminoEvento" class="control-label">Fecha término del evento</label>
-                    <input asp-for="FechaTerminoEvento" type="date" class="form-control" />
-                    <span asp-validation-for="FechaTerminoEvento" class="text-danger"></span>
+                    <label asp-for="Solicitud.FechaTerminoEvento" class="control-label">Fecha término del evento</label>
+                    <input asp-for="Solicitud.FechaTerminoEvento" type="date" class="form-control" />
+                    <span asp-validation-for="Solicitud.FechaTerminoEvento" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Monto" class="control-label">Monto a solicitar</label>
+                    <label asp-for="Solicitud.Monto" class="control-label">Monto a solicitar</label>
                     <div class="form-group">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                             </div>
-                            <input asp-for="Monto" class="form-control" />
+                            <input asp-for="Solicitud.Monto" class="form-control" />
                         </div>
-                        <span asp-validation-for="Monto" class="text-danger"></span>
+                        <span asp-validation-for="Solicitud.Monto" class="text-danger"></span>
                     </div>
                 </div>
 
-                <div class="form-group ">
-                    <label asp-for="Responsable" class="control-label">Responsable de la solicitud</label>
-                    <input asp-for="Responsable" class="form-control" />
-                    <span asp-validation-for="Responsable" class="text-danger"></span>
+                <!--div class="form-group">
+                    <label asp-for="Solicitud.Responsable" class="control-label">Responsable de la solicitud</label>
+                    <input asp-for="Solicitud.Responsable" class="form-control" />
+                    <span asp-validation-for="Solicitud.Responsable" class="text-danger"></span>
+                </div-->
+                <div class="form-group">
+                    <label asp-for="Solicitud.Responsable" class="control-label">Responsable de la solicitud</label>
+                    <select asp-for="Solicitud.Responsable" class="form-control">
+                        <option value="" disabled selected>Selecciona un responsable</option>
+                        @if (Model.Responsables != null)
+                        {
+                            @foreach (var item in Model.Responsables)
+                            {
+                                <option value="@item.Run">@item.Nombre</option>
+                            }
+                        }
+
+                    </select>
                 </div>
                 <div class="form-group" style="padding-top: calc(0.5em + 6px); text-align:right;">
                     <input type="submit" value="Siguiente" class="btn btn-success my-2 my-sm-0" />

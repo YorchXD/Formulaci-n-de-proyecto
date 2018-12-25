@@ -6,25 +6,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SimRend.Models;
 using SimRend.DbSimRend;
+using SimRend.Helpers;
 
 namespace SimRend.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly RequestHandler _requestHandler;
+
+        public HomeController(RequestHandler requestHandler)
+        {
+            _requestHandler = requestHandler;
+        }
+
         public IActionResult Index()
         {
-            /*Solicitud solcitud = new Solicitud();
-            solcitud.Estado = "Editando";
-            solcitud.FechaActual = DateTime.Now;
-            solcitud.FechaEvento = new DateTime(2018,12,25);
-            solcitud.NombreEvento = "Aniversario ICC";
-            solcitud.Monto = 256000;
-            solcitud.Responsable = "Daniela Paredes";
-            solcitud.LugarEvento = "Linares";
 
-            ConsultaSolicitud.CrearSolicitud(solcitud);
-
-            List<Solicitud> solicitudes = ConsultaSolicitud.LeerTodo();*/
             return View();
         }
 
