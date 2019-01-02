@@ -1,3 +1,10 @@
 Pass Mysql
 
-EsT3esUn4pass!
+Mysql: EsT3esUn4pass!
+
+
+
+CREATE USER 'simr' identified by 'Sim_rend1!aa';
+GRANT USAGE ON *.* TO 'simr'@'%' IDENTIFIED BY 'Sim_rend1!aa';
+GRANT ALL PRIVILEGES ON SimRend.* TO 'simr'@'%';
+FLUSH PRIVILEGES;
