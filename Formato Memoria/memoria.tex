@@ -1,0 +1,174 @@
+%% inicio, la clase del documento es iccmemoria.cls
+\documentclass{iccmemoria}
+\newcommand{\grad}{$^{\circ}$}
+%\usepackage[utf8]{inputenc} % Caracteres con acentos.
+
+%% datos generales y para la tapa
+\titulo{Gestión de fondos para actividades estudiantiles conducidas por CCAA o la Fedeut Curicó en acuerdo a la RU N\grad 2083 del año 2017}
+\author{Yorch Sepúlveda}
+\supervisor{Rodrigo Paredes Moraleda}
+\informantes
+	{Profesor Informante 1}
+	{Profesor Informante 2}
+\adicional{(sólo por si se necesita agregar algún otro profesor)}
+\director{Profesor del ramo Memoria de Título}
+\date{Enero, 2019}
+
+%% inicio de documento
+\begin{document}
+
+%% crea la tapa
+\maketitle
+
+%% dedicatoria
+\begin{dedicatory}
+Dedicado a ...
+\end{dedicatory}
+
+%% agradecimientos
+\subfile{Agradecimientos.tex}
+
+%% indices
+\tableofcontents
+\listoffigures
+\listoftables
+
+%% resumen
+\subfile{Resumen.tex}
+
+%% abstract
+
+%% contenido del primer capítulo
+\chapter{Introducción}
+	\subfile{Capitulo1/1_Introduccion}
+
+	\section{Contexto del proyecto}
+	\subfile{Capitulo1/1.1_Contexto}
+
+	\section{Definición del problema}
+	\subfile{Capitulo1/1.2_Definicion_Problema}
+
+	\section{Presentación de la solución}
+	\subfile{Capitulo1/1.2_Definicion_Problema}
+
+	\section{Objetivos}
+	\subfile{Capitulo1/1.4_Objetivos}
+
+	\section{Alcances}
+	\subfile{Capitulo1/1.5_Alcances}
+
+	\section{Proyectos Similares}
+	\subfile{Capitulo1/1.6_Proyectos_Similares}
+
+	\section{Descripción de contenidos}
+	\subfile{Capitulo1/1.7_Descripcion_Contenidos}
+
+%% contenido del segundo capítulo
+\chapter{Antecedentes}
+	\section{Conceptos y tecnologías utilizadas}
+		\subsection{Conceptos}
+		\subsection{Tecnologías utilizadas}
+
+	\section{Metodología}
+		\subsection{Scrum}
+		\subfile{Capitulo2/2.2_Scrum}
+	
+	\section{Pruebas}
+	\subfile{Capitulo2/2.3_Pruebas}
+
+%% contenido del tercer capítulo
+\chapter{Metodología y requisitos}
+	\section{Metodología}
+	\subfile{Capitulo3/3.1_Metodologia}
+
+	\section{Requisitos del sistema}
+	\subfile{Capitulo3/3.2_Requisitos}
+
+
+
+
+
+
+
+
+
+
+
+
+%\subsection{La primera subsección de la primera sección del capítulo 1}
+%\subfile{1_Descripcion_del_proyecto/1_Conceptos_basicos}
+%Aquí va el texto de la primera subsección de la primera sección del capítulo 1... 
+
+%\subsection{La segunda subsección de la primera sección del capítulo 1}
+%\subfile{1_Descripcion_del_proyecto/1_Conceptos_basicos}
+%Aquí va el texto de la segunda subsección de la primera sección del capítulo 1...
+
+%\section{La segunda sección del capítulo 1}
+%\subfile{1_Descripcion_del_proyecto/1_Conceptos_basicos}
+%Aquí va el texto de la segunda sección del capítulo 1...
+
+
+%% contenido del segundo capítulo
+%\chapter{Segundo Capítulo}
+%\subfile{1_Descripcion_del_proyecto/1_Conceptos_basicos}
+%Sólo para probar algunas cosas como las referencias.
+%La primera cita es a Lamport~\cite{lamport79}.
+%La segunda cita es para Lamport nuevamente~\cite{lamport78}.
+%La última cita es para Keleher \emph{et al.}~\cite{keleher92}.
+
+
+%% contenido del tercer capítulo
+%\chapter{Tercer Capítulo}
+%\subfile{1_Descripcion_del_proyecto/1_Conceptos_basicos}
+%Sólo para incluir figuras y tablas.
+%\begin{figure}[h]
+%  \vspace*{1cm}
+%  \includegraphics[bb=0 0 640 480, width=.5\linewidth]{latexlogo.png}
+ % \vspace*{1cm}
+%  \caption{La primera figura de la memoria}
+%\end{figure}
+%\begin{table}[h]
+%  \vspace*{1cm}
+%  (aqui debiera ir la tabla)
+%  \vspace*{1cm}
+%  \caption{La primera tabla de la memoria}
+%\end{table}
+
+
+%% ambiente glosario
+\subfile{Glosario}
+
+
+
+%% genera las referencias
+\bibliography{refs}
+
+
+%% comienzo de la parte de anexos
+\appendixpart
+
+%% contenido del primer anexo
+\appendix{El Primer Anexo}
+Aquí va el texto del primer anexo...
+
+\section{La primera sección del primer anexo}
+Aquí va el texto de la primera sección del primer anexo...
+
+\section{La segunda sección del primer anexo}
+Aquí va el texto de la segunda sección del primer anexo...
+
+\subsection{La primera subsección de la segunda sección del primer anexo}
+
+
+%% contenido del segundo anexo
+\appendix{El segundo Anexo}
+Aquí va el texto del segundo anexo...
+
+\section{La primera sección del segundo anexo}
+Aquí va el texto de la primera sección del segundo anexo...
+
+%% fin
+\end{document}
+
+   
+
