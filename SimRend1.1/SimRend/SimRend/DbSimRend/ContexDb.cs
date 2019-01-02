@@ -10,7 +10,7 @@ namespace SimRend.DbSimRend
 {
     public class ContexDb
     {
-        private static string connStr = "SERVER=localhost;DATABASE=SimRend;UID=Yorch;PASSWORD=M1y9B9a2sE0O1f0D4t0o8S;SslMode=none;CHARSET=utf8;";
+        private static string connStr = "SERVER=localhost;DATABASE=SimRend;UID=root;PASSWORD=;SslMode=none;CHARSET=utf8;";
 
         public static DataSet GetDataSet(MySqlCommand command)
         {
