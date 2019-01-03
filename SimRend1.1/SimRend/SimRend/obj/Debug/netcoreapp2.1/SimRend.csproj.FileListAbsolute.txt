@@ -114,3 +114,4 @@ C:\Users\Liemind\Documents\Universidad de Talca\OtraMalditaPrueba\Yorchwea\SimRe
 C:\Users\Liemind\Documents\Universidad de Talca\OtraMalditaPrueba\Yorchwea\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\SimRend.pdb
 C:\Users\Liemind\Documents\Universidad de Talca\OtraMalditaPrueba\Yorchwea\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\SimRend.csproj.CopyComplete
 C:\Users\Liemind\Documents\Universidad de Talca\OtraMalditaPrueba\Yorchwea\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\Organizacion.g.cshtml.cs
+C:\Users\Liemind\Documents\Universidad de Talca\OtraMalditaPrueba\Yorchwea\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\Razor\Views\Usuario\CrearOrganizacion.g.cshtml.cs

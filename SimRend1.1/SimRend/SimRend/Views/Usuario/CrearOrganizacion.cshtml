@@ -1,0 +1,54 @@
+@{
+    ViewData["Title"] = "Crear Organización";
+}
+
+<div class="row">
+  <div class="col-sm-9"><h3>Crear una Organización</h3></div>
+  <div class="col-sm-3"><br>
+      <h4>Paso 1 </h4>
+    </div>
+</div>
+<hr />
+
+<div class="bodyStep mx-auto col-md-8">
+    @using (Html.BeginForm("Crear", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data"}))
+    {
+        <div class="">
+            <div class="form-group">
+                <label class="control-label">Tipo de Organización:</label>
+                    <select class="form-control" name="Tipo" required>
+                    <option value="Federación">Federación de Estudiantes</option>
+                    <option value="CAA">Centro de Alumnos</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Nombre" class="control-label">Nombre:</label>
+                <input type="text" id="email" class="form-control" name="Nombre" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="control-label">Correo Electrónico:</label>
+                <input type="email" id="email" class="form-control" name="Email" required />
+            </div>
+
+            <button type="submit" class="btn btn-success">Crear Organización e ir al Paso 2</button>
+
+        </div>
+    }
+
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <!--#########################################Para crear solicitud#################################-->
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <!--link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css"-->
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <!--#################################################################################################-->
+    <!--#####################################################-->
+    <script src="~/js/bootstrap.js"></script>
+
+}

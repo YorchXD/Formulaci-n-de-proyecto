@@ -32,6 +32,63 @@ namespace SimRend.Controllers
             return View();
         }
 
+        public IActionResult CrearOrganizacion() {
+            return View();
+        }
+
+        public IActionResult CrearFederacion() {
+            if (TempData.ContainsKey("idOrga")) ViewBag.idOrga = TempData["idOrga"];
+
+            return View();
+        }
+
+        public IActionResult CrearCaa() {
+            if (TempData.ContainsKey("idOrga")) ViewBag.idOrga = TempData["idOrga"];
+
+
+            return View();
+        }
+
+        public ActionResult Crear(String Tipo, String Nombre, String Email) {
+            //metodos para poder guardar usuario
+            String pass = GenerarClaveAleatoria();
+
+            int id = DbSimRend.Usuario.CrearOrganizacion(Tipo, Nombre, Email, pass);
+
+            //hacer un gif, que si no guarda vuelve a crear. Si guarda, se va a otra ventana
+            if (id != -1 ) {
+                EnviarEmail("Cuenta Creada", Email, "Bienvenido! Su nueva contraseña es" + pass);
+                TempData["idOrga"] = id;
+
+                if(Tipo == "CAA") {
+                    return RedirectToAction("CrearCaa", "Usuario");
+                }
+                else {
+                    return RedirectToAction("CrearFederacion", "Usuario");
+                }
+            }
+
+            return RedirectToAction("CrearOrganizacion", "Usuario");
+        }
+
+
+        public ActionResult DeshabilitarHabilitar(int id, String Estado) {
+            if (DbSimRend.Usuario.DeshabilitarHabilitarOrganizacion(id, Estado))
+            {
+                //algo Pasa
+            }
+
+            return RedirectToAction("Organizacion", "Usuario");
+         }
+
+        public String GenerarClaveAleatoria() {
+            return RandomPassword.Generate(8);
+        }
+
+        public void EnviarEmail(String Subject, String Email, String Content) {
+            EmailSender.Send(Email, Subject, Content);
+        }
+
         public IActionResult Validar(String usuario, String clave)
         {
             //string SessionKeyID = "_identificacion";
