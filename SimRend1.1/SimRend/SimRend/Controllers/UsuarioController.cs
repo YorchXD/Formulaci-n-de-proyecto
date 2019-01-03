@@ -26,6 +26,12 @@ namespace SimRend.Controllers
             return View();
         }
 
+        public IActionResult Organizacion() {
+            
+
+            return View();
+        }
+
         public IActionResult Validar(String usuario, String clave)
         {
             //string SessionKeyID = "_identificacion";

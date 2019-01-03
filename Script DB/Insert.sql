@@ -20,6 +20,3 @@ INSERT INTO `Categoria` VALUES ('Artículos de oficina');
 
 
 
-
-
-

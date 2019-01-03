@@ -1,0 +1,45 @@
+@using SimRend.Models
+@model List<SimRend.Models.Organizacion>
+@{
+    ViewData["Title"] = "Lista de Organizaciones";
+}
+
+<div class="row">
+  <div class="col-sm-9"><h3>Organizaciones</h3></div>
+  <div class="col-sm-3"><br>
+      <button class="btn btn-primary my-2 my-sm-0" type="submit">Crear Organizacion</button></div>
+</div>
+<hr />
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Tipo de Organizacion</th>
+      <th scope="col">Nombre</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">oyeoyeoye</th>
+      <td>Mark</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <!--#########################################Para crear solicitud#################################-->
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <!--link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css"-->
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <!--#################################################################################################-->
+    <!--#####################################################-->
+    <script src="~/js/bootstrap.js"></script>
+
+}
