@@ -122,6 +122,7 @@ CREATE TABLE `Responsable` (
     `estado` VARCHAR(256) NOT NULL,
     `cargo` VARCHAR(256) NOT NULL,
     `sexo` VARCHAR(256) NOT NULL,
+    `estadoCargo` VARCHAR(256) NOT NULL,
     PRIMARY KEY (`run`)
 );
 
@@ -136,6 +137,7 @@ CREATE TABLE `Organizacion` (
     `usuario` VARCHAR(256) NOT NULL,
     `clave` VARCHAR(256) NOT NULL,
     `email` VARCHAR(256) NOT NULL,
+    `estado` VARCHAR(256) NOT NULL,
     PRIMARY KEY (`id`)
 );
 
