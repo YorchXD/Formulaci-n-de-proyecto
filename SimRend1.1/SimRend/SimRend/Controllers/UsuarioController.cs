@@ -71,6 +71,24 @@ namespace SimRend.Controllers
             return RedirectToAction("CrearOrganizacion", "Usuario");
         }
 
+        public ActionResult CrearNuevoCAA (CAA a, int id) {
+            if(DbSimRend.Usuario.CrearCAA(a,id)) {
+                return RedirectToAction("Organizacion", "Usuario");
+            }
+            else {
+                return RedirectToAction("CrearCaa", "Usuario");
+            }
+        }
+
+        public ActionResult CrearNuevaFederacion (Federacion f, int id) {
+
+            if(DbSimRend.Usuario.CrearFederacion(f,id)) {
+                return RedirectToAction("Organizacion", "Usuario");
+            }
+            else{
+                return RedirectToAction("CrearFederacion", "Usuario");
+            }
+        }
 
         public ActionResult DeshabilitarHabilitar(int id, String Estado) {
             if (DbSimRend.Usuario.DeshabilitarHabilitarOrganizacion(id, Estado))

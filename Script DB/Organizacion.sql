@@ -43,6 +43,36 @@ END
 DELIMITER ;
 
 /****************************Federación*/
-
+DROP PROCEDURE IF EXISTS `crear_federacion`;
+DELIMITER ;;
+CREATE PROCEDURE `crear_federacion`(
+	in_nomDirDAAE VARCHAR(256),
+	in_campus VARCHAR(256),
+	in_sexoDirDAAE VARCHAR(256),
+	in_cargo VARCHAR(256),
+	in_nombreFederacion VARCHAR(256),
+	in_id INTEGER
+)
+BEGIN
+	INSERT INTO `Federacion` VALUES
+	(in_nomDirDAAE, in_campus, in_sexoDirDAAE, in_cargo, in_nombreFederacion, in_id);
+END
+;;
+DELIMITER ;
 
 /****************************CAAs*/
+DROP PROCEDURE IF EXISTS `crear_caa`;
+DELIMITER ;;
+CREATE PROCEDURE `crear_caa`(
+	in_nomDirCarrera VARCHAR(256),
+	in_carrera VARCHAR(256),
+	in_sexoDirCarrera VARCHAR(256),
+	in_cargo VARCHAR(256),
+	in_id INTEGER
+)
+BEGIN
+	INSERT INTO `CAA` VALUES
+	(in_nomDirCarrera, in_carrera, in_sexoDirCarrera, in_cargo, in_id);
+END
+;;
+DELIMITER ;

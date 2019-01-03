@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "Crear Federación";
+}
+
+<div class="row">
+  <div class="col-sm-9"><h3>Crear una Federación de Estudiantes</h3></div>
+  <div class="col-sm-3"><br>
+      <h4>Paso 2 </h4>
+    </div>
+</div>
+<hr />
+
+<div class="bodyStep mx-auto col-md-8">
+    @using (Html.BeginForm("CrearNuevaFederacion", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data"}))
+    {
+        <div class="">
+            <div class="form-group">
+                <label class="control-label">Director del DAAE:</label>
+                <input type="text" id="email" class="form-control" name="NomDirDAAE" required />
+            </div>
+            <div class="form-group">
+                <label class="control-label">Sexo:</label>
+                <select class="form-control" name="SexoDirDAAE" required>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Nombre" class="control-label">Campus:</label>
+                <select class="form-control" name="Campus" required>
+                    <option value="Curicó">Curicó</option>
+                    <option value="Talca">Talca</option>
+                    <option value="Santiago">Santiago</option>
+                    <option value="Linares">Linares</option>
+                    <option value="Colchahua">Colchahua</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Nombre" class="control-label">Nombre de Federación:</label>
+                <input type="text" class="form-control" name="NombreFederacion" required />
+            </div>
+
+            <button type="submit" class="btn btn-success">Crear Federación</button>
+
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <!--#########################################Para crear solicitud#################################-->
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <!--link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css"-->
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <!--#################################################################################################-->
+    <!--#####################################################-->
+    <script src="~/js/bootstrap.js"></script>
+
+}
