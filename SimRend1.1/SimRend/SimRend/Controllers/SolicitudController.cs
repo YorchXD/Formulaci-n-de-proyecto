@@ -43,13 +43,13 @@ namespace SimRend.Controllers
             //TempData["idOrganizacion"] = idOrganizacion;
             ModeloSolicitud modelo = new ModeloSolicitud();
             modelo.Responsables = ConsultaSolicitud.LeerRepresetantes(idOrganizacion);
-            if(modelo.Responsables!=null)
+            if (modelo.Responsables != null)
             {
                 modelo.Responsables = modelo.Responsables.Where(responsable => !responsable.Estado.Equals("Desabilitado")).ToList();
                 return View(modelo);
             }
             return View(modelo);
-            
+
         }
 
 
@@ -62,37 +62,35 @@ namespace SimRend.Controllers
 
 
         //List<Categoria> Categorias = ConsultaSolicitud.LeerTodoCategorias();
-            //List<Categoria> CategoriasSeleccionadas = new List<Categoria>();
-            //List<string> CategoriaFlotante;
-            //DataSet datosTemp = TempData["Seleccionadas"] as DataSet;
+        //List<Categoria> CategoriasSeleccionadas = new List<Categoria>();
+        //List<string> CategoriaFlotante;
+        //DataSet datosTemp = TempData["Seleccionadas"] as DataSet;
 
-            /*Esto sirve para cuando  existan cookie con TempData en el navegador y la hace null*/
-            //TempData["Seleccionadas"] = null;
-            /*int Cont = 0;
-            String var;
-            while(TempData["Seleccionadas"] != null)
-            {
-                var = (String)TempData["Seleccionadas"];
-                CategoriaFlotante.Add(var);
-                Cont++;
-            }*/
+        /*Esto sirve para cuando  existan cookie con TempData en el navegador y la hace null*/
+        //TempData["Seleccionadas"] = null;
+        /*int Cont = 0;
+        String var;
+        while(TempData["Seleccionadas"] != null)
+        {
+            var = (String)TempData["Seleccionadas"];
+            CategoriaFlotante.Add(var);
+            Cont++;
+        }*/
 
 
-            //if(CategoriasSeleccionadas.Count>0)
-            //{
-                //foreach (Categoria categoria in CategoriasSeleccionadas)
-                //{
-                    //Categorias.Remove(categoria);
-                //}
-                //ViewData["Seleccionadas"] = CategoriasSeleccionadas;
-            //}
-
-            //return View();
-            //return View();
+        //if(CategoriasSeleccionadas.Count>0)
+        //{
+        //foreach (Categoria categoria in CategoriasSeleccionadas)
+        //{
+        //Categorias.Remove(categoria);
+        //}
+        //ViewData["Seleccionadas"] = CategoriasSeleccionadas;
         //}
 
+        //return View();
+        //return View();
+        //}
 
-        
 
         // POST: Solicitud/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -163,18 +161,18 @@ namespace SimRend.Controllers
             {
                 foreach (Categoria categoria in CategoriasSeleccionadas)
                 {
-                    int count=0;
-                    while(!Categorias[count].Nombre.Equals(categoria.Nombre))
+                    int count = 0;
+                    while (!Categorias[count].Nombre.Equals(categoria.Nombre))
                     {
                         count++;
                     }
-                    if(count<Categorias.Count)
+                    if (count < Categorias.Count)
                     {
                         Categorias.RemoveAt(count);
                     }
-                    
+
                     //Categorias.Remove(categoria);
-                    
+
                 }
                 ViewData["Seleccionadas"] = CategoriasSeleccionadas;
             }
@@ -261,7 +259,7 @@ namespace SimRend.Controllers
             int idSolicitud = _requestHandler.GetIdSolicitud();
             List<Persona> Personas = ConsultaSolicitud.LeerPersonasSolicitud(idSolicitud);
 
-            if(Personas!=null)
+            if (Personas != null)
             {
                 ViewData["Personas"] = Personas;
             }
@@ -293,11 +291,14 @@ namespace SimRend.Controllers
             int idSolicitud = _requestHandler.GetIdSolicitud();
             ModeloSolicitud modelo = new ModeloSolicitud();
             modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud(idSolicitud);
-
-            
-            //int idOrganizacion = Convert.ToInt32(TempData["idOrganizacion"]);
-            //TempData["idOrganizacion"] = idOrganizacion;
             return View(modelo);
+        }
+
+
+        public IActionResult IrResumen(int IdSolicitud)
+        {
+            _requestHandler.SetIdSolicitu(IdSolicitud);
+            return RedirectToAction("Resolucion", "Resolucion");
         }
 
         public IActionResult GeneratePDF()
