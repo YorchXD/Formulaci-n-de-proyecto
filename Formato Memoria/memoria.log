@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  26 JAN 2019 03:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  4 FEB 2019 11:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -561,40 +561,39 @@ File: Imagenes/Solicitud_Federacion.jpg Graphic file (type jpg)
 <use Imagenes/Solicitud_Federacion.jpg>
 Package pdftex.def Info: Imagenes/Solicitud_Federacion.jpg  used on input line 11.
 (pdftex.def)             Requested size: 429.3521pt x 463.39943pt.
+ [8
 
-Overfull \hbox (0.32222pt too wide) in paragraph at lines 50--50
+]
+LaTeX Info: Redefining \. on input line 57.
+LaTeX Info: Redefining \% on input line 57.
+ [9 <./Imagenes/Solicitud_Federacion.jpg>]
+Overfull \hbox (0.32222pt too wide) in paragraph at lines 57--57
 |\OT1/cmr/m/n/12 A. 
  []
 
-[8
-
-]
-LaTeX Info: Redefining \. on input line 50.
-LaTeX Info: Redefining \% on input line 50.
- [9 <./Imagenes/Solicitud_Federacion.jpg>]
-LaTeX Info: Redefining \. on input line 50.
-LaTeX Info: Redefining \% on input line 50.
- [10]
+LaTeX Info: Redefining \. on input line 57.
+LaTeX Info: Redefining \% on input line 57.
+[10]
 <Imagenes/Solicitud_CCAA.jpg, id=53, 1262.46657pt x 1375.38844pt>
 File: Imagenes/Solicitud_CCAA.jpg Graphic file (type jpg)
 <use Imagenes/Solicitud_CCAA.jpg>
-Package pdftex.def Info: Imagenes/Solicitud_CCAA.jpg  used on input line 53.
+Package pdftex.def Info: Imagenes/Solicitud_CCAA.jpg  used on input line 60.
 (pdftex.def)             Requested size: 429.3521pt x 467.7518pt.
-LaTeX Info: Redefining \. on input line 66.
-LaTeX Info: Redefining \% on input line 66.
+LaTeX Info: Redefining \. on input line 72.
+LaTeX Info: Redefining \% on input line 72.
  [11]
-LaTeX Info: Redefining \. on input line 66.
-LaTeX Info: Redefining \% on input line 66.
+LaTeX Info: Redefining \. on input line 72.
+LaTeX Info: Redefining \% on input line 72.
  [12 <./Imagenes/Solicitud_CCAA.jpg>]) (./Capitulo1/1.2_Definicion_Problema.tex) (./Capitulo1/1.3_Presentacion_Solucion.tex
-LaTeX Info: Redefining \. on input line 8.
-LaTeX Info: Redefining \% on input line 8.
+LaTeX Info: Redefining \. on input line 4.
+LaTeX Info: Redefining \% on input line 4.
  [13]) (./Capitulo1/1.4_Objetivos.tex) (./Capitulo1/1.5_Alcances.tex
-LaTeX Info: Redefining \. on input line 9.
-LaTeX Info: Redefining \% on input line 9.
- [14]) (./Capitulo1/1.6_Proyectos_Similares.tex) (./Capitulo1/1.7_Descripcion_Contenidos.tex
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [15])
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
+ [14]) (./Capitulo1/1.6_Proyectos_Similares.tex)
+LaTeX Info: Redefining \. on input line 62.
+LaTeX Info: Redefining \% on input line 62.
+ [15] (./Capitulo1/1.7_Descripcion_Contenidos.tex)
 LaTeX Info: Redefining \. on input line 67.
 LaTeX Info: Redefining \% on input line 67.
  [16]
@@ -743,13 +742,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  13985 strings out of 492639
  261163 string characters out of 6133102
- 350395 words of memory out of 5000000
+ 348808 words of memory out of 5000000
  17681 multiletter control sequences out of 15000+600000
  539122 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,8n,65p,1310b,579s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,8n,65p,1381b,573s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on memoria.pdf (31 pages, 1164604 bytes).
+Output written on memoria.pdf (31 pages, 1165495 bytes).
 PDF statistics:
  157 PDF objects out of 1000 (max. 8388607)
  105 compressed objects within 2 object streams

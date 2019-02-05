@@ -14,7 +14,7 @@
 \contentsline {subsection}{\numberline {1.4.1}Objetivo general}{14}
 \contentsline {subsection}{\numberline {1.4.2}Objetivos espec\IeC {\'\i }ficos}{14}
 \contentsline {section}{\numberline {1.5}Alcances}{14}
-\contentsline {section}{\numberline {1.6}Proyectos Similares}{15}
+\contentsline {section}{\numberline {1.6}Proyectos similares}{15}
 \contentsline {section}{\numberline {1.7}Descripci\IeC {\'o}n de contenidos}{16}
 \contentsline {chapter}{\numberline {2}Antecedentes}{17}
 \contentsline {section}{\numberline {2.1}Conceptos y tecnolog\IeC {\'\i }as utilizadas}{17}
