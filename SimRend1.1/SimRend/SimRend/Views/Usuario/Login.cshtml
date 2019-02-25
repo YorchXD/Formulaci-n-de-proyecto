@@ -2,71 +2,102 @@
 @{
     Layout = null;
 }
+
 <head>
-    <meta charset="UTF-8" />
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
-    <title>Iniciar Sesión</title>
+    <title></title>
+    <meta charset="UTF-8" class="">
     <link rel="stylesheet" href="~/css/login.css" />
-    <link rel="stylesheet" href="~/css/bootstrap.css " />
-    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </head>
+
 <body>
-    <div class="container">
-        <header> 
-            <h1></h1> 
-        </header>
-        <section>
-            <div id="container_demo">
-                <a class="hiddenanchor" id="tologin"></a>
-                <a class="hiddenanchor" id="toregister"></a>
-                <div id="wrapper">
-                    <div id="login" class="animate form">
-                        <h1>Iniciar Sesión</h1>
-                        @using (Html.BeginForm("Validar", "Usuario", FormMethod.Post, new { @style = "border:none" }))
-                        {
-                            <p>
-                                <label for="username" class="uname"> Nombre de la Organización Estudiantil </label>
-                                <input asp-for="Usuario" class="uname" required="required" type="text" placeholder="Nombre de la persona" />
-                                <!--input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com" /-->
-                            </p>
-                            <p>
-                                <label for="password" class="youpasswd"> Contraseña </label>
-                                <input asp-for="Clave" class="uname" required="required" type="password" placeholder="eg. X8df!90EO" />
-                                <!--input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /-->
-                            </p>
-                            <input type="submit" class="btn btn-primary" value="Ingresar" />
-                        }
-                        <p class="change_link">
-                            ¿Olvido su contraseña?
-                            <a href="#toregister" class="to_register">Cambiar contraseña</a>
-                        </p>
-                    </div>
-
-                    <div id="register" class="animate form">
-                        <h1> Cambiar contraseña</h1>
-                        @using (Html.BeginForm("RecuperarClave", "Usuario", FormMethod.Post, new { @style = "border:none" }))
-                        {
-                            <p>
-                                <label for="username" class="uname"> Email de la Organización Estudiantil </label>
-                                <input asp-for="Email" class="email" required="required" type="text" placeholder="Email de la organización" />
-                            </p>
-                            <input type="submit" class="btn btn-primary" value="Enviar contraseña" />
-                        }
-                        <p class="change_link">
-                            ¿Recordó su contraseña?
-                            <a href="#tologin" class="to_register"> Volver</a>
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr />
-        <div class="footer-style">
-            <p>&copy; 2018 - SimRend</p>
+    <div class="owl">
+        <div class="hand"></div>
+        <div class="hand hand-r"></div>
+        <div class="arms">
+            <div class="arm"></div>
+            <div class="arm arm-r"></div>
         </div>
     </div>
+    <div class="contenedor_formulario">
 
-    
+        <!--Formulario de login-->
+        <div class="form">
+            <h2>Iniciar Sesión</h2>
+            @using (Html.BeginForm("Validar", "Usuario", FormMethod.Post, new { @style = "border:none" }))
+            {
+                <div class="control">
+                    <label for="email" class="fa fa-user"></label>
+                    <!--input asp-for="Usuario" class="uname" required="required" type="text" placeholder="Nombre de la persona" /-->
+                    <input asp-for="Usuario" class=""  required="required" type="text" id="email" placeholder="Usuario"  >
+                </div>
+
+                <div class="control">
+                    <label for="password" class="fa fa-asterisk"></label>
+                    <!--input asp-for="Clave" class="uname" required="required" type="password" placeholder="eg. X8df!90EO" /-->
+                    <input asp-for="Clave" class="" required="required" type="password" id="password" placeholder="Password" >
+                </div>
+
+                <div class="wrapper">
+                    <button class="buttonPrimary" type="submit" name="">Entrar</button>
+                </div>
+            }
+
+            <div class="wrapper toggle">
+                <button class="buttonSecundary" name="">Recuperar clave</button>
+            </div>
+        </div>
+
+        <!--Formulario de cambiar clave-->
+        <div class="form">
+            <h2>Cambiar clave</h2>
+            @using (Html.BeginForm("RecuperarClave", "Usuario", FormMethod.Post, new { @style = "border:none" }))
+            {
+                <div class="control">
+                    <label for="email" class="fa fa-envelope"></label>
+                    <input asp-for="Email" id="email" required="required" type="email" placeholder="Email"  class="">
+                    <!--input asp-for="Email" class="email" required="required" type="text" placeholder="Email de la organización" /-->
+                </div>
+
+                <div class="wrapper">
+                    <button class="buttonPrimary" type="submit" name="">Enviar clave</button>
+                </div>
+
+            }
+            <div class="wrapper toggle">
+                <button class="buttonSecundary"  name="">Volver</button>
+            </div>
+        </div>
+    </div>
 </body>
+
+<!-- Filter: https://css-tricks.com/gooey-effect/ -->
+<svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+        </filter>
+    </defs>
+</svg>
+
+<script class="">
+      $('input[type="password"]').on('focus', function () {
+          $('*').addClass('password');
+        }).on('focusout', function () {
+          $('*').removeClass('password');
+        });;
+              //# sourceURL=pen.js
+</script>
+
+<script type="text/javascript">
+    $('.toggle').click(function(){
+    $('.form').animate({
+        height: "toggle",
+        'padding-top': 'toggle',
+        'padding-bottom': 'toggle',
+        opacity: 'toggle'
+    }, "slow");
+});
+</script>
