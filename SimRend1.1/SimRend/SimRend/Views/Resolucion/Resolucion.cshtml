@@ -5,82 +5,111 @@
 }
 
 <h2>Resumen Solicitud</h2>
-<hr />
 
-<div class="bodyStep">
-    <div class="mx-auto col-md-8">
+<div class="contenedor_formulario">
+    <div class="form">
+        <div class="contenedor_input">
 
-        <form>
-            <div class="form-group">
-                <label asp-for="Solicitud.NombreEvento" class="control-label"><B>Nombre del evento: </B></label>
+            <div class="control">
+                <span><B>Nombre del evento: </B></span>
                 @Html.DisplayFor(model => model.Solicitud.NombreEvento)
             </div>
 
-            <div class="form-group">
-                <label asp-for="Solicitud.LugarEvento" class="control-label"><B>Lugar del evento: </B></label>
+            <div class="control">
+                <span><B>Lugar del evento: </B></span>
                 @Html.DisplayFor(model => model.Solicitud.LugarEvento)
+
             </div>
 
-            <div class="form-group">
-                <label asp-for="Solicitud.FechaInicioEvento" class="control-label"><B>Fecha inicio del evento: </B></label>
+            <div class="control">
+                <span><B>Fecha inicio del evento: </B></span>
                 @Html.DisplayFor(model => model.Solicitud.FechaInicioEvento)
             </div>
 
-            <div class="form-group">
-                <label asp-for="Solicitud.FechaTerminoEvento" class="control-label"><B>Fecha término del evento: </B></label>
+            <div class="control">
+                <span><B>Fecha término del evento: </B></span>
                 @Html.DisplayFor(model => model.Solicitud.FechaTerminoEvento)
             </div>
 
-            <div class="form-group">
-                <label asp-for="Solicitud.Monto" class="control-label"><B>Monto: </B></label>
+            <div class="control">
+                <span><B>Monto($): </B></span>
                 @Html.DisplayFor(model => model.Solicitud.Monto)
             </div>
 
-            <div class="form-group">
-                <label asp-for="Solicitud.Responsable" class="control-label"><B>Responsable: </B></label>
+            <div class="control">
+                <span><B>Responsable: </B></span>
                 @Html.DisplayFor(model => model.Solicitud.Responsable)
-            </div>
-
-
-        </form>
-
-    </div>
-
-
-    <div>
-        <h3>Información general de la Resolución</h3>
-        <hr />
-
-        <div class="bodyStep">
-            <div class="mx-auto col-md-8">
-                @using (Html.BeginForm("AgregarResolucion", "Resolucion", FormMethod.Post, new { @style = "border:none" }))
-                {
-                <div class="mr-auto my-2 my-lg-0">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                    <div class="form-group">
-                        <input asp-for="Resolucion.NumeroResolucion" class="form-control mr-sm-2" placeholder="Número de resolución" min="1"/>
-                    </div>
-                    <div class="form-group ">
-                        <input asp-for="Resolucion.AnioResolucion" class="form-control mr-sm-2" placeholder="Año de la resolución" min="2000" />
-                    </div>
-                    <div class="form-group ">
-                        <input asp-for="Resolucion.CopiaDocumento" type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                        <!--small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small-->
-                    </div>
-
-                    <div>
-                        <button type="submit" class="btn btn-primary my-2 my-sm-0">Agregar</button>
-                        @using (Html.BeginForm("VolverIndex", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
-                        {
-                            <button type="submit" class="btn btn-success my-2 my-sm-0">Cancelar</button>
-                        }
-                    </div>
-
-                </div>
-                }
-
             </div>
         </div>
     </div>
 </div>
+
+<div>
+    <h2>Información general de la Resolución</h2>
+
+    <div class="contenedor_formulario">
+        <div class="form">
+            @using (Html.BeginForm("AgregarResolucion", "Resolucion", FormMethod.Post, new { @style = "border:none" }))
+            {
+            <div class="contenedor_input">
+
+                <div class="control">
+                    <span>Número de resolución</span>
+                    <input asp-for="Resolucion.NumeroResolucion" class="" placeholder="Número de resolución" min="1" />
+                </div>
+
+                <div class="control">
+                    <span>Año de la resolución</span>
+                    <input asp-for="Resolucion.AnioResolucion" class="" placeholder="Año de la resolución" min="2000" />
+                </div>
+
+                <div class="control">
+                    <span>Copia del documento</span>
+                    <input asp-for="Resolucion.CopiaDocumento" type="file" class="" id="exampleInputFile" aria-describedby="fileHelp">
+                </div>
+
+                <div class="wrapperOrientacionBotonFormulario">
+                    <div class="wrapper wrapperBotonFormulario">
+                        <button class="buttonPrimary" type="submit" name="">Agregar</button>
+                    </div>
+
+                    @using (Html.BeginForm("VolverIndex", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+                    {
+                        <div class="wrapper wrapperBotonFormulario">
+                            <button class="buttonSecundary" type="submit" name="">Cancelar</button>
+                        </div>
+                    }
+                </div>
+
+                
+
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

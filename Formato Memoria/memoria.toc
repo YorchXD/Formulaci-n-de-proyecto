@@ -22,7 +22,7 @@
 \contentsline {subsection}{\numberline {2.1.2}Tecnolog\IeC {\'\i }as utilizadas}{17}
 \contentsline {section}{\numberline {2.2}Metodolog\IeC {\'\i }a}{17}
 \contentsline {subsection}{\numberline {2.2.1}Scrum}{17}
-\contentsline {section}{\numberline {2.3}Pruebas}{19}
+\contentsline {section}{\numberline {2.3}Validaci\IeC {\'o}n de la applicaci\IeC {\'o}n}{19}
 \contentsline {chapter}{\numberline {3}Metodolog\IeC {\'\i }a y requisitos}{20}
 \contentsline {section}{\numberline {3.1}Metodolog\IeC {\'\i }a}{20}
 \contentsline {section}{\numberline {3.2}Requisitos del sistema}{22}

@@ -9,6 +9,7 @@ using SimRend.DbSimRend;
 using System.Data;
 using Microsoft.AspNetCore.Http;
 using SimRend.Helpers;
+using DinkToPdf;
 
 namespace SimRend.Controllers
 {
@@ -301,9 +302,49 @@ namespace SimRend.Controllers
             return RedirectToAction("Resolucion", "Resolucion");
         }
 
-        public IActionResult GeneratePDF()
+        private ModeloSolicitud obtenerModelo()
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
+            int idSolicitud = _requestHandler.GetIdSolicitud();
+            //int idSolicitud = 12;
+            ModeloSolicitud modelo = new ModeloSolicitud();
+            modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud(idSolicitud);
+            modelo.Solicitud.FechaPdf = DateTime.Now.ToString("D", new System.Globalization.CultureInfo("es-ES"));
+            modelo.Responsable = ConsultaSolicitud.Leer_Responsable(idSolicitud);
+            modelo.Categorias = ConsultaSolicitud.LeerCategoriasSeleccionadas(idSolicitud);
+            modelo.Participantes = ConsultaSolicitud.LeerPersonasSolicitud(idSolicitud);
+            modelo.Organizacion = ConsultaSolicitud.Leer_Organizacion(idSolicitud);
+            if (modelo.Participantes != null)
+            {
+                modelo.Solicitud.MontoPorPersona = modelo.Solicitud.Monto / modelo.Participantes.Count();
+            }
+            if (modelo.Organizacion.Tipo.Equals("CAA"))
+            {
+                modelo.CAA = ConsultaSolicitud.Leer_CAA(modelo.Organizacion.Id);
+            }
+            else
+            {
+                modelo.Federacion = ConsultaSolicitud.Leer_Federacion(modelo.Organizacion.Id);
+            }
+
+            if (modelo.Solicitud.FechaInicioEvento != modelo.Solicitud.FechaTerminoEvento)
+            {
+                modelo.Solicitud.FechaEvento = "Desde el " + modelo.Solicitud.FechaInicioEvento.ToString("dddd", new System.Globalization.CultureInfo("es-ES")) + ", " + modelo.Solicitud.FechaInicioEvento.ToString("M", new System.Globalization.CultureInfo("es-ES")) +
+                " hasta el " + modelo.Solicitud.FechaTerminoEvento.ToString("D", new System.Globalization.CultureInfo("es-ES"));
+                
+            }
+            else
+            {
+                modelo.Solicitud.FechaEvento = modelo.Solicitud.FechaInicioEvento.ToString("D", new System.Globalization.CultureInfo("es-ES"));
+                
+            }
+
+            return modelo;
+        }
+
+        public IActionResult GeneratePDF()
+        {
+            /*ViewData["_usuario"] = _requestHandler.GetUsuario();
             int idSolicitud = _requestHandler.GetIdSolicitud();
             //int idSolicitud = 12;
             ModeloSolicitud modelo = new ModeloSolicitud();
@@ -336,7 +377,39 @@ namespace SimRend.Controllers
             {
                 modelo.Solicitud.FechaEvento = modelo.Solicitud.FechaInicioEvento.ToString("D", new System.Globalization.CultureInfo("es-ES"));
                 return View(modelo);
-            }  
+            }*/
+            ModeloSolicitud modelo = obtenerModelo();
+            return View(modelo);
+        }
+
+        public FileResult DescargarPDF()
+        {
+            var convertidor = new BasicConverter(new PdfTools());
+            var doc = new HtmlToPdfDocument()
+            {
+                GlobalSettings =
+                {
+                    ColorMode = ColorMode.Color,
+                    Orientation = Orientation.Portrait,
+                    PaperSize = PaperKind.Letter,
+                },
+
+                Objects =
+                {
+                    new ObjectSettings()
+                    {
+                        PagesCount = true,
+                        HtmlContent = GeneratePDF().ToString(),
+                        WebSettings =
+                        {
+                            DefaultEncoding = "utf-8"
+                        },
+                    }
+                }
+            };
+            byte[] pdf = convertidor.Convert(doc);
+
+            return File(pdf, "application/pdf", "Solicitud.pdf");
         }
 
         public IActionResult VolverIndex()

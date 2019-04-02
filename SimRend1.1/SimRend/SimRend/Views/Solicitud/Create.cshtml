@@ -5,139 +5,136 @@
     ViewData["Title"] = "Crear Solicitud";
 }
 
-<h3>Datos principales de la solicitud</h3>
-<hr />
+<h2>Datos principales de la solicitud</h2>
 
-<div class="bodyStep">
-        <div class="mx-auto col-md-8">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="contenedor_formulario">
+    <div class="form">
+        @using (Html.BeginForm("Create", "Solicitud", FormMethod.Post, new { @style = "border:none" }))
+        {
+        <div class="contenedor_input">
 
-                <div class="form-group">
-                    <label asp-for="Solicitud.NombreEvento" class="control-label">Nombre del evento</label>
-                    <input asp-for="Solicitud.NombreEvento" class="form-control" required/>
-                    <span asp-validation-for="Solicitud.NombreEvento" class="text-danger"></span>
-                </div>
+            <div class="control">
+                <!--label for="email" class="fa fa-user"></label-->
+                <!--input asp-for="Usuario" class="uname" required="required" type="text" placeholder="Nombre de la persona" /-->
+                <span>Nombre del evento</span>
+                <input asp-for="Solicitud.NombreEvento" class="" required="required" type="text" placeholder="Nombre del evento">
+            </div>
 
-                <div class="form-group">
-                    <label asp-for="Solicitud.LugarEvento" class="control-label">Lugar del evento</label>
-                    <input asp-for="Solicitud.LugarEvento" class="form-control" required/>
-                    <span asp-validation-for="Solicitud.LugarEvento" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="Solicitud.FechaInicioEvento" class="control-label">Fecha inicio del evento</label>
-                    <input asp-for="Solicitud.FechaInicioEvento" type="date" class="form-control" required/>
-                    <span asp-validation-for="Solicitud.FechaInicioEvento" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="Solicitud.FechaTerminoEvento" class="control-label">Fecha término del evento</label>
-                    <input asp-for="Solicitud.FechaTerminoEvento" type="date" class="form-control" />
-                    <span asp-validation-for="Solicitud.FechaTerminoEvento" class="text-danger"></span>
-                </div>
-
-                <div class="form-group">
-                    <label asp-for="Solicitud.Monto" class="control-label">Monto a solicitar</label>
-                    <div class="form-group">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">$</span>
-                            </div>
-                            <input asp-for="Solicitud.Monto" class="form-control" min="1" required/>
-                        </div>
-                        <span asp-validation-for="Solicitud.Monto" class="text-danger"></span>
-                    </div>
-                </div>
-
-                <!--div class="form-group">
-                    <label asp-for="Solicitud.Responsable" class="control-label">Responsable de la solicitud</label>
-                    <input asp-for="Solicitud.Responsable" class="form-control" />
-                    <span asp-validation-for="Solicitud.Responsable" class="text-danger"></span>
-                </div-->
-
-
-                <!--div class="form-group">
-                        <label for="exampleSelect1">Example select</label>
-                        <select class="form-control" id="exampleSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>
-                    </div!-->
-
-                <div class="form-group">
-                    <label asp-for="Solicitud.Responsable" class="control-label">Responsable de la solicitud</label>
-                    <select asp-for="Solicitud.Responsable" class="form-control">
-                        <option value="" disabled selected>Selecciona un responsable</option>
-                        @if (Model.Responsables != null)
-                        {
-                            @foreach (var item in Model.Responsables)
-                            {
-                                <option value="@item.Run">@item.Nombre</option>
-                            }
-                        }
-
-                    </select>
-                </div>
-                <div class="form-group" style="padding-top: calc(0.5em + 6px); text-align:right;">
-                    <input type="submit" value="Siguiente" class="btn btn-success my-2 my-sm-0" />
-                </div>
-            </form>
-        </div>
-    </div>
-<!--div>
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-    <div class="form-group">
+            <!--div class="form-group">
         <label asp-for="Solicitud.NombreEvento" class="control-label">Nombre del evento</label>
-        <input asp-for="Solicitud.NombreEvento" class="form-control" />
+        <input asp-for="Solicitud.NombreEvento" class="form-control" required />
         <span asp-validation-for="Solicitud.NombreEvento" class="text-danger"></span>
-    </div>
+    </div-->
 
-    <div class="form-group">
+            <div class="control">
+                <!--label for="email" class="fa fa-user"></label-->
+                <!--input asp-for="Usuario" class="uname" required="required" type="text" placeholder="Nombre de la persona" /-->
+                <span>Lugar del evento</span>
+                <input asp-for="Solicitud.LugarEvento" class="" required="required" type="text" placeholder="Lugar del evento">
+            </div>
+
+            <!--div class="form-group">
         <label asp-for="Solicitud.LugarEvento" class="control-label">Lugar del evento</label>
-        <input asp-for="Solicitud.LugarEvento" class="form-control" />
+        <input asp-for="Solicitud.LugarEvento" class="form-control" required />
         <span asp-validation-for="Solicitud.LugarEvento" class="text-danger"></span>
-    </div>
+    </div-->
 
-    <div class="form-group">
+            <div class="control">
+                <!--label for="email" class="fa fa-user"></label-->
+                <!--input asp-for="Usuario" class="uname" required="required" type="text" placeholder="Nombre de la persona" /-->
+                <span>Fecha de inicio del evento</span>
+                <input asp-for="Solicitud.FechaInicioEvento" class="" required="required" type="date" placeholder="Fecha de inicio del evento">
+            </div>
+
+            <!--div class="form-group">
         <label asp-for="Solicitud.FechaInicioEvento" class="control-label">Fecha inicio del evento</label>
-        <input asp-for="Solicitud.FechaInicioEvento" type="date" class="form-control" />
+        <input asp-for="Solicitud.FechaInicioEvento" type="date" class="form-control" required />
         <span asp-validation-for="Solicitud.FechaInicioEvento" class="text-danger"></span>
-    </div>
+    </div-->
 
-    <div class="form-group">
+            <div class="control">
+                <!--label for="email" class="fa fa-user"></label-->
+                <!--input asp-for="Usuario" class="uname" required="required" type="text" placeholder="Nombre de la persona" /-->
+                <span>Fecha de termino del evento</span>
+                <input asp-for="Solicitud.FechaTerminoEvento" class="" required="required" type="date" placeholder="Fecha de término del evento">
+            </div>
+
+            <!--div class="form-group">
         <label asp-for="Solicitud.FechaTerminoEvento" class="control-label">Fecha término del evento</label>
         <input asp-for="Solicitud.FechaTerminoEvento" type="date" class="form-control" />
         <span asp-validation-for="Solicitud.FechaTerminoEvento" class="text-danger"></span>
-    </div>
+    </div-->
 
-    <div class="form-group">
+            <div class="control">
+                <!--label for="email" class="fa fa-user"></label-->
+                <!--input asp-for="Usuario" class="uname" required="required" type="text" placeholder="Nombre de la persona" /-->
+
+                <span>Monto($)</span>
+                <input asp-for="Solicitud.Monto" class="" required="required" min="1">
+
+            </div>
+
+            <!--div class="form-group">
         <label asp-for="Solicitud.Monto" class="control-label">Monto a solicitar</label>
         <div class="form-group">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">$</span>
                 </div>
-                <input asp-for="Solicitud.Monto" class="form-control" />
+                <input asp-for="Solicitud.Monto" class="form-control" min="1" required />
             </div>
             <span asp-validation-for="Solicitud.Monto" class="text-danger"></span>
         </div>
-    </div>
+    </div-->
 
-    <div class="form-group">
+            <div class="control">
+                <!--label for="email" class="fa fa-user"></label-->
+                <!--input asp-for="Usuario" class="uname" required="required" type="text" placeholder="Nombre de la persona" /-->
+                <span>Responsable</span>
+                <select asp-for="Solicitud.Responsable" class="">
+                    <option value="" disabled selected>Selecciona un responsable</option>
+                    @if (Model.Responsables != null)
+                    {
+                        @foreach (var item in Model.Responsables)
+                        {
+                            <option value="@item.Run">@item.Nombre</option>
+                        }
+                    }
+                </select>
+            </div>
+
+
+            <!--div class="form-group">
         <label asp-for="Solicitud.Responsable" class="control-label">Responsable de la solicitud</label>
-        <input asp-for="Solicitud.Responsable" class="form-control" />
-        <span asp-validation-for="Solicitud.Responsable" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Siguiente" class="btn btn-default" />
-    </div>
+        <select asp-for="Solicitud.Responsable" class="form-control">
+            <option value="" disabled selected>Selecciona un responsable</option>
+            @if (Model.Responsables != null)
+            {
+                @foreach (var item in Model.Responsables)
+                {
+                    <option value="@item.Run">@item.Nombre</option>
+                }
+            }
+        </select>
+    </div-->
+            <div class="wrapperOrientacionBotonFormulario">
+                <div class="wrapper">
+                    <button class="buttonPrimary" type="submit" name="">Siguiente</button>
+                </div>
+            </div>
+                
 
-</div-->
+                <!--div class="form-group" style="padding-top: calc(0.5em + 6px); text-align:right;">
+            <input type="submit" value="Siguiente" class="btn btn-success my-2 my-sm-0" />
+        </div-->
+
+            </div>
+            }
+        </div>
+</div>
+    
+
+ 
 
 
 
@@ -147,24 +144,37 @@
 
 
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 
-    <!--#########################################Para crear solicitud#################################-->
-    <!-- MATERIAL DESIGN ICONIC FONT -->
-    <!--link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css"-->
-    <!-- STYLE CSS -->
-    <link rel="stylesheet" href="~/css/style.css">
-    <!--#################################################################################################-->
-    <!--#############Para crear una solicitud################-->
-    <script src="~/js/jquery-3.3.1.min.js"></script>
-    <!-- JQUERY STEP -->
-    <script src="~/js/jquery.steps.js"></script>
-    <script src="~/js/main.js"></script>
-    <!--#####################################################-->
-    <script src="~/js/bootstrap.js"></script>
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\SimRend1.1",
+    "\\SimRend1.1\\SimRend",
+    "\\SimRend1.1\\SimRend\\SimRend",
+    "\\SimRend1.1\\SimRend\\SimRend\\bin",
+    "\\SimRend1.1\\SimRend\\SimRend\\bin\\Debug",
+    "\\SimRend1.1\\SimRend\\SimRend\\bin\\Debug\\netcoreapp2.1",
+    "\\SimRend1.1\\SimRend\\SimRend\\bin\\Debug\\netcoreapp2.1\\publish",
+    "\\SimRend1.1\\SimRend\\SimRend\\Controllers"
+  ],
+  "SelectedNode": "\\SimRend1.1\\SimRend\\SimRend.sln",
+  "PreviewInSolutionExplorer": false
+}

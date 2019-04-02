@@ -24,19 +24,23 @@
         <!--Formulario de login-->
         <div class="form">
             <h2>Iniciar Sesión</h2>
+
             @using (Html.BeginForm("Validar", "Usuario", FormMethod.Post, new { @style = "border:none" }))
             {
-                <div class="control">
-                    <label for="email" class="fa fa-user"></label>
-                    <!--input asp-for="Usuario" class="uname" required="required" type="text" placeholder="Nombre de la persona" /-->
-                    <input asp-for="Usuario" class=""  required="required" type="text" id="email" placeholder="Usuario"  >
-                </div>
+                <div class="contenedor_input">
+                    <div class="control">
+                        <label for="email" class="fa fa-user"></label>
+                        <!--input asp-for="Usuario" class="uname" required="required" type="text" placeholder="Nombre de la persona" /-->
+                        <input asp-for="Usuario" class="" required="required" type="text" id="usuario" placeholder="Usuario">
+                    </div>
 
-                <div class="control">
-                    <label for="password" class="fa fa-asterisk"></label>
-                    <!--input asp-for="Clave" class="uname" required="required" type="password" placeholder="eg. X8df!90EO" /-->
-                    <input asp-for="Clave" class="" required="required" type="password" id="password" placeholder="Password" >
+                    <div class="control">
+                        <label for="password" class="fa fa-asterisk"></label>
+                        <!--input asp-for="Clave" class="uname" required="required" type="password" placeholder="eg. X8df!90EO" /-->
+                        <input asp-for="Clave" class="" required="required" type="password" id="password" placeholder="Password">
+                    </div>
                 </div>
+                
 
                 <div class="wrapper">
                     <button class="buttonPrimary" type="submit" name="">Entrar</button>

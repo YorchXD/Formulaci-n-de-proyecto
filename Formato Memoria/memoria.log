@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  4 FEB 2019 11:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  2 APR 2019 11:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -591,8 +591,8 @@ LaTeX Info: Redefining \% on input line 4.
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
  [14]) (./Capitulo1/1.6_Proyectos_Similares.tex)
-LaTeX Info: Redefining \. on input line 62.
-LaTeX Info: Redefining \% on input line 62.
+LaTeX Info: Redefining \. on input line 63.
+LaTeX Info: Redefining \% on input line 63.
  [15] (./Capitulo1/1.7_Descripcion_Contenidos.tex)
 LaTeX Info: Redefining \. on input line 67.
 LaTeX Info: Redefining \% on input line 67.
@@ -638,23 +638,19 @@ Underfull \hbox (badness 10000) detected at line 80
 (./Capitulo3/3.1_Metodologia.tex [20
 
 ]
-<Imagenes/Kanban.png, id=90, 1153.911pt x 536.0025pt>
+<Imagenes/Kanban.png, id=91, 1153.911pt x 536.0025pt>
 File: Imagenes/Kanban.png Graphic file (type png)
 <use Imagenes/Kanban.png>
-Package pdftex.def Info: Imagenes/Kanban.png  used on input line 22.
+Package pdftex.def Info: Imagenes/Kanban.png  used on input line 23.
 (pdftex.def)             Requested size: 429.3521pt x 199.43831pt.
+LaTeX Info: Redefining \. on input line 46.
+LaTeX Info: Redefining \% on input line 46.
+ [21 <./Imagenes/Kanban.png>]
 File: Imagenes/Kanban.png Graphic file (type png)
 <use Imagenes/Kanban.png>
-Package pdftex.def Info: Imagenes/Kanban.png  used on input line 53.
+Package pdftex.def Info: Imagenes/Kanban.png  used on input line 54.
 (pdftex.def)             Requested size: 429.3521pt x 199.43831pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) (./Capitulo3/3.2_Requisitos.tex)
-LaTeX Info: Redefining \. on input line 86.
-LaTeX Info: Redefining \% on input line 86.
- [21 <./Imagenes/Kanban.png>] (./Glosario.tex
+) (./Capitulo3/3.2_Requisitos.tex) (./Glosario.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [22] [23]) (./memoria.bbl
@@ -740,18 +736,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 13985 strings out of 492639
- 261163 string characters out of 6133102
+ 13979 strings out of 492639
+ 261088 string characters out of 6133102
  348808 words of memory out of 5000000
- 17681 multiletter control sequences out of 15000+600000
- 539122 words of font info for 46 fonts, out of 8000000 for 9000
+ 17674 multiletter control sequences out of 15000+600000
+ 539468 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,8n,65p,1381b,573s stack positions out of 5000i,500n,10000p,200000b,80000s
-<d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on memoria.pdf (31 pages, 1165495 bytes).
+<d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on memoria.pdf (31 pages, 1177594 bytes).
 PDF statistics:
- 157 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
+ 161 PDF objects out of 1000 (max. 8388607)
+ 108 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

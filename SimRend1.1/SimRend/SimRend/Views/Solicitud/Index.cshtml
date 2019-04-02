@@ -4,78 +4,96 @@
     ViewData["Title"] = "Busqueda";
 }
 
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tablaBusqueda').DataTable({ "lengthChange": false});
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/js/jquery-1.10.19.dataTables.js.js" type="text/javascript" charset="utf-8"></script>
+
+}
+
 <h2>Búsqueda de Solicitudes</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaActual)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Monto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NombreEvento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaInicioEvento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaTerminoEvento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LugarEvento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Responsable)
-            </th>
-            <th>
-                Ver Solicitud
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model != null)
-        {
-            @foreach (var item in Model)
+<div class="datagrid">
+    <table id="tablaBusqueda" class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>
+                    Fecha de solicitud
+                </th>
+                <th>
+                    Monto($)
+                </th>
+                <th>
+                    Nombre del evento
+                </th>
+                <th>
+                    Fecha de inicio del evento
+                </th>
+                <th>
+                    Fecha de término del evento
+                </th>
+                <th>
+                    Lugar del evento
+                </th>
+                <th>
+                    Responsable
+                </th>
+                <th>
+                    Ver Solicitud
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FechaActual)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Monto)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NombreEvento)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FechaInicioEvento)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FechaTerminoEvento)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LugarEvento)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Responsable)
-                    </td>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaActual)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Monto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreEvento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaInicioEvento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FechaTerminoEvento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LugarEvento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Responsable)
+                        </td>
 
-                    <td>
-                        @using (Html.BeginForm("IrResumen", "Solicitud", FormMethod.Post, new { @style = "border:none" }))
-                        {
-                            <input type="hidden" readonly="" class="form-control-plaintext" name="IdSolicitud" value="@item.Id">
-                            <button type="submit" class="btn btn-warning btn-sm">Ver</button>
-               
-                        }
-                    </td>
-                </tr>
+                        <td>
+                            @using (Html.BeginForm("IrResumen", "Solicitud", FormMethod.Post, new { @style = "border:none" }))
+                            {
+                                <input type="hidden" readonly="" class="form-control-plaintext" name="IdSolicitud" value="@item.Id">
+                                <div class="wrapper">
+                                    <button class="buttonPrimary" type="submit">Ver</button>
+                                </div>
+
+                            }
+                        </td>
+                    </tr>
+                }
+
             }
 
-        }
+        </tbody>
+    </table>
 
-    </tbody>
-</table>
+</div>
+
+
