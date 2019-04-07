@@ -1,5 +1,6 @@
 %% inicio, la clase del documento es iccmemoria.cls
 \documentclass{iccmemoria}
+\setcounter{secnumdepth}{3} %%Cantidad maxima de subsecciones enumeradas
 \newcommand{\grad}{$^{\circ}$}
 %\usepackage[utf8]{inputenc} % Caracteres con acentos.
 
@@ -65,24 +66,70 @@ Dedicado a ...
 
 %% contenido del segundo capítulo
 \chapter{Antecedentes}
-	\section{Conceptos y tecnologías utilizadas}
-		\subsection{Conceptos}
-		\subsection{Tecnologías utilizadas}
+	\section{Conceptos}
+		\subfile{Capitulo2/2.1.1_Conceptos}
 
-	\section{Metodología}
-		\subsection{Scrum}
-		\subfile{Capitulo2/2.2_Scrum}
-	
-	\section{Validación de la applicación}
-	\subfile{Capitulo2/2.3_Pruebas}
+	\section{Tecnologías utilizadas}
+		\subfile{Capitulo2/2.2_Tecnologias_Utilizadas}
+		\subsection{Frameworks}
+		\subfile{Capitulo2/2.2.1_Framework}
+		\subsection{Bibliotecas}
+		\subfile{Capitulo2/2.2.2_Bibliotecas}
+
+	\section{Metodología de desarrollo de software}
+		\subfile{Capitulo2/2.3_Metodologia_desarrollo}
+
+	\section{Metodología ágil}
+		\subsection{Melé}
+		\subfile{Capitulo2/2.4.1_Mele}
+		\subsection{Roles}
+		\subfile{Capitulo2/2.4.2_Roles}
+		\subsection{Artefactos}
+		\subfile{Capitulo2/2.4.3_Artefactos}
+		\subsection{Reuniones}
+		\subfile{Capitulo2/2.4.4_Reuniones}
+		\subsection{Ciclo de vida}
+		\subfile{Capitulo2/2.4.5_Ciclo_de_vida}
+
+	\section{Validación de la aplicación}
+		\subfile{Capitulo2/2.5_Pruebas}
+
+	\section{Herramientas de planificación}
 
 %% contenido del tercer capítulo
-\chapter{Metodología y requisitos}
+\chapter{Metodología utilizada}
 	\section{Metodología}
 	\subfile{Capitulo3/3.1_Metodologia}
 
+	\section{Estudio del entorno}
+		\subsection{Las personas}
+		\subsection{La aplicación}
+		\subsection{Las herramientas}
+	
+	\section{La metodología}
+		\subsection{Roles}
+		\subsection{Aptitudes requeridas}
+		\subsection{El proceso}
+			\subsubsection{El proyecto}
+			\subsubsection{La iiteración}
+			\subsubsection{Las fases}
+		\subsection{Documentación}
+			\subsubsection{Reuniones}
+		\subsection{Cómo se trabajó}
+	
+%% contenido del Cuarto capítulo
+\chapter{Caracteristicas del sistema}
 	\section{Requisitos del sistema}
 	\subfile{Capitulo3/3.2_Requisitos}
+
+%% contenido del quinto capítulo
+\chapter{Diseño de la aplicación}
+
+
+
+
+
+	
 
 
 

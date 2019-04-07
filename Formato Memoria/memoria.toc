@@ -17,21 +17,44 @@
 \contentsline {section}{\numberline {1.6}Proyectos similares}{15}
 \contentsline {section}{\numberline {1.7}Descripci\IeC {\'o}n de contenidos}{16}
 \contentsline {chapter}{\numberline {2}Antecedentes}{17}
-\contentsline {section}{\numberline {2.1}Conceptos y tecnolog\IeC {\'\i }as utilizadas}{17}
-\contentsline {subsection}{\numberline {2.1.1}Conceptos}{17}
-\contentsline {subsection}{\numberline {2.1.2}Tecnolog\IeC {\'\i }as utilizadas}{17}
-\contentsline {section}{\numberline {2.2}Metodolog\IeC {\'\i }a}{17}
-\contentsline {subsection}{\numberline {2.2.1}Scrum}{17}
-\contentsline {section}{\numberline {2.3}Validaci\IeC {\'o}n de la applicaci\IeC {\'o}n}{19}
-\contentsline {chapter}{\numberline {3}Metodolog\IeC {\'\i }a y requisitos}{20}
-\contentsline {section}{\numberline {3.1}Metodolog\IeC {\'\i }a}{20}
-\contentsline {section}{\numberline {3.2}Requisitos del sistema}{22}
-\contentsline {chapter}{Glosario}{23}
-\contentsline {chapter}{Bibliograf\'{\i }a}{25}
+\contentsline {section}{\numberline {2.1}Conceptos}{17}
+\contentsline {section}{\numberline {2.2}Tecnolog\IeC {\'\i }as utilizadas}{18}
+\contentsline {subsection}{\numberline {2.2.1}Frameworks}{18}
+\contentsline {subsection}{\numberline {2.2.2}Bibliotecas}{19}
+\contentsline {section}{\numberline {2.3}Metodolog\IeC {\'\i }a de desarrollo de software}{19}
+\contentsline {section}{\numberline {2.4}Metodolog\IeC {\'\i }a \IeC {\'a}gil}{19}
+\contentsline {subsection}{\numberline {2.4.1}Mel\IeC {\'e}}{19}
+\contentsline {subsection}{\numberline {2.4.2}Roles}{19}
+\contentsline {subsection}{\numberline {2.4.3}Artefactos}{19}
+\contentsline {subsection}{\numberline {2.4.4}Reuniones}{21}
+\contentsline {subsection}{\numberline {2.4.5}Ciclo de vida}{22}
+\contentsline {section}{\numberline {2.5}Validaci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{22}
+\contentsline {section}{\numberline {2.6}Herramientas de planificaci\IeC {\'o}n}{23}
+\contentsline {chapter}{\numberline {3}Metodolog\IeC {\'\i }a utilizada}{24}
+\contentsline {section}{\numberline {3.1}Metodolog\IeC {\'\i }a}{24}
+\contentsline {section}{\numberline {3.2}Estudio del entorno}{27}
+\contentsline {subsection}{\numberline {3.2.1}Las personas}{27}
+\contentsline {subsection}{\numberline {3.2.2}La aplicaci\IeC {\'o}n}{27}
+\contentsline {subsection}{\numberline {3.2.3}Las herramientas}{27}
+\contentsline {section}{\numberline {3.3}La metodolog\IeC {\'\i }a}{27}
+\contentsline {subsection}{\numberline {3.3.1}Roles}{27}
+\contentsline {subsection}{\numberline {3.3.2}Aptitudes requeridas}{27}
+\contentsline {subsection}{\numberline {3.3.3}El proceso}{27}
+\contentsline {subsubsection}{\numberline {3.3.3.1}El proyecto}{27}
+\contentsline {subsubsection}{\numberline {3.3.3.2}La iiteraci\IeC {\'o}n}{27}
+\contentsline {subsubsection}{\numberline {3.3.3.3}Las fases}{27}
+\contentsline {subsection}{\numberline {3.3.4}Documentaci\IeC {\'o}n}{27}
+\contentsline {subsubsection}{\numberline {3.3.4.1}Reuniones}{27}
+\contentsline {subsection}{\numberline {3.3.5}C\IeC {\'o}mo se trabaj\IeC {\'o}}{27}
+\contentsline {chapter}{\numberline {4}Caracteristicas del sistema}{28}
+\contentsline {section}{\numberline {4.1}Requisitos del sistema}{28}
+\contentsline {chapter}{\numberline {5}Dise\IeC {\~n}o de la aplicaci\IeC {\'o}n}{29}
+\contentsline {chapter}{Glosario}{30}
+\contentsline {chapter}{Bibliograf\'{\i }a}{32}
 \contentsline {chapter}{Anexos}{}
-\contentsline {chapter}{A:\hspace {1em}El Primer Anexo}{28}
-\contentsline {section}{\numberline {A.1}La primera secci\IeC {\'o}n del primer anexo}{28}
-\contentsline {section}{\numberline {A.2}La segunda secci\IeC {\'o}n del primer anexo}{28}
-\contentsline {subsection}{\numberline {A.2.1}La primera subsecci\IeC {\'o}n de la segunda secci\IeC {\'o}n del primer anexo}{28}
-\contentsline {chapter}{B:\hspace {1em}El segundo Anexo}{29}
-\contentsline {section}{\numberline {B.1}La primera secci\IeC {\'o}n del segundo anexo}{29}
+\contentsline {chapter}{A:\hspace {1em}El Primer Anexo}{35}
+\contentsline {section}{\numberline {A.1}La primera secci\IeC {\'o}n del primer anexo}{35}
+\contentsline {section}{\numberline {A.2}La segunda secci\IeC {\'o}n del primer anexo}{35}
+\contentsline {subsection}{\numberline {A.2.1}La primera subsecci\IeC {\'o}n de la segunda secci\IeC {\'o}n del primer anexo}{35}
+\contentsline {chapter}{B:\hspace {1em}El segundo Anexo}{36}
+\contentsline {section}{\numberline {B.1}La primera secci\IeC {\'o}n del segundo anexo}{36}

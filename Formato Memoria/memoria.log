@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  2 APR 2019 11:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  7 APR 2019 04:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -385,20 +385,20 @@ LaTeX Info: Redefining \% on input line 8.
 )
 \openout1 = `memoria.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Info: Redefining \. on input line 18.
-LaTeX Info: Redefining \% on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Info: Redefining \. on input line 19.
+LaTeX Info: Redefining \% on input line 19.
  (d:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count272
@@ -437,32 +437,32 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package epstopdf Info: Source file: <utalca1.eps>
-(epstopdf)                    date: 2019-01-02 19:17:38
+(epstopdf)                    date: 2019-01-02 18:17:38
 (epstopdf)                    size: 24156 bytes
 (epstopdf)             Output file: <utalca1-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-01-02 19:17:38
+(epstopdf)                    date: 2019-01-02 18:17:38
 (epstopdf)                    size: 9257 bytes
 (epstopdf)             Command: <repstopdf --outfile=utalca1-eps-converted-to.pdf utalca1.eps>
-(epstopdf)             \includegraphics on input line 21.
+(epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
 <utalca1-eps-converted-to.pdf, id=1, 107.40125pt x 135.50626pt>
 File: utalca1-eps-converted-to.pdf Graphic file (type pdf)
 <use utalca1-eps-converted-to.pdf>
-Package pdftex.def Info: utalca1-eps-converted-to.pdf  used on input line 21.
+Package pdftex.def Info: utalca1-eps-converted-to.pdf  used on input line 22.
 (pdftex.def)             Requested size: 107.40097pt x 135.5059pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 21.
+(Font)              <17.28> on input line 22.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 21.
+(Font)              <12> on input line 22.
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--21
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 21.
+(Font)              <8> on input line 22.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 21.
+(Font)              <6> on input line 22.
 [-1
 
 
@@ -470,25 +470,25 @@ Non-PDF special ignored!
 <special> papersize=8.5in,11in
 {d:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./utalca1-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <utalca1.eps>
-(epstopdf)                    date: 2019-01-02 19:17:38
+(epstopdf)                    date: 2019-01-02 18:17:38
 (epstopdf)                    size: 24156 bytes
 (epstopdf)             Output file: <utalca1-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-01-02 19:17:38
+(epstopdf)                    date: 2019-01-02 18:17:38
 (epstopdf)                    size: 9257 bytes
 (epstopdf)             Command: <repstopdf --outfile=utalca1-eps-converted-to.pdf utalca1.eps>
-(epstopdf)             \includegraphics on input line 21.
+(epstopdf)             \includegraphics on input line 22.
 Package epstopdf Info: Output file is already uptodate.
 File: utalca1-eps-converted-to.pdf Graphic file (type pdf)
 <use utalca1-eps-converted-to.pdf>
-Package pdftex.def Info: utalca1-eps-converted-to.pdf  used on input line 21.
+Package pdftex.def Info: utalca1-eps-converted-to.pdf  used on input line 22.
 (pdftex.def)             Requested size: 107.40097pt x 135.5059pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--21
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--21
+Underfull \hbox (badness 10000) in paragraph at lines 22--22
 
  []
 
@@ -551,7 +551,7 @@ LaTeX Info: Redefining \% on input line 2.
  [6] (./Resumen.tex [7])
 Cap\'{\i }tulo 1.
 
-Underfull \hbox (badness 10000) detected at line 42
+Underfull \hbox (badness 10000) detected at line 43
 \OT1/cmr/bx/n/24.88 1.
  []
 
@@ -591,72 +591,109 @@ LaTeX Info: Redefining \% on input line 4.
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
  [14]) (./Capitulo1/1.6_Proyectos_Similares.tex)
-LaTeX Info: Redefining \. on input line 63.
-LaTeX Info: Redefining \% on input line 63.
+LaTeX Info: Redefining \. on input line 64.
+LaTeX Info: Redefining \% on input line 64.
  [15] (./Capitulo1/1.7_Descripcion_Contenidos.tex)
-LaTeX Info: Redefining \. on input line 67.
-LaTeX Info: Redefining \% on input line 67.
+LaTeX Info: Redefining \. on input line 68.
+LaTeX Info: Redefining \% on input line 68.
  [16]
 Cap\'{\i }tulo 2.
 
-Underfull \hbox (badness 10000) detected at line 67
+Underfull \hbox (badness 10000) detected at line 68
 \OT1/cmr/bx/n/24.88 2.
  []
 
-(./Capitulo2/2.2_Scrum.tex
+(./Capitulo2/2.1.1_Conceptos.tex [17
+
+]) (./Capitulo2/2.2_Tecnologias_Utilizadas.tex) (./Capitulo2/2.2.1_Framework.tex)
+LaTeX Info: Redefining \. on input line 76.
+LaTeX Info: Redefining \% on input line 76.
+ [18] (./Capitulo2/2.2.2_Bibliotecas.tex) (./Capitulo2/2.3_Metodologia_desarrollo.tex) (./Capitulo2/2.4.1_Mele.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 1.
- [17
+<Imagenes/mele.jpg, id=80, 1233.408pt x 856.3995pt>
+File: Imagenes/mele.jpg Graphic file (type jpg)
+<use Imagenes/mele.jpg>
+Package pdftex.def Info: Imagenes/mele.jpg  used on input line 18.
+(pdftex.def)             Requested size: 429.3521pt x 298.11087pt.
 
-]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 18.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./Capitulo2/2.4.2_Roles.tex) (./Capitulo2/2.4.3_Artefactos.tex
+LaTeX Info: Redefining \. on input line 10.
+LaTeX Info: Redefining \% on input line 10.
+ [19]
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
+ [20 <./Imagenes/mele.jpg>]) (./Capitulo2/2.4.4_Reuniones.tex
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
+ [21]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 17.
  (d:/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 18.
-<Imagenes/mele.jpg, id=80, 1233.408pt x 856.3995pt>
-File: Imagenes/mele.jpg Graphic file (type jpg)
-<use Imagenes/mele.jpg>
-Package pdftex.def Info: Imagenes/mele.jpg  used on input line 34.
-(pdftex.def)             Requested size: 429.3521pt x 298.11087pt.
-) (./Capitulo2/2.3_Pruebas.tex
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
+) (./Capitulo2/2.4.5_Ciclo_de_vida.tex) (./Capitulo2/2.5_Pruebas.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [18 <./Imagenes/mele.jpg>])
-LaTeX Info: Redefining \. on input line 80.
-LaTeX Info: Redefining \% on input line 80.
- [19]
+ [22])
+LaTeX Info: Redefining \. on input line 100.
+LaTeX Info: Redefining \% on input line 100.
+ [23]
 Cap\'{\i }tulo 3.
 
-Underfull \hbox (badness 10000) detected at line 80
+Underfull \hbox (badness 10000) detected at line 100
 \OT1/cmr/bx/n/24.88 3.
  []
 
-(./Capitulo3/3.1_Metodologia.tex [20
+(./Capitulo3/3.1_Metodologia.tex [24
 
 ]
-<Imagenes/Kanban.png, id=91, 1153.911pt x 536.0025pt>
+<Imagenes/Kanban.png, id=104, 1153.911pt x 536.0025pt>
 File: Imagenes/Kanban.png Graphic file (type png)
 <use Imagenes/Kanban.png>
 Package pdftex.def Info: Imagenes/Kanban.png  used on input line 23.
 (pdftex.def)             Requested size: 429.3521pt x 199.43831pt.
 LaTeX Info: Redefining \. on input line 46.
 LaTeX Info: Redefining \% on input line 46.
- [21 <./Imagenes/Kanban.png>]
+ [25 <./Imagenes/Kanban.png>]
 File: Imagenes/Kanban.png Graphic file (type png)
 <use Imagenes/Kanban.png>
 Package pdftex.def Info: Imagenes/Kanban.png  used on input line 54.
 (pdftex.def)             Requested size: 429.3521pt x 199.43831pt.
-) (./Capitulo3/3.2_Requisitos.tex) (./Glosario.tex
+)
+LaTeX Info: Redefining \. on input line 121.
+LaTeX Info: Redefining \% on input line 121.
+ [26]
+LaTeX Info: Redefining \. on input line 121.
+LaTeX Info: Redefining \% on input line 121.
+ [27]
+Cap\'{\i }tulo 4.
+
+Underfull \hbox (badness 10000) detected at line 121
+\OT1/cmr/bx/n/24.88 4.
+ []
+
+(./Capitulo3/3.2_Requisitos.tex) [28
+
+]
+Cap\'{\i }tulo 5.
+
+Underfull \hbox (badness 10000) detected at line 126
+\OT1/cmr/bx/n/24.88 5.
+ []
+
+(./Glosario.tex [29
+
+] [30]) (./memoria.bbl
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [22] [23]) (./memoria.bbl
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
- [24]
+ [31]
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
 []\OT1/cmr/m/n/12 Albert eins-tein and em-pi-ri-cal soft-wa-re en-gi-nee-ring.
  []
@@ -701,29 +738,29 @@ Overfull \hbox (7.3605pt too wide) in paragraph at lines 64--67
 []\OT1/cmr/m/n/12 Vicerrectoria de desa-rro-llo es-tu-dian-til.  http://vde.utalca.cl/html/organizaciones.html.
  []
 
-[25]
+[32]
 Underfull \hbox (badness 10000) in paragraph at lines 74--78
 []\OT1/cmr/m/n/12 Wordreference.  https://forum.wordreference.com/threads/resoluci$ $%C3$ $%B3n-
  []
 
 )
-LaTeX Info: Redefining \. on input line 148.
-LaTeX Info: Redefining \% on input line 148.
- [26] [27
+LaTeX Info: Redefining \. on input line 195.
+LaTeX Info: Redefining \% on input line 195.
+ [33] [34
 
 ]
-Overfull \hbox (0.45876pt too wide) detected at line 151
+Overfull \hbox (0.45876pt too wide) detected at line 198
 \OT1/cmr/bx/n/24.88 A.
  []
 
-[28
+[35
 
 ]
-Underfull \hbox (badness 10000) detected at line 164
+Underfull \hbox (badness 10000) detected at line 211
 \OT1/cmr/bx/n/24.88 B.
  []
 
-[29
+[36
 
 ] (./memoria.aux
 LaTeX Info: Redefining \. on input line 7.
@@ -736,18 +773,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 13979 strings out of 492639
- 261088 string characters out of 6133102
+ 14018 strings out of 492639
+ 261986 string characters out of 6133102
  348808 words of memory out of 5000000
  17674 multiletter control sequences out of 15000+600000
  539468 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,8n,65p,1381b,573s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on memoria.pdf (31 pages, 1177594 bytes).
+Output written on memoria.pdf (38 pages, 1188659 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 108 compressed objects within 2 object streams
+ 185 PDF objects out of 1000 (max. 8388607)
+ 125 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
