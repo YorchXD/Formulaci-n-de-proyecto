@@ -1,0 +1,4 @@
+PWD d:/Repositorios/Formulación de proyecto/Formato Memoria
+INPUT d:/texlive/2018/texmf.cnf
+INPUT d:/texlive/2018/texmf-dist/web2c/texmf.cnf
+INPUT d:/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt

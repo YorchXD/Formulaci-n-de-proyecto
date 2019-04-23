@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  7 APR 2019 04:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  22 APR 2019 04:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -385,20 +385,20 @@ LaTeX Info: Redefining \% on input line 8.
 )
 \openout1 = `memoria.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Info: Redefining \. on input line 19.
-LaTeX Info: Redefining \% on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Info: Redefining \. on input line 24.
+LaTeX Info: Redefining \% on input line 24.
  (d:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count272
@@ -443,26 +443,26 @@ Package epstopdf Info: Source file: <utalca1.eps>
 (epstopdf)                    date: 2019-01-02 18:17:38
 (epstopdf)                    size: 9257 bytes
 (epstopdf)             Command: <repstopdf --outfile=utalca1-eps-converted-to.pdf utalca1.eps>
-(epstopdf)             \includegraphics on input line 22.
+(epstopdf)             \includegraphics on input line 27.
 Package epstopdf Info: Output file is already uptodate.
 <utalca1-eps-converted-to.pdf, id=1, 107.40125pt x 135.50626pt>
 File: utalca1-eps-converted-to.pdf Graphic file (type pdf)
 <use utalca1-eps-converted-to.pdf>
-Package pdftex.def Info: utalca1-eps-converted-to.pdf  used on input line 22.
+Package pdftex.def Info: utalca1-eps-converted-to.pdf  used on input line 27.
 (pdftex.def)             Requested size: 107.40097pt x 135.5059pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 22.
+(Font)              <17.28> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 22.
+(Font)              <12> on input line 27.
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--22
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 22.
+(Font)              <8> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 22.
+(Font)              <6> on input line 27.
 [-1
 
 
@@ -476,19 +476,19 @@ Package epstopdf Info: Source file: <utalca1.eps>
 (epstopdf)                    date: 2019-01-02 18:17:38
 (epstopdf)                    size: 9257 bytes
 (epstopdf)             Command: <repstopdf --outfile=utalca1-eps-converted-to.pdf utalca1.eps>
-(epstopdf)             \includegraphics on input line 22.
+(epstopdf)             \includegraphics on input line 27.
 Package epstopdf Info: Output file is already uptodate.
 File: utalca1-eps-converted-to.pdf Graphic file (type pdf)
 <use utalca1-eps-converted-to.pdf>
-Package pdftex.def Info: utalca1-eps-converted-to.pdf  used on input line 22.
+Package pdftex.def Info: utalca1-eps-converted-to.pdf  used on input line 27.
 (pdftex.def)             Requested size: 107.40097pt x 135.5059pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--22
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 22--22
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
 
  []
 
@@ -551,22 +551,22 @@ LaTeX Info: Redefining \% on input line 2.
  [6] (./Resumen.tex [7])
 Cap\'{\i }tulo 1.
 
-Underfull \hbox (badness 10000) detected at line 43
+Underfull \hbox (badness 10000) detected at line 48
 \OT1/cmr/bx/n/24.88 1.
  []
 
 (./Capitulo1/1_Introduccion.tex) (./Capitulo1/1.1_Contexto.tex
-<Imagenes/Solicitud_Federacion.jpg, id=41, 1262.46657pt x 1362.59062pt>
-File: Imagenes/Solicitud_Federacion.jpg Graphic file (type jpg)
-<use Imagenes/Solicitud_Federacion.jpg>
-Package pdftex.def Info: Imagenes/Solicitud_Federacion.jpg  used on input line 11.
-(pdftex.def)             Requested size: 429.3521pt x 463.39943pt.
+<Imagenes/Solicitud_Federacion.png, id=41, 1059.96pt x 1015.54407pt>
+File: Imagenes/Solicitud_Federacion.png Graphic file (type png)
+<use Imagenes/Solicitud_Federacion.png>
+Package pdftex.def Info: Imagenes/Solicitud_Federacion.png  used on input line 11.
+(pdftex.def)             Requested size: 429.3521pt x 411.35509pt.
  [8
 
 ]
 LaTeX Info: Redefining \. on input line 57.
 LaTeX Info: Redefining \% on input line 57.
- [9 <./Imagenes/Solicitud_Federacion.jpg>]
+ [9 <./Imagenes/Solicitud_Federacion.png>]
 Overfull \hbox (0.32222pt too wide) in paragraph at lines 57--57
 |\OT1/cmr/m/n/12 A. 
  []
@@ -574,126 +574,183 @@ Overfull \hbox (0.32222pt too wide) in paragraph at lines 57--57
 LaTeX Info: Redefining \. on input line 57.
 LaTeX Info: Redefining \% on input line 57.
 [10]
-<Imagenes/Solicitud_CCAA.jpg, id=53, 1262.46657pt x 1375.38844pt>
-File: Imagenes/Solicitud_CCAA.jpg Graphic file (type jpg)
-<use Imagenes/Solicitud_CCAA.jpg>
-Package pdftex.def Info: Imagenes/Solicitud_CCAA.jpg  used on input line 60.
-(pdftex.def)             Requested size: 429.3521pt x 467.7518pt.
-LaTeX Info: Redefining \. on input line 72.
-LaTeX Info: Redefining \% on input line 72.
- [11]
-LaTeX Info: Redefining \. on input line 72.
-LaTeX Info: Redefining \% on input line 72.
- [12 <./Imagenes/Solicitud_CCAA.jpg>]) (./Capitulo1/1.2_Definicion_Problema.tex) (./Capitulo1/1.3_Presentacion_Solucion.tex
-LaTeX Info: Redefining \. on input line 4.
-LaTeX Info: Redefining \% on input line 4.
- [13]) (./Capitulo1/1.4_Objetivos.tex) (./Capitulo1/1.5_Alcances.tex
-LaTeX Info: Redefining \. on input line 5.
-LaTeX Info: Redefining \% on input line 5.
- [14]) (./Capitulo1/1.6_Proyectos_Similares.tex)
-LaTeX Info: Redefining \. on input line 64.
-LaTeX Info: Redefining \% on input line 64.
- [15] (./Capitulo1/1.7_Descripcion_Contenidos.tex)
-LaTeX Info: Redefining \. on input line 68.
-LaTeX Info: Redefining \% on input line 68.
- [16]
+<Imagenes/Solicitud_CCAA.png, id=55, 967.36406pt x 919.18407pt>
+File: Imagenes/Solicitud_CCAA.png Graphic file (type png)
+<use Imagenes/Solicitud_CCAA.png>
+Package pdftex.def Info: Imagenes/Solicitud_CCAA.png  used on input line 61.
+(pdftex.def)             Requested size: 429.3521pt x 407.96266pt.
+LaTeX Info: Redefining \. on input line 73.
+LaTeX Info: Redefining \% on input line 73.
+ [11]) (./Capitulo1/1.2_Definicion_Problema.tex
+LaTeX Info: Redefining \. on input line 2.
+LaTeX Info: Redefining \% on input line 2.
+ [12 <./Imagenes/Solicitud_CCAA.png>]) (./Capitulo1/1.3_Presentacion_Solucion.tex)
+LaTeX Info: Redefining \. on input line 59.
+LaTeX Info: Redefining \% on input line 59.
+ [13] (./Capitulo1/1.4_Objetivos.tex) (./Capitulo1/1.5_Alcances.tex
+LaTeX Info: Redefining \. on input line 15.
+LaTeX Info: Redefining \% on input line 15.
+ [14]) (./Capitulo1/1.6_Proyectos_Similares.tex) (./Capitulo1/1.7_Descripcion_Contenidos.tex)
+LaTeX Info: Redefining \. on input line 73.
+LaTeX Info: Redefining \% on input line 73.
+ [15]
 Cap\'{\i }tulo 2.
 
-Underfull \hbox (badness 10000) detected at line 68
+Underfull \hbox (badness 10000) detected at line 73
 \OT1/cmr/bx/n/24.88 2.
  []
 
-(./Capitulo2/2.1.1_Conceptos.tex [17
+(./Capitulo2/2_Introduccion.tex) (./Capitulo2/2.1.1_Conceptos.tex [16
 
-]) (./Capitulo2/2.2_Tecnologias_Utilizadas.tex) (./Capitulo2/2.2.1_Framework.tex)
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
- [18] (./Capitulo2/2.2.2_Bibliotecas.tex) (./Capitulo2/2.3_Metodologia_desarrollo.tex) (./Capitulo2/2.4.1_Mele.tex
+]
+LaTeX Info: Redefining \. on input line 44.
+LaTeX Info: Redefining \% on input line 44.
+ [17]
+LaTeX Info: Redefining \. on input line 79.
+LaTeX Info: Redefining \% on input line 79.
+ [18]) (./Capitulo2/2.2_Tecnologias_Utilizadas.tex
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
+ [19]) (./Capitulo2/2.2.1_Framework.tex) (./Capitulo2/2.2.2_Bibliotecas.tex) (./Capitulo2/2.3_Metodologia_desarrollo.tex
+LaTeX Info: Redefining \. on input line 7.
+LaTeX Info: Redefining \% on input line 7.
+ [20]
+<Imagenes/tradicional_vs_agil.png, id=89, 963.6pt x 542.025pt>
+File: Imagenes/tradicional_vs_agil.png Graphic file (type png)
+<use Imagenes/tradicional_vs_agil.png>
+Package pdftex.def Info: Imagenes/tradicional_vs_agil.png  used on input line 20.
+(pdftex.def)             Requested size: 429.3521pt x 241.51051pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (60.76024pt too wide) in paragraph at lines 28--60
+[][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./Capitulo2/2.4_Metodologia_Agil.tex
+LaTeX Info: Redefining \. on input line 2.
+LaTeX Info: Redefining \% on input line 2.
+ [21]
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
+ [22 <./Imagenes/tradicional_vs_agil.png>]
+LaTeX Info: Redefining \. on input line 23.
+LaTeX Info: Redefining \% on input line 23.
+ [23]) (./Capitulo2/2.4.1_Scrum.tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 1.
-<Imagenes/mele.jpg, id=80, 1233.408pt x 856.3995pt>
-File: Imagenes/mele.jpg Graphic file (type jpg)
-<use Imagenes/mele.jpg>
-Package pdftex.def Info: Imagenes/mele.jpg  used on input line 18.
-(pdftex.def)             Requested size: 429.3521pt x 298.11087pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) (./Capitulo2/2.4.2_Roles.tex) (./Capitulo2/2.4.3_Artefactos.tex
-LaTeX Info: Redefining \. on input line 10.
-LaTeX Info: Redefining \% on input line 10.
- [19]
-LaTeX Info: Redefining \. on input line 17.
-LaTeX Info: Redefining \% on input line 17.
- [20 <./Imagenes/mele.jpg>]) (./Capitulo2/2.4.4_Reuniones.tex
-LaTeX Info: Redefining \. on input line 17.
-LaTeX Info: Redefining \% on input line 17.
- [21]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 17.
+) (./Capitulo2/2.4.2_Roles.tex
+LaTeX Info: Redefining \. on input line 6.
+LaTeX Info: Redefining \% on input line 6.
+ [24]) (./Capitulo2/2.4.3_Artefactos.tex
+LaTeX Info: Redefining \. on input line 7.
+LaTeX Info: Redefining \% on input line 7.
+ [25]) (./Capitulo2/2.4.4_Reuniones.tex
+LaTeX Info: Redefining \. on input line 2.
+LaTeX Info: Redefining \% on input line 2.
+ [26]
+<Imagenes/Reuniones_Scrum.jpg, id=112, 663.47874pt x 256.96pt>
+File: Imagenes/Reuniones_Scrum.jpg Graphic file (type jpg)
+<use Imagenes/Reuniones_Scrum.jpg>
+Package pdftex.def Info: Imagenes/Reuniones_Scrum.jpg  used on input line 4.
+(pdftex.def)             Requested size: 429.3521pt x 166.28488pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 20.
  (d:/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 17.
-) (./Capitulo2/2.4.5_Ciclo_de_vida.tex) (./Capitulo2/2.5_Pruebas.tex
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 20.
+LaTeX Info: Redefining \. on input line 24.
+LaTeX Info: Redefining \% on input line 24.
+ [27 <./Imagenes/Reuniones_Scrum.jpg>]) (./Capitulo2/2.4.5_Ciclo_de_vida.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [22])
-LaTeX Info: Redefining \. on input line 100.
-LaTeX Info: Redefining \% on input line 100.
- [23]
+ [28]
+<Imagenes/Scrum.jpg, id=120, 641.39626pt x 411.33675pt>
+File: Imagenes/Scrum.jpg Graphic file (type jpg)
+<use Imagenes/Scrum.jpg>
+Package pdftex.def Info: Imagenes/Scrum.jpg  used on input line 6.
+(pdftex.def)             Requested size: 429.3521pt x 275.35568pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./Capitulo2/2.5_Pruebas.tex)
+LaTeX Info: Redefining \. on input line 103.
+LaTeX Info: Redefining \% on input line 103.
+ [29] (./Capitulo2/2.6_HerramientasPlanificacion.tex)
+LaTeX Info: Redefining \. on input line 106.
+LaTeX Info: Redefining \% on input line 106.
+ [30 <./Imagenes/Scrum.jpg>]
+LaTeX Info: Redefining \. on input line 108.
+LaTeX Info: Redefining \% on input line 108.
+ [31]
 Cap\'{\i }tulo 3.
 
-Underfull \hbox (badness 10000) detected at line 100
+Underfull \hbox (badness 10000) detected at line 108
 \OT1/cmr/bx/n/24.88 3.
  []
 
-(./Capitulo3/3.1_Metodologia.tex [24
+(./Capitulo3/3_Introduccion.tex) (./Capitulo3/3.1.3_Herramientas.tex
+<Imagenes/SprintBacklog.png, id=132, 1155.1155pt x 550.4565pt>
+File: Imagenes/SprintBacklog.png Graphic file (type png)
+<use Imagenes/SprintBacklog.png>
+Package pdftex.def Info: Imagenes/SprintBacklog.png  used on input line 6.
+(pdftex.def)             Requested size: 429.3521pt x 204.59804pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[32
 
 ]
-<Imagenes/Kanban.png, id=104, 1153.911pt x 536.0025pt>
+<Imagenes/Kanban.png, id=136, 1153.911pt x 536.0025pt>
 File: Imagenes/Kanban.png Graphic file (type png)
 <use Imagenes/Kanban.png>
-Package pdftex.def Info: Imagenes/Kanban.png  used on input line 23.
+Package pdftex.def Info: Imagenes/Kanban.png  used on input line 37.
 (pdftex.def)             Requested size: 429.3521pt x 199.43831pt.
-LaTeX Info: Redefining \. on input line 46.
-LaTeX Info: Redefining \% on input line 46.
- [25 <./Imagenes/Kanban.png>]
-File: Imagenes/Kanban.png Graphic file (type png)
-<use Imagenes/Kanban.png>
-Package pdftex.def Info: Imagenes/Kanban.png  used on input line 54.
-(pdftex.def)             Requested size: 429.3521pt x 199.43831pt.
-)
-LaTeX Info: Redefining \. on input line 121.
-LaTeX Info: Redefining \% on input line 121.
- [26]
-LaTeX Info: Redefining \. on input line 121.
-LaTeX Info: Redefining \% on input line 121.
- [27]
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (./Capitulo3/3.2_Metodologia.tex
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
+ [33 <./Imagenes/SprintBacklog.png>])
+LaTeX Info: Redefining \. on input line 129.
+LaTeX Info: Redefining \% on input line 129.
+ [34 <./Imagenes/Kanban.png>]
+LaTeX Info: Redefining \. on input line 129.
+LaTeX Info: Redefining \% on input line 129.
+ [35]
 Cap\'{\i }tulo 4.
 
-Underfull \hbox (badness 10000) detected at line 121
+Underfull \hbox (badness 10000) detected at line 129
 \OT1/cmr/bx/n/24.88 4.
  []
 
-(./Capitulo3/3.2_Requisitos.tex) [28
+(./Capitulo4/4_Requisitos.tex) [36
 
 ]
 Cap\'{\i }tulo 5.
 
-Underfull \hbox (badness 10000) detected at line 126
+Underfull \hbox (badness 10000) detected at line 134
 \OT1/cmr/bx/n/24.88 5.
  []
 
-(./Glosario.tex [29
+(./Glosario.tex [37
 
-] [30]) (./memoria.bbl
+] [38]) (./memoria.bbl
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [31]
+ [39]
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
 []\OT1/cmr/m/n/12 Albert eins-tein and em-pi-ri-cal soft-wa-re en-gi-nee-ring.
  []
@@ -738,29 +795,29 @@ Overfull \hbox (7.3605pt too wide) in paragraph at lines 64--67
 []\OT1/cmr/m/n/12 Vicerrectoria de desa-rro-llo es-tu-dian-til.  http://vde.utalca.cl/html/organizaciones.html.
  []
 
-[32]
+[40]
 Underfull \hbox (badness 10000) in paragraph at lines 74--78
 []\OT1/cmr/m/n/12 Wordreference.  https://forum.wordreference.com/threads/resoluci$ $%C3$ $%B3n-
  []
 
 )
-LaTeX Info: Redefining \. on input line 195.
-LaTeX Info: Redefining \% on input line 195.
- [33] [34
+LaTeX Info: Redefining \. on input line 203.
+LaTeX Info: Redefining \% on input line 203.
+ [41] [42
 
 ]
-Overfull \hbox (0.45876pt too wide) detected at line 198
+Overfull \hbox (0.45876pt too wide) detected at line 206
 \OT1/cmr/bx/n/24.88 A.
  []
 
-[35
+[43
 
 ]
-Underfull \hbox (badness 10000) detected at line 211
+Underfull \hbox (badness 10000) detected at line 219
 \OT1/cmr/bx/n/24.88 B.
  []
 
-[36
+[44
 
 ] (./memoria.aux
 LaTeX Info: Redefining \. on input line 7.
@@ -773,18 +830,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 14018 strings out of 492639
- 261986 string characters out of 6133102
- 348808 words of memory out of 5000000
- 17674 multiletter control sequences out of 15000+600000
+ 14056 strings out of 492639
+ 263024 string characters out of 6133102
+ 348838 words of memory out of 5000000
+ 17690 multiletter control sequences out of 15000+600000
  539468 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,8n,65p,1381b,573s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,9n,65p,1381b,573s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on memoria.pdf (38 pages, 1188659 bytes).
+Output written on memoria.pdf (46 pages, 1006634 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 125 compressed objects within 2 object streams
+ 217 PDF objects out of 1000 (max. 8388607)
+ 143 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
