@@ -4,11 +4,6 @@
 \newcommand{\grad}{$^{\circ}$}
 %\usepackage[utf8]{inputenc} % Caracteres con acentos.
 
-
-
-
-
-
 %% datos generales y para la tapa
 \titulo{Gestión de fondos para actividades estudiantiles conducidas por CCAA o la Fedeut Curicó en acuerdo a la RU N\grad 2083 de 2017}
 \author{Yorch Sepúlveda}
@@ -32,7 +27,7 @@ Dedicado a ...
 \end{dedicatory}
 
 %% agradecimientos
-\subfile{Agradecimientos.tex}
+\subfile{Agradecimientos}
 
 %% indices
 \tableofcontents
@@ -40,21 +35,25 @@ Dedicado a ...
 \listoftables
 
 %% resumen
-\subfile{Resumen.tex}
+\subfile{Resumen}
 
 %% abstract
 
 %% contenido del primer capítulo
 \chapter{Introducción}
+    \label{sec:Intro}
 	\subfile{Capitulo1/1_Introduccion}
 
 	\section{Contexto del proyecto}
+	\label{sec:Contexto}
 	\subfile{Capitulo1/1.1_Contexto}
 
 	\section{Definición del problema}
+	\label{sec:Problema}
 	\subfile{Capitulo1/1.2_Definicion_Problema}
 
 	\section{Presentación de la solución}
+	\label{sec:Solucion}
 	\subfile{Capitulo1/1.3_Presentacion_Solucion}
 
 	\section{Objetivos}
@@ -63,11 +62,14 @@ Dedicado a ...
 	\section{Alcances}
 	\subfile{Capitulo1/1.5_Alcances}
 
+	\section{Limitaciones}
+	\subfile{Capitulo1/1.6_Limitaciones}
+
 	\section{Proyectos similares}
-	\subfile{Capitulo1/1.6_Proyectos_Similares}
+	\subfile{Capitulo1/1.7_Proyectos_Similares}
 
 	\section{Descripción de contenidos}
-	\subfile{Capitulo1/1.7_Descripcion_Contenidos}
+	\subfile{Capitulo1/1.8_Descripcion_Contenidos}
 
 %% contenido del segundo capítulo
 \chapter{Antecedentes}
@@ -76,25 +78,34 @@ Dedicado a ...
 		\subfile{Capitulo2/2.1.1_Conceptos}
 
 	\section{Tecnologías utilizadas}
+	\label{sec:Tecnologias}
 		\subfile{Capitulo2/2.2_Tecnologias_Utilizadas}
 		\subsection{Frameworks}
+
 		\subfile{Capitulo2/2.2.1_Framework}
 		\subsection{Bibliotecas}
-		\subfile{Capitulo2/2.2.2_Bibliotecas}
 
+		\subfile{Capitulo2/2.2.2_Bibliotecas}
+		
 	\section{Metodología de desarrollo de software}
 		\subfile{Capitulo2/2.3_Metodologia_desarrollo}
 
 	\section{Metodología ágil}
 	\subfile{Capitulo2/2.4_Metodologia_Agil}
+
 		\subsection{Scrum}
 		\subfile{Capitulo2/2.4.1_Scrum}
+
 		\subsection{Roles}
 		\subfile{Capitulo2/2.4.2_Roles}
+
 		\subsection{Artefactos}
+		\label{sec:Artefactos}
 		\subfile{Capitulo2/2.4.3_Artefactos}
+		
 		\subsection{Reuniones}
 		\subfile{Capitulo2/2.4.4_Reuniones}
+		
 		\subsection{Ciclo de vida}
 		\subfile{Capitulo2/2.4.5_Ciclo_de_vida}
 
@@ -107,22 +118,46 @@ Dedicado a ...
 %% contenido del tercer capítulo
 \chapter{Metodología utilizada}
 \subfile{Capitulo3/3_Introduccion}
+
 	\section{Estudio del entorno}
+	\subfile{Capitulo3/3.1_Entorno}
+
 		\subsection{Las personas}
+		\subfile{Capitulo3/3.1.1_Personas}
+
 		\subsection{La aplicación}
+		\subfile{Capitulo3/3.1.2_Aplicacion}
+
 		\subsection{Las herramientas}
 		\subfile{Capitulo3/3.1.3_Herramientas}
 	
 	\section{La metodología}
 	\subfile{Capitulo3/3.2_Metodologia}
 		\subsection{Roles}
+		\label{sec:Roles}
+		\subfile{Capitulo3/3.2.1_Roles}
+
 		\subsection{Aptitudes requeridas}
+		\subfile{Capitulo3/3.2.2_Aptitudes}
+
 		\subsection{El proceso}
+		\subfile{Capitulo3/3.2.3_Proceso}
+
 			\subsubsection{El proyecto}
+			\subfile{Capitulo3/3.2.3.1_Proyecto}
+
 			\subsubsection{La iteración}
+			\subfile{Capitulo3/3.2.3.2_Iteracion}
+
 			\subsubsection{Las fases}
+			\subfile{Capitulo3/3.2.3.3_Fases}
+
 		\subsection{Documentación}
+		\subfile{Capitulo3/3.2.4_Documentacion}
+
 			\subsubsection{Reuniones}
+			\subfile{Capitulo3/3.2.4.1_Reuniones}
+
 		\subsection{Cómo se trabajó}
 	
 %% contenido del Cuarto capítulo
@@ -132,6 +167,8 @@ Dedicado a ...
 
 %% contenido del quinto capítulo
 \chapter{Diseño de la aplicación}
+	\section{Diseño}
+	\subfile{Capitulo5/5_Disenio}
 
 
 
