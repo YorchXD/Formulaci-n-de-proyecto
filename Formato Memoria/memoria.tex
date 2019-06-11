@@ -3,7 +3,8 @@
 \setcounter{secnumdepth}{3} %%Cantidad maxima de subsecciones enumeradas
 \newcommand{\grad}{$^{\circ}$}
 %\usepackage[utf8]{inputenc} % Caracteres con acentos.
-
+%%\usepackage{enumitem}
+\usepackage[inline]{enumitem}
 %% datos generales y para la tapa
 \titulo{Gestión de fondos para actividades estudiantiles conducidas por CCAA o la Fedeut Curicó en acuerdo a la RU N\grad 2083 de 2017}
 \author{Yorch Sepúlveda}
@@ -57,6 +58,7 @@ Dedicado a ...
 	\subfile{Capitulo1/1.3_Presentacion_Solucion}
 
 	\section{Objetivos}
+	\label{sec:Objetivos}
 	\subfile{Capitulo1/1.4_Objetivos}
 
 	\section{Alcances}
@@ -74,8 +76,10 @@ Dedicado a ...
 %% contenido del segundo capítulo
 \chapter{Antecedentes}
 \subfile{Capitulo2/2_Introduccion}
+
 	\section{Conceptos}
-		\subfile{Capitulo2/2.1.1_Conceptos}
+	\label{sec:Conceptos}
+	\subfile{Capitulo2/2.1.1_Conceptos}
 
 	\section{Tecnologías utilizadas}
 	\label{sec:Tecnologias}
@@ -97,17 +101,34 @@ Dedicado a ...
 		\subfile{Capitulo2/2.4.1_Scrum}
 
 		\subsection{Roles}
+		\label{sec:Roles}
 		\subfile{Capitulo2/2.4.2_Roles}
+
+		\subsection{Aptitudes requeridas}
+		\subfile{Capitulo2/2.4.3_Aptitudes}
 
 		\subsection{Artefactos}
 		\label{sec:Artefactos}
-		\subfile{Capitulo2/2.4.3_Artefactos}
+		\subfile{Capitulo2/2.4.4_Artefactos}
 		
 		\subsection{Reuniones}
-		\subfile{Capitulo2/2.4.4_Reuniones}
+		\label{sec:Reuniones}
+		\subfile{Capitulo2/2.4.5_Reuniones}
 		
 		\subsection{Ciclo de vida}
-		\subfile{Capitulo2/2.4.5_Ciclo_de_vida}
+		\subfile{Capitulo2/2.4.6_Ciclo_de_vida}
+
+		\subsubsection{El proyecto}
+		\label{sec:Proyecto}
+		\subfile{Capitulo2/2.4.7_Proyecto}
+
+		\subsubsection{Las fases}
+		\label{sec:Fases}
+		\subfile{Capitulo2/2.4.8_Fases}
+
+		\subsection{Documentación}
+		\label{sec:Documentacion}
+		\subfile{Capitulo2/2.4.9_Documentacion}
 
 	\section{Validación de la aplicación}
 		\subfile{Capitulo2/2.5_Pruebas}
@@ -134,41 +155,80 @@ Dedicado a ...
 	\section{La metodología}
 	\subfile{Capitulo3/3.2_Metodologia}
 		\subsection{Roles}
-		\label{sec:Roles}
 		\subfile{Capitulo3/3.2.1_Roles}
 
-		\subsection{Aptitudes requeridas}
-		\subfile{Capitulo3/3.2.2_Aptitudes}
-
 		\subsection{El proceso}
-		\subfile{Capitulo3/3.2.3_Proceso}
+		\subfile{Capitulo3/3.2.2_Proceso}
 
 			\subsubsection{El proyecto}
-			\subfile{Capitulo3/3.2.3.1_Proyecto}
+			\subfile{Capitulo3/3.2.2.1_Proyecto}
 
-			\subsubsection{La iteración}
-			\subfile{Capitulo3/3.2.3.2_Iteracion}
+			\subsubsection{Iteraciones del proyecto}
+			\label{sec:Iteracion}
+			\subfile{Capitulo3/3.2.2.2_Iteracion}
 
-			\subsubsection{Las fases}
-			\subfile{Capitulo3/3.2.3.3_Fases}
-
-		\subsection{Documentación}
-		\subfile{Capitulo3/3.2.4_Documentacion}
-
-			\subsubsection{Reuniones}
-			\subfile{Capitulo3/3.2.4.1_Reuniones}
+		\subsubsection{Reuniones}
+		\subfile{Capitulo3/3.2.3_Reuniones}
 
 		\subsection{Cómo se trabajó}
+		\subfile{Capitulo3/3.2.4_Trabajo}
 	
 %% contenido del Cuarto capítulo
-\chapter{Caracteristicas del sistema}
-	\section{Requisitos del sistema}
-	\subfile{Capitulo4/4_Requisitos}
+\chapter{Características del sistema}
+\label{sec:Caracteristica_Sistema}
+\subfile{Capitulo4/4_Introduccion.tex}
+
+	\section{Aspectos generales}
+	\subfile{Capitulo4/4.1_AspectosGenerales}
+
+	\section{Modelos de contexto de solicitudes}
+	\subfile{Capitulo4/4.2_Modelos_Contexto_Solicitud.tex}
+
+	\section{Características generales del software}
+	\subfile{Capitulo4/4.3_CaracteristicasGenerales}
+
+	\section{Planificación de las iteraciones}
+	\subfile{Capitulo4/4.4_Planificacion}
+
+	
 
 %% contenido del quinto capítulo
 \chapter{Diseño de la aplicación}
-	\section{Diseño}
-	\subfile{Capitulo5/5_Disenio}
+\subfile{Capitulo5/5_Introduccion}
+
+	\section{Mapa de navegación}
+	\subfile{Capitulo5/5.1_Mapa_navegacion}
+
+	\section{Interfaces de usuario}
+	\subfile{Capitulo5/5.2_Interfaces}
+
+	\section{Arquitectura de la aplicación}
+	\subfile{Capitulo5/5.3_Arquitectura_Aplicacion}
+
+		\subsection{Arquitectura física}
+		\subfile{Capitulo5/5.3.1_Arquitectura_fisica}
+
+		\subsection{Arquitectura lógica}
+		\subfile{Capitulo5/5.3.2_Arquitectura_logica}
+
+	\section{Diagrama de clases}
+
+	\section{Modelo de datos}
+
+	
+
+	
+
+	
+
+%% contenido del quinto capítulo
+\chapter{Construcción y validación}
+
+	\section{Aplicación obtenida}
+
+	\section{Pruebas}
+
+	\section{Resultados}
 
 
 

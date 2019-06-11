@@ -8,6 +8,7 @@
 \LoadClass{report}
 
 %\RequirePackage[latin1]{inputenc}
+ 
 \RequirePackage[utf8]{inputenc} % Caracteres con acentos.
 \RequirePackage[english,spanish]{babel}
 \RequirePackage{graphicx}

@@ -105,6 +105,8 @@ INPUT d:/texlive/2018/texmf-dist/tex/latex/environ/environ.sty
 INPUT d:/texlive/2018/texmf-dist/tex/latex/tasks/tasks.cfg
 INPUT d:/texlive/2018/texmf-dist/tex/latex/tasks/tasks.cfg
 INPUT d:/texlive/2018/texmf-dist/tex/latex/tasks/tasks.cfg
+INPUT d:/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
 OUTPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
@@ -165,8 +167,8 @@ INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Agradecimientos.te
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.toc
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.toc
 INPUT d:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
-OUTPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.toc
 INPUT d:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsl12.tfm
+OUTPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.toc
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.lof
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.lof
 OUTPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.lof
@@ -210,26 +212,39 @@ INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.3_Meto
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/tradicional_vs_agil.png
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/tradicional_vs_agil.png
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/tradicional_vs_agil.png
+INPUT d:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4_Metodologia_Agil.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4_Metodologia_Agil.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.1_Scrum.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.1_Scrum.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.2_Roles.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.2_Roles.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.3_Artefactos.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.3_Artefactos.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.4_Reuniones.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.4_Reuniones.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.3_Aptitudes.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.3_Aptitudes.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.4_Artefactos.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.4_Artefactos.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.5_Reuniones.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.5_Reuniones.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Reuniones_Scrum.jpg
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Reuniones_Scrum.jpg
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Reuniones_Scrum.jpg
 INPUT d:/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 INPUT d:/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.5_Ciclo_de_vida.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.5_Ciclo_de_vida.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.6_Ciclo_de_vida.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.6_Ciclo_de_vida.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Scrum.jpg
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Scrum.jpg
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Scrum.jpg
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.7_Proyecto.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.7_Proyecto.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Proceso_Proyecto.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Proceso_Proyecto.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Proceso_Proyecto.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.8_Fases.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.8_Fases.tex
+INPUT d:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.9_Documentacion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.9_Documentacion.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.5_Pruebas.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.5_Pruebas.tex
 INPUT d:/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
@@ -255,41 +270,70 @@ INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2_Meto
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2_Metodologia.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.1_Roles.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.1_Roles.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2_Aptitudes.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2_Aptitudes.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3_Proceso.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3_Proceso.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3.1_Proyecto.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3.1_Proyecto.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Proceso_Proyecto.png
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Proceso_Proyecto.png
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Proceso_Proyecto.png
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3.2_Iteracion.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3.2_Iteracion.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3.3_Fases.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3.3_Fases.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.4_Documentacion.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.4_Documentacion.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.4.1_Reuniones.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.4.1_Reuniones.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4_Requisitos.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4_Requisitos.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5_Disenio.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5_Disenio.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2_Proceso.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2_Proceso.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2.1_Proyecto.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2.1_Proyecto.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2.2_Iteracion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2.2_Iteracion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3_Reuniones.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3_Reuniones.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.4_Trabajo.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.4_Trabajo.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4_Introduccion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4_Introduccion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.1_AspectosGenerales.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.1_AspectosGenerales.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.2_Modelos_Contexto_Solicitud.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.2_Modelos_Contexto_Solicitud.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Solicitud_Federacion.png
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Solicitud_Federacion.png
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Solicitud_Federacion.png
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Solicitud_CCAA.png
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Solicitud_CCAA.png
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Solicitud_CCAA.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Diagrama_de_estado.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Diagrama_de_estado.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Diagrama_de_estado.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.3_CaracteristicasGenerales.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.3_CaracteristicasGenerales.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.4_Planificacion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.4_Planificacion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5_Introduccion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5_Introduccion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.1_Mapa_navegacion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.1_Mapa_navegacion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Mapa_de_navegacion.jpg
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Mapa_de_navegacion.jpg
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Mapa_de_navegacion.jpg
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.2_Interfaces.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.2_Interfaces.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Linea_de_disenio.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Linea_de_disenio.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Linea_de_disenio.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3_Arquitectura_Aplicacion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3_Arquitectura_Aplicacion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3.1_Arquitectura_fisica.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3.1_Arquitectura_fisica.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Arquitectura_Fisica.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Arquitectura_Fisica.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Arquitectura_Fisica.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3.2_Arquitectura_logica.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3.2_Arquitectura_logica.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Arquitectura_logica.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Arquitectura_logica.png
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Arquitectura_logica.png
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Glosario.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Glosario.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.bbl
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.bbl
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
+INPUT d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb
+INPUT d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
 INPUT d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
+INPUT d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 INPUT d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
