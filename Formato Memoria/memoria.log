@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  11 JUN 2019 03:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  14 JUN 2019 20:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -728,18 +728,18 @@ LaTeX Info: Redefining \% on input line 2.
  [37 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Kanban.png>]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.1_Roles.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2_Proceso.tex)
 LaTeX Info: Redefining \. on input line 162.
 LaTeX Info: Redefining \% on input line 162.
- [38] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2.1_Proyecto.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2.2_Iteracion.tex
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [39]
-LaTeX Info: Redefining \. on input line 18.
-LaTeX Info: Redefining \% on input line 18.
- [40]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3_Reuniones.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.4_Trabajo.tex
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [41]
-LaTeX Info: Redefining \. on input line 14.
-LaTeX Info: Redefining \% on input line 14.
+ [38] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2.1_Proyecto.tex
+LaTeX Info: Redefining \. on input line 6.
+LaTeX Info: Redefining \% on input line 6.
+ [39]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2.2_Iteracion.tex
+LaTeX Info: Redefining \. on input line 15.
+LaTeX Info: Redefining \% on input line 15.
+ [40]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3_Reuniones.tex
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
+ [41]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.4_Trabajo.tex
+LaTeX Info: Redefining \. on input line 10.
+LaTeX Info: Redefining \% on input line 10.
  [42])
 LaTeX Info: Redefining \. on input line 177.
 LaTeX Info: Redefining \% on input line 177.
@@ -796,8 +796,8 @@ Overfull \hbox (19.94144pt too wide) in paragraph at lines 73--75
  []
 
 )
-LaTeX Info: Redefining \. on input line 187.
-LaTeX Info: Redefining \% on input line 187.
+LaTeX Info: Redefining \. on input line 186.
+LaTeX Info: Redefining \% on input line 186.
  [49 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Diagrama_de_estado.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.3_CaracteristicasGenerales.tex
 Overfull \hbox (15.74876pt too wide) in paragraph at lines 7--32
  [][] 
@@ -809,21 +809,21 @@ Overfull \hbox (15.74876pt too wide) in paragraph at lines 38--66
  []
 
 ) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.4_Planificacion.tex)
-LaTeX Info: Redefining \. on input line 196.
-LaTeX Info: Redefining \% on input line 196.
+LaTeX Info: Redefining \. on input line 194.
+LaTeX Info: Redefining \% on input line 194.
  [50]
-LaTeX Info: Redefining \. on input line 196.
-LaTeX Info: Redefining \% on input line 196.
+LaTeX Info: Redefining \. on input line 194.
+LaTeX Info: Redefining \% on input line 194.
  [51]
-LaTeX Info: Redefining \. on input line 196.
-LaTeX Info: Redefining \% on input line 196.
+LaTeX Info: Redefining \. on input line 194.
+LaTeX Info: Redefining \% on input line 194.
  [52]
-LaTeX Info: Redefining \. on input line 196.
-LaTeX Info: Redefining \% on input line 196.
+LaTeX Info: Redefining \. on input line 194.
+LaTeX Info: Redefining \% on input line 194.
  [53]
 Cap\'{\i }tulo 5.
 
-Underfull \hbox (badness 10000) detected at line 196
+Underfull \hbox (badness 10000) detected at line 194
 \OT1/cmr/bx/n/24.88 5.
  []
 
@@ -850,8 +850,8 @@ File: Imagenes/Linea_de_disenio.png Graphic file (type png)
 Package pdftex.def Info: Imagenes/Linea_de_disenio.png  used on input line 4.
 (pdftex.def)             Requested size: 429.3521pt x 368.55595pt.
 ) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3_Arquitectura_Aplicacion.tex)
-LaTeX Info: Redefining \. on input line 207.
-LaTeX Info: Redefining \% on input line 207.
+LaTeX Info: Redefining \. on input line 206.
+LaTeX Info: Redefining \% on input line 206.
  [56 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Linea_de_disenio.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3.1_Arquitectura_fisica.tex
 <Imagenes/Arquitectura_Fisica.png, id=222, 565.11125pt x 181.67876pt>
 File: Imagenes/Arquitectura_Fisica.png Graphic file (type png)
@@ -870,24 +870,55 @@ LaTeX Info: Redefining \% on input line 8.
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
  [58 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Arquitectura_logica.png>]
-LaTeX Info: Redefining \. on input line 36.
-LaTeX Info: Redefining \% on input line 36.
- [59])
-LaTeX Info: Redefining \. on input line 225.
-LaTeX Info: Redefining \% on input line 225.
+LaTeX Info: Redefining \. on input line 35.
+LaTeX Info: Redefining \% on input line 35.
+ [59]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.4_Modelo_de_datos.tex
+<Imagenes/Diagrama_general_clases.png, id=236, 990.70125pt x 806.01125pt>
+File: Imagenes/Diagrama_general_clases.png Graphic file (type png)
+<use Imagenes/Diagrama_general_clases.png>
+Package pdftex.def Info: Imagenes/Diagrama_general_clases.png  used on input line 4.
+(pdftex.def)             Requested size: 429.3521pt x 349.3084pt.
+LaTeX Info: Redefining \. on input line 15.
+LaTeX Info: Redefining \% on input line 15.
  [60]
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
+ [61 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Diagrama_general_clases.png>]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.5_Modelo_relacional.tex
+<Imagenes/Modelo_relacional_bd.png, id=244, 1090.0725pt x 850.17625pt>
+File: Imagenes/Modelo_relacional_bd.png Graphic file (type png)
+<use Imagenes/Modelo_relacional_bd.png>
+Package pdftex.def Info: Imagenes/Modelo_relacional_bd.png  used on input line 4.
+(pdftex.def)             Requested size: 429.3521pt x 334.86246pt.
+LaTeX Info: Redefining \. on input line 9.
+LaTeX Info: Redefining \% on input line 9.
+ [62 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Modelo_relacional_bd.png>])
+LaTeX Info: Redefining \. on input line 222.
+LaTeX Info: Redefining \% on input line 222.
+ [63]
 Cap\'{\i }tulo 6.
 
-Underfull \hbox (badness 10000) detected at line 225
+Underfull \hbox (badness 10000) detected at line 222
 \OT1/cmr/bx/n/24.88 6.
  []
 
-(d:/Repositorios/Formulación de proyecto/Formato Memoria/Glosario.tex [61
+(d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6_Introduccion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.1_Aplicacion_Obtenida.tex [64
 
-] [62]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.bbl
+])
+LaTeX Info: Redefining \. on input line 233.
+LaTeX Info: Redefining \% on input line 233.
+ [65]
+Cap\'{\i }tulo 7.
+
+Underfull \hbox (badness 10000) detected at line 233
+\OT1/cmr/bx/n/24.88 7.
+ []
+
+(d:/Repositorios/Formulación de proyecto/Formato Memoria/Glosario.tex [66
+
+] [67]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.bbl
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [63]
+ [68]
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
 []\OT1/cmr/m/n/12 Albert eins-tein and em-pi-ri-cal soft-wa-re en-gi-nee-ring.
  []
@@ -932,7 +963,7 @@ Overfull \hbox (214.46779pt too wide) in paragraph at lines 49--53
 []\OT1/cmr/m/n/12 Instructivo or-ga-ni-za-cio-nes es-tu-dian-ti-les utal-ca.  http://vde.utalca.cl/docs/Instructivo[]Organizaciones[]Estudiantiles[]Utalca.pdf.
  []
 
-[64]
+[69]
 Overfull \hbox (7.3605pt too wide) in paragraph at lines 81--84
 []\OT1/cmr/m/n/12 Vicerrectoria de desa-rro-llo es-tu-dian-til.  http://vde.utalca.cl/html/organizaciones.html.
  []
@@ -945,21 +976,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--95
 )
 LaTeX Info: Redefining \. on input line 300.
 LaTeX Info: Redefining \% on input line 300.
- [65] [66
+ [70] [71
 
 ]
 Overfull \hbox (0.45876pt too wide) detected at line 303
 \OT1/cmr/bx/n/24.88 A.
  []
 
-[67
+[72
 
 ]
 Underfull \hbox (badness 10000) detected at line 316
 \OT1/cmr/bx/n/24.88 B.
  []
 
-[68
+[73
 
 ] (d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
 LaTeX Info: Redefining \. on input line 7.
@@ -972,18 +1003,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 14512 strings out of 492639
- 278832 string characters out of 6133102
- 336227 words of memory out of 5000000
- 18029 multiletter control sequences out of 15000+600000
+ 14544 strings out of 492639
+ 280211 string characters out of 6133102
+ 337271 words of memory out of 5000000
+ 18041 multiletter control sequences out of 15000+600000
  540135 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 68i,11n,65p,1385b,561s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,11n,65p,1385b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.pdf" (70 pages, 1487319 bytes).
+Output written on "d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.pdf" (75 pages, 1713011 bytes).
 PDF statistics:
- 315 PDF objects out of 1000 (max. 8388607)
- 204 compressed objects within 3 object streams
+ 336 PDF objects out of 1000 (max. 8388607)
+ 216 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
