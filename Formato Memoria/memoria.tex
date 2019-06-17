@@ -1,3 +1,4 @@
+
 %% inicio, la clase del documento es iccmemoria.cls
 \documentclass{iccmemoria}
 \setcounter{secnumdepth}{3} %%Cantidad maxima de subsecciones enumeradas
@@ -5,6 +6,29 @@
 %\usepackage[utf8]{inputenc} % Caracteres con acentos.
 %%\usepackage{enumitem}
 \usepackage[inline]{enumitem}
+
+%paquetes para las tablas
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+
+
+%---- Paquete para aliniación de texto verticalmente dentro de tablas
+\usepackage{array}
+%---- Paquetes para los pies de las tablas
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+\definecolor{skyblue6}{rgb}{.2, .6, .8}
+\definecolor{firebrick}{rgb}{.7, .13, .13}
+\definecolor{blueice}{rgb}{.85, .96, .94}
+\definecolor{lightcopper}{rgb}{.93, .76, .58}
+
 %% datos generales y para la tapa
 \titulo{Gestión de fondos para actividades estudiantiles conducidas por CCAA o la Fedeut Curicó en acuerdo a la RU N\grad 2083 de 2017}
 \author{Yorch Sepúlveda}
@@ -217,15 +241,18 @@ Dedicado a ...
 	\section{Modelo Relacional}
 	\subfile{Capitulo5/5.5_Modelo_relacional}
 
-
 %% contenido del sexto capítulo
 \chapter{Construcción y validación}
 \subfile{Capitulo6/6_Introduccion}
 
-	\section{Aplicación obtenida}
-	\subfile{Capitulo6/6.1_Aplicacion_Obtenida}
+	\section{Herramientas Utilizadas}
+	\subfile{Capitulo6/6.1_Herramientas_Utilizadas}
+
+	\section{Aplicación Obtenida}
+	\subfile{Capitulo6/6.2_Aplicacion_Obtenida}
 
 	\section{Pruebas}
+	\subfile{Capitulo6/6.3_Pruebas}
 
 	\section{Resultados}
 
@@ -300,16 +327,17 @@ Dedicado a ...
 \appendixpart
 
 %% contenido del primer anexo
-\appendix{El Primer Anexo}
-Aquí va el texto del primer anexo...
+\appendix{Pruebas de Caja Negra}
+\label{sec: Anexo_A}
+\newcounter{ni} % creo un contador
 
-\section{La primera sección del primer anexo}
-Aquí va el texto de la primera sección del primer anexo...
+\section{Confección de una solicitud}
+\subfile{Anexo1/Anexo_A_Solicitud}
 
-\section{La segunda sección del primer anexo}
-Aquí va el texto de la segunda sección del primer anexo...
+\section{Ingreso de RU}
+\subfile{Anexo1/Anexo_A_Resolucion}
 
-\subsection{La primera subsección de la segunda sección del primer anexo}
+\section{Confección de una rendición}
 
 
 %% contenido del segundo anexo

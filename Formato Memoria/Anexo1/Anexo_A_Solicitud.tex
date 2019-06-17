@@ -1,0 +1,124 @@
+%Generación de solicitud.....
+\addtocounter{ni}{1}
+\begin{table}[htb]
+    \caption{Caja Negra - Registro de datos principales una Solicitud.}
+    \label{tab:prueba1}
+    \centering
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \cellcolor{blueice}{Código} & \multicolumn{2}{l|}{Prueba \arabic{ni}}\\ \hline
+        \cellcolor{blueice}{Precondiciones} & \multicolumn{2}{l|}{- - -}\\ \hline
+        \rowcolor{blueice} 
+        Entrada & Salida esperada & Salida obtenida \\ \hline
+        %Entrada
+        \parbox[p][0.1\textwidth][c]{5.5cm}{
+        \begin{itemize}
+            \item Ingresar datos principales de un evento.
+            \item Seleccionar responsable.
+            \item Ingresar la cantidad de participantes.
+        \end{itemize} }& 
+        %Salida esperada
+        \parbox[p][0.3\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Datos principales registrados en la BD.
+        \end{itemize} }& 
+        %Salida obtenida
+        \parbox[p][0.3\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Datos registrados exitosamente.
+        \end{itemize} }\\ \hline
+        \cellcolor{blueice}{Observaciones}  & \multicolumn{2}{l|}{\parbox[p][0.15\textwidth][c]{10cm}{Para la cantidad de participante existen 2 opciones: para un grupo de personas en donde se debe ingresar el número que participan en la actividad, mientras que existe la posibilidad de que sea una actividad masiva.}}\\ \hline
+    \end{tabular}
+\end{table}
+
+\addtocounter{ni}{1}
+\begin{table}[htb]
+    \caption{Caja Negra - Registro de categorías para una solicitud.}
+    \label{tab:my-table}
+    \centering
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \cellcolor{blueice}{Código} & \multicolumn{2}{l|}{Prueba \arabic{ni}}\\ \hline
+        \cellcolor{blueice}{Precondiciones} & \multicolumn{2}{l|}{Prueba 1}\\ \hline
+        \rowcolor{blueice} 
+        Entrada & Salida esperada & Salida obtenida \\ \hline
+        %Entrada
+        \parbox[p][0.3\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Agregar una o más categorías que indican en que incurriran los gastos del evento.
+        \end{itemize} }& 
+        %Salida esperada
+        \parbox[p][0.3\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Categorias registradas en la BD.
+        \end{itemize} }& 
+        %Salida obtenida
+        \parbox[p][0.3\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Datos registrados exitosamente.
+        \end{itemize} }\\ \hline
+        \cellcolor{blueice}{Observaciones}  & \multicolumn{2}{l|}{- - -}\\ \hline
+    \end{tabular}
+\end{table}
+
+\addtocounter{ni}{1}
+\begin{table}[htb]
+    \caption{Caja Negra - Registro de participantes para una solicitud.}
+    \label{tab:my-table}
+    \centering
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \cellcolor{blueice}{Código} & \multicolumn{2}{l|}{Prueba \arabic{ni}}\\ \hline
+        \cellcolor{blueice}{Precondiciones} & \multicolumn{2}{l|}{Prueba 1, Prueba 2}\\ \hline
+        \rowcolor{blueice} 
+        Entrada & Salida esperada & Salida obtenida \\ \hline
+        %Entrada
+        \parbox[p][0.3\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Agregar a uno o más participantes del evento.
+        \end{itemize} }& 
+        %Salida esperada
+        \parbox[p][0.3\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Participantes registrados en la BD.
+        \end{itemize} }& 
+        %Salida obtenida
+        \parbox[p][0.3\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Datos registrados exitosamente.
+        \end{itemize} }\\ \hline
+        \cellcolor{blueice}{Observaciones}  & \multicolumn{2}{l|}{\parbox[p][0.1\textwidth][c]{10cm}{La cantidad de participantes a agregar, depende del número de participantes ingresado en la \textbf{Prueba 1}.}}\\ \hline
+    \end{tabular}
+\end{table}
+
+\addtocounter{ni}{1}
+\begin{table}[htb]
+    \caption{Caja Negra - Finalizar solicitud.}
+    \label{tab:my-table}
+    \centering
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \cellcolor{blueice}{Código} & \multicolumn{2}{l|}{Prueba \arabic{ni}}\\ \hline
+        \cellcolor{blueice}{Precondiciones} & \multicolumn{2}{l|}{Prueba 1, Prueba 2, Prueba 3}\\ \hline
+        \rowcolor{blueice} 
+        Entrada & Salida esperada & Salida obtenida \\ \hline
+        %Entrada
+        \parbox[p][0.3\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Finalizar solicitud y generar PDF.
+        \end{itemize} }& 
+        %Salida esperada
+        \parbox[p][0.3\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Mensaje de la operación.
+            \item Obtener Documento de solicitd en formato PDF
+        \end{itemize} }& 
+        %Salida obtenida
+        \parbox[p][0.3\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Mensaje de solicitud finalizada.
+            \item Documento de Solicitud en formato PDF
+        \end{itemize} }\\ \hline
+        \cellcolor{blueice}{Observaciones}  & \multicolumn{2}{l|}{\parbox[p][0.1\textwidth][c]{10cm}{- - -}}\\ \hline
+    \end{tabular}
+\end{table}

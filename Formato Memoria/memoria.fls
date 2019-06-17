@@ -107,6 +107,24 @@ INPUT d:/texlive/2018/texmf-dist/tex/latex/tasks/tasks.cfg
 INPUT d:/texlive/2018/texmf-dist/tex/latex/tasks/tasks.cfg
 INPUT d:/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT d:/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/colortbl/colortbl.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/colortbl/colortbl.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/tools/array.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/tools/array.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/tools/multicol.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/tools/multicol.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/tools/tabularx.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT d:/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
 OUTPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
@@ -335,12 +353,20 @@ INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Modelo_re
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Modelo_relacional_bd.png
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6_Introduccion.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6_Introduccion.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.1_Aplicacion_Obtenida.tex
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.1_Aplicacion_Obtenida.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.1_Herramientas_Utilizadas.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.1_Herramientas_Utilizadas.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.2_Aplicacion_Obtenida.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.2_Aplicacion_Obtenida.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.3_Pruebas.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.3_Pruebas.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Glosario.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Glosario.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.bbl
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.bbl
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.tex
+INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
 INPUT d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
