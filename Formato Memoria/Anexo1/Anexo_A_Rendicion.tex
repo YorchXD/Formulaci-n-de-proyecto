@@ -1,0 +1,139 @@
+\section{Confección de una rendición}
+
+\addtocounter{ni}{1}
+\begin{table}[h]
+    \caption{Caja Negra - Confeccionar una Rendición.}
+    \label{tab: Prueba6}
+    \centering
+    \footnotesize
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \cellcolor{blueice}{Código} & \multicolumn{2}{l|}{Prueba \arabic{ni}}\\ \hline
+        \cellcolor{blueice}{Precondiciones} & \multicolumn{2}{l|}{Prueba 5}\\ \hline
+        \rowcolor{blueice} 
+        Entrada & Salida esperada & Salida obtenida \\ \hline
+        %Entrada
+        \parbox[p][0.55\textwidth][c]{4cm}{
+        \begin{itemize}
+            \item Registrar Documentos.
+            \item Finalizar Rendición.
+        \end{itemize} }& 
+        %Salida esperada
+        \parbox[p][0.5\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Documentos registrados en la BD.
+            \item Mensaje de la operación.
+            \item Sleccion de Docuentos seleccionados para realizar la declaración de gastos.
+            \item Cálculo de monto cercano o igual al solicitado.
+            \item Datos registrados en la BD .
+            \item Mensaje de la operación.
+        \end{itemize} }& 
+        %Salida obtenida
+        \parbox[p][0.5\textwidth][c]{4cm}{
+        \begin{itemize}
+            \item Documentos registrados exitosamente.
+            \item Mensaje de éxito.
+            \item Listado de Docuentos seleccionados para realizar la declaración de gastos.
+            \item Monto cercano o igual al solicitado.
+            \item Datos registrados en la BD exitosamente.
+        \end{itemize} }\\ \hline
+        \cellcolor{blueice}{Observaciones}  & \multicolumn{2}{l|}{\parbox[p][0.05\textwidth][c]{10cm}{- - -}}\\ \hline
+    \end{tabular}
+\end{table}
+
+\addtocounter{ni}{1}
+\begin{table}[h]
+    \caption{Caja Negra - Registro de un Documento.}
+    \label{tab: Prueba7}
+    \centering
+    \footnotesize
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \cellcolor{blueice}{Código} & \multicolumn{2}{l|}{Prueba \arabic{ni}}\\ \hline
+        \cellcolor{blueice}{Precondiciones} & \multicolumn{2}{l|}{Prueba 6}\\ \hline
+        \rowcolor{blueice} 
+        Entrada & Salida esperada & Salida obtenida \\ \hline
+        %Entrada
+        \parbox[p][0.15\textwidth][c]{4.3cm}{
+        \begin{itemize}
+            \item Datos del documento.
+        \end{itemize} }& 
+        %Salida esperada
+        \parbox[p][0.15\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Datos registrados en la BD.
+            \item Mensaje de la operación.
+        \end{itemize} }& 
+        %Salida obtenida
+        \parbox[p][0.15\textwidth][c]{4.3cm}{
+        \begin{itemize}
+            \item Datos registrados exitosamente.
+            \item Mensaje de éxito.
+        \end{itemize} }\\ \hline
+        \cellcolor{blueice}{Observaciones}  & \multicolumn{2}{l|}{\parbox[p][0.05\textwidth][c]{10cm}{- - -}}\\ \hline
+    \end{tabular}
+\end{table}
+
+\addtocounter{ni}{1}
+\begin{table}[h]
+    \caption{Caja Negra - Obtener documento de Rendición.}
+    \label{tab: Prueba8}
+    \centering
+    \footnotesize
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \cellcolor{blueice}{Código} & \multicolumn{2}{l|}{Prueba \arabic{ni}}\\ \hline
+        \cellcolor{blueice}{Precondiciones} & \multicolumn{2}{l|}{Prueba 6, Prueba 7}\\ \hline
+        \rowcolor{blueice} 
+        Entrada & Salida esperada & Salida obtenida \\ \hline
+        %Entrada
+        \parbox[p][0.15\textwidth][c]{4.5cm}{
+        \begin{itemize}
+            \item Generar Rendición.
+        \end{itemize} }& 
+        %Salida esperada
+        \parbox[p][0.15\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Mensaje de la operación.
+        \end{itemize} }& 
+        %Salida obtenida
+        \parbox[p][0.15\textwidth][c]{4.5cm}{
+        \begin{itemize}
+            \item Mensaje de éxito.
+            \item Rendicion en formato PDF
+        \end{itemize} }\\ \hline
+        \cellcolor{blueice}{Observaciones}  & \multicolumn{2}{l|}{\parbox[p][0.05\textwidth][c]{10cm}{- - -}}\\ \hline
+    \end{tabular}
+\end{table}
+
+\addtocounter{ni}{1}
+\begin{table}[h]
+    \caption{Caja Negra - Obtener documento de listado de Documentos.}
+    \label{tab: Prueba9}
+    \centering
+    \footnotesize
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \cellcolor{blueice}{Código} & \multicolumn{2}{l|}{Prueba \arabic{ni}}\\ \hline
+        \cellcolor{blueice}{Precondiciones} & \multicolumn{2}{l|}{Prueba 6}\\ \hline
+        \rowcolor{blueice} 
+        Entrada & Salida esperada & Salida obtenida \\ \hline
+        %Entrada
+        \parbox[p][0.15\textwidth][c]{4.3cm}{
+        \begin{itemize}
+            \item Generar listado de Documentos.
+        \end{itemize} }& 
+        %Salida esperada
+        \parbox[p][0.15\textwidth][c]{5cm}{
+        \begin{itemize}
+            \item Mensaje de la operación.
+            \item Listado de Documentos en formato PDF.
+        \end{itemize} }& 
+        %Salida obtenida
+        \parbox[p][0.15\textwidth][c]{4.3cm}{
+        \begin{itemize}
+            \item Mensaje de éxito.
+        \end{itemize} }\\ \hline
+        \cellcolor{blueice}{Observaciones}  & \multicolumn{2}{l|}{\parbox[p][0.05\textwidth][c]{10cm}{- - -}}\\ \hline
+    \end{tabular}
+\end{table}

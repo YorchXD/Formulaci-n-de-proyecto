@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  17 JUN 2019 06:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  19 JUN 2019 05:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -504,17 +504,7 @@ LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
-
-
-LaTeX Warning: Label `tab:my-table' multiply defined.
-
-
-LaTeX Warning: Label `tab:my-table' multiply defined.
-
-
-LaTeX Warning: Label `tab:my-table' multiply defined.
-
-)
+ (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Funcionalidad.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Usabilidad.aux))
 \openout1 = `memoria.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
@@ -682,56 +672,59 @@ LaTeX Info: Redefining \% on input line 2.
 \tf@lot=\write5
 \openout5 = `memoria.lot'.
 
- [7] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Resumen.tex [8])
+ [7] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Resumen.tex [8] [9])
 Cap\'{\i }tulo 1.
 
 Underfull \hbox (badness 10000) detected at line 68
 \OT1/cmr/bx/n/24.88 1.
  []
 
-(d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1_Introduccion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.1_Contexto.tex [9
+(d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1_Introduccion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.1_Contexto.tex [10
 
 ]
 LaTeX Info: Redefining \. on input line 31.
 LaTeX Info: Redefining \% on input line 31.
- [10]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.2_Definicion_Problema.tex
+ [11]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.2_Definicion_Problema.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [11]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.3_Presentacion_Solucion.tex
+ [12]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.3_Presentacion_Solucion.tex
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
- [12]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.4_Objetivos.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.5_Alcances.tex
+ [13]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.4_Objetivos.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.5_Alcances.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [13]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.6_Limitaciones.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.7_Proyectos_Similares.tex)
+ [14]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.6_Limitaciones.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.7_Proyectos_Similares.tex)
 LaTeX Info: Redefining \. on input line 96.
 LaTeX Info: Redefining \% on input line 96.
- [14] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.8_Descripcion_Contenidos.tex)
+ [15] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo1/1.8_Descripcion_Contenidos.tex
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
+ [16])
 LaTeX Info: Redefining \. on input line 101.
 LaTeX Info: Redefining \% on input line 101.
- [15]
+ [17]
 Cap\'{\i }tulo 2.
 
 Underfull \hbox (badness 10000) detected at line 101
 \OT1/cmr/bx/n/24.88 2.
  []
 
-(d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2_Introduccion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.1.1_Conceptos.tex [16
+(d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2_Introduccion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.1.1_Conceptos.tex [18
 
 ]
 LaTeX Info: Redefining \. on input line 63.
 LaTeX Info: Redefining \% on input line 63.
- [17]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.2_Tecnologias_Utilizadas.tex
+ [19]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.2_Tecnologias_Utilizadas.tex
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
- [18]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.2.1_Framework.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.2.2_Bibliotecas.tex
-LaTeX Info: Redefining \. on input line 3.
-LaTeX Info: Redefining \% on input line 3.
- [19]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.3_Metodologia_desarrollo.tex
-LaTeX Info: Redefining \. on input line 16.
-LaTeX Info: Redefining \% on input line 16.
- [20]
-<Imagenes/tradicional_vs_agil.png, id=84, 963.6pt x 542.025pt>
+ [20]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.2.1_Framework.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.2.2_Bibliotecas.tex
+LaTeX Info: Redefining \. on input line 2.
+LaTeX Info: Redefining \% on input line 2.
+ [21]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.3_Metodologia_desarrollo.tex
+LaTeX Info: Redefining \. on input line 15.
+LaTeX Info: Redefining \% on input line 15.
+ [22]
+<Imagenes/tradicional_vs_agil.png, id=90, 963.6pt x 542.025pt>
 File: Imagenes/tradicional_vs_agil.png Graphic file (type png)
 <use Imagenes/tradicional_vs_agil.png>
 Package pdftex.def Info: Imagenes/tradicional_vs_agil.png  used on input line 19.
@@ -740,26 +733,26 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 28.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 28.
-) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4_Metodologia_Agil.tex
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [21 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/tradicional_vs_agil.png>]
-LaTeX Info: Redefining \. on input line 17.
-LaTeX Info: Redefining \% on input line 17.
- [22]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.1_Scrum.tex
-LaTeX Info: Redefining \. on input line 3.
-LaTeX Info: Redefining \% on input line 3.
- [23]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.2_Roles.tex
+)
+LaTeX Info: Redefining \. on input line 121.
+LaTeX Info: Redefining \% on input line 121.
+ [23 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/tradicional_vs_agil.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4_Metodologia_Agil.tex
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
+ [24])
+LaTeX Info: Redefining \. on input line 124.
+LaTeX Info: Redefining \% on input line 124.
+ [25] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.1_Scrum.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.2_Roles.tex
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
- [24]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.3_Aptitudes.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.4_Artefactos.tex
-LaTeX Info: Redefining \. on input line 4.
-LaTeX Info: Redefining \% on input line 4.
- [25]
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
- [26]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.5_Reuniones.tex
-<Imagenes/Reuniones_Scrum.jpg, id=108, 663.47874pt x 256.96pt>
+ [26]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.3_Aptitudes.tex)
+LaTeX Info: Redefining \. on input line 134.
+LaTeX Info: Redefining \% on input line 134.
+ [27] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.4_Artefactos.tex
+LaTeX Info: Redefining \. on input line 24.
+LaTeX Info: Redefining \% on input line 24.
+ [28]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.5_Reuniones.tex
+<Imagenes/Reuniones_Scrum.jpg, id=114, 663.47874pt x 256.96pt>
 File: Imagenes/Reuniones_Scrum.jpg Graphic file (type jpg)
 <use Imagenes/Reuniones_Scrum.jpg>
 Package pdftex.def Info: Imagenes/Reuniones_Scrum.jpg  used on input line 4.
@@ -771,7 +764,7 @@ Overfull \hbox (1.21579pt too wide) in paragraph at lines 10--11
 
 LaTeX Info: Redefining \. on input line 13.
 LaTeX Info: Redefining \% on input line 13.
-[27 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Reuniones_Scrum.jpg>]
+[29 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Reuniones_Scrum.jpg>]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 20.
  (d:/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -780,8 +773,8 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 20.
 LaTeX Info: Redefining \. on input line 37.
 LaTeX Info: Redefining \% on input line 37.
- [28]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.6_Ciclo_de_vida.tex
-<Imagenes/Scrum.jpg, id=117, 641.39626pt x 411.33675pt>
+ [30]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.6_Ciclo_de_vida.tex
+<Imagenes/Scrum.jpg, id=124, 641.39626pt x 411.33675pt>
 File: Imagenes/Scrum.jpg Graphic file (type jpg)
 <use Imagenes/Scrum.jpg>
 Package pdftex.def Info: Imagenes/Scrum.jpg  used on input line 6.
@@ -793,8 +786,8 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 ) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.7_Proyecto.tex
 LaTeX Info: Redefining \. on input line 4.
 LaTeX Info: Redefining \% on input line 4.
- [29]
-<Imagenes/Proceso_Proyecto.png, id=122, 963.6pt x 542.025pt>
+ [31]
+<Imagenes/Proceso_Proyecto.png, id=128, 963.6pt x 542.025pt>
 File: Imagenes/Proceso_Proyecto.png Graphic file (type png)
 <use Imagenes/Proceso_Proyecto.png>
 Package pdftex.def Info: Imagenes/Proceso_Proyecto.png  used on input line 7.
@@ -805,28 +798,28 @@ Overfull \hbox (19.94144pt too wide) in paragraph at lines 6--8
  []
 
 ) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.8_Fases.tex
-LaTeX Info: Redefining \. on input line 14.
-LaTeX Info: Redefining \% on input line 14.
- [30 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Scrum.jpg>]
-LaTeX Info: Redefining \. on input line 19.
-LaTeX Info: Redefining \% on input line 19.
- [31 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Proceso_Proyecto.png>]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.9_Documentacion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.5_Pruebas.tex)
-LaTeX Info: Redefining \. on input line 159.
-LaTeX Info: Redefining \% on input line 159.
- [32] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.6_HerramientasPlanificacion.tex)
+LaTeX Info: Redefining \. on input line 11.
+LaTeX Info: Redefining \% on input line 11.
+ [32 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Scrum.jpg>]
+LaTeX Info: Redefining \. on input line 17.
+LaTeX Info: Redefining \% on input line 17.
+ [33 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Proceso_Proyecto.png>]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.4.9_Documentacion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.5_Pruebas.tex
+LaTeX Info: Redefining \. on input line 4.
+LaTeX Info: Redefining \% on input line 4.
+ [34]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo2/2.6_HerramientasPlanificacion.tex)
 LaTeX Info: Redefining \. on input line 164.
 LaTeX Info: Redefining \% on input line 164.
- [33]
+ [35]
 Cap\'{\i }tulo 3.
 
 Underfull \hbox (badness 10000) detected at line 164
 \OT1/cmr/bx/n/24.88 3.
  []
 
-(d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3_Introduccion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.1_Entorno.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.1.1_Personas.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.1.2_Aplicacion.tex [34
+(d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3_Introduccion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.1_Entorno.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.1.1_Personas.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.1.2_Aplicacion.tex [36
 
 ]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.1.3_Herramientas.tex
-<Imagenes/SprintBacklog.png, id=141, 1155.1155pt x 550.4565pt>
+<Imagenes/SprintBacklog.png, id=148, 1155.1155pt x 550.4565pt>
 File: Imagenes/SprintBacklog.png Graphic file (type png)
 <use Imagenes/SprintBacklog.png>
 Package pdftex.def Info: Imagenes/SprintBacklog.png  used on input line 6.
@@ -837,8 +830,8 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
-[35]
-<Imagenes/Kanban.png, id=146, 1153.911pt x 536.0025pt>
+[37]
+<Imagenes/Kanban.png, id=152, 1153.911pt x 536.0025pt>
 File: Imagenes/Kanban.png Graphic file (type png)
 <use Imagenes/Kanban.png>
 Package pdftex.def Info: Imagenes/Kanban.png  used on input line 37.
@@ -849,38 +842,38 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Info: Redefining \. on input line 42.
 LaTeX Info: Redefining \% on input line 42.
-[36 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/SprintBacklog.png>]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2_Metodologia.tex
+[38 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/SprintBacklog.png>]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2_Metodologia.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [37 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Kanban.png>]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.1_Roles.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2_Proceso.tex)
+ [39 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Kanban.png>]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.1_Roles.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2_Proceso.tex)
 LaTeX Info: Redefining \. on input line 186.
 LaTeX Info: Redefining \% on input line 186.
- [38] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2.1_Proyecto.tex
+ [40] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2.1_Proyecto.tex
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
- [39]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2.2_Iteracion.tex
+ [41]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.2.2_Iteracion.tex
 LaTeX Info: Redefining \. on input line 15.
 LaTeX Info: Redefining \% on input line 15.
- [40]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3_Reuniones.tex
+ [42]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.3_Reuniones.tex
 LaTeX Info: Redefining \. on input line 5.
 LaTeX Info: Redefining \% on input line 5.
- [41]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.4_Trabajo.tex
+ [43]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo3/3.2.4_Trabajo.tex
 LaTeX Info: Redefining \. on input line 10.
 LaTeX Info: Redefining \% on input line 10.
- [42])
+ [44])
 LaTeX Info: Redefining \. on input line 201.
 LaTeX Info: Redefining \% on input line 201.
- [43]
+ [45]
 Cap\'{\i }tulo 4.
 
 Underfull \hbox (badness 10000) detected at line 201
 \OT1/cmr/bx/n/24.88 4.
  []
 
-(d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4_Introduccion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.1_AspectosGenerales.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.2_Modelos_Contexto_Solicitud.tex [44
+(d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4_Introduccion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.1_AspectosGenerales.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.2_Modelos_Contexto_Solicitud.tex [46
 
 ]
-<Imagenes/Solicitud_Federacion.png, id=175, 1059.96pt x 1015.54407pt>
+<Imagenes/Solicitud_Federacion.png, id=181, 1059.96pt x 1015.54407pt>
 File: Imagenes/Solicitud_Federacion.png Graphic file (type png)
 <use Imagenes/Solicitud_Federacion.png>
 Package pdftex.def Info: Imagenes/Solicitud_Federacion.png  used on input line 5.
@@ -890,7 +883,7 @@ Overfull \hbox (19.94144pt too wide) in paragraph at lines 4--6
 []  [] 
  []
 
-<Imagenes/Solicitud_CCAA.png, id=176, 967.36406pt x 919.18407pt>
+<Imagenes/Solicitud_CCAA.png, id=182, 967.36406pt x 919.18407pt>
 File: Imagenes/Solicitud_CCAA.png Graphic file (type png)
 <use Imagenes/Solicitud_CCAA.png>
 Package pdftex.def Info: Imagenes/Solicitud_CCAA.png  used on input line 23.
@@ -902,17 +895,17 @@ Overfull \hbox (19.94144pt too wide) in paragraph at lines 22--24
 
 LaTeX Info: Redefining \. on input line 28.
 LaTeX Info: Redefining \% on input line 28.
-[45]
+[47]
 LaTeX Info: Redefining \. on input line 32.
 LaTeX Info: Redefining \% on input line 32.
- [46 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Solicitud_Federacion.png>]
+ [48 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Solicitud_Federacion.png>]
 LaTeX Info: Redefining \. on input line 34.
 LaTeX Info: Redefining \% on input line 34.
- [47 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Solicitud_CCAA.png>]
+ [49 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Solicitud_CCAA.png>]
 LaTeX Info: Redefining \. on input line 68.
 LaTeX Info: Redefining \% on input line 68.
- [48]
-<Imagenes/Diagrama_de_estado.png, id=193, 963.6pt x 542.025pt>
+ [50]
+<Imagenes/Diagrama_de_estado.png, id=199, 963.6pt x 542.025pt>
 File: Imagenes/Diagrama_de_estado.png Graphic file (type png)
 <use Imagenes/Diagrama_de_estado.png>
 Package pdftex.def Info: Imagenes/Diagrama_de_estado.png  used on input line 74.
@@ -925,7 +918,7 @@ Overfull \hbox (19.94144pt too wide) in paragraph at lines 73--75
 )
 LaTeX Info: Redefining \. on input line 210.
 LaTeX Info: Redefining \% on input line 210.
- [49 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Diagrama_de_estado.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.3_CaracteristicasGenerales.tex
+ [51 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Diagrama_de_estado.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.3_CaracteristicasGenerales.tex
 Overfull \hbox (16.94875pt too wide) in paragraph at lines 7--32
  [][] 
  []
@@ -938,16 +931,16 @@ Overfull \hbox (16.94875pt too wide) in paragraph at lines 38--66
 ) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.4_Planificacion.tex)
 LaTeX Info: Redefining \. on input line 218.
 LaTeX Info: Redefining \% on input line 218.
- [50]
-LaTeX Info: Redefining \. on input line 218.
-LaTeX Info: Redefining \% on input line 218.
- [51]
-LaTeX Info: Redefining \. on input line 218.
-LaTeX Info: Redefining \% on input line 218.
  [52]
 LaTeX Info: Redefining \. on input line 218.
 LaTeX Info: Redefining \% on input line 218.
  [53]
+LaTeX Info: Redefining \. on input line 218.
+LaTeX Info: Redefining \% on input line 218.
+ [54]
+LaTeX Info: Redefining \. on input line 218.
+LaTeX Info: Redefining \% on input line 218.
+ [55]
 Cap\'{\i }tulo 5.
 
 Underfull \hbox (badness 10000) detected at line 218
@@ -955,7 +948,7 @@ Underfull \hbox (badness 10000) detected at line 218
  []
 
 (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5_Introduccion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.1_Mapa_navegacion.tex
-<Imagenes/Mapa_de_navegacion.jpg, id=210, 963.6pt x 542.025pt>
+<Imagenes/Mapa_de_navegacion.jpg, id=216, 963.6pt x 542.025pt>
 File: Imagenes/Mapa_de_navegacion.jpg Graphic file (type jpg)
 <use Imagenes/Mapa_de_navegacion.jpg>
 Package pdftex.def Info: Imagenes/Mapa_de_navegacion.jpg  used on input line 5.
@@ -965,13 +958,13 @@ Overfull \hbox (19.94144pt too wide) in paragraph at lines 4--6
 []  [] 
  []
 
-[54
+[56
 
 ]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.2_Interfaces.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [55 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Mapa_de_navegacion.jpg>]
-<Imagenes/Linea_de_disenio.png, id=217, 743.77875pt x 543.02875pt>
+ [57 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Mapa_de_navegacion.jpg>]
+<Imagenes/Linea_de_disenio.png, id=223, 743.77875pt x 543.02875pt>
 File: Imagenes/Linea_de_disenio.png Graphic file (type png)
 <use Imagenes/Linea_de_disenio.png>
 Package pdftex.def Info: Imagenes/Linea_de_disenio.png  used on input line 4.
@@ -979,39 +972,39 @@ Package pdftex.def Info: Imagenes/Linea_de_disenio.png  used on input line 4.
 ) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3_Arquitectura_Aplicacion.tex)
 LaTeX Info: Redefining \. on input line 230.
 LaTeX Info: Redefining \% on input line 230.
- [56 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Linea_de_disenio.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3.1_Arquitectura_fisica.tex
-<Imagenes/Arquitectura_Fisica.png, id=222, 565.11125pt x 181.67876pt>
+ [58 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Linea_de_disenio.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3.1_Arquitectura_fisica.tex
+<Imagenes/Arquitectura_Fisica.png, id=228, 565.11125pt x 181.67876pt>
 File: Imagenes/Arquitectura_Fisica.png Graphic file (type png)
 <use Imagenes/Arquitectura_Fisica.png>
 Package pdftex.def Info: Imagenes/Arquitectura_Fisica.png  used on input line 4.
 (pdftex.def)             Requested size: 429.3521pt x 138.03569pt.
 ) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3.2_Arquitectura_logica.tex
-<Imagenes/Arquitectura_logica.png, id=223, 584.1825pt x 673.51625pt>
+<Imagenes/Arquitectura_logica.png, id=229, 584.1825pt x 673.51625pt>
 File: Imagenes/Arquitectura_logica.png Graphic file (type png)
 <use Imagenes/Arquitectura_logica.png>
 Package pdftex.def Info: Imagenes/Arquitectura_logica.png  used on input line 3.
 (pdftex.def)             Requested size: 343.48299pt x 396.02486pt.
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
- [57 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Arquitectura_Fisica.png>]
+ [59 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Arquitectura_Fisica.png>]
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
- [58 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Arquitectura_logica.png>]
+ [60 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Arquitectura_logica.png>]
 LaTeX Info: Redefining \. on input line 36.
 LaTeX Info: Redefining \% on input line 36.
- [59]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.4_Modelo_de_datos.tex
-<Imagenes/Diagrama_general_clases.png, id=236, 1039.885pt x 806.01125pt>
+ [61]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.4_Modelo_de_datos.tex
+<Imagenes/Diagrama_general_clases.png, id=242, 1039.885pt x 806.01125pt>
 File: Imagenes/Diagrama_general_clases.png Graphic file (type png)
 <use Imagenes/Diagrama_general_clases.png>
 Package pdftex.def Info: Imagenes/Diagrama_general_clases.png  used on input line 4.
 (pdftex.def)             Requested size: 429.3521pt x 332.79121pt.
 LaTeX Info: Redefining \. on input line 10.
 LaTeX Info: Redefining \% on input line 10.
- [60 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Diagrama_general_clases.png>]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.5_Modelo_relacional.tex
+ [62 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Diagrama_general_clases.png>]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.5_Modelo_relacional.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [61]
-<Imagenes/Modelo_relacional_bd.png, id=244, 1157.32375pt x 851.18pt>
+ [63]
+<Imagenes/Modelo_relacional_bd.png, id=250, 1157.32375pt x 851.18pt>
 File: Imagenes/Modelo_relacional_bd.png Graphic file (type png)
 <use Imagenes/Modelo_relacional_bd.png>
 Package pdftex.def Info: Imagenes/Modelo_relacional_bd.png  used on input line 4.
@@ -1019,37 +1012,46 @@ Package pdftex.def Info: Imagenes/Modelo_relacional_bd.png  used on input line 4
 )
 LaTeX Info: Redefining \. on input line 245.
 LaTeX Info: Redefining \% on input line 245.
- [62 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Modelo_relacional_bd.png>]
+ [64 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Modelo_relacional_bd.png>]
 Cap\'{\i }tulo 6.
 
 Underfull \hbox (badness 10000) detected at line 245
 \OT1/cmr/bx/n/24.88 6.
  []
 
-(d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6_Introduccion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.1_Herramientas_Utilizadas.tex [63
+(d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6_Introduccion.tex) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.1_Herramientas_Utilizadas.tex [65
 
 ]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.2_Aplicacion_Obtenida.tex
-LaTeX Info: Redefining \. on input line 15.
-LaTeX Info: Redefining \% on input line 15.
- [64]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.3_Pruebas.tex
+LaTeX Info: Redefining \. on input line 12.
+LaTeX Info: Redefining \% on input line 12.
+ [66]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.3_Pruebas.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [65])
-LaTeX Info: Redefining \. on input line 260.
-LaTeX Info: Redefining \% on input line 260.
- [66]
+ [67]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.4_Resultados.tex
+LaTeX Info: Redefining \. on input line 2.
+LaTeX Info: Redefining \% on input line 2.
+ [68]
+LaTeX Info: Redefining \. on input line 20.
+LaTeX Info: Redefining \% on input line 20.
+ [69])
+LaTeX Info: Redefining \. on input line 261.
+LaTeX Info: Redefining \% on input line 261.
+ [70]
 Cap\'{\i }tulo 7.
 
-Underfull \hbox (badness 10000) detected at line 260
+Underfull \hbox (badness 10000) detected at line 261
 \OT1/cmr/bx/n/24.88 7.
  []
 
-(d:/Repositorios/Formulación de proyecto/Formato Memoria/Glosario.tex [67
+(d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo7/7_Conclusion.tex [71
 
-] [68]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.bbl
+]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Glosario.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
- [69]
+ [72] [73]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.bbl
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [74]
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
 []\OT1/cmr/m/n/12 Albert eins-tein and em-pi-ri-cal soft-wa-re en-gi-nee-ring.
  []
@@ -1094,7 +1096,7 @@ Overfull \hbox (214.46779pt too wide) in paragraph at lines 49--53
 []\OT1/cmr/m/n/12 Instructivo or-ga-ni-za-cio-nes es-tu-dian-ti-les utal-ca.  http://vde.utalca.cl/docs/Instructivo[]Organizaciones[]Estudiantiles[]Utalca.pdf.
  []
 
-[70]
+[75]
 Overfull \hbox (7.3605pt too wide) in paragraph at lines 81--84
 []\OT1/cmr/m/n/12 Vicerrectoria de desa-rro-llo es-tu-dian-til.  http://vde.utalca.cl/html/organizaciones.html.
  []
@@ -1105,102 +1107,311 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--95
  []
 
 )
-LaTeX Info: Redefining \. on input line 327.
-LaTeX Info: Redefining \% on input line 327.
- [71] [72
+LaTeX Info: Redefining \. on input line 328.
+LaTeX Info: Redefining \% on input line 328.
+ [76] [77
 
 ]
-Overfull \hbox (0.45876pt too wide) detected at line 330
+Overfull \hbox (0.45876pt too wide) detected at line 331
 \OT1/cmr/bx/n/24.88 A.
  []
 
 \c@ni=\count298
-(d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.tex
-Overfull \hbox (49.26558pt too wide) in paragraph at lines 7--32
- [][] 
- []
-
-
-Underfull \hbox (badness 1668) in paragraph at lines 49--49
-\OT1/cmr/m/n/12 te-gor^^S^^Pas que in-di-can
- []
-
-
-Overfull \hbox (35.03922pt too wide) in paragraph at lines 39--62
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--79
-[]\OT1/cmr/m/n/12 Agregar a uno o
- []
-
-
-Overfull \hbox (35.03922pt too wide) in paragraph at lines 69--92
- [][] 
- []
-
-
-Underfull \hbox (badness 1748) in paragraph at lines 109--109
-[]\OT1/cmr/m/n/12 Finalizar so-li-ci-tud y
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 115--115
-[]\OT1/cmr/m/n/12 Obtener Do-cu-men-to
- []
-
-
-Overfull \hbox (35.03922pt too wide) in paragraph at lines 99--124
- [][] 
- []
-
-) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.tex
-Overfull \hbox (35.03922pt too wide) in paragraph at lines 6--32
- [][] 
- []
-
-) [73
+[78
 
 ]
-LaTeX Info: Redefining \. on input line 344.
-LaTeX Info: Redefining \% on input line 344.
- [74]
-LaTeX Info: Redefining \. on input line 344.
-LaTeX Info: Redefining \% on input line 344.
- [75]
-Underfull \hbox (badness 10000) detected at line 344
+\openout2 = `Anexo1/Anexo_A_Solicitud.aux'.
+
+ (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.tex
+Underfull \hbox (badness 2600) in paragraph at lines 22--22
+[]\OT1/cmr/m/n/10 Ingresar la can-ti-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--27
+[]\OT1/cmr/m/n/10 Datos prin-ci-pa-les
+ []
+
+
+Underfull \hbox (badness 5388) in paragraph at lines 27--27
+\OT1/cmr/m/n/10 re-gis-tra-dos en la
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+[]\OT1/cmr/m/n/10 Datos re-gis-tra-dos
+ []
+
+
+Overfull \hbox (8.41284pt too wide) in paragraph at lines 74--97
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 1590) in paragraph at lines 121--121
+[]\OT1/cmr/m/n/10 Obtener Do-cu-men-to
+ []
+
+
+Overfull \hbox (2.72237pt too wide) in paragraph at lines 105--130
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+)
+LaTeX Info: Redefining \. on input line 334.
+LaTeX Info: Redefining \% on input line 334.
+ [79
+
+]
+LaTeX Info: Redefining \. on input line 334.
+LaTeX Info: Redefining \% on input line 334.
+ [80]
+\openout2 = `Anexo1/Anexo_A_Resolucion.aux'.
+
+ (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.tex
+Underfull \hbox (badness 1960) in paragraph at lines 20--20
+[]\OT1/cmr/m/n/10 Ingresar da-tos de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--26
+[]\OT1/cmr/m/n/10 Datos re-gis-tra-dos
+ []
+
+)
+LaTeX Info: Redefining \. on input line 335.
+LaTeX Info: Redefining \% on input line 335.
+ [81
+
+
+]
+\openout2 = `Anexo1/Anexo_A_Rendicion.aux'.
+
+ (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.tex
+Underfull \hbox (badness 10000) in paragraph at lines 20--20
+[]\OT1/cmr/m/n/10 Registrar Do-cu-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--20
+[]\OT1/cmr/m/n/10 Finalizar Ren-di-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--30
+[]\OT1/cmr/m/n/10 Documentos re-gis-tra-dos
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 30--30
+[]\OT1/cmr/m/n/10 Datos re-gis-tra-dos en la
+ []
+
+
+Underfull \hbox (badness 1259) in paragraph at lines 39--39
+[]\OT1/cmr/m/n/10 Documentos re-gis-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+\OT1/cmr/m/n/10 tos se-lec-cio-na-dos
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+\OT1/cmr/m/n/10 pa-ra rea-li-zar la
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+\OT1/cmr/m/n/10 de-cla-ra-ci^^Son de
+ []
+
+
+Underfull \hbox (badness 4242) in paragraph at lines 39--39
+[]\OT1/cmr/m/n/10 Monto cer-cano o
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+[]\OT1/cmr/m/n/10 Datos re-gis-tra-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--39
+\OT1/cmr/m/n/10 dos en la BD
+ []
+
+
+Underfull \hbox (badness 1466) in paragraph at lines 66--66
+[]\OT1/cmr/m/n/10 Datos re-gis-tra-dos en la
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--72
+[]\OT1/cmr/m/n/10 Datos re-gis-tra-dos
+ []
+
+
+Overfull \hbox (2.72237pt too wide) in paragraph at lines 50--75
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (8.41284pt too wide) in paragraph at lines 83--107
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 4940) in paragraph at lines 125--125
+[]\OT1/cmr/m/n/10 Generar lis-ta-do de
+ []
+
+
+Overfull \hbox (2.72237pt too wide) in paragraph at lines 115--139
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+)
+LaTeX Info: Redefining \. on input line 336.
+LaTeX Info: Redefining \% on input line 336.
+ [82
+
+
+]
+LaTeX Info: Redefining \. on input line 336.
+LaTeX Info: Redefining \% on input line 336.
+ [83]
+Underfull \hbox (badness 10000) detected at line 338
 \OT1/cmr/bx/n/24.88 B.
  []
 
-[76
+[84
 
-] (d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
+
+]
+\openout2 = `Anexo2/Anexo_B_General_Sistema.aux'.
+
+ (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.tex
+<Imagenes/Pregunta1.png, id=319, 199.947pt x 152.9715pt>
+File: Imagenes/Pregunta1.png Graphic file (type png)
+<use Imagenes/Pregunta1.png>
+Package pdftex.def Info: Imagenes/Pregunta1.png  used on input line 7.
+(pdftex.def)             Requested size: 236.14496pt x 180.67284pt.
+<Imagenes/Pregunta2.png, id=320, 202.356pt x 154.176pt>
+File: Imagenes/Pregunta2.png Graphic file (type png)
+<use Imagenes/Pregunta2.png>
+Package pdftex.def Info: Imagenes/Pregunta2.png  used on input line 15.
+(pdftex.def)             Requested size: 236.14496pt x 179.92877pt.
+LaTeX Info: Redefining \. on input line 20.
+LaTeX Info: Redefining \% on input line 20.
+ [85
+
+ <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta1.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta2.png>]
+<Imagenes/Pregunta3.png, id=324, 201.1515pt x 151.16475pt>
+File: Imagenes/Pregunta3.png Graphic file (type png)
+<use Imagenes/Pregunta3.png>
+Package pdftex.def Info: Imagenes/Pregunta3.png  used on input line 23.
+(pdftex.def)             Requested size: 236.14496pt x 177.47096pt.
+<Imagenes/Pregunta4.png, id=325, 201.1515pt x 154.176pt>
+File: Imagenes/Pregunta4.png Graphic file (type png)
+<use Imagenes/Pregunta4.png>
+Package pdftex.def Info: Imagenes/Pregunta4.png  used on input line 31.
+(pdftex.def)             Requested size: 236.14496pt x 181.00623pt.
+)
+LaTeX Info: Redefining \. on input line 340.
+LaTeX Info: Redefining \% on input line 340.
+ [86 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta3.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta4.png>]
+\openout2 = `Anexo2/Anexo_B_Funcionalidad.aux'.
+
+ (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Funcionalidad.tex
+<Imagenes/Pregunta5.png, id=329, 201.1515pt x 154.176pt>
+File: Imagenes/Pregunta5.png Graphic file (type png)
+<use Imagenes/Pregunta5.png>
+Package pdftex.def Info: Imagenes/Pregunta5.png  used on input line 7.
+(pdftex.def)             Requested size: 236.14496pt x 181.00623pt.
+<Imagenes/Pregunta6.png, id=330, 201.1515pt x 154.176pt>
+File: Imagenes/Pregunta6.png Graphic file (type png)
+<use Imagenes/Pregunta6.png>
+Package pdftex.def Info: Imagenes/Pregunta6.png  used on input line 15.
+(pdftex.def)             Requested size: 236.14496pt x 181.00623pt.
+)
+LaTeX Info: Redefining \. on input line 341.
+LaTeX Info: Redefining \% on input line 341.
+ [87
+
+
+ <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta5.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta6.png>]
+\openout2 = `Anexo2/Anexo_B_Usabilidad.aux'.
+
+ (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Usabilidad.tex
+<Imagenes/Pregunta7.png, id=334, 202.356pt x 153.57375pt>
+File: Imagenes/Pregunta7.png Graphic file (type png)
+<use Imagenes/Pregunta7.png>
+Package pdftex.def Info: Imagenes/Pregunta7.png  used on input line 7.
+(pdftex.def)             Requested size: 214.67604pt x 162.93268pt.
+<Imagenes/Pregunta8.png, id=335, 201.1515pt x 153.57375pt>
+File: Imagenes/Pregunta8.png Graphic file (type png)
+<use Imagenes/Pregunta8.png>
+Package pdftex.def Info: Imagenes/Pregunta8.png  used on input line 15.
+(pdftex.def)             Requested size: 214.67604pt x 163.9075pt.
+<Imagenes/Pregunta9.png, id=336, 201.75375pt x 154.176pt>
+File: Imagenes/Pregunta9.png Graphic file (type png)
+<use Imagenes/Pregunta9.png>
+Package pdftex.def Info: Imagenes/Pregunta9.png  used on input line 23.
+(pdftex.def)             Requested size: 236.14496pt x 180.45808pt.
+LaTeX Info: Redefining \. on input line 25.
+LaTeX Info: Redefining \% on input line 25.
+ [88
+
+
+ <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta7.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta8.png>]
+<Imagenes/Pregunta10.png, id=340, 202.356pt x 154.176pt>
+File: Imagenes/Pregunta10.png Graphic file (type png)
+<use Imagenes/Pregunta10.png>
+Package pdftex.def Info: Imagenes/Pregunta10.png  used on input line 31.
+(pdftex.def)             Requested size: 236.14496pt x 179.92877pt.
+)
+LaTeX Info: Redefining \. on input line 342.
+LaTeX Info: Redefining \% on input line 342.
+ [89 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta9.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta10.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
-)
+ (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Funcionalidad.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Usabilidad.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 16089 strings out of 492639
- 306877 string characters out of 6133102
- 368009 words of memory out of 5000000
- 19542 multiletter control sequences out of 15000+600000
+ 16210 strings out of 492639
+ 311887 string characters out of 6133102
+ 370534 words of memory out of 5000000
+ 19606 multiletter control sequences out of 15000+600000
  540135 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,13n,65p,1385b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.pdf" (78 pages, 1636923 bytes).
+Output written on "d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.pdf" (91 pages, 1787498 bytes).
 PDF statistics:
- 345 PDF objects out of 1000 (max. 8388607)
- 222 compressed objects within 3 object streams
+ 397 PDF objects out of 1000 (max. 8388607)
+ 251 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

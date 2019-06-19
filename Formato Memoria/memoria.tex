@@ -255,10 +255,11 @@ Dedicado a ...
 	\subfile{Capitulo6/6.3_Pruebas}
 
 	\section{Resultados}
+	\subfile{Capitulo6/6.4_Resultados}
 
 %% contenido del séptimo capítulo
 \chapter{Conclusiones}
-
+\subfile{Capitulo7/7_Conclusion}
 
 
 	
@@ -329,23 +330,17 @@ Dedicado a ...
 %% contenido del primer anexo
 \appendix{Pruebas de Caja Negra}
 \label{sec: Anexo_A}
-\newcounter{ni} % creo un contador
+	\newcounter{ni} % creo un contador
+	\include{Anexo1/Anexo_A_Solicitud}
+	\include{Anexo1/Anexo_A_Resolucion}
+	\include{Anexo1/Anexo_A_Rendicion}
 
-\section{Confección de una solicitud}
-\subfile{Anexo1/Anexo_A_Solicitud}
+\appendix{Encuesta a representantes de las OE}
+\label{sec: Anexo_B}
+	\include{Anexo2/Anexo_B_General_Sistema}
+	\include{Anexo2/Anexo_B_Funcionalidad}
+	\include{Anexo2/Anexo_B_Usabilidad}
 
-\section{Ingreso de RU}
-\subfile{Anexo1/Anexo_A_Resolucion}
-
-\section{Confección de una rendición}
-
-
-%% contenido del segundo anexo
-\appendix{El segundo Anexo}
-Aquí va el texto del segundo anexo...
-
-\section{La primera sección del segundo anexo}
-Aquí va el texto de la primera sección del segundo anexo...
 
 %% fin
 \end{document}

@@ -6,100 +6,115 @@
 \contentsline {chapter}{\IeC {\'I}ndice de Figuras}{\es@scroman {vi}}
 \contentsline {chapter}{\IeC {\'I}ndice de Tablas}{\es@scroman {vii}}
 \contentsline {chapter}{Resumen}{\es@scroman {viii}}
-\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{9}
-\contentsline {section}{\numberline {1.1}Contexto del proyecto}{9}
-\contentsline {section}{\numberline {1.2}Definici\IeC {\'o}n del problema}{12}
-\contentsline {section}{\numberline {1.3}Presentaci\IeC {\'o}n de la soluci\IeC {\'o}n}{12}
-\contentsline {section}{\numberline {1.4}Objetivos}{13}
-\contentsline {subsection}{\numberline {1.4.1}Objetivo general}{13}
-\contentsline {subsection}{\numberline {1.4.2}Objetivos espec\IeC {\'\i }ficos}{13}
-\contentsline {section}{\numberline {1.5}Alcances}{14}
-\contentsline {section}{\numberline {1.6}Limitaciones}{14}
-\contentsline {section}{\numberline {1.7}Proyectos similares}{14}
-\contentsline {section}{\numberline {1.8}Descripci\IeC {\'o}n de contenidos}{15}
-\contentsline {chapter}{\numberline {2}Antecedentes}{16}
-\contentsline {section}{\numberline {2.1}Conceptos}{16}
-\contentsline {paragraph}{Evento}{16}
-\contentsline {paragraph}{Solicitud}{16}
-\contentsline {paragraph}{Resoluci\IeC {\'o}n Universitaria (RU)}{17}
-\contentsline {paragraph}{Rendici\IeC {\'o}n}{17}
-\contentsline {section}{\numberline {2.2}Tecnolog\IeC {\'\i }as utilizadas}{18}
-\contentsline {subsection}{\numberline {2.2.1}Frameworks}{19}
-\contentsline {subsection}{\numberline {2.2.2}Bibliotecas}{20}
-\contentsline {section}{\numberline {2.3}Metodolog\IeC {\'\i }a de desarrollo de software}{20}
-\contentsline {section}{\numberline {2.4}Metodolog\IeC {\'\i }a \IeC {\'a}gil}{22}
-\contentsline {subsection}{\numberline {2.4.1}Scrum}{24}
-\contentsline {subsection}{\numberline {2.4.2}Roles}{24}
-\contentsline {subsection}{\numberline {2.4.3}Aptitudes requeridas}{25}
-\contentsline {subsection}{\numberline {2.4.4}Artefactos}{26}
-\contentsline {subsection}{\numberline {2.4.5}Reuniones}{27}
-\contentsline {subsection}{\numberline {2.4.6}Ciclo de vida}{29}
-\contentsline {subsubsection}{\numberline {2.4.6.1}El proyecto}{29}
-\contentsline {subsubsection}{\numberline {2.4.6.2}Las fases}{30}
-\contentsline {paragraph}{Fase de requisitos: }{31}
-\contentsline {paragraph}{Fase de dise\IeC {\~n}o: }{31}
-\contentsline {paragraph}{Fase de planificaci\IeC {\'o}n: }{32}
-\contentsline {paragraph}{Fase de construcci\IeC {\'o}n: }{32}
-\contentsline {paragraph}{Fase de pruebas: }{32}
-\contentsline {subsection}{\numberline {2.4.7}Documentaci\IeC {\'o}n}{32}
-\contentsline {section}{\numberline {2.5}Validaci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{32}
-\contentsline {section}{\numberline {2.6}Herramientas de planificaci\IeC {\'o}n}{33}
-\contentsline {chapter}{\numberline {3}Metodolog\IeC {\'\i }a utilizada}{34}
-\contentsline {section}{\numberline {3.1}Estudio del entorno}{34}
-\contentsline {subsection}{\numberline {3.1.1}Las personas}{34}
-\contentsline {subsection}{\numberline {3.1.2}La aplicaci\IeC {\'o}n}{35}
-\contentsline {subsection}{\numberline {3.1.3}Las herramientas}{35}
-\contentsline {section}{\numberline {3.2}La metodolog\IeC {\'\i }a}{38}
-\contentsline {subsection}{\numberline {3.2.1}Roles}{38}
-\contentsline {subsection}{\numberline {3.2.2}El proceso}{39}
-\contentsline {subsubsection}{\numberline {3.2.2.1}El proyecto}{39}
-\contentsline {subsubsection}{\numberline {3.2.2.2}Iteraciones del proyecto}{40}
-\contentsline {subsubsection}{\numberline {3.2.2.3}Reuniones}{41}
-\contentsline {subsection}{\numberline {3.2.3}C\IeC {\'o}mo se trabaj\IeC {\'o}}{42}
-\contentsline {chapter}{\numberline {4}Caracter\IeC {\'\i }sticas del sistema}{44}
-\contentsline {section}{\numberline {4.1}Aspectos generales}{44}
-\contentsline {section}{\numberline {4.2}Modelos de contexto de solicitudes}{45}
-\contentsline {section}{\numberline {4.3}Caracter\IeC {\'\i }sticas generales del software}{50}
-\contentsline {section}{\numberline {4.4}Planificaci\IeC {\'o}n de las iteraciones}{50}
-\contentsline {chapter}{\numberline {5}Dise\IeC {\~n}o de la aplicaci\IeC {\'o}n}{54}
-\contentsline {section}{\numberline {5.1}Mapa de navegaci\IeC {\'o}n}{54}
-\contentsline {paragraph}{Buscar solicitudes de fondos: }{54}
-\contentsline {paragraph}{Nueva solicitud de fondo: }{54}
-\contentsline {paragraph}{Solicitudes pendientes: }{55}
-\contentsline {paragraph}{Ayuda: }{55}
-\contentsline {paragraph}{Perfil: }{55}
-\contentsline {section}{\numberline {5.2}Interfaces de usuario}{55}
-\contentsline {section}{\numberline {5.3}Arquitectura de la aplicaci\IeC {\'o}n}{56}
-\contentsline {subsection}{\numberline {5.3.1}Arquitectura f\IeC {\'\i }sica}{57}
-\contentsline {subsection}{\numberline {5.3.2}Arquitectura l\IeC {\'o}gica}{57}
-\contentsline {section}{\numberline {5.4}Modelo de datos}{60}
-\contentsline {section}{\numberline {5.5}Modelo Relacional}{62}
-\contentsline {chapter}{\numberline {6}Construcci\IeC {\'o}n y validaci\IeC {\'o}n}{63}
-\contentsline {section}{\numberline {6.1}Herramientas Utilizadas}{63}
-\contentsline {paragraph}{Entorno de trabajo: }{63}
-\contentsline {paragraph}{Entorno y lenguajes de programaci\IeC {\'o}n: }{63}
-\contentsline {paragraph}{Motor y aplicaci\IeC {\'o}n para base de datos: }{64}
-\contentsline {section}{\numberline {6.2}Aplicaci\IeC {\'o}n Obtenida}{64}
-\contentsline {paragraph}{Autentificacion de un usuario en el sistema: }{64}
-\contentsline {paragraph}{Recuperaci\IeC {\'o}n de acceso a una cuenta de una OE: }{64}
-\contentsline {paragraph}{B\IeC {\'u}squeda de solicitudes: }{64}
-\contentsline {paragraph}{Solicitud: }{64}
-\contentsline {subparagraph}{Datos principales de la Solicitud: }{64}
-\contentsline {subparagraph}{Categor\IeC {\'\i }a: }{65}
-\contentsline {subparagraph}{Participante: }{65}
-\contentsline {subparagraph}{Resumen: }{65}
-\contentsline {paragraph}{Resoluci\IeC {\'o}n: }{65}
-\contentsline {paragraph}{Rendici\IeC {\'o}n: }{65}
-\contentsline {subparagraph}{Documento: }{65}
-\contentsline {section}{\numberline {6.3}Pruebas}{65}
-\contentsline {section}{\numberline {6.4}Resultados}{66}
-\contentsline {chapter}{\numberline {7}Conclusiones}{67}
-\contentsline {chapter}{Glosario}{68}
-\contentsline {chapter}{Bibliograf\'{\i }a}{70}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{10}
+\contentsline {section}{\numberline {1.1}Contexto del proyecto}{10}
+\contentsline {section}{\numberline {1.2}Definici\IeC {\'o}n del problema}{13}
+\contentsline {section}{\numberline {1.3}Presentaci\IeC {\'o}n de la soluci\IeC {\'o}n}{13}
+\contentsline {section}{\numberline {1.4}Objetivos}{14}
+\contentsline {subsection}{\numberline {1.4.1}Objetivo general}{14}
+\contentsline {subsection}{\numberline {1.4.2}Objetivos espec\IeC {\'\i }ficos}{14}
+\contentsline {section}{\numberline {1.5}Alcances}{15}
+\contentsline {section}{\numberline {1.6}Limitaciones}{15}
+\contentsline {section}{\numberline {1.7}Proyectos similares}{15}
+\contentsline {section}{\numberline {1.8}Descripci\IeC {\'o}n de contenidos}{16}
+\contentsline {chapter}{\numberline {2}Antecedentes}{18}
+\contentsline {section}{\numberline {2.1}Conceptos}{18}
+\contentsline {paragraph}{Evento}{18}
+\contentsline {paragraph}{Solicitud}{18}
+\contentsline {paragraph}{Resoluci\IeC {\'o}n Universitaria (RU)}{19}
+\contentsline {paragraph}{Rendici\IeC {\'o}n}{19}
+\contentsline {section}{\numberline {2.2}Tecnolog\IeC {\'\i }as utilizadas}{20}
+\contentsline {subsection}{\numberline {2.2.1}Frameworks}{21}
+\contentsline {subsection}{\numberline {2.2.2}Bibliotecas}{22}
+\contentsline {section}{\numberline {2.3}Metodolog\IeC {\'\i }a de desarrollo de software}{22}
+\contentsline {section}{\numberline {2.4}Metodolog\IeC {\'\i }a \IeC {\'a}gil}{24}
+\contentsline {subsection}{\numberline {2.4.1}Scrum}{26}
+\contentsline {subsection}{\numberline {2.4.2}Roles}{26}
+\contentsline {subsection}{\numberline {2.4.3}Aptitudes requeridas}{27}
+\contentsline {subsection}{\numberline {2.4.4}Artefactos}{28}
+\contentsline {subsection}{\numberline {2.4.5}Reuniones}{29}
+\contentsline {subsection}{\numberline {2.4.6}Ciclo de vida}{31}
+\contentsline {subsubsection}{\numberline {2.4.6.1}El proyecto}{31}
+\contentsline {subsubsection}{\numberline {2.4.6.2}Las fases}{32}
+\contentsline {paragraph}{Fase de requisitos: }{33}
+\contentsline {paragraph}{Fase de dise\IeC {\~n}o: }{34}
+\contentsline {paragraph}{Fase de planificaci\IeC {\'o}n: }{34}
+\contentsline {paragraph}{Fase de construcci\IeC {\'o}n: }{34}
+\contentsline {paragraph}{Fase de pruebas: }{34}
+\contentsline {subsection}{\numberline {2.4.7}Documentaci\IeC {\'o}n}{34}
+\contentsline {section}{\numberline {2.5}Validaci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{34}
+\contentsline {section}{\numberline {2.6}Herramientas de planificaci\IeC {\'o}n}{35}
+\contentsline {chapter}{\numberline {3}Metodolog\IeC {\'\i }a utilizada}{36}
+\contentsline {section}{\numberline {3.1}Estudio del entorno}{36}
+\contentsline {subsection}{\numberline {3.1.1}Las personas}{36}
+\contentsline {subsection}{\numberline {3.1.2}La aplicaci\IeC {\'o}n}{37}
+\contentsline {subsection}{\numberline {3.1.3}Las herramientas}{37}
+\contentsline {section}{\numberline {3.2}La metodolog\IeC {\'\i }a}{40}
+\contentsline {subsection}{\numberline {3.2.1}Roles}{40}
+\contentsline {subsection}{\numberline {3.2.2}El proceso}{41}
+\contentsline {subsubsection}{\numberline {3.2.2.1}El proyecto}{41}
+\contentsline {subsubsection}{\numberline {3.2.2.2}Iteraciones del proyecto}{42}
+\contentsline {subsubsection}{\numberline {3.2.2.3}Reuniones}{43}
+\contentsline {subsection}{\numberline {3.2.3}C\IeC {\'o}mo se trabaj\IeC {\'o}}{44}
+\contentsline {chapter}{\numberline {4}Caracter\IeC {\'\i }sticas del sistema}{46}
+\contentsline {section}{\numberline {4.1}Aspectos generales}{46}
+\contentsline {section}{\numberline {4.2}Modelos de contexto de solicitudes}{47}
+\contentsline {section}{\numberline {4.3}Caracter\IeC {\'\i }sticas generales del software}{52}
+\contentsline {section}{\numberline {4.4}Planificaci\IeC {\'o}n de las iteraciones}{52}
+\contentsline {chapter}{\numberline {5}Dise\IeC {\~n}o de la aplicaci\IeC {\'o}n}{56}
+\contentsline {section}{\numberline {5.1}Mapa de navegaci\IeC {\'o}n}{56}
+\contentsline {paragraph}{Buscar solicitudes de fondos: }{56}
+\contentsline {paragraph}{Nueva solicitud de fondo: }{56}
+\contentsline {paragraph}{Solicitudes pendientes: }{57}
+\contentsline {paragraph}{Ayuda: }{57}
+\contentsline {paragraph}{Perfil: }{57}
+\contentsline {section}{\numberline {5.2}Interfaces de usuario}{57}
+\contentsline {section}{\numberline {5.3}Arquitectura de la aplicaci\IeC {\'o}n}{58}
+\contentsline {subsection}{\numberline {5.3.1}Arquitectura f\IeC {\'\i }sica}{59}
+\contentsline {subsection}{\numberline {5.3.2}Arquitectura l\IeC {\'o}gica}{59}
+\contentsline {section}{\numberline {5.4}Modelo de datos}{62}
+\contentsline {section}{\numberline {5.5}Modelo Relacional}{64}
+\contentsline {chapter}{\numberline {6}Construcci\IeC {\'o}n y validaci\IeC {\'o}n}{65}
+\contentsline {section}{\numberline {6.1}Herramientas Utilizadas}{65}
+\contentsline {paragraph}{Entorno de trabajo: }{65}
+\contentsline {paragraph}{Entorno y lenguajes de programaci\IeC {\'o}n: }{65}
+\contentsline {paragraph}{Motor y aplicaci\IeC {\'o}n para base de datos: }{66}
+\contentsline {section}{\numberline {6.2}Aplicaci\IeC {\'o}n Obtenida}{66}
+\contentsline {paragraph}{Autentificaci\IeC {\'o}n de un usuario en el sistema: }{66}
+\contentsline {paragraph}{Recuperaci\IeC {\'o}n de acceso a una cuenta de una OE: }{66}
+\contentsline {paragraph}{B\IeC {\'u}squeda de solicitudes: }{66}
+\contentsline {paragraph}{Solicitud: }{66}
+\contentsline {subparagraph}{\emph {Datos principales de la Solicitud: }}{67}
+\contentsline {subparagraph}{\emph {Categor\IeC {\'\i }a: }}{67}
+\contentsline {subparagraph}{\emph {Participante: }}{67}
+\contentsline {subparagraph}{\emph {Resumen: }}{67}
+\contentsline {paragraph}{Resoluci\IeC {\'o}n: }{67}
+\contentsline {paragraph}{Rendici\IeC {\'o}n: }{67}
+\contentsline {subparagraph}{\emph {Documento: }}{67}
+\contentsline {section}{\numberline {6.3}Pruebas}{68}
+\contentsline {section}{\numberline {6.4}Resultados}{69}
+\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas generales sobre el sistema}{69}
+\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre las funcionalidades del sistema}{69}
+\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre usabilidad e interfaz de usuario}{69}
+\contentsline {chapter}{\numberline {7}Conclusiones}{71}
+\contentsline {chapter}{Glosario}{73}
+\contentsline {chapter}{Bibliograf\'{\i }a}{75}
 \contentsline {chapter}{Anexos}{}
-\contentsline {chapter}{A:\hspace {1em}Pruebas de Caja Negra}{73}
-\contentsline {section}{\numberline {A.1}Confecci\IeC {\'o}n de una solicitud}{73}
-\contentsline {section}{\numberline {A.2}Ingreso de RU}{73}
-\contentsline {section}{\numberline {A.3}Confecci\IeC {\'o}n de una rendici\IeC {\'o}n}{73}
-\contentsline {chapter}{B:\hspace {1em}El segundo Anexo}{76}
-\contentsline {section}{\numberline {B.1}La primera secci\IeC {\'o}n del segundo anexo}{76}
+\contentsline {chapter}{A:\hspace {1em}Pruebas de Caja Negra}{78}
+\contentsline {section}{\numberline {A.1}Confecci\IeC {\'o}n de una solicitud}{79}
+\contentsline {section}{\numberline {A.2}Ingreso de RU}{81}
+\contentsline {section}{\numberline {A.3}Confecci\IeC {\'o}n de una rendici\IeC {\'o}n}{82}
+\contentsline {chapter}{B:\hspace {1em}Encuesta a representantes de las OE}{84}
+\contentsline {section}{\numberline {B.1}Secci\IeC {\'o}n de preguntas generales sobre el sistema}{85}
+\contentsline {paragraph}{1.\IeC {\nobreakspace } \IeC {\textquestiondown }Cree usted que es necesaria una herramienta que ayude a las OE a realizar el proceso de Solicitud de Fondo por Rendir?}{85}
+\contentsline {paragraph}{2.\IeC {\nobreakspace } \IeC {\textquestiondown }Cree usted que esta herramienta puede ayudar a reducir el tiempo que demanda realizar una rendici\IeC {\'o}n? (En escala de 1 (No es de ayuda) a 5 (Es de mucha ayuda))}{85}
+\contentsline {paragraph}{3.\IeC {\nobreakspace } \IeC {\textquestiondown }Cree usted que la mayor\IeC {\'\i }a de las personas pueden aprender a usar el sistema r\IeC {\'a}pidamente? (En escala de 1 (En desacuerdo) a 5 (De acuerdo))}{86}
+\contentsline {paragraph}{4.\IeC {\nobreakspace } \IeC {\textquestiondown }Cree usted que gracias a la aplicaci\IeC {\'o}n se puede reducir la causa de rechazo de la Rendici\IeC {\'o}n? (En escala de 1 (En desacuerdo) a 5 (De acuerdo))}{86}
+\contentsline {section}{\numberline {B.2}Secci\IeC {\'o}n de preguntas sobre las funcionalidades del sistema}{87}
+\contentsline {paragraph}{5.\IeC {\nobreakspace } \IeC {\textquestiondown }Cree usted que las funcionalidades son suficientes para que la aplicaci\IeC {\'o}n sea \IeC {\'u}til? }{87}
+\contentsline {paragraph}{6.\IeC {\nobreakspace } \IeC {\textquestiondown }El sistema logra realizar una rendici\IeC {\'o}n fiable? (Siempre, A veces, nunca)}{87}
+\contentsline {section}{\numberline {B.3}Secci\IeC {\'o}n de preguntas sobre usabilidad e interfaz de usuario (En escala de 1 (En desacuerdo) a 5 (De acuerdo))}{88}
+\contentsline {paragraph}{7.\IeC {\nobreakspace } \IeC {\textquestiondown }La aplicaci\IeC {\'o}n es f\IeC {\'a}cil de usar?}{88}
+\contentsline {paragraph}{8.\IeC {\nobreakspace } \IeC {\textquestiondown }Se entiende c\IeC {\'o}mo utilizar la aplicaci\IeC {\'o}n sin necesidad de instrucciones?}{88}
+\contentsline {paragraph}{9. \IeC {\textquestiondown }La distribuci\IeC {\'o}n de los elementos en la pantalla es adecuada?}{89}
+\contentsline {paragraph}{10. \IeC {\textquestiondown }El proceso completo de realizar una Solicitud de Fondo por Rendir es claro?}{89}
