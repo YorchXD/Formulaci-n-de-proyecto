@@ -331,13 +331,18 @@ Dedicado a ...
 \appendix{Pruebas de Caja Negra}
 \label{sec: Anexo_A}
 	\newcounter{ni} % creo un contador
-	\include{Anexo1/Anexo_A_Solicitud}
+	\section{Confección de una solicitud}
+	\subfile{Anexo1/Anexo_A_Solicitud}
+	
 	\include{Anexo1/Anexo_A_Resolucion}
 	\include{Anexo1/Anexo_A_Rendicion}
 
 \appendix{Encuesta a representantes de las OE}
 \label{sec: Anexo_B}
-	\include{Anexo2/Anexo_B_General_Sistema}
+
+	\section{Sección de preguntas generales sobre el sistema}
+	\subfile{Anexo2/Anexo_B_General_Sistema}
+	%\include{Anexo2/Anexo_B_General_Sistema}
 	\include{Anexo2/Anexo_B_Funcionalidad}
 	\include{Anexo2/Anexo_B_Usabilidad}
 

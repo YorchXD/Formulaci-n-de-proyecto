@@ -127,14 +127,10 @@ INPUT d:/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT d:/texlive/2018/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.aux
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.aux
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.aux
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Funcionalidad.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Funcionalidad.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Usabilidad.aux
@@ -379,7 +375,6 @@ INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Glosario.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Glosario.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.bbl
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.bbl
-OUTPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.tex
 OUTPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.aux
@@ -388,7 +383,6 @@ INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Res
 OUTPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.tex
-OUTPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.tex
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta1.png
@@ -428,14 +422,10 @@ INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta1
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta10.png
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta10.png
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.aux
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.aux
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.aux
-INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Funcionalidad.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Funcionalidad.aux
 INPUT d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Usabilidad.aux

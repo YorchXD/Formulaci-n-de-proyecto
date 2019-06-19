@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  19 JUN 2019 05:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  19 JUN 2019 06:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -504,7 +504,7 @@ LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
- (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Funcionalidad.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Usabilidad.aux))
+ (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Funcionalidad.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Usabilidad.aux))
 \openout1 = `memoria.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
@@ -1117,12 +1117,7 @@ Overfull \hbox (0.45876pt too wide) detected at line 331
  []
 
 \c@ni=\count298
-[78
-
-]
-\openout2 = `Anexo1/Anexo_A_Solicitud.aux'.
-
- (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.tex
+(d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.tex
 Underfull \hbox (badness 2600) in paragraph at lines 22--22
 []\OT1/cmr/m/n/10 Ingresar la can-ti-
  []
@@ -1141,6 +1136,9 @@ Underfull \hbox (badness 5388) in paragraph at lines 27--27
 Underfull \hbox (badness 10000) in paragraph at lines 32--32
 []\OT1/cmr/m/n/10 Datos re-gis-tra-dos
  []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Overfull \hbox (8.41284pt too wide) in paragraph at lines 74--97
@@ -1163,15 +1161,12 @@ Overfull \hbox (2.72237pt too wide) in paragraph at lines 105--130
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-)
-LaTeX Info: Redefining \. on input line 334.
-LaTeX Info: Redefining \% on input line 334.
- [79
+) [78
 
 ]
-LaTeX Info: Redefining \. on input line 334.
-LaTeX Info: Redefining \% on input line 334.
- [80]
+LaTeX Info: Redefining \. on input line 337.
+LaTeX Info: Redefining \% on input line 337.
+ [79]
 \openout2 = `Anexo1/Anexo_A_Resolucion.aux'.
 
  (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.tex
@@ -1185,10 +1180,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--26
  []
 
 )
-LaTeX Info: Redefining \. on input line 335.
-LaTeX Info: Redefining \% on input line 335.
- [81
-
+LaTeX Info: Redefining \. on input line 337.
+LaTeX Info: Redefining \% on input line 337.
+ [80
 
 ]
 \openout2 = `Anexo1/Anexo_A_Rendicion.aux'.
@@ -1288,130 +1282,125 @@ Overfull \hbox (2.72237pt too wide) in paragraph at lines 115--139
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 )
-LaTeX Info: Redefining \. on input line 336.
-LaTeX Info: Redefining \% on input line 336.
- [82
+LaTeX Info: Redefining \. on input line 338.
+LaTeX Info: Redefining \% on input line 338.
+ [81
 
 
 ]
-LaTeX Info: Redefining \. on input line 336.
-LaTeX Info: Redefining \% on input line 336.
- [83]
-Underfull \hbox (badness 10000) detected at line 338
+LaTeX Info: Redefining \. on input line 338.
+LaTeX Info: Redefining \% on input line 338.
+ [82]
+Underfull \hbox (badness 10000) detected at line 340
 \OT1/cmr/bx/n/24.88 B.
  []
 
-[84
-
-
-]
-\openout2 = `Anexo2/Anexo_B_General_Sistema.aux'.
-
- (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.tex
-<Imagenes/Pregunta1.png, id=319, 199.947pt x 152.9715pt>
+(d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.tex
+<Imagenes/Pregunta1.png, id=312, 199.947pt x 152.9715pt>
 File: Imagenes/Pregunta1.png Graphic file (type png)
 <use Imagenes/Pregunta1.png>
-Package pdftex.def Info: Imagenes/Pregunta1.png  used on input line 7.
-(pdftex.def)             Requested size: 236.14496pt x 180.67284pt.
-<Imagenes/Pregunta2.png, id=320, 202.356pt x 154.176pt>
+Package pdftex.def Info: Imagenes/Pregunta1.png  used on input line 5.
+(pdftex.def)             Requested size: 257.61388pt x 197.09827pt.
+ [83
+
+
+ <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta1.png>]
+<Imagenes/Pregunta2.png, id=317, 202.356pt x 154.176pt>
 File: Imagenes/Pregunta2.png Graphic file (type png)
 <use Imagenes/Pregunta2.png>
-Package pdftex.def Info: Imagenes/Pregunta2.png  used on input line 15.
+Package pdftex.def Info: Imagenes/Pregunta2.png  used on input line 13.
 (pdftex.def)             Requested size: 236.14496pt x 179.92877pt.
-LaTeX Info: Redefining \. on input line 20.
-LaTeX Info: Redefining \% on input line 20.
- [85
-
- <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta1.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta2.png>]
-<Imagenes/Pregunta3.png, id=324, 201.1515pt x 151.16475pt>
+<Imagenes/Pregunta3.png, id=318, 201.1515pt x 151.16475pt>
 File: Imagenes/Pregunta3.png Graphic file (type png)
 <use Imagenes/Pregunta3.png>
-Package pdftex.def Info: Imagenes/Pregunta3.png  used on input line 23.
+Package pdftex.def Info: Imagenes/Pregunta3.png  used on input line 21.
 (pdftex.def)             Requested size: 236.14496pt x 177.47096pt.
-<Imagenes/Pregunta4.png, id=325, 201.1515pt x 154.176pt>
+LaTeX Info: Redefining \. on input line 26.
+LaTeX Info: Redefining \% on input line 26.
+ [84 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta2.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta3.png>]
+<Imagenes/Pregunta4.png, id=322, 201.1515pt x 154.176pt>
 File: Imagenes/Pregunta4.png Graphic file (type png)
 <use Imagenes/Pregunta4.png>
-Package pdftex.def Info: Imagenes/Pregunta4.png  used on input line 31.
+Package pdftex.def Info: Imagenes/Pregunta4.png  used on input line 29.
 (pdftex.def)             Requested size: 236.14496pt x 181.00623pt.
 )
-LaTeX Info: Redefining \. on input line 340.
-LaTeX Info: Redefining \% on input line 340.
- [86 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta3.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta4.png>]
+LaTeX Info: Redefining \. on input line 346.
+LaTeX Info: Redefining \% on input line 346.
+ [85 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta4.png>]
 \openout2 = `Anexo2/Anexo_B_Funcionalidad.aux'.
 
  (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Funcionalidad.tex
-<Imagenes/Pregunta5.png, id=329, 201.1515pt x 154.176pt>
+<Imagenes/Pregunta5.png, id=326, 201.1515pt x 154.176pt>
 File: Imagenes/Pregunta5.png Graphic file (type png)
 <use Imagenes/Pregunta5.png>
 Package pdftex.def Info: Imagenes/Pregunta5.png  used on input line 7.
 (pdftex.def)             Requested size: 236.14496pt x 181.00623pt.
-<Imagenes/Pregunta6.png, id=330, 201.1515pt x 154.176pt>
+<Imagenes/Pregunta6.png, id=327, 201.1515pt x 154.176pt>
 File: Imagenes/Pregunta6.png Graphic file (type png)
 <use Imagenes/Pregunta6.png>
 Package pdftex.def Info: Imagenes/Pregunta6.png  used on input line 15.
 (pdftex.def)             Requested size: 236.14496pt x 181.00623pt.
 )
-LaTeX Info: Redefining \. on input line 341.
-LaTeX Info: Redefining \% on input line 341.
- [87
-
+LaTeX Info: Redefining \. on input line 346.
+LaTeX Info: Redefining \% on input line 346.
+ [86
 
  <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta5.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta6.png>]
 \openout2 = `Anexo2/Anexo_B_Usabilidad.aux'.
 
  (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Usabilidad.tex
-<Imagenes/Pregunta7.png, id=334, 202.356pt x 153.57375pt>
+<Imagenes/Pregunta7.png, id=331, 202.356pt x 153.57375pt>
 File: Imagenes/Pregunta7.png Graphic file (type png)
 <use Imagenes/Pregunta7.png>
 Package pdftex.def Info: Imagenes/Pregunta7.png  used on input line 7.
 (pdftex.def)             Requested size: 214.67604pt x 162.93268pt.
-<Imagenes/Pregunta8.png, id=335, 201.1515pt x 153.57375pt>
+<Imagenes/Pregunta8.png, id=332, 201.1515pt x 153.57375pt>
 File: Imagenes/Pregunta8.png Graphic file (type png)
 <use Imagenes/Pregunta8.png>
 Package pdftex.def Info: Imagenes/Pregunta8.png  used on input line 15.
 (pdftex.def)             Requested size: 214.67604pt x 163.9075pt.
-<Imagenes/Pregunta9.png, id=336, 201.75375pt x 154.176pt>
+<Imagenes/Pregunta9.png, id=333, 201.75375pt x 154.176pt>
 File: Imagenes/Pregunta9.png Graphic file (type png)
 <use Imagenes/Pregunta9.png>
 Package pdftex.def Info: Imagenes/Pregunta9.png  used on input line 23.
 (pdftex.def)             Requested size: 236.14496pt x 180.45808pt.
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
- [88
+ [87
 
 
  <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta7.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta8.png>]
-<Imagenes/Pregunta10.png, id=340, 202.356pt x 154.176pt>
+<Imagenes/Pregunta10.png, id=337, 202.356pt x 154.176pt>
 File: Imagenes/Pregunta10.png Graphic file (type png)
 <use Imagenes/Pregunta10.png>
 Package pdftex.def Info: Imagenes/Pregunta10.png  used on input line 31.
 (pdftex.def)             Requested size: 236.14496pt x 179.92877pt.
 )
-LaTeX Info: Redefining \. on input line 342.
-LaTeX Info: Redefining \% on input line 342.
- [89 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta9.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta10.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
+LaTeX Info: Redefining \. on input line 347.
+LaTeX Info: Redefining \% on input line 347.
+ [88 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta9.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta10.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
- (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Solicitud.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_General_Sistema.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Funcionalidad.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Usabilidad.aux))
+ (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Resolucion.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo1/Anexo_A_Rendicion.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Funcionalidad.aux) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Anexo2/Anexo_B_Usabilidad.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 16210 strings out of 492639
- 311887 string characters out of 6133102
- 370534 words of memory out of 5000000
- 19606 multiletter control sequences out of 15000+600000
+ 16200 strings out of 492639
+ 311131 string characters out of 6133102
+ 369746 words of memory out of 5000000
+ 19604 multiletter control sequences out of 15000+600000
  540135 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,13n,65p,1385b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.pdf" (91 pages, 1787498 bytes).
+Output written on "d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.pdf" (90 pages, 1787645 bytes).
 PDF statistics:
- 397 PDF objects out of 1000 (max. 8388607)
- 251 compressed objects within 3 object streams
+ 393 PDF objects out of 1000 (max. 8388607)
+ 248 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  131 words of extra memory for PDF output out of 10000 (max. 10000000)
 
