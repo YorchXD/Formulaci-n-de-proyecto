@@ -1,0 +1,47 @@
+@using SimRend.Models
+@model SimRend.Models.ModeloRendicion
+
+@{
+    ViewData["Title"] = "Rendicion";
+}
+
+
+
+<div class="form-inline" style="padding-top: calc(0.5em + 6px);">
+    <h2>Rendición</h2>
+</div>
+
+
+<div class="contenedor_formulario">
+        <div class="fieldsContainer">
+            @if (ViewData["Personas"] != null)
+            {
+                @foreach (var item in ViewData["Personas"] as List<Persona>)
+                {
+                    @using (Html.BeginForm("RendicionParticipante", "Rendicion", FormMethod.Post, new { @style = "border:none" }))
+                    {
+                        
+                            <div class="" for="">
+                                <div class="cards1">
+                                    <div class="card1">
+                                        <input type="text" readonly="" class="" style="border:none; margin-top: 5px;" name="Nombre" value="@item.Nombre">
+                                    </div>
+
+                                    <div class="card1">
+                                        <input type="text" readonly="" class="" style="border:none; margin-top: 5px;" name="Nombre" value="@item.Run">
+                                    </div>
+                                    
+                                    <div class="card1">
+                                        <div class="wrapper">
+                                            <button type= "submit" class="buttonPrimary"   name="">Agregar Boleta</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                    }
+                }
+            }
+        </div>
+    </div>

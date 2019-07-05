@@ -1,0 +1,189 @@
+@using SimRend.Models
+@model SimRend.Models.ModeloRendicion
+
+@{
+    ViewData["Title"] = "Rendicion";
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tablaBusqueda').DataTable({ "lengthChange": false});
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="~/js/jquery-1.10.19.dataTables.js.js" type="text/javascript" charset="utf-8"></script>
+
+}
+
+<div class="form-inline" style="padding-top: calc(0.5em + 6px);">
+    <h2>Rendición</h2>
+
+    <div class="wrapper toggle">
+        <a href="#popup" ><button class="buttonPrimary"  name="">Agregar Boleta</button></a>
+    </div>
+</div>
+
+
+<div class="datagrid">
+    <table id="tablaBusqueda" class="table table-striped table-bordered table-sm " cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>
+                    Número de documento
+                </th>
+                <th>
+                    Proveedor
+                </th>
+                <th>
+                    Fecha del documento
+                </th>
+                <th>
+                    Monto
+                </th>
+                <th>
+                    Categoria del gasto
+                </th>
+                <th>
+                    Tipo de documento
+                </th>
+                <th>
+                    Modificar
+                </th>
+                <th>
+                    Eliminar
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    1466754707
+                </td>
+                <td>
+                    Turbus
+                </td>
+                <td>
+                    2019-03-06
+                </td>
+                <td>
+                    5000
+                </td>
+                <td>
+                    Pasajes
+                </td>
+                <td>
+                    Boleta
+                </td>
+                <td>
+                    <div class="wrapper">
+                        <button class="buttonPrimary" type="">Modificar</button>
+                    </div>
+                </td>
+
+                <td>
+                    <div class="wrapper">
+                        <button class="buttonDelete" type="">Eliminar</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+
+
+
+<!-- Modal -->
+    <div class="modal-wrapper" id="popup">
+        <div class="popup-contenedor">
+            <div class="bar-title">
+                <span>Agregar Boleta</span>
+            </div>
+
+            @using (Html.BeginForm("AgregarBoleta", "Rendicion", FormMethod.Post, new { @style = "border:none" }))
+            {
+                <div class="popup-contenido">
+                    <div class="contenedor_input">
+
+                        <div class="form-inline-fechas">
+                            <div class="control fecha1">
+                                <span>Número de documento</span>
+                                <input asp-for="Documento.NumDoc" required="required" class="" placeholder="Número del documento" >
+                            </div>
+
+                            <div class="control fecha2">
+                                <span>Proveedor</span>
+                                <input asp-for="Documento.Proveedor" class="" required="required" placeholder="Nombre del proveedor del documento" >
+                            </div>
+                        </div>
+
+                        <div class="form-inline-fechas">
+                            <div class="control fecha1">
+                                <span>Fecha del documento</span>
+                                <input asp-for="Documento.Fecha" class="" required="required" type="date" placeholder="Fecha del documento" >
+                            </div>
+
+                            <div class="control fecha2">
+                                <span>Monto</span>
+                                <input asp-for="Documento.Monto" class="" required="required" placeholder="Monto total del documento" >
+                            </div>
+                        </div>
+
+                        <div class="control">
+                            <span>Descripción</span>
+                            <input asp-for="Documento.Descripcion" class="form-control mr-sm-2" placeholder="Descripción del gasto" >
+                        </div>
+
+                        <div class="form-inline-fechas">
+                            <div class="control fecha1">
+                                <span>Categoría del gasto</span>
+                                <select class="" asp-for="Documento.Categoria"  name="Nombre">
+                                    <option value="" disabled selected>Selecciona la categoría del documento</option>
+                                        @if (ViewData["Seleccionadas"] != null)
+                                        {
+                                            @foreach (var item in ViewData["Seleccionadas"] as List<Categoria>)
+                                            {
+                                                <option value="@item.Nombre">@item.Nombre</option>
+                                            }
+                                        }
+                                </select>
+                            </div>
+
+                            <div class="control fecha2">
+                                <span>Tipo de documento</span>
+                                <!--input asp-for="Documento.TipoDocumento" class="" required="required" placeholder="Tipo de documento (ej. Boleta o Factura)"-->
+                                <select asp-for="Documento.TipoDocumento" class="">
+                                    <option value="" disabled selected>Selecciona el tipo de documento</option>
+                                    <option VALUE="Boleta">Boleta</option>
+                                    <option VALUE="Boleta">Factura</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control">
+                            <span>Copia del documento</span>
+                            <input asp-for="Documento.DirecDocumento" type="file" class="" id="exampleInputFile" aria-describedby="fileHelp">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="popup-footer">
+                    <div class="wrapperOrientacionBotonFormulario">
+                        <div class="wrapper wrapperBotonFormulario toggle">
+                            <a href="#"><button type="button" class="buttonSecundary" data-dismiss="modal">Cerrar</button></a>
+                        </div>
+                        <div class="wrapper wrapperBotonFormulario toggle">
+                            <button type="submit" class="buttonPrimary"  name="">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!--a class="popup-cerrar" href="#">X</a-->
+        </div>
+    </div>

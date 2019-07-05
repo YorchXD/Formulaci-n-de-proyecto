@@ -5,65 +5,127 @@
 }
 
 <div class="form-inline" style="padding-top: calc(0.5em + 6px);">
-    <h3 class="mr-auto my-2 my-lg-0">
-        Personas que participan en el evento
-    </h3>
+    <h2>Personas que participan en el evento</h2>
 
-    @using (Html.BeginForm("AgregarPersona", "Solicitud", FormMethod.Post, new { @style = "border:none" }))
-    {
-        <div class="form-inline mr-auto my-2 my-lg-0">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-            <div class="form-group">
-                <input asp-for="Nombre" class="form-control mr-sm-2" placeholder="Nombre de la persona" />
-
-                <!--input type="text" class="form-control mr-sm-2" id="Nombre" runat="server" aria-describedby="emailHelp" placeholder="Nombre de la persona"-->
-            </div>
-            <div class="form-group ">
-                <input asp-for="Run" class="form-control mr-sm-2" placeholder="Run de la persona" />
-                <!--input type="text" class="form-control mr-sm-2" id="Run" runat="server" placeholder="Run de la persona"-->
-            </div>
-            <button type="submit" class="btn btn-primary my-2 my-sm-0">Agregar</button>
-        </div>
-    }
+    <div class="wrapper toggle">
+        <a href="#popup" ><button class="buttonPrimary"  name="">Agregar Persona</button></a>
+    </div>
 </div>
 
-<hr />
 
-@if (ViewData["Personas"] != null)
-{
-    @foreach (var item in ViewData["Personas"] as List<Persona>)
-    {
-        @using (Html.BeginForm("EliminarCategoria", "Solicitud", FormMethod.Post, new { @style = "border:none" }))
-        {
-            <div class="container">
-                <div class="row">
-                    <div class=" mx-auto col-md-8">
-                        <div class="card">
-                            <div class="card-body d-flex justify-content-between align-items-center" for="eliminarCategoria">
-                                <input type="text" readonly="" class="form-control-plaintext" name="Nombre" value="@item.Nombre">
-                                <input type="text" readonly="" class="form-control-plaintext" name="Nombre" value="@item.Run">
-                                <!--button type="submit" class="btn btn-warning btn-sm">Eliminar</!--button-->
+
+
+<!--Contenido-->
+    <div class="contenedor_formulario">
+        <div class="fieldsContainer">
+            @if (ViewData["Personas"] != null)
+            {
+                @foreach (var item in ViewData["Personas"] as List<Persona>)
+                {
+                    @using (Html.BeginForm("EliminarPersona", "Solicitud", FormMethod.Post, new { @style = "border:none" }))
+                    {
+                        
+                            <div class="" for="eliminarPersona">
+                                <div class="cards1">
+                                    <div class="card1">
+                                        <input type="text" readonly="" class="" style="border:none; margin-top: 5px;" name="Nombre" value="@item.Nombre">
+                                    </div>
+
+                                    <div class="card1">
+                                        <input type="text" readonly="" class="" style="border:none; margin-top: 5px;" name="Nombre" value="@item.Run">
+                                    </div>
+                                    
+                                    <div class="card1">
+                                        <div class="wrapper">
+                                            <button type= "submit" class="buttonDelete"   name="">Eliminar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                             </div>
+                            
+                    }
+                }
+            }
+        </div>
+    </div>
+
+    @using (Html.BeginForm("Resume", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+    {
+        <div class =" container" style="padding-top: calc(0.5em + 6px); text-align:right;">
+            <div class="row">
+                <div class="wrapper toggle">
+                    <button type="submit" class="buttonPrimary">Crear Solicitud</button>
+                </div>
+            </div>
+        </div>
+    }
+    <!--Fin Contenido-->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+    <div class="modal-wrapper" id="popup">
+        <div class="popup-contenedor">
+            <div class="bar-title">
+                <span>Agregar persona</span>
+            </div>
+        <!--h2>Agregar categoría</h2-->
+
+            @using (Html.BeginForm("AgregarPersona", "Solicitud", FormMethod.Post, new { @style = "border:none" }))
+            {
+                <div class="popup-contenido">
+                    <div class="contenedor_input">
+                        <div class="control">
+                            <span>Nombre de la persona</span>
+                            <input asp-for="Nombre" class="form-control mr-sm-2" placeholder="Nombre de la persona" />
+                        </div>
+                        
+
+                        <div class="control">
+                            <span>RUT de la persona</span>
+                            <input asp-for="Run" class="form-control mr-sm-2" placeholder="Run de la persona" />
                         </div>
                     </div>
                 </div>
-            </div>
-        }
 
-    }
-}
-
-@using (Html.BeginForm("Resume", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
-{
-    <div class ="container" style="padding-top: calc(0.5em + 6px); text-align:right;">
-        <div class="row">
-            <div class=" mx-auto col-md-8">
-                <button type="submit" class="btn btn-success my-2 my-sm-0">Crear Solicitud</button>
-            </div>
+                <div class="popup-footer">
+                    <div class="wrapperOrientacionBotonFormulario">
+                        <div class="wrapper wrapperBotonFormulario toggle">
+                            <a href="#"><button type="button" class="buttonSecundary" data-dismiss="modal">Cerrar</button></a>
+                        </div>
+                        <div class="wrapper wrapperBotonFormulario toggle">
+                            <button type="submit" class="buttonPrimary"  name="">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!--a class="popup-cerrar" href="#">X</a-->
         </div>
     </div>
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
@@ -72,14 +134,14 @@
     <!-- MATERIAL DESIGN ICONIC FONT -->
     <!--link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css"-->
     <!-- STYLE CSS -->
-    <link rel="stylesheet" href="~/css/style.css">
+    <!--link rel="stylesheet" href="~/css/style.css"-->
     <!--#################################################################################################-->
     <!--#############Para crear una solicitud################-->
-    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <!--script src="~/js/jquery-3.3.1.min.js"></script-->
     <!-- JQUERY STEP -->
-    <script src="~/js/jquery.steps.js"></script>
-    <script src="~/js/main.js"></script>
+    <!--script src="~/js/jquery.steps.js"></script-->
+    <!--script src="~/js/main.js"></script-->
     <!--#####################################################-->
-    <script src="~/js/bootstrap.js"></script>
+    <!--script src="~/js/bootstrap.js"></script-->
 
 }

@@ -66,7 +66,7 @@ namespace SimRend.DbSimRend
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_nombreEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.NombreEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaInicioEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaInicioEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaTerminoEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaTerminoEvento });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_runEncargado", Direction = System.Data.ParameterDirection.Input, Value = solicitud.Responsable});
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_runEncargado", Direction = System.Data.ParameterDirection.Input, Value = solicitud.RutResponsable});
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_lugarEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.LugarEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
                 var datos = ContexDb.ExecuteProcedure(command);
@@ -224,6 +224,25 @@ namespace SimRend.DbSimRend
             }
         }
 
+        public static void EliminarPersona(SolicitudPersona solper)
+        {
+
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "eliminar_persona_seleccionada", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = solper.RefSolicitud });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refPersona", Direction = System.Data.ParameterDirection.Input, Value = solper.RefPersona });
+                //command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
+                var datos = ContexDb.ExecuteProcedure(command);
+
+                //saber.Id = Convert.ToInt32(datos.Parameters["out_id"].Value);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
         public static List<Persona> LeerPersonasSolicitud(int refSolicitud)
         {
             try
@@ -309,7 +328,7 @@ namespace SimRend.DbSimRend
                             NombreEvento = prodData["nomEvent"].ToString(),
                             FechaInicioEvento = Convert.ToDateTime(prodData["fecIniEvent"]),
                             FechaTerminoEvento = Convert.ToDateTime(prodData["fecTerEvent"]),
-                            Responsable = prodData["runEncargado"].ToString(),
+                            RutResponsable= prodData["runEncargado"].ToString(),
                             LugarEvento = prodData["lugarEvent"].ToString()
                         };
 
@@ -430,7 +449,7 @@ namespace SimRend.DbSimRend
                         NombreEvento = prodData["nomEvent"].ToString(),
                         FechaInicioEvento = Convert.ToDateTime(prodData["fecIniEvent"]),
                         FechaTerminoEvento = Convert.ToDateTime(prodData["fecTerEvent"]),
-                        Responsable = prodData["runEncargado"].ToString(),
+                        RutResponsable = prodData["runEncargado"].ToString(),
                         LugarEvento = prodData["lugarEvent"].ToString()
                     };
                     return solicitud;

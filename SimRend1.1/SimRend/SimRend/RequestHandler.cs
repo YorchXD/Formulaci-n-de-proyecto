@@ -40,7 +40,7 @@ namespace SimRend.Helpers
             _httpContextAccessor.HttpContext.Session.Remove("_usuario");
         }
 
-        internal void SetIdSolicitu(int id)
+        internal void SetIdSolicitud(int id)
         {
             _httpContextAccessor.HttpContext.Session.SetInt32("_solicitud", id);
         }
@@ -53,6 +53,36 @@ namespace SimRend.Helpers
         internal void RemoveIdSolicitud()
         {
             _httpContextAccessor.HttpContext.Session.Remove("_solicitud");
+        }
+
+        internal void SetIdResolucion(int id)
+        {
+            _httpContextAccessor.HttpContext.Session.SetInt32("_resolucion", id);
+        }
+
+        internal int GetIdResolucion()
+        {
+            return _httpContextAccessor.HttpContext.Session.GetInt32("_resolucion").Value;
+        }
+
+        internal void RemoveIdResolucion()
+        {
+            _httpContextAccessor.HttpContext.Session.Remove("_resolucion");
+        }
+
+        internal void SetIdRendicion(int id)
+        {
+            _httpContextAccessor.HttpContext.Session.SetInt32("_rendicion", id);
+        }
+
+        internal int GetIdRendicion()
+        {
+            return _httpContextAccessor.HttpContext.Session.GetInt32("_rendicion").Value;
+        }
+
+        internal void RemoveIdRendicion()
+        {
+            _httpContextAccessor.HttpContext.Session.Remove("_rendicion");
         }
     }
 }

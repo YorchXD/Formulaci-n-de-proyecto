@@ -76,3 +76,5 @@ D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\ne
 D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\SimRend.pdb
 D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\SimRend.csproj.CopyComplete
 D:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\SimRend.csprojAssemblyReference.cache
+d:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\Razor\Views\Rendicion\Rendicion.g.cshtml.cs
+d:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\obj\Debug\netcoreapp2.1\Razor\Views\Rendicion\RendicionParticipante.g.cshtml.cs

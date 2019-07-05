@@ -29,7 +29,11 @@ namespace SimRend.Controllers
             ViewData["_usuario"] = _requestHandler.GetUsuario();
 
             int idOrganizacion = _requestHandler.GetIdAcceso();
-            var solicitudes = ConsultaSolicitud.LeerSolicitudOrganizacion(idOrganizacion);
+            List<Solicitud> solicitudes = ConsultaSolicitud.LeerSolicitudOrganizacion(idOrganizacion);
+            foreach (Solicitud solicitud in solicitudes)
+            {
+                solicitud.NombreResponsable =  BuscarRepresentante(idOrganizacion,solicitud.RutResponsable);
+            }
             //TempData["idOrganizacion"] = idOrganizacion;
             return View(solicitudes);
         }
@@ -98,18 +102,18 @@ namespace SimRend.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Monto,NombreEvento,FechaInicioEvento,FechaTerminoEvento,LugarEvento,Responsable")] Solicitud solicitud)
+        public IActionResult Create([Bind("Monto,NombreEvento,FechaInicioEvento,FechaTerminoEvento,LugarEvento,RutResponsable")] Solicitud solicitud)
         {
             if (ModelState.IsValid)
             {
-                ConsultaSolicitud.ModificarEstadoResponsable(solicitud.Responsable, "Desabilitado");
+                ConsultaSolicitud.ModificarEstadoResponsable(solicitud.RutResponsable, "Desabilitado");
                 solicitud.FechaActual = DateTime.Now;
                 solicitud.Estado = "Editando";
                 int idOrganizacion = _requestHandler.GetIdAcceso();
                 int idSolicitud = ConsultaSolicitud.CrearSolicitud(solicitud);
                 ConsultaSolicitud.AgregarOrgSol(idOrganizacion, idSolicitud);
                 //TempData["idOrganizacion"] = idOrganizacion;
-                _requestHandler.SetIdSolicitu(idSolicitud);
+                _requestHandler.SetIdSolicitud(idSolicitud);
                 return RedirectToAction("Category", "Solicitud");
             }
             return View(solicitud);
@@ -119,44 +123,12 @@ namespace SimRend.Controllers
         // GET: Solicitud/Create
         public IActionResult Category()
         {
+            
             int idSolicitud = _requestHandler.GetIdSolicitud();
-            ViewData["_usuario"] = _requestHandler.GetUsuario();
+            ViewData["_usuario"] = _requestHandler.GetUsuario(); 
             List<Categoria> Categorias = ConsultaSolicitud.LeerTodoCategorias();
+            
             List<Categoria> CategoriasSeleccionadas = ConsultaSolicitud.LeerCategoriasSeleccionadas(idSolicitud);
-
-
-            //DataSet datosTemp = TempData["Seleccionadas"] as DataSet;
-
-            /*Esto sirve para cuando  existan cookie con TempData en el navegador y la hace null*/
-            //TempData["Seleccionadas"] = null;
-            /*int Cont = 0;
-            String var;
-            while(TempData["Seleccionadas"] != null)
-            {
-                var = (String)TempData["Seleccionadas"];
-                CategoriaFlotante.Add(var);
-                Cont++;
-            }*/
-
-
-
-            /*if (TempData["Seleccionadas"] != null)
-            {
-                //CategoriaFlotante = TempData["Seleccionada"] ;
-
-                //List<string> var = (List<string>)TempData["Seleccionadas"];
-                //Console.WriteLine(var);
-                //var.Split();
-
-                CategoriaFlotante = TempData["Seleccionadas"].ToString();
-
-
-                foreach (var e in CategoriaFlotante)
-                {
-                    CategoriasSeleccionadas.Add(new Categoria { Nombre = e });
-                }
-                ViewData["Seleccionadas"] = CategoriasSeleccionadas;
-            }*/
 
             if (CategoriasSeleccionadas != null)
             {
@@ -171,8 +143,6 @@ namespace SimRend.Controllers
                     {
                         Categorias.RemoveAt(count);
                     }
-
-                    //Categorias.Remove(categoria);
 
                 }
                 ViewData["Seleccionadas"] = CategoriasSeleccionadas;
@@ -256,7 +226,6 @@ namespace SimRend.Controllers
         public IActionResult Person()
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
-            //TempData["idSolicitud"] = 1;
             int idSolicitud = _requestHandler.GetIdSolicitud();
             List<Persona> Personas = ConsultaSolicitud.LeerPersonasSolicitud(idSolicitud);
 
@@ -264,8 +233,6 @@ namespace SimRend.Controllers
             {
                 ViewData["Personas"] = Personas;
             }
-            //int idOrganizacion = Convert.ToInt32(TempData["idOrganizacion"]);
-            //TempData["idOrganizacion"] = idOrganizacion;
             return View();
         }
 
@@ -278,11 +245,31 @@ namespace SimRend.Controllers
             {
                 ConsultaSolicitud.AgregarPersona(persona);
                 ConsultaSolicitud.AgregarPerSol(persona.Run, idSolicitud);
-                return RedirectToAction("Resumen", "Solicitud");
+                return RedirectToAction("Person", "Solicitud");
             }
             //int idOrganizacion = Convert.ToInt32(TempData["idOrganizacion"]);
             //TempData["idOrganizacion"] = idOrganizacion;
             return View(persona);
+        }
+
+        // POST: Solicitud/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        public IActionResult EliminarPersona(String Run)
+        {
+            SolicitudPersona solper = new SolicitudPersona()
+            {
+                RefPersona = Run,
+                RefSolicitud = _requestHandler.GetIdSolicitud()
+            };
+
+            if (ModelState.IsValid)
+            {
+                ConsultaSolicitud.EliminarPersona(solper);
+                return RedirectToAction("Person", "Solicitud");
+            }
+            return View(solper);
         }
 
 
@@ -290,16 +277,19 @@ namespace SimRend.Controllers
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
             int idSolicitud = _requestHandler.GetIdSolicitud();
+            int idOrganizacion = _requestHandler.GetIdAcceso();
             ModeloSolicitud modelo = new ModeloSolicitud();
             modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud(idSolicitud);
+            modelo.Solicitud.NombreResponsable = BuscarRepresentante(idOrganizacion, modelo.Solicitud.RutResponsable);
             return View(modelo);
         }
 
 
         public IActionResult IrResumen(int IdSolicitud)
         {
-            _requestHandler.SetIdSolicitu(IdSolicitud);
-            return RedirectToAction("Resolucion", "Resolucion");
+            _requestHandler.SetIdSolicitud(IdSolicitud);
+            //return RedirectToAction("Resolucion", "Resolucion");
+            return RedirectToAction("Rendicion", "Rendicion");
         }
 
         private ModeloSolicitud obtenerModelo()
@@ -416,6 +406,22 @@ namespace SimRend.Controllers
         {
             _requestHandler.RemoveIdSolicitud();
             return RedirectToAction("Index", "Solicitud");
+        }
+
+        public static String BuscarRepresentante(int idOrganizacion, String rut)
+        {
+            ModeloSolicitud modelo = new ModeloSolicitud();
+            modelo.Responsables = ConsultaSolicitud.LeerRepresetantes(idOrganizacion);
+            
+            foreach (Responsable responsable in modelo.Responsables)
+            {
+                if (responsable.Run.Equals(rut))
+                {
+                    
+                    return responsable.Nombre;
+                }
+            }
+            return null;
         }
     }
 }

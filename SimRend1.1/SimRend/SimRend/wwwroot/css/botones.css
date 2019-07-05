@@ -2,6 +2,7 @@
     --colorTexButton: #ffffff;
     --colorPrimaryButton: #fe5939;
     --colorSecundaryButton: #472d20;
+    --colorDeleteButton: #d60303;
     --font: 'Roboto', sans-serif;
 }
 
@@ -25,7 +26,7 @@ button {
     font-weight: bold;
     padding: 7px 0px 10px;
     line-height: 1;
-    border-radius: 1em;
+    border-radius: 0px;
     position: relative;
     min-width: 120px;
     text-decoration: none;
@@ -81,3 +82,13 @@ button {
     .buttonSecundary:after {
         background: var(--colorSecundaryButton);
     }
+
+.buttonDelete {
+        background: var(--colorDeleteButton);
+        color: var(--colorTexButton);
+    }
+    
+        .buttonDelete:before,
+        .buttonDelete:after {
+            background: var(--colorDeleteButton);
+        }

@@ -4,8 +4,8 @@
 \contentsline {chapter}{Agradecimientos}{\es@scroman {ii}}
 \contentsline {chapter}{Tabla de Contenidos}{\es@scroman {iii}}
 \contentsline {chapter}{\IeC {\'I}ndice de Figuras}{\es@scroman {vi}}
-\contentsline {chapter}{\IeC {\'I}ndice de Tablas}{\es@scroman {vii}}
-\contentsline {chapter}{Resumen}{\es@scroman {viii}}
+\contentsline {chapter}{\IeC {\'I}ndice de Tablas}{\es@scroman {viii}}
+\contentsline {chapter}{Resumen}{\es@scroman {ix}}
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{10}
 \contentsline {section}{\numberline {1.1}Contexto del proyecto}{10}
 \contentsline {section}{\numberline {1.2}Definici\IeC {\'o}n del problema}{13}
@@ -81,40 +81,30 @@
 \contentsline {paragraph}{Motor y aplicaci\IeC {\'o}n para base de datos: }{66}
 \contentsline {section}{\numberline {6.2}Aplicaci\IeC {\'o}n Obtenida}{66}
 \contentsline {paragraph}{Autentificaci\IeC {\'o}n de un usuario en el sistema: }{66}
-\contentsline {paragraph}{Recuperaci\IeC {\'o}n de acceso a una cuenta de una OE: }{66}
-\contentsline {paragraph}{B\IeC {\'u}squeda de solicitudes: }{66}
-\contentsline {paragraph}{Solicitud: }{66}
-\contentsline {subparagraph}{\emph {Datos principales de la Solicitud: }}{67}
-\contentsline {subparagraph}{\emph {Categor\IeC {\'\i }a: }}{67}
-\contentsline {subparagraph}{\emph {Participante: }}{67}
-\contentsline {subparagraph}{\emph {Resumen: }}{67}
-\contentsline {paragraph}{Resoluci\IeC {\'o}n: }{67}
-\contentsline {paragraph}{Rendici\IeC {\'o}n: }{67}
-\contentsline {subparagraph}{\emph {Documento: }}{67}
-\contentsline {section}{\numberline {6.3}Pruebas}{68}
-\contentsline {section}{\numberline {6.4}Resultados}{69}
-\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas generales sobre el sistema}{69}
-\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre las funcionalidades del sistema}{69}
-\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre usabilidad e interfaz de usuario}{69}
-\contentsline {chapter}{\numberline {7}Conclusiones}{71}
-\contentsline {chapter}{Glosario}{73}
-\contentsline {chapter}{Bibliograf\'{\i }a}{75}
+\contentsline {paragraph}{Recuperaci\IeC {\'o}n de acceso a una cuenta de una OE: }{67}
+\contentsline {paragraph}{B\IeC {\'u}squeda de solicitudes: }{67}
+\contentsline {paragraph}{Solicitud: }{68}
+\contentsline {subparagraph}{\emph {Datos principales de la Solicitud: }}{68}
+\contentsline {subparagraph}{\emph {Categor\IeC {\'\i }a: }}{68}
+\contentsline {subparagraph}{\emph {Participante: }}{69}
+\contentsline {subparagraph}{\emph {Resumen: }}{69}
+\contentsline {paragraph}{Resoluci\IeC {\'o}n: }{69}
+\contentsline {paragraph}{Rendici\IeC {\'o}n: }{70}
+\contentsline {subparagraph}{\emph {Documento: }}{70}
+\contentsline {section}{\numberline {6.3}Pruebas}{71}
+\contentsline {section}{\numberline {6.4}Resultados}{72}
+\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas generales sobre el sistema}{72}
+\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre las funcionalidades del sistema}{72}
+\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre usabilidad e interfaz de usuario}{72}
+\contentsline {chapter}{\numberline {7}Conclusiones}{74}
+\contentsline {chapter}{Glosario}{76}
+\contentsline {chapter}{Bibliograf\'{\i }a}{78}
 \contentsline {chapter}{Anexos}{}
-\contentsline {chapter}{A:\hspace {1em}Pruebas de Caja Negra}{78}
-\contentsline {section}{\numberline {A.1}Confecci\IeC {\'o}n de una solicitud}{78}
-\contentsline {section}{\numberline {A.2}Ingreso de RU}{80}
-\contentsline {section}{\numberline {A.3}Confecci\IeC {\'o}n de una rendici\IeC {\'o}n}{81}
-\contentsline {chapter}{B:\hspace {1em}Encuesta a representantes de las OE}{83}
-\contentsline {section}{\numberline {B.1}Secci\IeC {\'o}n de preguntas generales sobre el sistema}{83}
-\contentsline {paragraph}{1.\IeC {\nobreakspace } \IeC {\textquestiondown }Cree usted que es necesaria una herramienta que ayude a las OE a realizar el proceso de Solicitud de Fondo por Rendir?}{83}
-\contentsline {paragraph}{2.\IeC {\nobreakspace } \IeC {\textquestiondown }Cree usted que esta herramienta puede ayudar a reducir el tiempo que demanda realizar una rendici\IeC {\'o}n? (En escala de 1 (No es de ayuda) a 5 (Es de mucha ayuda))}{84}
-\contentsline {paragraph}{3.\IeC {\nobreakspace } \IeC {\textquestiondown }Cree usted que la mayor\IeC {\'\i }a de las personas pueden aprender a usar el sistema r\IeC {\'a}pidamente? (En escala de 1 (En desacuerdo) a 5 (De acuerdo))}{84}
-\contentsline {paragraph}{4.\IeC {\nobreakspace } \IeC {\textquestiondown }Cree usted que gracias a la aplicaci\IeC {\'o}n se puede reducir la causa de rechazo de la Rendici\IeC {\'o}n? (En escala de 1 (En desacuerdo) a 5 (De acuerdo))}{85}
-\contentsline {section}{\numberline {B.2}Secci\IeC {\'o}n de preguntas sobre las funcionalidades del sistema}{86}
-\contentsline {paragraph}{5.\IeC {\nobreakspace } \IeC {\textquestiondown }Cree usted que las funcionalidades son suficientes para que la aplicaci\IeC {\'o}n sea \IeC {\'u}til? }{86}
-\contentsline {paragraph}{6.\IeC {\nobreakspace } \IeC {\textquestiondown }El sistema logra realizar una rendici\IeC {\'o}n fiable? (Siempre, A veces, nunca)}{86}
-\contentsline {section}{\numberline {B.3}Secci\IeC {\'o}n de preguntas sobre usabilidad e interfaz de usuario (En escala de 1 (En desacuerdo) a 5 (De acuerdo))}{87}
-\contentsline {paragraph}{7.\IeC {\nobreakspace } \IeC {\textquestiondown }La aplicaci\IeC {\'o}n es f\IeC {\'a}cil de usar?}{87}
-\contentsline {paragraph}{8.\IeC {\nobreakspace } \IeC {\textquestiondown }Se entiende c\IeC {\'o}mo utilizar la aplicaci\IeC {\'o}n sin necesidad de instrucciones?}{87}
-\contentsline {paragraph}{9. \IeC {\textquestiondown }La distribuci\IeC {\'o}n de los elementos en la pantalla es adecuada?}{88}
-\contentsline {paragraph}{10. \IeC {\textquestiondown }El proceso completo de realizar una Solicitud de Fondo por Rendir es claro?}{88}
+\contentsline {chapter}{A:\hspace {1em}Pruebas de Caja Negra}{81}
+\contentsline {section}{\numberline {A.1}Confecci\IeC {\'o}n de una solicitud}{81}
+\contentsline {section}{\numberline {A.2}Ingreso de RU}{83}
+\contentsline {section}{\numberline {A.3}Confecci\IeC {\'o}n de una rendici\IeC {\'o}n}{84}
+\contentsline {chapter}{B:\hspace {1em}Encuesta a representantes de las OE}{86}
+\contentsline {section}{\numberline {B.1}Secci\IeC {\'o}n de preguntas generales sobre el sistema}{86}
+\contentsline {section}{\numberline {B.2}Secci\IeC {\'o}n de preguntas sobre las funcionalidades del sistema}{89}
+\contentsline {section}{\numberline {B.3}Secci\IeC {\'o}n de preguntas sobre usabilidad e interfaz de usuario (En escala de 1 (En desacuerdo) a 5 (De acuerdo))}{90}

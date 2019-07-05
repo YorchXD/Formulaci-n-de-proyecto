@@ -4,67 +4,62 @@
     ViewData["Title"] = "Resumen de Solicitud";
 }
 
-<h2>Solicitud</h2>
-<hr />
+<h2>Resumen de Solicitud</h2>
 
-<div class="bodyStep">
-    <div class="mx-auto col-md-8">
-        <dl>
-            <dt>
-                @Html.DisplayNameFor(model => model.Solicitud.NombreEvento)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Solicitud.NombreEvento)
-            </dd>
+<div class="contenedor_formulario">
+    <div class="form">
+        <div class="contenedor_input">
+            <div class="control">
+                <span>Nombre del evento</span>
+                <input type="text" readonly="" class="" style="border:none; margin-top: 5px;" name="Nombre" value="@Html.DisplayFor(model => model.Solicitud.NombreEvento)">
+            </div>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Solicitud.LugarEvento)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Solicitud.LugarEvento)
-            </dd>
+            <div class="control">
+                <span>Lugar del evento</span>
+                <input type="text" readonly="" class="" style="border:none; margin-top: 5px;" name="Nombre" value="@Html.DisplayFor(model => model.Solicitud.LugarEvento)">
+            </div>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Solicitud.Monto)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Solicitud.Monto)
-            </dd>
+            <div class="control">
+                <span>Monto solicitado</span>
+                <input type="text" readonly="" class="" style="border:none; margin-top: 5px;" name="Nombre" value="@Html.DisplayFor(model => model.Solicitud.FechaInicioEvento)">
+            </div>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Solicitud.FechaInicioEvento)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Solicitud.FechaInicioEvento)
-            </dd>
+            <div class="control">
+                <span>Fecha de inicio del evento</span>
+                <input type="text" readonly="" class="" style="border:none; margin-top: 5px;" name="Nombre" value="@Html.DisplayFor(model => model.Solicitud.FechaInicioEvento)">
+            </div>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Solicitud.FechaInicioEvento)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Solicitud.FechaInicioEvento)
-            </dd>
+            <div class="control">
+                <span>Fecha de término del evento</span>
+                <input type="text" readonly="" class="" style="border:none; margin-top: 5px;" name="Nombre" value="@Html.DisplayFor(model => model.Solicitud.FechaTerminoEvento)">
+            </div>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Solicitud.Responsable)
-            </dt>
-            <dd>
-                @Html.DisplayFor(model => model.Solicitud.Responsable)
-            </dd>
-        </dl>
-
+            <div class="control">
+                <span>Responsable</span>
+                <input type="text" readonly="" class="" style="border:none; margin-top: 5px;" name="Nombre" value="@Html.DisplayFor(model => model.Solicitud.NombreResponsable)">
+            </div>
+        </div>
     </div>
+    
 
-    <div class="modal-footer">
+
+
+
+
+</div>
+<div class="wrapperOrientacionBotonFormulario">
+    <div class="wrapper wrapperBotonFormulario">
         @using (Html.BeginForm("GeneratePDF", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
         {
-            <button type="submit" class="btn btn-success  my-2 my-sm-0">Generar PDF</button>
+            <button type="submit" class="buttonSecundary">Generar PDF</button>
         }
-
+    </div>
+    <div class="wrapper wrapperBotonFormulario toggle">
         @using (Html.BeginForm("VolverIndex", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
         {
-            <button type="submit" class="btn btn-success my-2 my-sm-0">Finalizar</button>
+            <button type="submit" class="buttonPrimary">Finalizar</button>
         }
     </div>
 </div>
+
 

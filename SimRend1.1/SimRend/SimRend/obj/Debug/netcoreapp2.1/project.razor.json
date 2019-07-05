@@ -2869,6 +2869,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views\\Rendicion\\Rendicion.cshtml",
+      "TargetPath": "Views\\Rendicion\\Rendicion.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
@@ -2911,6 +2916,11 @@
     {
       "FilePath": "Views\\Home\\Contact.cshtml",
       "TargetPath": "Views\\Home\\Contact.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views\\Rendicion\\RendicionParticipante.cshtml",
+      "TargetPath": "Views\\Rendicion\\RendicionParticipante.cshtml",
       "FileKind": "mvc"
     },
     {

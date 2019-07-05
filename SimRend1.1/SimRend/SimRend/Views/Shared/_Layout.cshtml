@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="~/css/tablas.css" />
         <link rel="stylesheet" href="~/css/formulario.css" />
         <link rel="stylesheet" href="~/css/botones.css" />
+        <link rel="stylesheet" href="~/css/modal.css">
         <!-- Font Awesome Stylesheet -->
         <link rel="stylesheet" href="~/css/font-awesome/css/font-awesome.css" />
 
@@ -41,7 +42,7 @@
             <nav id="colorNav">
                 <ul>
                     <li class="green">
-                        <a class="icon-search" asp-area="" asp-controller="Solicitud" asp-action="Index"></a>
+                        <a class="fas fa-search-dollar" asp-area="" asp-controller="Solicitud" asp-action="Index"></a>
                         <!--a class="nav-link" asp-area="" asp-controller="Solicitud" asp-action="Index">Busqueda<span class="sr-only">(current)</span></a!-->
                         <!--ul>
                             <li><a href="http://tutorialzine.com/2012/10/css3-dropdown-menu/">Back to the tutorial</a></li>
@@ -50,7 +51,7 @@
                         </ul-->
                     </li>
                     <li class="red">
-                        <a class="icon-cogs" asp-controller="Solicitud" asp-action="Create"></a>
+                        <a class = "fas fa-file-medical" asp-controller="Solicitud" asp-action="Create"></a>
                         <!--a class="nav-link" asp-controller="Solicitud" asp-action="Create">Nuevo proceso</a-->
                         <!--ul>
                             <li><a href="#">Payment</a></li>
@@ -131,6 +132,7 @@
     <environment include="Development">
         <script src="~/js/jquery-3.3.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/e7d9838362.js"></script>
         <!--script src="~/js/bootstrap.js"></script-->
         <!--script src="~/js/site.js" asp-append-version="true"></script-->
 

@@ -68,6 +68,7 @@ namespace SimRend
             {
                 routes.MapRoute(
                     name: "default",
+                    //template: "{controller=Solicitud}/{action=Category}/{id?}");
                     template: "{controller=Usuario}/{action=Login}/{id?}");
                     //template: "{controller=Solicitud}/{action=GeneratePDF}/{id?}");
             });

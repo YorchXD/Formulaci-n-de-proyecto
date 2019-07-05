@@ -23,8 +23,10 @@ namespace SimRend.Controllers
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
             int idSolicitud = _requestHandler.GetIdSolicitud();
+            int idOrganizacion = _requestHandler.GetIdAcceso();
             ModeloResolucion modelo = new ModeloResolucion();
             modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud(idSolicitud);
+            modelo.Solicitud.NombreResponsable = SolicitudController.BuscarRepresentante(idOrganizacion, modelo.Solicitud.RutResponsable);
             return View(modelo);
         }
 

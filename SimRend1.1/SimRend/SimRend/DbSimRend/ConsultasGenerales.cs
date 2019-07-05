@@ -32,7 +32,7 @@ namespace SimRend.DbSimRend
                             NombreEvento = prodData["nomEvent"].ToString(),
                             FechaInicioEvento = Convert.ToDateTime(prodData["fecIniEvent"]),
                             FechaTerminoEvento = Convert.ToDateTime(prodData["fecTerEvent"]),
-                            Responsable = prodData["runEncargado"].ToString(),
+                            RutResponsable = prodData["runEncargado"].ToString(),
                             LugarEvento = prodData["lugarEvent"].ToString()
                         };
 

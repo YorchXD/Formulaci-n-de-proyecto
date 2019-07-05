@@ -20,7 +20,10 @@ namespace SimRend.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaTerminoEvento { get; set; }
         public string LugarEvento { get; set; }
-        public string Responsable { get; set; }
+        public string RutResponsable { get; set; }
+
+        public string NombreResponsable { get; set; }
+
         public string FechaPdf { get; set; }
         public int MontoPorPersona { get; set; }
         public string FechaEvento { get; set; }
