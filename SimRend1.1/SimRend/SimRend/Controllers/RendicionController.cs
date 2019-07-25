@@ -18,6 +18,14 @@ namespace SimRend.Controllers
             _requestHandler = requestHandler;
         }
 
+        public IActionResult InfoRendicion()
+        {
+            ViewData["_usuario"] = _requestHandler.GetUsuario();
+            int idSolicitud = _requestHandler.GetIdSolicitud();
+            int idOrganizacion = _requestHandler.GetIdAcceso();
+            return View();
+        }
+
         /*Falta solicitar los datos de la Resolucion*/
         public IActionResult Rendicion()
         {

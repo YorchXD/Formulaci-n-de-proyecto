@@ -288,8 +288,10 @@ namespace SimRend.Controllers
         public IActionResult IrResumen(int IdSolicitud)
         {
             _requestHandler.SetIdSolicitud(IdSolicitud);
+            //return RedirectToAction("GeneratePDF", "GeneratePDF");
+            return RedirectToAction("InfoRendicion", "Rendicion");
             //return RedirectToAction("Resolucion", "Resolucion");
-            return RedirectToAction("Rendicion", "Rendicion");
+            //return RedirectToAction("Rendicion", "Rendicion");
         }
 
         private ModeloSolicitud obtenerModelo()
@@ -371,7 +373,11 @@ namespace SimRend.Controllers
             ModeloSolicitud modelo = obtenerModelo();
             return View(modelo);
         }
-
+        public string hacerPdf()
+        {
+            String pagina = "<!DOCTYPE html><html><head>	<title></title></head><body> <div id='Solicitud'>    <DIV ALIGN='center'><img src='https://i.imgur.com/SS6BFCs.png' width='10%'  border=0></DIV-->    <div ALIGN='right'><P> 9 de julio de 2019</P></div>        <DIV ALIGN='left'>        <P style='line-height:1px'><B>Sra. Ruth Garrido</B></P>        <P style='line-height:3px'><I>Directora de escuela</I></P>        <P style='line-height:1px'><I>Universidad de Talca</I></P>        <P style='line-height:1px'><B><U>Presente.</U></B></P>    </DIV>    <DIV style='text-align:justify'>       <P>         De nuestra consideración:     </P>     <P>        Junto con saludar cordialmente, me dirijo a usted como Presidente del centro de alumnos de Ingeniería Civil en Computación, para solicitarle apoyo económico con el fin de realizar la actividad estudiantil que se indica a continuación:       </P>            <ul>            <li><B>Nombre de la actividad:</B>  @Html.DisplayFor(model => model.Solicitud.NombreEvento).</li>            <li><B>Periodo:</B> @Html.DisplayFor(model => model.Solicitud.FechaEvento).</li>            <li><B>Ubicación:</B> @Html.DisplayFor(model => model.Solicitud.LugarEvento).</li>        </ul>            <P>Se solicita un monto total de $50000 sujeto a rendición para solventar parcialmente los gastos de @Html.DisplayFor(model => model.CategoriasConcatenadas)      </P>            <P> Dicho monto quedará bajo la responsabilidad de Yorch Wilian Sepúlveda Manriquez, RUT 17.824.523-6, matrícula 2011407070, en su calidad de Presidente del Centro de Alumnos de Ingeniería Civil en Computación de la Universidad de Talca.        </P>      <P>            Esperando una buena acogida y una pronta respuesta de esta solicitud, se despide atentamente de usted.        </P>    </DIV>    <DIV ALIGN='center' style='padding-top:80px;'>        <P style='line-height:3px'><B>Yorch Sepúlveda</B></P>        <P style='line-height:3px'> Presidente</P>        <P style='line-height:3px'>Ingeniería Civil en Computación</P>        <P style='line-height:3px'>Universidad de Talca</P>    </DIV></div> </body></html>";
+            return pagina;
+        }
         public FileResult DescargarPDF()
         {
             var convertidor = new BasicConverter(new PdfTools());
@@ -389,7 +395,8 @@ namespace SimRend.Controllers
                     new ObjectSettings()
                     {
                         PagesCount = true,
-                        HtmlContent = GeneratePDF().ToString(),
+                        HtmlContent = @""+hacerPdf(),
+
                         WebSettings =
                         {
                             DefaultEncoding = "utf-8"

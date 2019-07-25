@@ -196,7 +196,7 @@ WriteAttributeValue("", 1185, item.Nombre, 1185, 12, false);
                             ");
             EndContext();
             BeginContext(3048, 68, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "80ee72eebf7c426ba8d719725d92292b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4511d3054f9e4d66acd412539b63bfe2", async() => {
                 BeginContext(3083, 24, true);
                 WriteLiteral("Selecciona una categoría");
                 EndContext();
@@ -233,7 +233,7 @@ WriteAttributeValue("", 1185, item.Nombre, 1185, 12, false);
             WriteLiteral("                                    ");
             EndContext();
             BeginContext(3251, 50, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f7dc842395aa45899b606edfcc873e36", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "db317701195749d9be84faa942d28ad0", async() => {
                 BeginContext(3281, 11, false);
 #line 80 "d:\Repositorios\Formulación de proyecto\SimRend1.1\SimRend\SimRend\Views\Solicitud\Category.cshtml"
                                                             Write(item.Nombre);

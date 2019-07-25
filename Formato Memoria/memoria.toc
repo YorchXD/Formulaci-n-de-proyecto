@@ -34,77 +34,77 @@
 \contentsline {subsection}{\numberline {2.4.4}Artefactos}{28}
 \contentsline {subsection}{\numberline {2.4.5}Reuniones}{29}
 \contentsline {subsection}{\numberline {2.4.6}Ciclo de vida}{31}
-\contentsline {subsubsection}{\numberline {2.4.6.1}El proyecto}{31}
-\contentsline {subsubsection}{\numberline {2.4.6.2}Las fases}{32}
+\contentsline {subsubsection}{\numberline {2.4.6.1}El proyecto}{32}
+\contentsline {subsubsection}{\numberline {2.4.6.2}Las fases}{33}
 \contentsline {paragraph}{Fase de requisitos: }{33}
 \contentsline {paragraph}{Fase de dise\IeC {\~n}o: }{34}
 \contentsline {paragraph}{Fase de planificaci\IeC {\'o}n: }{34}
 \contentsline {paragraph}{Fase de construcci\IeC {\'o}n: }{34}
 \contentsline {paragraph}{Fase de pruebas: }{34}
 \contentsline {subsection}{\numberline {2.4.7}Documentaci\IeC {\'o}n}{34}
-\contentsline {section}{\numberline {2.5}Validaci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{34}
+\contentsline {section}{\numberline {2.5}Validaci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{35}
 \contentsline {section}{\numberline {2.6}Herramientas de planificaci\IeC {\'o}n}{35}
-\contentsline {chapter}{\numberline {3}Metodolog\IeC {\'\i }a utilizada}{36}
-\contentsline {section}{\numberline {3.1}Estudio del entorno}{36}
-\contentsline {subsection}{\numberline {3.1.1}Las personas}{36}
-\contentsline {subsection}{\numberline {3.1.2}La aplicaci\IeC {\'o}n}{37}
-\contentsline {subsection}{\numberline {3.1.3}Las herramientas}{37}
-\contentsline {section}{\numberline {3.2}La metodolog\IeC {\'\i }a}{40}
-\contentsline {subsection}{\numberline {3.2.1}Roles}{40}
-\contentsline {subsection}{\numberline {3.2.2}El proceso}{41}
-\contentsline {subsubsection}{\numberline {3.2.2.1}El proyecto}{41}
-\contentsline {subsubsection}{\numberline {3.2.2.2}Iteraciones del proyecto}{42}
-\contentsline {subsubsection}{\numberline {3.2.2.3}Reuniones}{43}
-\contentsline {subsection}{\numberline {3.2.3}C\IeC {\'o}mo se trabaj\IeC {\'o}}{44}
-\contentsline {chapter}{\numberline {4}Caracter\IeC {\'\i }sticas del sistema}{46}
-\contentsline {section}{\numberline {4.1}Aspectos generales}{46}
-\contentsline {section}{\numberline {4.2}Modelos de contexto de solicitudes}{47}
-\contentsline {section}{\numberline {4.3}Caracter\IeC {\'\i }sticas generales del software}{52}
-\contentsline {section}{\numberline {4.4}Planificaci\IeC {\'o}n de las iteraciones}{52}
-\contentsline {chapter}{\numberline {5}Dise\IeC {\~n}o de la aplicaci\IeC {\'o}n}{56}
-\contentsline {section}{\numberline {5.1}Mapa de navegaci\IeC {\'o}n}{56}
-\contentsline {paragraph}{Buscar solicitudes de fondos: }{56}
-\contentsline {paragraph}{Nueva solicitud de fondo: }{56}
-\contentsline {paragraph}{Solicitudes pendientes: }{57}
-\contentsline {paragraph}{Ayuda: }{57}
-\contentsline {paragraph}{Perfil: }{57}
-\contentsline {section}{\numberline {5.2}Interfaces de usuario}{57}
-\contentsline {section}{\numberline {5.3}Arquitectura de la aplicaci\IeC {\'o}n}{58}
-\contentsline {subsection}{\numberline {5.3.1}Arquitectura f\IeC {\'\i }sica}{59}
-\contentsline {subsection}{\numberline {5.3.2}Arquitectura l\IeC {\'o}gica}{59}
-\contentsline {section}{\numberline {5.4}Modelo de datos}{62}
-\contentsline {section}{\numberline {5.5}Modelo Relacional}{64}
-\contentsline {chapter}{\numberline {6}Construcci\IeC {\'o}n y validaci\IeC {\'o}n}{65}
-\contentsline {section}{\numberline {6.1}Herramientas Utilizadas}{65}
-\contentsline {paragraph}{Entorno de trabajo: }{65}
-\contentsline {paragraph}{Entorno y lenguajes de programaci\IeC {\'o}n: }{65}
-\contentsline {paragraph}{Motor y aplicaci\IeC {\'o}n para base de datos: }{66}
-\contentsline {section}{\numberline {6.2}Aplicaci\IeC {\'o}n Obtenida}{66}
-\contentsline {paragraph}{Autentificaci\IeC {\'o}n de un usuario en el sistema: }{66}
+\contentsline {chapter}{\numberline {3}Metodolog\IeC {\'\i }a utilizada}{37}
+\contentsline {section}{\numberline {3.1}Estudio del entorno}{37}
+\contentsline {subsection}{\numberline {3.1.1}Las personas}{37}
+\contentsline {subsection}{\numberline {3.1.2}La aplicaci\IeC {\'o}n}{38}
+\contentsline {subsection}{\numberline {3.1.3}Las herramientas}{38}
+\contentsline {section}{\numberline {3.2}La metodolog\IeC {\'\i }a}{41}
+\contentsline {subsection}{\numberline {3.2.1}Roles}{41}
+\contentsline {subsection}{\numberline {3.2.2}El proceso}{42}
+\contentsline {subsubsection}{\numberline {3.2.2.1}El proyecto}{42}
+\contentsline {subsubsection}{\numberline {3.2.2.2}Iteraciones del proyecto}{43}
+\contentsline {subsubsection}{\numberline {3.2.2.3}Reuniones}{44}
+\contentsline {subsection}{\numberline {3.2.3}C\IeC {\'o}mo se trabaj\IeC {\'o}}{45}
+\contentsline {chapter}{\numberline {4}Caracter\IeC {\'\i }sticas del sistema}{47}
+\contentsline {section}{\numberline {4.1}Aspectos generales}{47}
+\contentsline {section}{\numberline {4.2}Modelos de contexto de solicitudes}{48}
+\contentsline {section}{\numberline {4.3}Caracter\IeC {\'\i }sticas generales del software}{53}
+\contentsline {section}{\numberline {4.4}Planificaci\IeC {\'o}n de las iteraciones}{53}
+\contentsline {chapter}{\numberline {5}Dise\IeC {\~n}o de la aplicaci\IeC {\'o}n}{57}
+\contentsline {section}{\numberline {5.1}Mapa de navegaci\IeC {\'o}n}{57}
+\contentsline {paragraph}{Buscar solicitudes de fondos: }{57}
+\contentsline {paragraph}{Nueva solicitud de fondo: }{57}
+\contentsline {paragraph}{Solicitudes pendientes: }{58}
+\contentsline {paragraph}{Ayuda: }{58}
+\contentsline {paragraph}{Perfil: }{58}
+\contentsline {section}{\numberline {5.2}Interfaces de usuario}{58}
+\contentsline {section}{\numberline {5.3}Arquitectura de la aplicaci\IeC {\'o}n}{59}
+\contentsline {subsection}{\numberline {5.3.1}Arquitectura f\IeC {\'\i }sica}{60}
+\contentsline {subsection}{\numberline {5.3.2}Arquitectura l\IeC {\'o}gica}{60}
+\contentsline {section}{\numberline {5.4}Modelo de datos}{63}
+\contentsline {section}{\numberline {5.5}Modelo Relacional}{65}
+\contentsline {chapter}{\numberline {6}Construcci\IeC {\'o}n y validaci\IeC {\'o}n}{66}
+\contentsline {section}{\numberline {6.1}Herramientas Utilizadas}{66}
+\contentsline {paragraph}{Entorno de trabajo: }{66}
+\contentsline {paragraph}{Entorno y lenguajes de programaci\IeC {\'o}n: }{66}
+\contentsline {paragraph}{Motor y aplicaci\IeC {\'o}n para base de datos: }{67}
+\contentsline {section}{\numberline {6.2}Aplicaci\IeC {\'o}n Obtenida}{67}
+\contentsline {paragraph}{Autentificaci\IeC {\'o}n de un usuario en el sistema: }{67}
 \contentsline {paragraph}{Recuperaci\IeC {\'o}n de acceso a una cuenta de una OE: }{67}
-\contentsline {paragraph}{B\IeC {\'u}squeda de solicitudes: }{67}
-\contentsline {paragraph}{Solicitud: }{68}
-\contentsline {subparagraph}{\emph {Datos principales de la Solicitud: }}{68}
-\contentsline {subparagraph}{\emph {Categor\IeC {\'\i }a: }}{68}
+\contentsline {paragraph}{B\IeC {\'u}squeda de solicitudes: }{68}
+\contentsline {paragraph}{Solicitud: }{69}
+\contentsline {subparagraph}{\emph {Datos principales de la Solicitud: }}{69}
+\contentsline {subparagraph}{\emph {Categor\IeC {\'\i }a: }}{69}
 \contentsline {subparagraph}{\emph {Participante: }}{69}
-\contentsline {subparagraph}{\emph {Resumen: }}{69}
-\contentsline {paragraph}{Resoluci\IeC {\'o}n: }{69}
-\contentsline {paragraph}{Rendici\IeC {\'o}n: }{70}
-\contentsline {subparagraph}{\emph {Documento: }}{70}
-\contentsline {section}{\numberline {6.3}Pruebas}{71}
-\contentsline {section}{\numberline {6.4}Resultados}{72}
-\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas generales sobre el sistema}{72}
-\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre las funcionalidades del sistema}{72}
-\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre usabilidad e interfaz de usuario}{72}
-\contentsline {chapter}{\numberline {7}Conclusiones}{74}
-\contentsline {chapter}{Glosario}{76}
-\contentsline {chapter}{Bibliograf\'{\i }a}{78}
+\contentsline {subparagraph}{\emph {Resumen: }}{70}
+\contentsline {paragraph}{Resoluci\IeC {\'o}n: }{70}
+\contentsline {paragraph}{Rendici\IeC {\'o}n: }{71}
+\contentsline {subparagraph}{\emph {Documento: }}{71}
+\contentsline {section}{\numberline {6.3}Pruebas}{72}
+\contentsline {section}{\numberline {6.4}Resultados}{73}
+\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas generales sobre el sistema}{73}
+\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre las funcionalidades del sistema}{73}
+\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre usabilidad e interfaz de usuario}{73}
+\contentsline {chapter}{\numberline {7}Conclusiones}{75}
+\contentsline {chapter}{Glosario}{77}
+\contentsline {chapter}{Bibliograf\'{\i }a}{79}
 \contentsline {chapter}{Anexos}{}
-\contentsline {chapter}{A:\hspace {1em}Pruebas de Caja Negra}{81}
-\contentsline {section}{\numberline {A.1}Confecci\IeC {\'o}n de una solicitud}{81}
-\contentsline {section}{\numberline {A.2}Ingreso de RU}{83}
-\contentsline {section}{\numberline {A.3}Confecci\IeC {\'o}n de una rendici\IeC {\'o}n}{84}
-\contentsline {chapter}{B:\hspace {1em}Encuesta a representantes de las OE}{86}
-\contentsline {section}{\numberline {B.1}Secci\IeC {\'o}n de preguntas generales sobre el sistema}{86}
-\contentsline {section}{\numberline {B.2}Secci\IeC {\'o}n de preguntas sobre las funcionalidades del sistema}{89}
-\contentsline {section}{\numberline {B.3}Secci\IeC {\'o}n de preguntas sobre usabilidad e interfaz de usuario (En escala de 1 (En desacuerdo) a 5 (De acuerdo))}{90}
+\contentsline {chapter}{A:\hspace {1em}Pruebas de Caja Negra}{82}
+\contentsline {section}{\numberline {A.1}Confecci\IeC {\'o}n de una solicitud}{82}
+\contentsline {section}{\numberline {A.2}Ingreso de RU}{84}
+\contentsline {section}{\numberline {A.3}Confecci\IeC {\'o}n de una rendici\IeC {\'o}n}{85}
+\contentsline {chapter}{B:\hspace {1em}Encuesta a representantes de las OE}{87}
+\contentsline {section}{\numberline {B.1}Secci\IeC {\'o}n de preguntas generales sobre el sistema}{87}
+\contentsline {section}{\numberline {B.2}Secci\IeC {\'o}n de preguntas sobre las funcionalidades del sistema}{90}
+\contentsline {section}{\numberline {B.3}Secci\IeC {\'o}n de preguntas sobre usabilidad e interfaz de usuario (En escala de 1 (En desacuerdo) a 5 (De acuerdo))}{91}
