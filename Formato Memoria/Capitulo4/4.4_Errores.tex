@@ -1,0 +1,48 @@
+%Si bien se conoce el problema principal explicado en capitulos anteriores junto con el contexto en que se desenvuelve y además conociendo las historias de usuario expuestos en los \textbf{Cuadros \ref{tabla:Historias_Ususario_Presidente}} y \textbf{\ref{tabla:Historias_Ususario_Secretario_Finanza}}, se han detectado los siguientes problemas:
+
+
+Luego de conocer el contexto en el que se desenvuelve el problema expuesto en la \textbf{Sección \ref{sec: Contexto_Solicitud}} junto con las historias de usuario expuestas en los \textbf{Cuadros \ref{tabla:Historias_Ususario_Secretario_Finanza}} y \textbf{\ref{tabla:Historias_Ususario_Presidente}}, se realiza una reflexión acerca de los tipos de errores que existen en el proceso manual de Gestión de Fondos.
+
+A partir de eso, se ha detectado varias fuentes de inconvenientes en el proceso, las que se listan a continuación: \begin{enumerate*}[label=(\roman*)]
+    \item Rechazo de la declaración de gastos,
+    \item El monto total de los gastos declarados no es óptimo (en el sentido de que queda dinero disponible que no se utiliza),
+    \item Asignación incorrecta de gastos,
+    \item Declaración de gastos realizada fuera de plazo,
+    \item Documentación adjuntada sin chequear,
+    \item Gastos categorizados incorrectamente,
+    \item Falta de respaldo de documentación,
+    \item Formato incorrecto de la declaración de gastos y
+    \item Desconocimiento del tipo de declaración de gasto (Solicitud de reembolso/Rendición de gastos).
+\end{enumerate*}
+
+Por último, el detalle exhaustivo de errores que se considera prevenir con el sistema desarrollado en este trabajo se muestra en el \textbf{Cuadro \ref{tab: Errores_frecuentes_Fondo}}, con su respectivo código.
+
+
+\begin{table}[htbp]
+    \centering
+    \caption{Errores frecuentes del proceso de Solicitud de Fondos}
+    \label{tab: Errores_frecuentes_Fondo}
+    \begin{tabular}{| p{2.6cm}| p{12.2cm} |}
+    \hline
+    Código & Problema \\
+    \hline \hline
+    
+    PBLM-1 & Rendición o Solicitud de Reembolso rechazada por realizarla fuera de plazo de 20 días corridos. \\ \hline
+
+    PBLM-2 & Suma de boletas y/o facturas no optimizada. \\ \hline
+
+    PBLM-3 & Asignar un gasto a un participante que no esté en la solicitud. \\ \hline
+
+    PBLM-4 & Documentación realizada fuera del periodo en que ocurre el evento.. \\ \hline
+
+    PBLM-5 & Falta de chequeo de los documentos que se deben adjuntar en la Rendición/Solicitud de reembolso. \\ \hline
+
+    PBLM-6 & Rendir gastos fuera de las categorías expuestas en la Solicitud. \\ \hline
+
+    PBLM-7 & Ausencia de respaldo de la RU y del documento de declaración de gastos de los Fondos Solicitados. \\ \hline
+
+    PBLM-8 & No respetar el formato de Rendiciones/Solicitud de reembolso. \\ \hline
+
+    PBLM-9 & No indicar el tipo de declaración de gastos, por ejemplo si es una Solicitud de reembolso o es una Rendición de gastos. \\ \hline
+    \end{tabular}
+\end{table}
