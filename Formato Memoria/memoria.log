@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  13 SEP 2019 04:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2018.11.24)  3 OCT 2019 15:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -965,15 +965,15 @@ Overfull \hbox (16.94875pt too wide) in paragraph at lines 25--48
  []
 
 ) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo4/4.5_Planificacion.tex)
-LaTeX Info: Redefining \. on input line 219.
-LaTeX Info: Redefining \% on input line 219.
+LaTeX Info: Redefining \. on input line 220.
+LaTeX Info: Redefining \% on input line 220.
  [58]
-LaTeX Info: Redefining \. on input line 219.
-LaTeX Info: Redefining \% on input line 219.
+LaTeX Info: Redefining \. on input line 220.
+LaTeX Info: Redefining \% on input line 220.
  [59]
 Cap\'{\i }tulo 5.
 
-Underfull \hbox (badness 10000) detected at line 219
+Underfull \hbox (badness 10000) detected at line 220
 \OT1/cmr/bx/n/24.88 5.
  []
 
@@ -1000,8 +1000,8 @@ File: Imagenes/Linea_de_disenio.png Graphic file (type png)
 Package pdftex.def Info: Imagenes/Linea_de_disenio.png  used on input line 4.
 (pdftex.def)             Requested size: 429.3521pt x 313.4737pt.
 ) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3_Arquitectura_Aplicacion.tex)
-LaTeX Info: Redefining \. on input line 231.
-LaTeX Info: Redefining \% on input line 231.
+LaTeX Info: Redefining \. on input line 232.
+LaTeX Info: Redefining \% on input line 232.
  [62 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Linea_de_disenio.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo5/5.3.1_Arquitectura_fisica.tex
 <Imagenes/Arquitectura_Fisica.png, id=247, 565.11125pt x 181.67876pt>
 File: Imagenes/Arquitectura_Fisica.png Graphic file (type png)
@@ -1040,12 +1040,12 @@ File: Imagenes/Modelo_relacional_bd.png Graphic file (type png)
 Package pdftex.def Info: Imagenes/Modelo_relacional_bd.png  used on input line 4.
 (pdftex.def)             Requested size: 429.3521pt x 315.77588pt.
 )
-LaTeX Info: Redefining \. on input line 246.
-LaTeX Info: Redefining \% on input line 246.
+LaTeX Info: Redefining \. on input line 247.
+LaTeX Info: Redefining \% on input line 247.
  [68 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Modelo_relacional_bd.png>]
 Cap\'{\i }tulo 6.
 
-Underfull \hbox (badness 10000) detected at line 246
+Underfull \hbox (badness 10000) detected at line 247
 \OT1/cmr/bx/n/24.88 6.
  []
 
@@ -1070,76 +1070,102 @@ File: Imagenes/Busqueda.PNG Graphic file (type png)
 <use Imagenes/Busqueda.PNG>
 Package pdftex.def Info: Imagenes/Busqueda.PNG  used on input line 23.
 (pdftex.def)             Requested size: 296.25398pt x 175.63698pt.
-LaTeX Info: Redefining \. on input line 28.
-LaTeX Info: Redefining \% on input line 28.
- [71 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/RecuperarClave.PNG> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/busqueda.png>]
-<Imagenes/DatosPrincipales.PNG, id=289, 1047.915pt x 320.397pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Imagenes/DatosPrincipales.PNG, id=284, 1047.915pt x 320.397pt>
 File: Imagenes/DatosPrincipales.PNG Graphic file (type png)
 <use Imagenes/DatosPrincipales.PNG>
 Package pdftex.def Info: Imagenes/DatosPrincipales.PNG  used on input line 33.
 (pdftex.def)             Requested size: 343.48299pt x 105.01755pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 38.
+LaTeX Info: Redefining \% on input line 38.
+[71 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/RecuperarClave.PNG>]
 <Imagenes/Categoria.PNG, id=290, 696.80325pt x 341.47575pt>
 File: Imagenes/Categoria.PNG Graphic file (type png)
 <use Imagenes/Categoria.PNG>
 Package pdftex.def Info: Imagenes/Categoria.PNG  used on input line 41.
 (pdftex.def)             Requested size: 296.25398pt x 145.1852pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 <Imagenes/AgregarPersonas.PNG, id=291, 693.18974pt x 384.2355pt>
 File: Imagenes/AgregarPersonas.PNG Graphic file (type png)
 <use Imagenes/AgregarPersonas.PNG>
 Package pdftex.def Info: Imagenes/AgregarPersonas.PNG  used on input line 49.
 (pdftex.def)             Requested size: 343.48299pt x 190.3877pt.
-LaTeX Info: Redefining \. on input line 51.
-LaTeX Info: Redefining \% on input line 51.
- [72 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/DatosPrincipales.PNG> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Categoria.PNG>]
-<Imagenes/Resumen.PNG, id=297, 693.792pt x 354.123pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Imagenes/Resumen.PNG, id=292, 693.792pt x 354.123pt>
 File: Imagenes/Resumen.PNG Graphic file (type png)
 <use Imagenes/Resumen.PNG>
 Package pdftex.def Info: Imagenes/Resumen.PNG  used on input line 57.
 (pdftex.def)             Requested size: 343.48299pt x 175.32114pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 LaTeX Info: Redefining \. on input line 62.
 LaTeX Info: Redefining \% on input line 62.
- [73 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/AgregarPersonas.PNG> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Resumen.PNG>]
-<Imagenes/Resolucion.PNG, id=303, 714.2685pt x 424.58624pt>
+[72 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/busqueda.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/DatosPrincipales.PNG>]
+<Imagenes/Resolucion.PNG, id=297, 714.2685pt x 424.58624pt>
 File: Imagenes/Resolucion.PNG Graphic file (type png)
 <use Imagenes/Resolucion.PNG>
 Package pdftex.def Info: Imagenes/Resolucion.PNG  used on input line 65.
-(pdftex.def)             Requested size: 429.3521pt x 255.22665pt.
-<Imagenes/Rendicion.png, id=304, 426.99525pt x 319.79475pt>
+(pdftex.def)             Requested size: 343.48299pt x 204.18132pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Info: Redefining \. on input line 70.
+LaTeX Info: Redefining \% on input line 70.
+[73 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Categoria.PNG> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/AgregarPersonas.PNG>]
+<Imagenes/Rendicion.png, id=303, 426.99525pt x 319.79475pt>
 File: Imagenes/Rendicion.png Graphic file (type png)
 <use Imagenes/Rendicion.png>
 Package pdftex.def Info: Imagenes/Rendicion.png  used on input line 73.
-(pdftex.def)             Requested size: 429.3521pt x 321.57503pt.
+(pdftex.def)             Requested size: 343.48299pt x 257.261pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Imagenes/AgregarBoletas.PNG, id=305, 1044.3015pt x 411.939pt>
+<Imagenes/AgregarBoletas.PNG, id=304, 1044.3015pt x 411.939pt>
 File: Imagenes/AgregarBoletas.PNG Graphic file (type png)
 <use Imagenes/AgregarBoletas.PNG>
-Package pdftex.def Info: Imagenes/AgregarBoletas.PNG  used on input line 82.
-(pdftex.def)             Requested size: 429.3521pt x 169.3612pt.
+Package pdftex.def Info: Imagenes/AgregarBoletas.PNG  used on input line 80.
+(pdftex.def)             Requested size: 343.48299pt x 135.48772pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (16.94832pt too wide) in paragraph at lines 92--109
+ [][] 
+ []
 
 ) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.3_Pruebas.tex
 LaTeX Info: Redefining \. on input line 2.
 LaTeX Info: Redefining \% on input line 2.
- [74 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Resolucion.PNG>]
+ [74 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Resumen.PNG>]
 LaTeX Info: Redefining \. on input line 4.
 LaTeX Info: Redefining \% on input line 4.
- [75 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Rendicion.png>]) (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.4_Resultados.tex
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
- [76 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/AgregarBoletas.PNG>]
-LaTeX Info: Redefining \. on input line 20.
-LaTeX Info: Redefining \% on input line 20.
- [77])
+ [75 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Resolucion.PNG>])
 LaTeX Info: Redefining \. on input line 262.
 LaTeX Info: Redefining \% on input line 262.
+ [76 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Rendicion.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/Capitulo6/6.4_Resultados.tex
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
+ [77 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/AgregarBoletas.PNG>])
+LaTeX Info: Redefining \. on input line 266.
+LaTeX Info: Redefining \% on input line 266.
  [78]
 Cap\'{\i }tulo 7.
 
-Underfull \hbox (badness 10000) detected at line 262
+Underfull \hbox (badness 10000) detected at line 266
 \OT1/cmr/bx/n/24.88 7.
  []
 
@@ -1207,12 +1233,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 91--95
  []
 
 )
-LaTeX Info: Redefining \. on input line 329.
-LaTeX Info: Redefining \% on input line 329.
+LaTeX Info: Redefining \. on input line 333.
+LaTeX Info: Redefining \% on input line 333.
  [84] [85
 
 ]
-Overfull \hbox (0.45876pt too wide) detected at line 332
+Overfull \hbox (0.45876pt too wide) detected at line 336
 \OT1/cmr/bx/n/24.88 A.
  []
 
@@ -1264,8 +1290,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ) [86
 
 ]
-LaTeX Info: Redefining \. on input line 338.
-LaTeX Info: Redefining \% on input line 338.
+LaTeX Info: Redefining \. on input line 342.
+LaTeX Info: Redefining \% on input line 342.
  [87]
 \openout2 = `Anexo1/Anexo_A_Resolucion.aux'.
 
@@ -1280,8 +1306,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--26
  []
 
 )
-LaTeX Info: Redefining \. on input line 338.
-LaTeX Info: Redefining \% on input line 338.
+LaTeX Info: Redefining \. on input line 342.
+LaTeX Info: Redefining \% on input line 342.
  [88
 
 ]
@@ -1377,16 +1403,16 @@ Overfull \hbox (2.72237pt too wide) in paragraph at lines 115--139
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 )
-LaTeX Info: Redefining \. on input line 339.
-LaTeX Info: Redefining \% on input line 339.
+LaTeX Info: Redefining \. on input line 343.
+LaTeX Info: Redefining \% on input line 343.
  [89
 
 
 ]
-LaTeX Info: Redefining \. on input line 339.
-LaTeX Info: Redefining \% on input line 339.
+LaTeX Info: Redefining \. on input line 343.
+LaTeX Info: Redefining \% on input line 343.
  [90]
-Underfull \hbox (badness 10000) detected at line 341
+Underfull \hbox (badness 10000) detected at line 345
 \OT1/cmr/bx/n/24.88 B.
  []
 
@@ -1419,8 +1445,8 @@ File: Imagenes/Pregunta4.png Graphic file (type png)
 Package pdftex.def Info: Imagenes/Pregunta4.png  used on input line 30.
 (pdftex.def)             Requested size: 236.14496pt x 181.00623pt.
 )
-LaTeX Info: Redefining \. on input line 346.
-LaTeX Info: Redefining \% on input line 346.
+LaTeX Info: Redefining \. on input line 350.
+LaTeX Info: Redefining \% on input line 350.
  [93 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta4.png>]
 \openout2 = `Anexo2/Anexo_B_Funcionalidad.aux'.
 
@@ -1436,8 +1462,8 @@ File: Imagenes/Pregunta6.png Graphic file (type png)
 Package pdftex.def Info: Imagenes/Pregunta6.png  used on input line 15.
 (pdftex.def)             Requested size: 236.14496pt x 181.00623pt.
 )
-LaTeX Info: Redefining \. on input line 346.
-LaTeX Info: Redefining \% on input line 346.
+LaTeX Info: Redefining \. on input line 350.
+LaTeX Info: Redefining \% on input line 350.
  [94
 
  <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta5.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta6.png>]
@@ -1471,8 +1497,8 @@ File: Imagenes/Pregunta10.png Graphic file (type png)
 Package pdftex.def Info: Imagenes/Pregunta10.png  used on input line 32.
 (pdftex.def)             Requested size: 236.14496pt x 179.92877pt.
 )
-LaTeX Info: Redefining \. on input line 347.
-LaTeX Info: Redefining \% on input line 347.
+LaTeX Info: Redefining \. on input line 351.
+LaTeX Info: Redefining \% on input line 351.
  [96 <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta9.png> <d:/Repositorios/Formulación de proyecto/Formato Memoria/Imagenes/Pregunta10.png>] (d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.aux
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
@@ -1484,15 +1510,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 16281 strings out of 492639
- 313649 string characters out of 6133102
- 368923 words of memory out of 5000000
- 19669 multiletter control sequences out of 15000+600000
+ 16283 strings out of 492639
+ 313709 string characters out of 6133102
+ 368945 words of memory out of 5000000
+ 19671 multiletter control sequences out of 15000+600000
  540135 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,13n,65p,1422b,557s stack positions out of 5000i,500n,10000p,200000b,80000s
 <d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.pdf" (98 pages, 4109347 bytes).
+Output written on "d:/Repositorios/Formulación de proyecto/Formato Memoria/memoria.pdf" (98 pages, 4111049 bytes).
 PDF statistics:
  443 PDF objects out of 1000 (max. 8388607)
  266 compressed objects within 3 object streams

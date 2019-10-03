@@ -1,4 +1,4 @@
-A continuación se describe el producto obtenido, siguiendo las diferentes fases de la metodología de trabajo y las herramientas descritas con anterioridad.
+A continuación se describe el producto obtenido, siguiendo las diferentes fases de la metodología de trabajo y las herramientas descritas con anterioridad. Además, se indica el código de los inconvenientes que se resuelven expuestos en la \textbf{Sección \ref{sec:Errores_Frecuentes}}.
 
 \paragraph{Autentificación de un usuario en el sistema: } Solicitud de acceso, utilizando credenciales de acceso los cuales son ingresados por el usuario. Si las credenciales son válidas, se redirecciona a las interfaces de la OE interesada o a la del Administrador (vea \textbf{Figura \ref{fig: Login}}).
 
@@ -16,7 +16,7 @@ A continuación se describe el producto obtenido, siguiendo las diferentes fases
     \caption{\label{fig: RecuperarClave}Vista de recuperar clave.}
 \end{figure}
 
-\paragraph{Búsqueda de solicitudes: } En esta etapa de la aplicación se encuentran todas las solicitudes realizadas por la OE, en donde el usuario puede visualizar los resúmenes de la solicitudes y tener la opción de ver en detalle cada una de ellas. Además, se encuentra la opción de realizar búsquedas de solicitudes a través del nombre o la fecha del evento (vea \textbf{Figura \ref{fig: Busquedas}}).
+\paragraph{Búsqueda de solicitudes: } En esta etapa de la aplicación se encuentran todas las solicitudes realizadas por la OE, en donde el usuario puede visualizar los resúmenes de la solicitudes y tener la opción de ver en detalle cada una de ellas. Además, se encuentra la opción de realizar búsquedas de solicitudes a través del nombre o la fecha del evento (vea \textbf{Figura \ref{fig: Busquedas}}). Esta funcionalidad de la aplicación ayuda a resolver el problema \textbf{PBLM-7}.
 
 \begin{figure}[h]
     \centering
@@ -24,7 +24,7 @@ A continuación se describe el producto obtenido, siguiendo las diferentes fases
     \caption{\label{fig: Busquedas}Vista de búsqueda de solicitudes.}
 \end{figure}
 
-\paragraph{Solicitud: }Esta etapa consta de 4 fases las cuales ayudan a la confección de la solicitud a presentar a la Dirección correspondiente de cada OE. Estas fases se detallan a continuación. 
+\paragraph{Solicitud: }Esta etapa consta de 4 fases las cuales ayudan a la confección de la solicitud a presentar a la Dirección correspondiente de cada OE. Estas fases se detallan a continuación. Esta funcionalidad de la aplicación ayuda a resolver el problema \textbf{PBLM-7} y \textbf{PBLM-9}.
 
     \subparagraph{\emph{Datos principales de la Solicitud: }} Formulario que solicita el nombre, fecha de inicio, fecha de término, lugar y monto del evento, el responsable a cargo de la solicitud y la cantidad de participantes, la cual puede ser para un grupo de personas específico o masivo (e indeterminado), según sea el caso (vea \textbf{Figura \ref{fig: DatosPrincipales}}).
 
@@ -42,7 +42,7 @@ A continuación se describe el producto obtenido, siguiendo las diferentes fases
         \caption{\label{fig: Categorias}Vista que obtiene las categorías en que incurren los gastos.}
     \end{figure}
 
-    \subparagraph{\emph{Participante: }} Formulario que solicita el nombre y RUT de los participantes de la actividad. Esta vista sólo se visualiza si en la etapa de \textbf{Datos principales de la solicitud} se indica que es para un grupo de personas específico (vea \textbf{Figura \ref{fig: Personas}}). 
+    \subparagraph{\emph{Participante: }} Formulario que solicita el nombre y RUT de los participantes de la actividad. Esta vista sólo se visualiza si en la etapa de \textbf{Datos principales de la solicitud} se indica que es para un grupo de personas específico (vea \textbf{Figura \ref{fig: Personas}}). Esta funcionalidad de la aplicación ayuda a resolver el problema \textbf{PBLM-3}. 
 
     \begin{figure}[h]
         \centering
@@ -58,31 +58,52 @@ A continuación se describe el producto obtenido, siguiendo las diferentes fases
         \caption{\label{fig: ResumenSolicitud}Vista que muestra el resumen de los datos ingresados para la solicitud.}
     \end{figure}
 
-\paragraph{Resolución: } En esta etapa se acepta o rechaza la solicitud. En caso de ser aceptada se procede a ingresar los datos principales de la RU enviada por la Casa de Estudios a la OE interesada, los cuales son el número de la resolución y el año de creación. Además, se solicita que se adjunte una copia digitalizada y en formato PDF de la RU correspondiente a la aceptación de la Solicitud enviada por la OE (vea \textbf{Figura \ref{fig: Resolucion}}).
+\paragraph{Resolución: } En esta etapa se acepta o rechaza la solicitud. En caso de ser aceptada se procede a ingresar los datos principales de la RU enviada por la Casa de Estudios a la OE interesada, los cuales son el número de la resolución y el año de creación. Además, se solicita que se adjunte una copia digitalizada y en formato PDF de la RU correspondiente a la aceptación de la Solicitud enviada por la OE (vea \textbf{Figura \ref{fig: Resolucion}}). Esta funcionalidad de la aplicación ayuda a resolver el problema \textbf{PBLM-7}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width= \textwidth]{Imagenes/Resolucion.PNG}
+    \includegraphics[width= 0.8\textwidth]{Imagenes/Resolucion.PNG}
     \caption{\label{fig: Resolucion}Vista que muestra el resumen de los datos ingresados para la solicitud y obtiene los datos principales de la RU.}
 \end{figure}
 
-\paragraph{Rendición: } Tras la aceptación de la Solicitud y el ingreso de los datos de la RU que la aprueba, se procede a realizar la Rendición correspondiente al evento. Si bien los datos principales de la Rendición tales como el nombre de la organización, el número de la resolución y el responsable del evento, entre otros, se obtiene automáticamente de los datos registrados en el sistema, el monto total rendido tiene dependencia del registro de documentos (boletas y/o facturas) (vea \textbf{Figura \ref{fig: Rendicion}}).
+\paragraph{Declaración de gastos: } Tras la aceptación de la Solicitud y el ingreso de los datos de la RU que la aprueba, se procede a realizar la declaración de gastos correspondiente al evento. Si bien los datos principales de la declaración de gastos tales como el nombre de la organización, el número de la resolución y el responsable del evento, entre otros, se obtiene automáticamente de los datos registrados en el sistema, el monto total rendido tiene dependencia del registro de documentos (boletas y/o facturas) (vea \textbf{Figura \ref{fig: Rendicion}}). Una vez finalizado el proceso de declaración de gastos, está la opción de generar el documento a presentar obedeciendo el formato exigido por la casa de estudio. Esta funcionalidad de la aplicación termina de solucionar los problemas \textbf{PBLM-1}, \textbf{PBLM-4}, \textbf{PBLM-7} y \textbf{PBLM-8}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width= \textwidth]{Imagenes/Rendicion.png}
+    \includegraphics[width= 0.8\textwidth]{Imagenes/Rendicion.png}
     \caption{\label{fig: Rendicion}Vista que muestra los datos principales de una rendición o solicitud de reembolso.}
 \end{figure}
-
-
-    \subparagraph{\emph{Documento: }} Sección en donde se ingresan los datos de una boleta y/o factura, que corresponden al número del documento, la categoría en que incurrieron los gatos, la fecha de compra de los productos, el monto, una pequeña descripción de los gastos y el proveedor, entre otros (vea \textbf{Figura \ref{fig: AgregarBoletas}}).
+    \subparagraph{\emph{Documento: }} Sección en donde se ingresan los datos de una boleta y/o factura, que corresponden al número del documento, la categoría en que incurrieron los gatos, la fecha de compra de los productos, el monto, una pequeña descripción de los gastos y el proveedor, entre otros (vea \textbf{Figura \ref{fig: AgregarBoletas}}). Esta funcionalidad de la aplicación ayuda a resolver los problema \textbf{PBLM-2}, \textbf{PBLM-3}, \textbf{PBLM-6} y \textbf{PBLM-7}.
 
     \begin{figure}[h]
         \centering
-        \includegraphics[width= \textwidth]{Imagenes/AgregarBoletas.PNG}
+        \includegraphics[width= 0.8\textwidth]{Imagenes/AgregarBoletas.PNG}
         \caption{\label{fig: AgregarBoletas}Vista que obtiene los datos de una boleta o factura.}
     \end{figure}
 
 
+\vspace{10mm}
+Tras lo mencionado con aterioridad se realiza el \textbf{Cuadro \ref{tab: Solucion_Problemas_Frecuentes}}, el cual representa en resumen la funcionalidad de la aplicación obtenida y el/los problema(s) que resuelve mencionados en la  \textbf{Sección \ref{sec:Errores_Frecuentes}}.
 
+\begin{table}[htbp]
+    \centering
+    \caption{Solución a problemas frecuentes}
+    \label{tab: Solucion_Problemas_Frecuentes}
+    \begin{tabular}{| p{7.4cm}| p{7.4cm} |}
+    \hline
+    \textbf{Nombre de la intefaz} & \textbf{Problema que soluciona} \\
+    \hline \hline
+    
+    Búsqueda de solicitud & PBLM-7 \\ \hline
 
+    Solicitud & PBLM-7 y PBLM-9\\ \hline
+
+    Participante & PBLM-3 \\ \hline
+
+    Resolución & PBLM-7 \\ \hline
+
+    Declaración de gastos & PBLM-1 y PBLM-4 \\ \hline
+
+    Documento & PBLM-2, PBLM-3, PBLM-6 y PBLM-7 \\ \hline
+    \end{tabular}
+\end{table}

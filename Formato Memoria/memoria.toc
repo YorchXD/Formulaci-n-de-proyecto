@@ -82,21 +82,21 @@
 \contentsline {paragraph}{Motor y aplicaci\IeC {\'o}n para base de datos: }{70}
 \contentsline {section}{\numberline {6.2}Aplicaci\IeC {\'o}n Obtenida}{70}
 \contentsline {paragraph}{Autentificaci\IeC {\'o}n de un usuario en el sistema: }{70}
-\contentsline {paragraph}{Recuperaci\IeC {\'o}n de acceso a una cuenta de una OE: }{70}
+\contentsline {paragraph}{Recuperaci\IeC {\'o}n de acceso a una cuenta de una OE: }{71}
 \contentsline {paragraph}{B\IeC {\'u}squeda de solicitudes: }{71}
-\contentsline {paragraph}{Solicitud: }{72}
-\contentsline {subparagraph}{\emph {Datos principales de la Solicitud: }}{72}
+\contentsline {paragraph}{Solicitud: }{71}
+\contentsline {subparagraph}{\emph {Datos principales de la Solicitud: }}{71}
 \contentsline {subparagraph}{\emph {Categor\IeC {\'\i }a: }}{72}
 \contentsline {subparagraph}{\emph {Participante: }}{72}
-\contentsline {subparagraph}{\emph {Resumen: }}{73}
-\contentsline {paragraph}{Resoluci\IeC {\'o}n: }{73}
-\contentsline {paragraph}{Rendici\IeC {\'o}n: }{74}
+\contentsline {subparagraph}{\emph {Resumen: }}{72}
+\contentsline {paragraph}{Resoluci\IeC {\'o}n: }{72}
+\contentsline {paragraph}{Declaraci\IeC {\'o}n de gastos: }{73}
 \contentsline {subparagraph}{\emph {Documento: }}{74}
-\contentsline {section}{\numberline {6.3}Pruebas}{75}
+\contentsline {section}{\numberline {6.3}Pruebas}{74}
 \contentsline {section}{\numberline {6.4}Resultados}{77}
 \contentsline {paragraph}{Secci\IeC {\'o}n de preguntas generales sobre el sistema}{77}
-\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre las funcionalidades del sistema}{77}
-\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre usabilidad e interfaz de usuario}{77}
+\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre las funcionalidades del sistema}{78}
+\contentsline {paragraph}{Secci\IeC {\'o}n de preguntas sobre usabilidad e interfaz de usuario}{78}
 \contentsline {chapter}{\numberline {7}Conclusiones}{79}
 \contentsline {chapter}{Glosario}{81}
 \contentsline {chapter}{Bibliograf\'{\i }a}{83}
