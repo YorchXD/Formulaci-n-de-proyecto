@@ -288,8 +288,9 @@ namespace SimRend.Controllers
         public IActionResult IrResumen(int IdSolicitud)
         {
             _requestHandler.SetIdSolicitud(IdSolicitud);
+            return RedirectToAction("Resume", "Solicitud");
             //return RedirectToAction("GeneratePDF", "GeneratePDF");
-            return RedirectToAction("InfoRendicion", "Rendicion");
+            //return RedirectToAction("InfoRendicion", "Rendicion");
             //return RedirectToAction("Resolucion", "Resolucion");
             //return RedirectToAction("Rendicion", "Rendicion");
         }
@@ -375,7 +376,142 @@ namespace SimRend.Controllers
         }
         public string hacerPdf()
         {
-            String pagina = "<!DOCTYPE html><html><head>	<title></title></head><body> <div id='Solicitud'>    <DIV ALIGN='center'><img src='https://i.imgur.com/SS6BFCs.png' width='10%'  border=0></DIV-->    <div ALIGN='right'><P> 9 de julio de 2019</P></div>        <DIV ALIGN='left'>        <P style='line-height:1px'><B>Sra. Ruth Garrido</B></P>        <P style='line-height:3px'><I>Directora de escuela</I></P>        <P style='line-height:1px'><I>Universidad de Talca</I></P>        <P style='line-height:1px'><B><U>Presente.</U></B></P>    </DIV>    <DIV style='text-align:justify'>       <P>         De nuestra consideración:     </P>     <P>        Junto con saludar cordialmente, me dirijo a usted como Presidente del centro de alumnos de Ingeniería Civil en Computación, para solicitarle apoyo económico con el fin de realizar la actividad estudiantil que se indica a continuación:       </P>            <ul>            <li><B>Nombre de la actividad:</B>  @Html.DisplayFor(model => model.Solicitud.NombreEvento).</li>            <li><B>Periodo:</B> @Html.DisplayFor(model => model.Solicitud.FechaEvento).</li>            <li><B>Ubicación:</B> @Html.DisplayFor(model => model.Solicitud.LugarEvento).</li>        </ul>            <P>Se solicita un monto total de $50000 sujeto a rendición para solventar parcialmente los gastos de @Html.DisplayFor(model => model.CategoriasConcatenadas)      </P>            <P> Dicho monto quedará bajo la responsabilidad de Yorch Wilian Sepúlveda Manriquez, RUT 17.824.523-6, matrícula 2011407070, en su calidad de Presidente del Centro de Alumnos de Ingeniería Civil en Computación de la Universidad de Talca.        </P>      <P>            Esperando una buena acogida y una pronta respuesta de esta solicitud, se despide atentamente de usted.        </P>    </DIV>    <DIV ALIGN='center' style='padding-top:80px;'>        <P style='line-height:3px'><B>Yorch Sepúlveda</B></P>        <P style='line-height:3px'> Presidente</P>        <P style='line-height:3px'>Ingeniería Civil en Computación</P>        <P style='line-height:3px'>Universidad de Talca</P>    </DIV></div> </body></html>";
+            ModeloSolicitud modelo = obtenerModelo();
+            String pagina = "<!DOCTYPE html><html><head><title></title>";
+            /*pagina += "<style type = 'text/css'>";
+            pagina += "table {border-spacing: 0;width:100%;}";
+            pagina += "td + td {border-left:1px solid #000;}";
+            pagina += "td, th {border-bottom:1px solid #000;background: #fff;color: #000;padding: 10px 25px;}";
+            pagina += "th {height: 0;line-height: 0;padding-top: 0;padding-bottom: 0;color: transparent;border: none;white-space: nowrap;}";
+            pagina += "th div{position: absolute;background: transparent;color: #fff;padding: 9px 25px;top: 0;margin-left: -25px;line-height: normal;border-left: 1px solid #800;}</style>";*/
+            
+            pagina += "<style type = 'text/css'>";
+            pagina += "table {border-spacing: 1;border-collapse: collapse;background: white;margin: 0 auto;position: relative;}";
+            pagina += "table * {position: relative;}";
+            pagina += "table td, table th {padding-left: 8px;}";
+            pagina += "table thead tr {height: 40px;background: #000000;}";
+            pagina += "table tbody tr {height: 30px;}";
+            pagina += "table tbody tr:last-child {border: 0;}";
+            pagina += "table td, table th {text-align: left;}";
+            pagina += "table td.l, table th.l {text-align: right;}";
+            pagina += "table td.c, table th.c {text-align: center;}";
+            pagina += "table td.r, table th.r {text-align: center;}";
+
+            pagina += ".table100-head th{color: #fff;line-height: 1.2;font-weight: unset;}";
+            pagina += "tbody tr:nth-child(even) {background-color: #f5f5f5;}";
+            pagina += "tbody tr {color: #000000;line-height: 1.2;font-weight: unset;}";
+            pagina += "tbody tr:hover {color: #000000;background-color: #f5f5f5;cursor: pointer;}";
+            pagina += ".column1 {width: 260px;padding-left: 40px;}";
+            pagina += ".column2 {width: 260px;text-align: right;padding-right: 62px;}</style>";
+
+
+
+
+
+
+
+
+
+
+
+
+
+            pagina += "</head><body> <div id='Solicitud'><DIV ALIGN='center'><img src='https://i.imgur.com/SS6BFCs.png' width='10%'  border=0></DIV--><div ALIGN='right'><P> " + modelo.Solicitud.FechaPdf + "</P></div><DIV ALIGN='left'>";
+            
+            if (modelo.CAA != null)
+            {
+                if (modelo.CAA.SexoDirCarrera.Equals("Femenino"))
+                {
+                    pagina += "<P style='line-height:1px'><B>Sra. " + modelo.CAA.NomDirCarrera +"</B></P>";
+                }
+                else
+                {
+                    pagina += "<P style='line-height:1px'><B>Sr. " + modelo.CAA.NomDirCarrera +"/B></P>";
+                }
+                pagina+="<P style='line-height:3px'><I>" + modelo.CAA.Cargo + "</I></P>";
+                pagina+="<P style='line-height:3px'><I>" + modelo.CAA.Carrera + "</I></P>";
+            }
+            else
+            {
+                if (modelo.CAA.SexoDirCarrera.Equals("Femenino"))
+                {
+                    pagina += "<P style='line-height:1px'><B>Sra. " + modelo.Federacion.NomDirDAAE +"/B></P>";
+                }
+                else
+                {
+                    pagina += "<P style='line-height:1px'><B>Sr. " + modelo.Federacion.NomDirDAAE +"/B></P>";
+                }
+                pagina+="<P style='line-height:3px'><I>" + modelo.Federacion.Cargo + "</I></P>";
+            }
+
+            pagina+="<P style='line-height:1px'><I>Universidad de Talca</I></P><P style='line-height:1px'><B><U>Presente.</U></B></P></DIV><DIV style='text-align:justify'><P>De nuestra consideración:</P>";
+            
+            if (modelo.Organizacion.Tipo.Equals("CAA"))
+            {
+                pagina += "<P>Junto con saludar cordialmente, me dirijo a usted como " + modelo.Responsable.Cargo + "del centro de alumnos de  " + modelo.CAA.Carrera + ", para solicitarle apoyo económico con el fin de realizar la actividad estudiantil que se indica a continuación:</P>";
+            }
+            else
+            {
+                pagina += "<P>Junto con saludar cordialmente, me dirijo a usted como " + modelo.Responsable.Cargo + "de " + modelo.Federacion.NombreFederacion + ", para solicitarle apoyo económico con el fin de realizar la actividad estudiantil que se indica a continuación:</P>";
+            }
+            
+            pagina += "<ul><li><B>Nombre de la actividad: </B>" + modelo.Solicitud.NombreEvento +".</li>";
+            pagina += "<li><B>Periodo: </B>" + modelo.Solicitud.FechaEvento + ".</li>";
+            pagina += "<li><B>Ubicación: </B>" + modelo.Solicitud.LugarEvento + ".</li></ul>";
+            
+            
+            if (modelo.Participantes != null)
+            {
+                pagina += "<P>Para llevar a cabo esta actividad se solicita un monto total de $" + modelo.Solicitud.Monto + " sujeto a rendición y así poder otorgar una ayuda de $";
+                pagina += modelo.Solicitud.MontoPorPersona+ " a cada estudiante para solventar parcialmente sus gastos de " + modelo.CategoriasConcatenadas +".</P>";
+                
+
+                pagina += "<P>Los alumnos que participarán en la actividad son:</P>";
+                pagina += "<table align='center'><thead><tr class='table100-head'><th class='column1'>Nombre</th><th class='column2'>Run/Matrícula</th></tr></thead>";
+                pagina += "<tbody>";
+                foreach (var item in modelo.Participantes)
+                {
+                    pagina+="<tr class='table-light'>";
+                    pagina+="<td class='column1'>" + item.Nombre + "</td>";
+                    pagina+="<td class='column2'>" + item.Run + "</td>";
+                    pagina+="</tr>";
+                }
+                pagina+="</tbody></table>";
+            }
+            else
+            {
+                pagina += "<P>Se solicita un monto total de $" + modelo.Solicitud.Monto + " sujeto a rendición para solventar parcialmente los gastos de " + modelo.CategoriasConcatenadas + ".</P>";
+            }
+            
+            
+            if (modelo.Organizacion.Tipo.Equals("CAA"))
+            {
+                pagina += "<P>Dicho monto quedará bajo la responsabilidad de " + modelo.Responsable.Nombre +", RUT " + modelo.Responsable.Run;
+                pagina += ", matrícula " + modelo.Responsable.Matricula + ", en su calidad de " + modelo.Responsable.Cargo ;
+                pagina += " del Centro de Alumnos de " + modelo.CAA.Carrera + " de la Universidad de Talca. </P>";
+            }
+            else
+            {
+                pagina += "<P>Dicho monto quedará bajo la responsabilidad de " + modelo.Responsable.Nombre + ", RUT " + modelo.Responsable.Run ;
+                pagina += ", matrícula " + modelo.Responsable.Matricula + ", en su calidad de  " +  modelo.Responsable.Cargo + " de ";
+                pagina += modelo.Federacion.NombreFederacion + " de la Universidad de Talca.</P>";
+            }
+                
+            pagina += "<P>Esperando una buena acogida y una pronta respuesta de esta solicitud, se despide atentamente de usted.</P>";
+            pagina += "<DIV ALIGN='center' style='padding-top:80px;'><P style='line-height:3px'><B>" + modelo.Responsable.Nombre + "</B></P>";
+            pagina += "<P style='line-height:3px'>" + modelo.Responsable.Cargo + "</P>";
+            
+            if (modelo.Organizacion.Tipo.Equals("CAA"))
+            {
+                pagina += "<P style='line-height:3px'>CAA " + modelo.CAA.Carrera + "</P>";
+            }
+            else
+            {
+                pagina += "<P style='line-height:3px'>" + modelo.Federacion.NombreFederacion + "</P>";
+            }
+
+            pagina += "<P style='line-height:3px'>Universidad de Talca</P></DIV>";
+
             return pagina;
         }
         public FileResult DescargarPDF()

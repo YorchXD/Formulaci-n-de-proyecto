@@ -17,7 +17,7 @@ namespace SimRend.Models
         public SimRend.Models.Federacion Federacion { get; set; }
 
         public string CategoriasConcatenadas { get {
-                if (Categorias.Count() > 0)
+                if (Categorias!=null && Categorias.Count() > 0)
                 {
                     string categorias = "";
                     if (Categorias.Count() == 1)
