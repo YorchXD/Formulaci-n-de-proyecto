@@ -67,16 +67,26 @@
                     }
                 </select>
             </div>
+
+
+            <div class="control">
+                <span>TipoActividad</span>
+                <select asp-for="Solicitud.TipoActividad" class="">
+                    <option value="Masiva" selected>Masiva</option>
+                    <option value="Grupal" selected>Grupal</option>
+                </select>
+            </div>
+
             
-            <div style="margin-top: 2%; text-align: center">
+            <!--div style="margin-top: 2%; text-align: center">
                 <label style="font-weight:bold">Tipo de actividad:</label>
                 
-                <input type="radio" id="actividad1" name="actividad" value="Masiva">
+                <input asp-for="Solicitud.TipoActividad" type="radio" id="actividad1" name="actividad" value="Masiva">
                 <label for="radio1">Masiva</label>
                 
-                <input type="radio" id="actividad1" name="actividad" value="Grupal">
+                <input asp-for="Solicitud.TipoActividad"  type="radio" id="actividad1" name="actividad" value="Grupal">
                 <label for="radio2">Grupal</label>
-            </div>
+            </div-->
         </div>
     </div> 
 </div>

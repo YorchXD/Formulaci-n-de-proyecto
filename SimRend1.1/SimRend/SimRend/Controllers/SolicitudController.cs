@@ -21,24 +21,50 @@ namespace SimRend.Controllers
         {
             _requestHandler = requestHandler;
         }
-
-        public IActionResult Index()
+/*#######################################Proceso de Redirecciones##############################################*/
+        public IActionResult IrCategoria(int IdSolicitud)
         {
-            //string SessionKeyID = "_identificacion";
-            //int idOrganizacion = Convert.ToInt32(TempData["idOrganizacion"]);
-            ViewData["_usuario"] = _requestHandler.GetUsuario();
-
-            int idOrganizacion = _requestHandler.GetIdAcceso();
-            List<Solicitud> solicitudes = ConsultaSolicitud.LeerSolicitudOrganizacion(idOrganizacion);
-            foreach (Solicitud solicitud in solicitudes)
-            {
-                solicitud.NombreResponsable =  BuscarRepresentante(idOrganizacion,solicitud.RutResponsable);
-            }
-            //TempData["idOrganizacion"] = idOrganizacion;
-            return View(solicitudes);
+            _requestHandler.SetIdSolicitud(IdSolicitud);
+            return RedirectToAction("Category", "Solicitud");
         }
 
-        // GET: Solicitud/Create
+        public IActionResult IrCategoria()
+        {
+            return RedirectToAction("Category", "Solicitud");
+        }
+        public IActionResult IrPersona()
+        {
+            int idSolicitud = _requestHandler.GetIdSolicitud();
+            ModeloSolicitud modelo = new ModeloSolicitud();
+            modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud_Finalizada(idSolicitud);
+            if(modelo.Solicitud.TipoActividad.Equals("Masiva"))
+            {
+                return IrResumen(idSolicitud);
+            }
+            return RedirectToAction("Person", "Solicitud");
+        }
+
+        public IActionResult IrPrincipal()
+        {
+            return RedirectToAction("TablaSolicitudes", "Principal");
+        }
+
+        public IActionResult IrResumen(int IdSolicitud)
+        {
+            _requestHandler.SetIdSolicitud(IdSolicitud);
+            //return RedirectToAction("ProcesoFondoPorRendir", "Solicitud");
+            return RedirectToAction("Resume", "Solicitud");
+            //return RedirectToAction("GeneratePDF", "GeneratePDF");
+            //return RedirectToAction("InfoRendicion", "Rendicion");
+            //return RedirectToAction("Resolucion", "Resolucion");
+            //return RedirectToAction("Rendicion", "Rendicion");
+        }
+
+/*###################################Fin Proceso de Redirecciones##############################################*/
+
+/*#######################################Proceso de creacion###################################################*/
+
+        /*Muestra el listado de responsables habilitados para realizar el proceso de solicitud de fondos*/
         public IActionResult Create()
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
@@ -57,70 +83,72 @@ namespace SimRend.Controllers
 
         }
 
-
-        // GET: Solicitud/Create
-        //public IActionResult Create()
-        //{
-        /*var categoriasGuardadas = ConsultaSolicitud.LeerTodoCategorias();
-        return View(categoriasGuardadas);*/
-
-
-
-        //List<Categoria> Categorias = ConsultaSolicitud.LeerTodoCategorias();
-        //List<Categoria> CategoriasSeleccionadas = new List<Categoria>();
-        //List<string> CategoriaFlotante;
-        //DataSet datosTemp = TempData["Seleccionadas"] as DataSet;
-
-        /*Esto sirve para cuando  existan cookie con TempData en el navegador y la hace null*/
-        //TempData["Seleccionadas"] = null;
-        /*int Cont = 0;
-        String var;
-        while(TempData["Seleccionadas"] != null)
-        {
-            var = (String)TempData["Seleccionadas"];
-            CategoriaFlotante.Add(var);
-            Cont++;
-        }*/
-
-
-        //if(CategoriasSeleccionadas.Count>0)
-        //{
-        //foreach (Categoria categoria in CategoriasSeleccionadas)
-        //{
-        //Categorias.Remove(categoria);
-        //}
-        //ViewData["Seleccionadas"] = CategoriasSeleccionadas;
-        //}
-
-        //return View();
-        //return View();
-        //}
-
-
         // POST: Solicitud/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Monto,NombreEvento,FechaInicioEvento,FechaTerminoEvento,LugarEvento,RutResponsable")] Solicitud solicitud)
+        public IActionResult Create([Bind("Monto,NombreEvento,FechaInicioEvento,FechaTerminoEvento,LugarEvento,RutResponsable, TipoActividad")] Solicitud solicitud)
         {
+            ViewData["_usuario"] = _requestHandler.GetUsuario();
             if (ModelState.IsValid)
             {
-                ConsultaSolicitud.ModificarEstadoResponsable(solicitud.RutResponsable, "Desabilitado");
+                ConsultasGenerales.ModificarEstadoResponsable(solicitud.RutResponsable, "Desabilitado");
                 solicitud.FechaActual = DateTime.Now;
-                solicitud.Estado = "Editando";
+                solicitud.FechaFinPdf = DateTime.Now;
                 int idOrganizacion = _requestHandler.GetIdAcceso();
                 int idSolicitud = ConsultaSolicitud.CrearSolicitud(solicitud);
-                ConsultaSolicitud.AgregarOrgSol(idOrganizacion, idSolicitud);
+                int estado = 1; /*Representa que la solicitud esta en estado de edicion*/
+                ConsultaSolicitud.AgregarProcesoFondo(idOrganizacion, idSolicitud, estado);
                 //TempData["idOrganizacion"] = idOrganizacion;
-                _requestHandler.SetIdSolicitud(idSolicitud);
-                return RedirectToAction("Category", "Solicitud");
+                return IrCategoria(idSolicitud);
             }
             return View(solicitud);
         }
 
+        [HttpPost]
+        public IActionResult AgregarCategoria(String Nombre)
+        {
+            ViewData["_usuario"] = _requestHandler.GetUsuario();
+            SolicitudCategoria solcat = new SolicitudCategoria()
+            {
+                RefCategoria = Nombre,
+                RefSolicitud = _requestHandler.GetIdSolicitud()
+            };
 
-        // GET: Solicitud/Create
+            if (ModelState.IsValid)
+            {
+                ConsultaSolicitud.AgregarCategoria(solcat);
+                return IrCategoria();
+            }
+            //int idOrganizacion = Convert.ToInt32(TempData["idOrganizacion"]);
+            //TempData["idOrganizacion"] = idOrganizacion;
+            return View(solcat);
+        }
+
+        [HttpPost]
+        public IActionResult AgregarPersona([Bind("Nombre,Run")] Persona persona)
+        {
+            ViewData["_usuario"] = _requestHandler.GetUsuario();
+            int idSolicitud = _requestHandler.GetIdSolicitud();
+
+            if (ModelState.IsValid)
+            {
+                ConsultaSolicitud.AgregarPersona(persona);
+                ConsultaSolicitud.AgregarPerSol(persona.Run, idSolicitud);
+                return IrPersona();
+            }
+            //int idOrganizacion = Convert.ToInt32(TempData["idOrganizacion"]);
+            //TempData["idOrganizacion"] = idOrganizacion;
+            return View(persona);
+        }
+
+
+/*###################################Fin Proceso de creacion###################################################*/
+
+/*#######################################Proceso de Lecturas###################################################*/
+
+        /*Muestra las categorias que ya han sido registradas en el sistema*/
         public IActionResult Category()
         {
             
@@ -152,39 +180,40 @@ namespace SimRend.Controllers
             return View(Categorias);
         }
 
-        // POST: Solicitud/Category
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        /*public IActionResult Category1()
+        /*Muestra las personas que ya se encuentran registradas en el sistema*/
+        public IActionResult Person()
         {
+            ViewData["_usuario"] = _requestHandler.GetUsuario();
+            int idSolicitud = _requestHandler.GetIdSolicitud();
+            List<Persona> Personas = ConsultaSolicitud.LeerPersonasSolicitud(idSolicitud);
+
+            if (Personas != null)
+            {
+                ViewData["Personas"] = Personas;
+            }
             return View();
-        }*/
+        }
+/*###################################Fin Proceso de Lecturas###################################################*/
 
-        /*public ActionResult AgregarCategoria(String Nombre)
+/*#######################################Proceso de Actualizacion##############################################*/
+
+        public void Actualizar_FechaPDF_EstadoProceso()
         {
-            List<String> CategoriaFlotante = new List<String>();
+            int idSolicitud = _requestHandler.GetIdSolicitud();
+            ModeloSolicitud modelo = new ModeloSolicitud();
+            modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud_Finalizada(idSolicitud);
+            modelo.Solicitud.FechaFinPdf = DateTime.Now;
+            ConsultaSolicitud.Actualizar_Solicitud(modelo.Solicitud);
+            int proceso=1; /*Indica que estamos en la solicitud*/
+            int estado = 2; /*Indica que la solicitud esta ingresada*/
+            ConsultasGenerales.Actualizar_Estado_Proceso(proceso, idSolicitud, estado);
 
-            if (TempData["Seleccionadas"] != null)
-            {
-                string var = TempData["Seleccionada"].ToString();
-                Console.WriteLine(var);
+        }
+/*###################################Fin Proceso de Actualizacion##############################################*/
 
-                CategoriaFlotante = TempData["Seleccionadas"] as List<String>;
-                CategoriaFlotante.Add(Nombre);
-                TempData["Seleccionadas"] = CategoriaFlotante;
-            }
-            else
-            {
-                CategoriaFlotante.Add(Nombre);
-                TempData["Seleccionadas"] = CategoriaFlotante;
-            }
+/*#######################################Proceso de Eliminar###################################################*/
 
-            return RedirectToAction("Category", "Solicitud");
-        }*/
-
-        // POST: Solicitud/Create
+// POST: Solicitud/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -199,57 +228,9 @@ namespace SimRend.Controllers
             if (ModelState.IsValid)
             {
                 ConsultaSolicitud.EliminarCategoria(solcat);
-                return RedirectToAction("Category", "Solicitud");
+                return IrCategoria();
             }
             return View(solcat);
-        }
-
-        [HttpPost]
-        public IActionResult AgregarCategoria(String Nombre)
-        {
-            SolicitudCategoria solcat = new SolicitudCategoria()
-            {
-                RefCategoria = Nombre,
-                RefSolicitud = _requestHandler.GetIdSolicitud()
-            };
-
-            if (ModelState.IsValid)
-            {
-                ConsultaSolicitud.AgregarCategoria(solcat);
-                return RedirectToAction("Category", "Solicitud");
-            }
-            //int idOrganizacion = Convert.ToInt32(TempData["idOrganizacion"]);
-            //TempData["idOrganizacion"] = idOrganizacion;
-            return View(solcat);
-        }
-
-        public IActionResult Person()
-        {
-            ViewData["_usuario"] = _requestHandler.GetUsuario();
-            int idSolicitud = _requestHandler.GetIdSolicitud();
-            List<Persona> Personas = ConsultaSolicitud.LeerPersonasSolicitud(idSolicitud);
-
-            if (Personas != null)
-            {
-                ViewData["Personas"] = Personas;
-            }
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult AgregarPersona([Bind("Nombre,Run")] Persona persona)
-        {
-            int idSolicitud = _requestHandler.GetIdSolicitud();
-
-            if (ModelState.IsValid)
-            {
-                ConsultaSolicitud.AgregarPersona(persona);
-                ConsultaSolicitud.AgregarPerSol(persona.Run, idSolicitud);
-                return RedirectToAction("Person", "Solicitud");
-            }
-            //int idOrganizacion = Convert.ToInt32(TempData["idOrganizacion"]);
-            //TempData["idOrganizacion"] = idOrganizacion;
-            return View(persona);
         }
 
         // POST: Solicitud/Create
@@ -267,12 +248,15 @@ namespace SimRend.Controllers
             if (ModelState.IsValid)
             {
                 ConsultaSolicitud.EliminarPersona(solper);
-                return RedirectToAction("Person", "Solicitud");
+                return IrPersona();
             }
             return View(solper);
         }
 
+/*###################################Fin Proceso de Eliminar###################################################*/
 
+        
+/*########################Funciones relacionadas con generar el pdf y mostrar la informacion del pdf###########################*/
         public IActionResult Resume()
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
@@ -284,25 +268,13 @@ namespace SimRend.Controllers
             return View(modelo);
         }
 
-
-        public IActionResult IrResumen(int IdSolicitud)
-        {
-            _requestHandler.SetIdSolicitud(IdSolicitud);
-            return RedirectToAction("Resume", "Solicitud");
-            //return RedirectToAction("GeneratePDF", "GeneratePDF");
-            //return RedirectToAction("InfoRendicion", "Rendicion");
-            //return RedirectToAction("Resolucion", "Resolucion");
-            //return RedirectToAction("Rendicion", "Rendicion");
-        }
-
         private ModeloSolicitud obtenerModelo()
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
             int idSolicitud = _requestHandler.GetIdSolicitud();
-            //int idSolicitud = 12;
             ModeloSolicitud modelo = new ModeloSolicitud();
-            modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud(idSolicitud);
-            modelo.Solicitud.FechaPdf = DateTime.Now.ToString("D", new System.Globalization.CultureInfo("es-ES"));
+            modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud_Finalizada(idSolicitud);
+            modelo.Solicitud.FechaPdf = modelo.Solicitud.FechaFinPdf.ToString("D", new System.Globalization.CultureInfo("es-ES"));
             modelo.Responsable = ConsultaSolicitud.Leer_Responsable(idSolicitud);
             modelo.Categorias = ConsultaSolicitud.LeerCategoriasSeleccionadas(idSolicitud);
             modelo.Participantes = ConsultaSolicitud.LeerPersonasSolicitud(idSolicitud);
@@ -329,7 +301,6 @@ namespace SimRend.Controllers
             else
             {
                 modelo.Solicitud.FechaEvento = modelo.Solicitud.FechaInicioEvento.ToString("D", new System.Globalization.CultureInfo("es-ES"));
-                
             }
 
             return modelo;
@@ -337,40 +308,7 @@ namespace SimRend.Controllers
 
         public IActionResult GeneratePDF()
         {
-            /*ViewData["_usuario"] = _requestHandler.GetUsuario();
-            int idSolicitud = _requestHandler.GetIdSolicitud();
-            //int idSolicitud = 12;
-            ModeloSolicitud modelo = new ModeloSolicitud();
-            modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud(idSolicitud);
-            modelo.Solicitud.FechaPdf = DateTime.Now.ToString("D", new System.Globalization.CultureInfo("es-ES"));
-            modelo.Responsable = ConsultaSolicitud.Leer_Responsable(idSolicitud);
-            modelo.Categorias = ConsultaSolicitud.LeerCategoriasSeleccionadas(idSolicitud);
-            modelo.Participantes = ConsultaSolicitud.LeerPersonasSolicitud(idSolicitud);
-            modelo.Organizacion = ConsultaSolicitud.Leer_Organizacion(idSolicitud);
-            if(modelo.Participantes!=null)
-            {
-                modelo.Solicitud.MontoPorPersona = modelo.Solicitud.Monto / modelo.Participantes.Count();
-            }
-            if(modelo.Organizacion.Tipo.Equals("CAA"))
-            {
-                modelo.CAA = ConsultaSolicitud.Leer_CAA(modelo.Organizacion.Id);
-            }
-            else
-            {
-                modelo.Federacion = ConsultaSolicitud.Leer_Federacion(modelo.Organizacion.Id);
-            }
-
-            if(modelo.Solicitud.FechaInicioEvento!=modelo.Solicitud.FechaTerminoEvento)
-            {
-                modelo.Solicitud.FechaEvento = "Desde el " + modelo.Solicitud.FechaInicioEvento.ToString("dddd", new System.Globalization.CultureInfo("es-ES")) + ", " + modelo.Solicitud.FechaInicioEvento.ToString("M", new System.Globalization.CultureInfo("es-ES")) +
-                " hasta el " + modelo.Solicitud.FechaTerminoEvento.ToString("D", new System.Globalization.CultureInfo("es-ES")); 
-                return View(modelo);
-            }
-            else
-            {
-                modelo.Solicitud.FechaEvento = modelo.Solicitud.FechaInicioEvento.ToString("D", new System.Globalization.CultureInfo("es-ES"));
-                return View(modelo);
-            }*/
+            ViewData["_usuario"] = _requestHandler.GetUsuario();
             ModeloSolicitud modelo = obtenerModelo();
             return View(modelo);
         }
@@ -378,13 +316,6 @@ namespace SimRend.Controllers
         {
             ModeloSolicitud modelo = obtenerModelo();
             String pagina = "<!DOCTYPE html><html><head><title></title>";
-            /*pagina += "<style type = 'text/css'>";
-            pagina += "table {border-spacing: 0;width:100%;}";
-            pagina += "td + td {border-left:1px solid #000;}";
-            pagina += "td, th {border-bottom:1px solid #000;background: #fff;color: #000;padding: 10px 25px;}";
-            pagina += "th {height: 0;line-height: 0;padding-top: 0;padding-bottom: 0;color: transparent;border: none;white-space: nowrap;}";
-            pagina += "th div{position: absolute;background: transparent;color: #fff;padding: 9px 25px;top: 0;margin-left: -25px;line-height: normal;border-left: 1px solid #800;}</style>";*/
-            
             pagina += "<style type = 'text/css'>";
             pagina += "table {border-spacing: 1;border-collapse: collapse;background: white;margin: 0 auto;position: relative;}";
             pagina += "table * {position: relative;}";
@@ -403,18 +334,6 @@ namespace SimRend.Controllers
             pagina += "tbody tr:hover {color: #000000;background-color: #f5f5f5;cursor: pointer;}";
             pagina += ".column1 {width: 260px;padding-left: 40px;}";
             pagina += ".column2 {width: 260px;text-align: right;padding-right: 62px;}</style>";
-
-
-
-
-
-
-
-
-
-
-
-
 
             pagina += "</head><body> <div id='Solicitud'><DIV ALIGN='center'><img src='https://i.imgur.com/SS6BFCs.png' width='10%'  border=0></DIV--><div ALIGN='right'><P> " + modelo.Solicitud.FechaPdf + "</P></div><DIV ALIGN='left'>";
             
@@ -545,12 +464,6 @@ namespace SimRend.Controllers
             return File(pdf, "application/pdf", "Solicitud.pdf");
         }
 
-        public IActionResult VolverIndex()
-        {
-            _requestHandler.RemoveIdSolicitud();
-            return RedirectToAction("Index", "Solicitud");
-        }
-
         public static String BuscarRepresentante(int idOrganizacion, String rut)
         {
             ModeloSolicitud modelo = new ModeloSolicitud();
@@ -560,11 +473,27 @@ namespace SimRend.Controllers
             {
                 if (responsable.Run.Equals(rut))
                 {
-                    
                     return responsable.Nombre;
                 }
             }
             return null;
         }
+
+        public IActionResult FinalizarSolicitud()
+        {
+            Actualizar_FechaPDF_EstadoProceso();
+            /*El proceso cambia de solicitd a resolucion (tabla intermedio de proceso)*/
+            return IrPrincipal();
+            
+        }
+/*####################Fin funciones relacionadas con generar el pdf y mostrar la informacion del pdf###########################*/
+
+
+
+        /*public IActionResult VolverIndex()
+        {
+            _requestHandler.RemoveIdSolicitud();
+            return RedirectToAction("Index", "Solicitud");
+        }*/
     }
 }

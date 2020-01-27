@@ -44,7 +44,7 @@ namespace SimRend.Controllers
                 //TempData["idOrganizacion"] = idOrganizacion;
                // Session["idOrganizacion"] = idOrganizacion;
                 //HttpContext.Current.Session["idOrganizacion"] = idOrganizacion;
-                return RedirectToAction("Index", "Solicitud");
+                return RedirectToAction("TablaSolicitudes", "Principal");
             }
             return RedirectToAction("Login", "Usuario");
         }

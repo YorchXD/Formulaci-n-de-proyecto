@@ -1,7 +1,6 @@
 DROP PROCEDURE IF EXISTS `crear_solicitud`;
 DELIMITER ;;
 CREATE PROCEDURE `crear_solicitud`(
-	in_estado VARCHAR(256),
   	in_fecha DATE,
 	in_monto INTEGER,
 	in_nombreEvento VARCHAR(256),
@@ -9,11 +8,13 @@ CREATE PROCEDURE `crear_solicitud`(
   	in_fechaTerminoEvento DATE,
 	in_runEncargado VARCHAR(256),
 	in_lugarEvento VARCHAR(256),
+	in_tipoActividad VARCHAR(256),
+	in_fechaCreacionPDF DATE,
 	OUT out_id INTEGER
 )
 BEGIN
-	INSERT INTO Solicitud(estado, fechaCreacion, monto, nomEvent, fecIniEvent, fecTerEvent, runEncargado, lugarEvent)
-	VALUES (in_estado, in_fecha ,in_monto, in_nombreEvento, in_fechaInicioEvento, in_fechaTerminoEvento, in_runEncargado, in_lugarEvento);
+	INSERT INTO Solicitud(fechaCreacion, monto, nomEvent, fecIniEvent, fecTerEvent, runEncargado, lugarEvent, tipoActividad, fechaCreacionPDF)
+	VALUES (in_estado, in_fecha ,in_monto, in_nombreEvento, in_fechaInicioEvento, in_fechaTerminoEvento, in_runEncargado, in_lugarEvento, in_tipoActividad, in_fechaCreacionPDF);
 	SET out_id = LAST_INSERT_ID();
 END
 ;;
@@ -125,21 +126,22 @@ CREATE PROCEDURE `leertodas_solicitudes_organizacion`(
 	in_idOrganizacion INTEGER)
 BEGIN
 	SELECT id, estado, fechaCreacion, monto, nomEvent, fecIniEvent, fecTerEvent, runEncargado, lugarEvent
-	FROM Solicitud, OrgSol
-	WHERE in_idOrganizacion=OrgSol.refOrganizacion AND OrgSol.refSolicitud = Solicitud.id;
+	FROM Solicitud, procesoFondo
+	WHERE in_idOrganizacion=procesoFondo.refOrganizacion AND procesoFondo.refSolicitud = Solicitud.id;
 END
 ;;
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS `crear_orgsol`;
+DROP PROCEDURE IF EXISTS `crear_proceso_fondo`;
 DELIMITER ;;
-CREATE PROCEDURE `crear_orgsol`(
+CREATE PROCEDURE `crear_proceso_fondo`(
 	in_refSolicitud Integer,
-  	in_refOrganizacion Integer
+  	in_refOrganizacion Integer,
+  	in_estado Integer
 )
 BEGIN
-	INSERT INTO OrgSol(refOrganizacion, refSolicitud)
-	VALUES (in_refOrganizacion, in_refSolicitud);
+	INSERT INTO procesoFondo(refOrganizacion, refSolicitud, estado)
+	VALUES (in_refOrganizacion, in_refSolicitud, in_estado);
 END
 ;;
 DELIMITER ;
@@ -175,7 +177,7 @@ DELIMITER ;;
 CREATE PROCEDURE `obtener_solicitud`(
 	in_refSolicitud Integer)
 BEGIN
-	SELECT id, estado, fechaCreacion, monto, nomEvent, fecIniEvent, fecTerEvent, runEncargado, lugarEvent
+	SELECT id, fechaCreacion, monto, nomEvent, fecIniEvent, fecTerEvent, runEncargado, lugarEvent
 	FROM Solicitud
 	WHERE id = in_refSolicitud;
 END
@@ -200,8 +202,8 @@ CREATE PROCEDURE `leer_organizacion`(
 	in_refSolicitud Integer)
 BEGIN
 	SELECT Organizacion.id, Organizacion.tipo
-	FROM OrgSol, Organizacion
-	WHERE in_refSolicitud = OrgSol.refSolicitud AND OrgSol.refOrganizacion = Organizacion.id;
+	FROM procesoFondo, Organizacion
+	WHERE in_refSolicitud = procesoFondo.refSolicitud AND procesoFondo.refOrganizacion = Organizacion.id;
 END
 ;;
 DELIMITER ;
@@ -255,6 +257,63 @@ BEGIN
 END
 ;;
 DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS `actualizar_solicitud`;
+DELIMITER ;;
+CREATE PROCEDURE `actualizar_solicitud`(
+	in_refSolicitud Integer,
+  	in_fecha DATE,
+	in_monto INTEGER,
+	in_nombreEvento VARCHAR(256),
+	in_fechaInicioEvento DATE,
+  	in_fechaTerminoEvento DATE,
+	in_runEncargado VARCHAR(256),
+	in_lugarEvento VARCHAR(256),
+	in_tipoActividad VARCHAR(256),
+	in_fechaCreacionPDF DATE)
+BEGIN
+	UPDATE Solicitud
+	SET fechaCreacion=in_fecha, monto=in_monto, nomEvent=in_nombreEvento, 
+		fecIniEvent = in_fechaInicioEvento, fecTerEvent = in_fechaTerminoEvento, runEncargado = runEncargado, 
+		lugarEvent = in_lugarEvento, tipoActividad = in_tipoActividad, fechaCreacionPDF = in_fechaCreacionPDF
+	WHERE id=in_refSolicitud;	
+END
+;;
+DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS `obtener_solicitud_completa`;
+DELIMITER ;;
+CREATE PROCEDURE `obtener_solicitud_completa`(
+	in_refSolicitud Integer)
+BEGIN
+	SELECT id, fechaCreacion, monto, nomEvent, fecIniEvent, fecTerEvent, runEncargado, lugarEvent, tipoActividad, fechaCreacionPDF
+	FROM Solicitud
+	WHERE id = in_refSolicitud;
+END
+;;
+DELIMITER ;
+
+
+DROP PROCEDURE IF EXISTS `actualizar_estado_proceso`;
+DELIMITER ;;
+CREATE PROCEDURE `actualizar_estado_proceso`(
+	in_proceso Integer,
+	in_id_proceso Integer,
+  in_estado Integer)
+BEGIN
+	CASE 
+			WHEN in_proceso = '1' THEN UPDATE procesofondo SET estado = in_estado where procesoFondo.refSolicitud = in_id_proceso;
+			WHEN in_proceso = '2' THEN UPDATE procesofondo SET estado = in_estado where procesoFondo.refResolucion = in_id_proceso;
+			WHEN in_proceso = '3' THEN UPDATE procesofondo SET estado = in_estado where procesoFondo.refDeclaracionGastos = in_id_proceso;
+	END CASE;
+END
+;;
+DELIMITER ;
+
+
+agregar si es  un fondo por rendir(reembolso) o una rendicion
 
 
 -- ----------------------------

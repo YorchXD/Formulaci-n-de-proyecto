@@ -54,13 +54,13 @@ namespace SimRend.DbSimRend
 
         }*/
 
+/*#############################################Crear Solicitud######################################################*/
+
         public static int CrearSolicitud(Solicitud solicitud)
         {
-
             try
             {
                 var command = new MySqlCommand() { CommandText = "crear_solicitud", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_estado", Direction = System.Data.ParameterDirection.Input, Value = solicitud.Estado });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fecha", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaActual });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_monto", Direction = System.Data.ParameterDirection.Input, Value = solicitud.Monto });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_nombreEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.NombreEvento });
@@ -68,6 +68,8 @@ namespace SimRend.DbSimRend
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaTerminoEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaTerminoEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_runEncargado", Direction = System.Data.ParameterDirection.Input, Value = solicitud.RutResponsable});
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_lugarEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.LugarEvento });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_tipoActividad", Direction = System.Data.ParameterDirection.Input, Value = solicitud.TipoActividad });
+                command.Parameters.Add(new MySqlParameter(){ParameterName = "in_FechaCreacionPDF", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaFinPdf});
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
                 var datos = ContexDb.ExecuteProcedure(command);
 
@@ -78,40 +80,6 @@ namespace SimRend.DbSimRend
                 Console.WriteLine(ex.ToString());
             }
             return -1;
-        }
-
-        public static List<Categoria> LeerTodoCategorias()
-        {
-            try
-            {
-                var command = new MySqlCommand() { CommandText = "leertodos_categorias", CommandType = System.Data.CommandType.StoredProcedure };
-                //ejemplo command.Parameters.Add(new MySqlParameter() { ParameterName = "in_id", Direction = System.Data.ParameterDirection.Input, Value = id });
-                var datos = ContexDb.GetDataSet(command);
-                List<Categoria> categorias = new List<Categoria>();
-                if (datos.Tables[0].Rows.Count > 0)
-                {
-                    foreach (System.Data.DataRow row in datos.Tables[0].Rows)
-                    {
-                        var prodData = row;
-                        var categoria = new Categoria()
-                        {
-                            Nombre = prodData["nombre"].ToString()
-                        };
-                        categorias.Add(categoria);
-                    }
-                    return categorias;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            finally
-            {
-
-            }
-            return null;
-
         }
 
         public static void AgregarCategoria(SolicitudCategoria categoria)
@@ -131,61 +99,6 @@ namespace SimRend.DbSimRend
             {
                 Console.WriteLine(ex.ToString());
             }
-        }
-
-        public static void EliminarCategoria(SolicitudCategoria categoria)
-        {
-
-            try
-            {
-                var command = new MySqlCommand() { CommandText = "eliminar_categoria_seleccionada", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = categoria.RefSolicitud });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refCategoria", Direction = System.Data.ParameterDirection.Input, Value = categoria.RefCategoria });
-                //command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
-                var datos = ContexDb.ExecuteProcedure(command);
-
-                //saber.Id = Convert.ToInt32(datos.Parameters["out_id"].Value);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-        }
-
-        public static List<Categoria> LeerCategoriasSeleccionadas(int refSolicitud)
-        {
-            try
-            {
-                var command = new MySqlCommand() { CommandText = "categorias_seleccionadas", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = refSolicitud });
-                var datos = ContexDb.GetDataSet(command);
-                List<Categoria> CategoriasSeleccionadas = new List<Categoria>();
-                if (datos.Tables[0].Rows.Count > 0)
-                {
-                    foreach (System.Data.DataRow row in datos.Tables[0].Rows)
-                    {
-                        var prodData = row;
-                        var categoria = new Categoria()
-                        {
-                            Nombre = prodData["refCategoria"].ToString()
-                        };
-
-                        CategoriasSeleccionadas.Add(categoria);
-                    }
-                    return CategoriasSeleccionadas;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            finally
-            {
-
-            }
-            return null;
-
         }
 
         public static void AgregarPersona(Persona persona)
@@ -224,14 +137,14 @@ namespace SimRend.DbSimRend
             }
         }
 
-        public static void EliminarPersona(SolicitudPersona solper)
+        public static void AgregarProcesoFondo(int refOrganizacion, int refSolicitud, int estado)
         {
-
             try
             {
-                var command = new MySqlCommand() { CommandText = "eliminar_persona_seleccionada", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = solper.RefSolicitud });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refPersona", Direction = System.Data.ParameterDirection.Input, Value = solper.RefPersona });
+                var command = new MySqlCommand() { CommandText = "crear_proceso_fondo", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refOrganizacion", Direction = System.Data.ParameterDirection.Input, Value = refOrganizacion });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = refSolicitud });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_estado", Direction = System.Data.ParameterDirection.Input, Value = estado});
                 //command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
                 var datos = ContexDb.ExecuteProcedure(command);
 
@@ -241,6 +154,79 @@ namespace SimRend.DbSimRend
             {
                 Console.WriteLine(ex.ToString());
             }
+        }
+
+/*###########################################Fin crear Solicitud####################################################*/
+
+/*#############################################Leer Solicitud########################################################*/
+        public static List<Categoria> LeerTodoCategorias()
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "leertodos_categorias", CommandType = System.Data.CommandType.StoredProcedure };
+                //ejemplo command.Parameters.Add(new MySqlParameter() { ParameterName = "in_id", Direction = System.Data.ParameterDirection.Input, Value = id });
+                var datos = ContexDb.GetDataSet(command);
+                List<Categoria> categorias = new List<Categoria>();
+                if (datos.Tables[0].Rows.Count > 0)
+                {
+                    foreach (System.Data.DataRow row in datos.Tables[0].Rows)
+                    {
+                        var prodData = row;
+                        var categoria = new Categoria()
+                        {
+                            Nombre = prodData["nombre"].ToString()
+                        };
+                        categorias.Add(categoria);
+                    }
+                    return categorias;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+
+        }
+
+        public static List<Categoria> LeerCategoriasSeleccionadas(int refSolicitud)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "categorias_seleccionadas", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = refSolicitud });
+                var datos = ContexDb.GetDataSet(command);
+                List<Categoria> CategoriasSeleccionadas = new List<Categoria>();
+                if (datos.Tables[0].Rows.Count > 0)
+                {
+                    foreach (System.Data.DataRow row in datos.Tables[0].Rows)
+                    {
+                        var prodData = row;
+                        var categoria = new Categoria()
+                        {
+                            Nombre = prodData["refCategoria"].ToString()
+                        };
+
+                        CategoriasSeleccionadas.Add(categoria);
+                    }
+                    return CategoriasSeleccionadas;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+
         }
 
         public static List<Persona> LeerPersonasSolicitud(int refSolicitud)
@@ -280,29 +266,45 @@ namespace SimRend.DbSimRend
 
         }
 
-        public static int IniciarSesion(Login login)
+          public static Solicitud Leer_Solicitud(int refSolicitud)
         {
-
             try
             {
-                var command = new MySqlCommand() { CommandText = "iniciar_sesion", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_usuario", Direction = System.Data.ParameterDirection.Input, Value = login.Usuario });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_clave", Direction = System.Data.ParameterDirection.Input, Value = login.Clave });
+                var command = new MySqlCommand() { CommandText = "obtener_solicitud", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = refSolicitud });
+                //ejemplo command.Parameters.Add(new MySqlParameter() { ParameterName = "in_id", Direction = System.Data.ParameterDirection.Input, Value = id });
                 var datos = ContexDb.GetDataSet(command);
 
                 if (datos.Tables[0].Rows.Count == 1)
                 {
                     System.Data.DataRow row = datos.Tables[0].Rows[0];
                     var prodData = row;
-                    return Convert.ToInt32(prodData["id"].ToString());
+
+                    Solicitud solicitud = new Solicitud()
+                    {
+                        Id = Convert.ToInt32(prodData["id"]),
+                        FechaActual = Convert.ToDateTime(prodData["fechaCreacion"]),
+                        Monto = Convert.ToInt32(prodData["monto"]),
+                        NombreEvento = prodData["nomEvent"].ToString(),
+                        FechaInicioEvento = Convert.ToDateTime(prodData["fecIniEvent"]),
+                        FechaTerminoEvento = Convert.ToDateTime(prodData["fecTerEvent"]),
+                        RutResponsable = prodData["runEncargado"].ToString(),
+                        LugarEvento = prodData["lugarEvent"].ToString()
+                    };
+                    return solicitud;
                 }
-                
+
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-            return -1;
+            finally
+            {
+
+            }
+            return null;
+
         }
 
         public static List<Solicitud> LeerSolicitudOrganizacion(int idOrganizacion)
@@ -350,13 +352,88 @@ namespace SimRend.DbSimRend
 
         }
 
-        public static void AgregarOrgSol(int refOrganizacion, int refSolicitud)
+         public static Solicitud Leer_Solicitud_Finalizada(int refSolicitud)
+        {
+            try
+            {                                                    
+                var command = new MySqlCommand() { CommandText = "obtener_solicitud_completa", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = refSolicitud });
+                var datos = ContexDb.GetDataSet(command);
+
+                if (datos.Tables[0].Rows.Count == 1)
+                {
+                    System.Data.DataRow row = datos.Tables[0].Rows[0];
+                    var prodData = row;
+
+                    Solicitud solicitud = new Solicitud()
+                    {
+                        Id = Convert.ToInt32(prodData["id"]),
+                        FechaActual = Convert.ToDateTime(prodData["fechaCreacion"]),
+                        Monto = Convert.ToInt32(prodData["monto"]),
+                        NombreEvento = prodData["nomEvent"].ToString(),
+                        FechaInicioEvento = Convert.ToDateTime(prodData["fecIniEvent"]),
+                        FechaTerminoEvento = Convert.ToDateTime(prodData["fecTerEvent"]),
+                        RutResponsable = prodData["runEncargado"].ToString(),
+                        LugarEvento = prodData["lugarEvent"].ToString(),
+                        TipoActividad = prodData["tipoActividad"].ToString(),
+                        FechaFinPdf = Convert.ToDateTime(prodData["fechaCreacionPDF"])
+                    };
+                    return solicitud;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+
+            }
+            return null;
+
+        }
+
+
+
+/*###########################################Fin leer Solicitud######################################################*/
+
+/*#############################################Actualizar Solicitud##################################################*/
+        public static void Actualizar_Solicitud(Solicitud solicitud)
         {
             try
             {
-                var command = new MySqlCommand() { CommandText = "crear_orgsol", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refOrganizacion", Direction = System.Data.ParameterDirection.Input, Value = refOrganizacion });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = refSolicitud });
+                var command = new MySqlCommand() { CommandText = "actualizar_solicitud", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = solicitud.Id });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fecha", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaActual });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_monto", Direction = System.Data.ParameterDirection.Input, Value = solicitud.Monto });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_nombreEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.NombreEvento });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaInicioEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaInicioEvento });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaTerminoEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaTerminoEvento });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_runEncargado", Direction = System.Data.ParameterDirection.Input, Value = solicitud.RutResponsable});
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_lugarEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.LugarEvento });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_tipoActividad", Direction = System.Data.ParameterDirection.Input, Value = solicitud.TipoActividad });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaCreacionPDF", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaFinPdf });
+                var datos = ContexDb.ExecuteProcedure(command);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        
+/*###########################################Fin actualizar Solicitud################################################*/
+
+/*##############################################Eliminar Solicitud##################################################*/
+        public static void EliminarCategoria(SolicitudCategoria categoria)
+        {
+
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "eliminar_categoria_seleccionada", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = categoria.RefSolicitud });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refCategoria", Direction = System.Data.ParameterDirection.Input, Value = categoria.RefCategoria });
                 //command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
                 var datos = ContexDb.ExecuteProcedure(command);
 
@@ -368,6 +445,28 @@ namespace SimRend.DbSimRend
             }
         }
 
+        public static void EliminarPersona(SolicitudPersona solper)
+        {
+
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "eliminar_persona_seleccionada", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = solper.RefSolicitud });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refPersona", Direction = System.Data.ParameterDirection.Input, Value = solper.RefPersona });
+                //command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
+                var datos = ContexDb.ExecuteProcedure(command);
+
+                //saber.Id = Convert.ToInt32(datos.Parameters["out_id"].Value);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+/*############################################Fin eliminar Solicitud################################################*/
+
+
+/*Consultas de la organizacion (caa o federacion)*/
         public static List<Responsable> LeerRepresetantes(int refOrganizacion)
         {
             try
@@ -405,67 +504,6 @@ namespace SimRend.DbSimRend
 
             }
             return null;
-        }
-
-        public static String ModificarEstadoResponsable(string refResponsable, string estado)
-        {
-            try
-            {
-                var command = new MySqlCommand() { CommandText = "cambiar_estado_responsable", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refResponsable", Direction = System.Data.ParameterDirection.Input, Value = refResponsable });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_estado", Direction = System.Data.ParameterDirection.Input, Value = estado });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "out_nombre", Direction = System.Data.ParameterDirection.Output, Value = -1 });
-                var datos = ContexDb.ExecuteProcedure(command);
-                return datos.Parameters["out_nombre"].Value.ToString();
-
-                //saber.Id = Convert.ToInt32(datos.Parameters["out_id"].Value);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            return null;
-        }
-
-        public static Solicitud Leer_Solicitud(int refSolicitud)
-        {
-            try
-            {
-                var command = new MySqlCommand() { CommandText = "obtener_solicitud", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = refSolicitud });
-                //ejemplo command.Parameters.Add(new MySqlParameter() { ParameterName = "in_id", Direction = System.Data.ParameterDirection.Input, Value = id });
-                var datos = ContexDb.GetDataSet(command);
-
-                if (datos.Tables[0].Rows.Count == 1)
-                {
-                    System.Data.DataRow row = datos.Tables[0].Rows[0];
-                    var prodData = row;
-
-                    Solicitud solicitud = new Solicitud()
-                    {
-                        Id = Convert.ToInt32(prodData["id"]),
-                        FechaActual = Convert.ToDateTime(prodData["fechaCreacion"]),
-                        Monto = Convert.ToInt32(prodData["monto"]),
-                        NombreEvento = prodData["nomEvent"].ToString(),
-                        FechaInicioEvento = Convert.ToDateTime(prodData["fecIniEvent"]),
-                        FechaTerminoEvento = Convert.ToDateTime(prodData["fecTerEvent"]),
-                        RutResponsable = prodData["runEncargado"].ToString(),
-                        LugarEvento = prodData["lugarEvent"].ToString()
-                    };
-                    return solicitud;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            finally
-            {
-
-            }
-            return null;
-
         }
 
         public static Responsable Leer_Responsable(int refSolicitud)
@@ -602,6 +640,33 @@ namespace SimRend.DbSimRend
             }
             return null;
         }
+        /*Fin consultas organizacion*/
+
+        /*Se debe cambiar a consultas de usuario*/
+        public static int IniciarSesion(Login login)
+        {
+
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "iniciar_sesion", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_usuario", Direction = System.Data.ParameterDirection.Input, Value = login.Usuario });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_clave", Direction = System.Data.ParameterDirection.Input, Value = login.Clave });
+                var datos = ContexDb.GetDataSet(command);
+
+                if (datos.Tables[0].Rows.Count == 1)
+                {
+                    System.Data.DataRow row = datos.Tables[0].Rows[0];
+                    var prodData = row;
+                    return Convert.ToInt32(prodData["id"].ToString());
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return -1;
+        }
 
         public static String Leer_Correo(string Email)
         {
@@ -642,6 +707,10 @@ namespace SimRend.DbSimRend
                 Console.WriteLine(ex.ToString());
             }
         }
+
+        /*Fin consultas de usuario*/
+
+        
     }  
 }
 

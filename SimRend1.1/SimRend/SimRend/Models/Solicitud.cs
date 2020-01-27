@@ -23,9 +23,16 @@ namespace SimRend.Models
         public string RutResponsable { get; set; }
 
         public string NombreResponsable { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime FechaFinPdf { get; set; }
 
-        public string FechaPdf { get; set; }
+        public string FechaPdf {get; set;}
+
         public int MontoPorPersona { get; set; }
+       
+       /*Esta variable se utiliza para colocar la fecha de inicio y termino del evento en un solo string*/
         public string FechaEvento { get; set; }
+        
+        public string TipoActividad {get; set;}
     }
 }

@@ -84,5 +84,20 @@ namespace SimRend.Helpers
         {
             _httpContextAccessor.HttpContext.Session.Remove("_rendicion");
         }
+
+        internal void SetIdPrincipal(int id)
+        {
+            _httpContextAccessor.HttpContext.Session.SetInt32("_principal", id);
+        }
+
+        internal int GetIdPrincipal()
+        {
+            return _httpContextAccessor.HttpContext.Session.GetInt32("_principal").Value;
+        }
+
+        internal void RemoveIdPrincipal()
+        {
+            _httpContextAccessor.HttpContext.Session.Remove("_principal");
+        }
     }
 }

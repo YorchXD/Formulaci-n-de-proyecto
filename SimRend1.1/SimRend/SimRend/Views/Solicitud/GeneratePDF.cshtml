@@ -15,8 +15,8 @@
     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js" type="text/javascript" charset="utf-8"></script-->
 }
 
-<div id="Solicitud">
-    <!--DIV ALIGN="center"><img src=~/images/GenerarPDF/logoUtalca.png width="120" height="120" border=0></DIV-->
+<div style="background-color:white;margin-bottom:10px; padding: 14px 35px; overflow-y: scroll; display: inline-block; height: 450px; width: 95%">
+    <DIV ALIGN="center" style="margin-top: -10px"> <img src=~/images/GenerarPDF/logoUtalca.png width="120" height="120" border=0 ></DIV>
 
     <div ALIGN="right"><P> @Html.DisplayFor(model => model.Solicitud.FechaPdf)</P></div>
 
@@ -25,28 +25,28 @@
         {
             @if (Model.CAA.SexoDirCarrera.Equals("Femenino"))
             {
-                <P style="line-height:1px"><B>Sra. @Html.DisplayFor(model => model.CAA.NomDirCarrera)</B></P>
+                <P style="line-height:13px"><B>Sra. @Html.DisplayFor(model => model.CAA.NomDirCarrera)</B></P>
             }
             else
             {
-                <P style="line-height:3px"><B> Sr. @Html.DisplayFor(model => model.CAA.NomDirCarrera) </B></P>
+                <P style="line-height:13px"><B> Sr. @Html.DisplayFor(model => model.CAA.NomDirCarrera) </B></P>
             }
 
-            <P style="line-height:3px"><I>@Html.DisplayFor(model => model.CAA.Cargo)</I></P>
-            <P style="line-height:3px"><I>@Html.DisplayFor(model => model.CAA.Carrera)</I></P>
+            <P style="line-height:13px"><I>@Html.DisplayFor(model => model.CAA.Cargo)</I></P>
+            <P style="line-height:13px"><I>@Html.DisplayFor(model => model.CAA.Carrera)</I></P>
         }
         else
         {
-            <P style="line-height:3px"><B>@Html.DisplayFor(model => model.Federacion.NomDirDAAE)</B></P>
-            <P style="line-height:3px"><I>@Html.DisplayFor(model => model.Federacion.Cargo)</I></P>
+            <P style="line-height:13px"><B>@Html.DisplayFor(model => model.Federacion.NomDirDAAE)</B></P>
+            <P style="line-height:13px"><I>@Html.DisplayFor(model => model.Federacion.Cargo)</I></P>
         }
 
-        <P style="line-height:1px"><I>Universidad de Talca</I></P>
-        <P style="line-height:1px"><B><U>Presente.</U></B></P>
+        <P style="line-height:13px"><I>Universidad de Talca</I></P>
+        <P style="line-height:13px"><B><U>Presente.</U></B></P>
     </DIV>
 
     <DIV style="text-align:justify">
-        <P>
+        <P style = "line-height:40px ">
             De nuestra consideración:
         </P>
 
@@ -68,7 +68,7 @@
         }
 
         
-        <ul>
+        <ul style="padding-left: 30px; padding-top: 10px; padding-bottom: 10px">
             <li><B>Nombre de la actividad:</B>  @Html.DisplayFor(model => model.Solicitud.NombreEvento).</li>
             <li><B>Periodo:</B> @Html.DisplayFor(model => model.Solicitud.FechaEvento).</li>
             <li><B>Ubicación:</B> @Html.DisplayFor(model => model.Solicitud.LugarEvento).</li>
@@ -139,35 +139,35 @@
         </P>
     </DIV>
 
-    <DIV ALIGN="center" style="padding-top:80px;">
-        <P style="line-height:3px"><B>@Html.DisplayFor(model => model.Responsable.Nombre)</B></P>
-        <P style="line-height:3px"> @Html.DisplayFor(model => model.Responsable.Cargo)</P>
+    <DIV ALIGN="center" style="padding-top:80px; padding-bottom:20px">
+        <P style="line-height:13px"><B>@Html.DisplayFor(model => model.Responsable.Nombre)</B></P>
+        <P style="line-height:13px"> @Html.DisplayFor(model => model.Responsable.Cargo)</P>
         @if (Model.Organizacion.Tipo.Equals("CAA"))
         {
-            <P style="line-height:3px">CAA @Html.DisplayFor(model => model.CAA.Carrera)</P>
+            <P style="line-height:13px">CAA @Html.DisplayFor(model => model.CAA.Carrera)</P>
         }
         else
         {
-            <P style="line-height:3px">@Html.DisplayFor(model => model.Federacion.NombreFederacion)</P>
+            <P style="line-height:13px">@Html.DisplayFor(model => model.Federacion.NombreFederacion)</P>
         }
-        <P style="line-height:3px">Universidad de Talca</P>
+        <P style="line-height:13px">Universidad de Talca</P>
     </DIV>
-
 </div>
 
-    <div style="padding-top:50px">
-
-    <div class="form-inline my-2 my-lg-0">
-        <button class="btn btn-success my-2 my-sm-0" style="margin-right:15px" onclick="location.href='@Url.Action("DescargarPDF","Solicitud")'">Generar PDF</button>
-
-
-        @using (Html.BeginForm("VolverIndex", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+<div class="wrapperOrientacionBotonFormulario">
+    <div class="wrapper wrapperBotonFormulario">
+        <button class="buttonSecundary" onclick="location.href='@Url.Action("DescargarPDF","Solicitud")'">Generar PDF</button>
+    </div>
+    <div class="wrapper wrapperBotonFormulario toggle">
+        @using (Html.BeginForm("FinalizarSolicitud", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
         {
-            <button type="submit" class="btn btn-success my-2 my-sm-0">Finalizar</button>
+            <button type="submit" class="buttonPrimary">Finalizar</button>
         }
     </div>
-        
-    </div>
+</div>
+
+
+
 
 
 

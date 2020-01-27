@@ -1,0 +1,66 @@
+@model SimRend.Models.ModeloResolucion
+
+@{
+    ViewData["Title"] = "Proceso Fondo Por Rendir";
+}
+
+<h2>Resumen del fondo solicitado</h2>
+
+<div class="contenedor_formulario">
+    <div class="form">
+        <div class="contenedor_input">
+
+            <div class="control">
+                <span><B>Nombre del evento: </B></span>
+                @Html.DisplayFor(model => model.Solicitud.NombreEvento)
+            </div>
+
+            <div class="control">
+                <span><B>Lugar del evento: </B></span>
+                @Html.DisplayFor(model => model.Solicitud.LugarEvento)
+
+            </div>
+
+            <div class="control">
+                <span><B>Fecha inicio del evento: </B></span>
+                @Html.DisplayFor(model => model.Solicitud.FechaInicioEvento)
+            </div>
+
+            <div class="control">
+                <span><B>Fecha término del evento: </B></span>
+                @Html.DisplayFor(model => model.Solicitud.FechaTerminoEvento)
+            </div>
+
+            <div class="control">
+                <span><B>Monto($): </B></span>
+                @Html.DisplayFor(model => model.Solicitud.Monto)
+            </div>
+
+            <div class="control">
+                <span><B>Responsable: </B></span>
+                @Html.DisplayFor(model => model.Solicitud.NombreResponsable)
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapperOrientacionBotonFormulario">
+    <div class="wrapper wrapperBotonFormulario">
+        @using (Html.BeginForm("IrResumen", "Principal", FormMethod.Get, new { @style = "border:none" }))
+        {
+            <button type="submit" class="buttonSecundary">Resumen Solicitud</button>
+        }
+    </div>
+    <div class="wrapper wrapperBotonFormulario toggle">
+        @using (Html.BeginForm("VolverIndex", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+        {
+            <button type="submit" class="buttonPrimary">Resolución</button>
+        }
+    </div>
+    <div class="wrapper wrapperBotonFormulario toggle">
+        @using (Html.BeginForm("VolverIndex", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+        {
+            <button type="submit" class="buttonPrimary">Rendición</button>
+        }
+    </div>
+</div>

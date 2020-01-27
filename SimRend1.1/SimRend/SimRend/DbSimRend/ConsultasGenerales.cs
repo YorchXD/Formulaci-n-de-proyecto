@@ -9,7 +9,11 @@ namespace SimRend.DbSimRend
 {
     public class ConsultasGenerales
     {
-        public static List<Solicitud> LeerSolicitudOrganizacion(int idOrganizacion)
+       
+        /*Crear*/
+        /*Leer*/
+
+         public static List<Solicitud> LeerSolicitudOrganizacion(int idOrganizacion)
         {
             try
             {
@@ -51,7 +55,45 @@ namespace SimRend.DbSimRend
 
             }
             return null;
-
         }
+
+
+        /*Actualizar*/
+        public static void Actualizar_Estado_Proceso(int proceso, int id_proceso, int estado)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "actualizar_estado_proceso", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_proceso", Direction = System.Data.ParameterDirection.Input, Value = proceso });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_id_proceso", Direction = System.Data.ParameterDirection.Input, Value = id_proceso });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_estado", Direction = System.Data.ParameterDirection.Input, Value = estado });
+                var datos = ContexDb.ExecuteProcedure(command);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+        public static String ModificarEstadoResponsable(string refResponsable, string estado)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "cambiar_estado_responsable", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refResponsable", Direction = System.Data.ParameterDirection.Input, Value = refResponsable });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_estado", Direction = System.Data.ParameterDirection.Input, Value = estado });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "out_nombre", Direction = System.Data.ParameterDirection.Output, Value = -1 });
+                var datos = ContexDb.ExecuteProcedure(command);
+                return datos.Parameters["out_nombre"].Value.ToString();
+
+                //saber.Id = Convert.ToInt32(datos.Parameters["out_id"].Value);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return null;
+        }
+        /*Eliminar*/
     }
 }
