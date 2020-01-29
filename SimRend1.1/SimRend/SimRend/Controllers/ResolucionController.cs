@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,14 +19,17 @@ namespace SimRend.Controllers
             _requestHandler = requestHandler;
         }
 
+        public IActionResult IrPrincipal()
+        {
+            return RedirectToAction("TablaSolicitudes", "Principal");
+        }
+
         public IActionResult Resolucion()
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
             int idSolicitud = _requestHandler.GetIdSolicitud();
-            int idOrganizacion = _requestHandler.GetIdAcceso();
             ModeloResolucion modelo = new ModeloResolucion();
             modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud(idSolicitud);
-            modelo.Solicitud.NombreResponsable = SolicitudController.BuscarRepresentante(idOrganizacion, modelo.Solicitud.RutResponsable);
             return View(modelo);
         }
 
@@ -34,7 +37,7 @@ namespace SimRend.Controllers
         public IActionResult AgregarResolucion(Resolucion resolucion)
         {
             resolucion.RefSolicitud= _requestHandler.GetIdSolicitud();
-            return RedirectToAction("Index", "Solicitud");
+            return IrPrincipal();
         }
     }
 }

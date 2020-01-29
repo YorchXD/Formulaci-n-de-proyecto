@@ -3,6 +3,11 @@
     --colorPrimaryButton: #fe5939;
     --colorSecundaryButton: #472d20;
     --colorDeleteButton: #d60303;
+    --colorSolicitudButton: #00da62;
+    --colorResolucionButton:#a8a500;
+    --colorDeclaracionGastosButton:#03b6d6;
+    --colorDescargarButton:#03b6d6;
+    --colorModificarButton:#a86909;
     --font: 'Roboto', sans-serif;
 }
 
@@ -28,7 +33,7 @@ button {
     line-height: 1;
     border-radius: 0px;
     position: relative;
-    min-width: 120px;
+    min-width: 140px;
     text-decoration: none;
     font-family: var(--font);
     font-size: 12px;
@@ -92,3 +97,53 @@ button {
         .buttonDelete:after {
             background: var(--colorDeleteButton);
         }
+
+.buttonSolicitud {
+            background: var(--colorSolicitudButton);
+            color: var(--colorTexButton);
+        }
+        
+            .buttonSolicitud:before,
+            .buttonSolicitud:after {
+                background: var(--colorSolicitudButton);
+            }
+
+.buttonResolucion {
+                background: var(--colorResolucionButton);
+                color: var(--colorTexButton);
+            }
+            
+                .buttonResolucion:before,
+                .buttonResolucion:after {
+                    background: var(--colorResolucionButton);
+                }
+
+.buttonDeclaracionGastos {
+                    background: var(--colorDeclaracionGastosButton);
+                    color: var(--colorTexButton);
+                }
+                
+                    .buttonDeclaracionGastos:before,
+                    .buttonDeclaracionGastos:after {
+                        background: var(--colorDeclaracionGastosButton);
+                }
+
+.buttonModificar {
+                    background: var(--colorModificarButton);
+                    color: var(--colorTexButton);
+                }
+                
+                .buttonModificar:before,
+                .buttonModificar:after {
+                    background: var(--colorModificarButton);
+                }
+
+.buttonDescargar {
+                    background: var(--colorDescargarButton);
+                    color: var(--colorTexButton);
+                }
+                
+                .buttonDescargar:before,
+                .buttonDescargar:after {
+                    background: var(--colorDescargarButton);
+                }

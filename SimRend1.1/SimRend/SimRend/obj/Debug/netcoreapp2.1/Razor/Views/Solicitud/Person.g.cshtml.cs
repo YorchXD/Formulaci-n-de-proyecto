@@ -213,7 +213,7 @@ WriteAttributeValue("", 1370, item.Run, 1370, 9, false);
             WriteLiteral("                <div class=\"popup-contenido\">\r\n                    <div class=\"contenedor_input\">\r\n                        <div class=\"control\">\r\n                            <span>Nombre de la persona</span>\r\n                            ");
             EndContext();
             BeginContext(3120, 90, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "d2ba37a47f674dfcaa5ad0a0a6a82a4d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "49cb21f508c443ecb45792822c50ad7d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -238,7 +238,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             WriteLiteral("\r\n                        </div>\r\n                        \r\n\r\n                        <div class=\"control\">\r\n                            <span>RUT de la persona</span>\r\n                            ");
             EndContext();
             BeginContext(3407, 84, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "75554a00815543f7b0ad82e562074b9f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8e3a372f83294d698c74efc647636b0f", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

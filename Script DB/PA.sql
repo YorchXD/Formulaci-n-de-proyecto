@@ -312,6 +312,25 @@ END
 ;;
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS `leer_Estado_Proceso`;
+DELIMITER ;;
+CREATE PROCEDURE `leer_Estado_Proceso`(
+	in_id_proceso Integer,
+	in_proceso Integer)
+BEGIN
+	CASE
+			WHEN in_proceso = '1' THEN SELECT estado FROM procesofondo WHERE in_id_proceso = procesofondo.refSolicitud;
+			WHEN in_proceso = '2' THEN SELECT estado FROM procesofondo WHERE in_id_proceso = procesofondo.refResolucion;
+			WHEN in_proceso = '3' THEN SELECT estado FROM procesofondo WHERE in_id_proceso = procesofondo.refDeclaracionGastos;
+		END CASE;
+												
+END
+;;
+DELIMITER ;
+
+
+
+
 
 agregar si es  un fondo por rendir(reembolso) o una rendicion
 

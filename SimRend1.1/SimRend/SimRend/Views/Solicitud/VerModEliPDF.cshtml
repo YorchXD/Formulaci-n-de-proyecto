@@ -1,4 +1,4 @@
-﻿@using SimRend.Models
+@using SimRend.Models
 @model SimRend.Models.ModeloSolicitud
 
 @{
@@ -156,23 +156,18 @@
 
 <div class="wrapperOrientacionBotonFormulario">
     <div class="wrapper wrapperBotonFormulario">
-        <button class="buttonDescargar" onclick="location.href='@Url.Action("DescargarPDF","Solicitud")'">Descargar PDF</button>
+        <button class="buttonDescargar" onclick="location.href='@Url.Action("DescargarPDF","Solicitud")'">Generar PDF</button>
     </div>
     <div class="wrapper wrapperBotonFormulario toggle">
-        @using (Html.BeginForm("FinalizarSolicitud", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+        @using (Html.BeginForm("Modificar", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
         {
-            <button type="submit" class="buttonPrimary">Finalizar</button>
+            <button type="submit" class="buttonModificar">Modificar</button>
+        }
+    </div>
+    <div class="wrapper wrapperBotonFormulario toggle">
+        @using (Html.BeginForm("Eliminar", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+        {
+            <button type="submit" class="buttonDelete">Eliminar</button>
         }
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-

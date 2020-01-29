@@ -46,11 +46,11 @@
 
 <div>
     <h2>Información general de la Resolución</h2>
-
+    @using (Html.BeginForm("AgregarResolucion", "Resolucion", FormMethod.Post, new { @style = "border:none" }))
+    {
     <div class="contenedor_formulario">
         <div class="form">
-            @using (Html.BeginForm("AgregarResolucion", "Resolucion", FormMethod.Post, new { @style = "border:none" }))
-            {
+            
             <div class="contenedor_input">
 
                 <div class="control">
@@ -67,24 +67,20 @@
                     <span>Copia del documento</span>
                     <input asp-for="Resolucion.CopiaDocumento" type="file" class="" id="exampleInputFile" aria-describedby="fileHelp">
                 </div>
-
-                <div class="wrapperOrientacionBotonFormulario">
-                    <div class="wrapper wrapperBotonFormulario">
-                        <button class="buttonPrimary" type="submit" name="">Agregar</button>
-                    </div>
-
-                    @using (Html.BeginForm("VolverIndex", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
-                    {
-                        <div class="wrapper wrapperBotonFormulario">
-                            <button class="buttonSecundary" type="submit" name="">Cancelar</button>
-                        </div>
-                    }
-                </div>
-
-                
-
-            </div>
-            }
+            </div>  
         </div>
     </div>
+    <div class="wrapperOrientacionBotonFormulario">
+        <div class="wrapper wrapperBotonFormulario">
+            <button class="buttonPrimary" type="submit" name="">Agregar</button>
+        </div>
+
+        @using (Html.BeginForm("IrPrincipal", "Resolucion", FormMethod.Get, new { @style = "border:none" }))
+        {
+            <div class="wrapper wrapperBotonFormulario">
+                <button class="buttonSecundary" type="submit" name="">Cancelar</button>
+            </div>
+        }
+    </div>
+    }
 </div>

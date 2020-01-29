@@ -47,6 +47,18 @@ namespace SimRend.Controllers
             //return RedirectToAction("Rendicion", "Rendicion");
         }
 
+        public IActionResult IrResolucion()
+        {
+            //_requestHandler.SetIdSolicitud(IdSolicitud);
+            return RedirectToAction("Resolucion", "Resolucion");
+        }
+
+        public IActionResult IrDeclaracionGastos(int IdSolicitud)
+        {
+            _requestHandler.SetIdSolicitud(IdSolicitud);
+            return RedirectToAction("Rendicion", "Rendicion");
+        }
+
         public IActionResult Proceso()
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
@@ -58,15 +70,18 @@ namespace SimRend.Controllers
             return View(modelo);
         }
 
-        public IActionResult IrResumen(int IdSolicitud)
+        public IActionResult IrSolicitud()
         {
-            //_requestHandler.SetIdSolicitud(IdSolicitud);
-            //return RedirectToAction("ProcesoFondoPorRendir", "Solicitud");
+            int IdSolicitud = _requestHandler.GetIdSolicitud();
+            int Proceso = 1;
+            int Estado = ConsultasGenerales.Leer_Estado_Proceso(IdSolicitud, Proceso);
+
+            if(Estado == 2)
+            {
+                return RedirectToAction("VerModEliPDF", "Solicitud");
+            }
+
             return RedirectToAction("Resume", "Solicitud");
-            //return RedirectToAction("GeneratePDF", "GeneratePDF");
-            //return RedirectToAction("InfoRendicion", "Rendicion");
-            //return RedirectToAction("Resolucion", "Resolucion");
-            //return RedirectToAction("Rendicion", "Rendicion");
         }
     }
 }

@@ -73,7 +73,7 @@ namespace SimRend.Controllers
             int idOrganizacion = _requestHandler.GetIdAcceso();
             //TempData["idOrganizacion"] = idOrganizacion;
             ModeloSolicitud modelo = new ModeloSolicitud();
-            modelo.Responsables = ConsultaSolicitud.LeerRepresetantes(idOrganizacion);
+            modelo.Responsables = ConsultasGenerales.LeerRepresetantes(idOrganizacion);
             if (modelo.Responsables != null)
             {
                 modelo.Responsables = modelo.Responsables.Where(responsable => !responsable.Estado.Equals("Desabilitado")).ToList();
@@ -275,21 +275,21 @@ namespace SimRend.Controllers
             ModeloSolicitud modelo = new ModeloSolicitud();
             modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud_Finalizada(idSolicitud);
             modelo.Solicitud.FechaPdf = modelo.Solicitud.FechaFinPdf.ToString("D", new System.Globalization.CultureInfo("es-ES"));
-            modelo.Responsable = ConsultaSolicitud.Leer_Responsable(idSolicitud);
+            modelo.Responsable = ConsultasGenerales.Leer_Responsable(idSolicitud);
             modelo.Categorias = ConsultaSolicitud.LeerCategoriasSeleccionadas(idSolicitud);
             modelo.Participantes = ConsultaSolicitud.LeerPersonasSolicitud(idSolicitud);
-            modelo.Organizacion = ConsultaSolicitud.Leer_Organizacion(idSolicitud);
+            modelo.Organizacion = ConsultasGenerales.Leer_Organizacion(idSolicitud);
             if (modelo.Participantes != null)
             {
                 modelo.Solicitud.MontoPorPersona = modelo.Solicitud.Monto / modelo.Participantes.Count();
             }
             if (modelo.Organizacion.Tipo.Equals("CAA"))
             {
-                modelo.CAA = ConsultaSolicitud.Leer_CAA(modelo.Organizacion.Id);
+                modelo.CAA = ConsultasGenerales.Leer_CAA(modelo.Organizacion.Id);
             }
             else
             {
-                modelo.Federacion = ConsultaSolicitud.Leer_Federacion(modelo.Organizacion.Id);
+                modelo.Federacion = ConsultasGenerales.Leer_Federacion(modelo.Organizacion.Id);
             }
 
             if (modelo.Solicitud.FechaInicioEvento != modelo.Solicitud.FechaTerminoEvento)
@@ -312,6 +312,14 @@ namespace SimRend.Controllers
             ModeloSolicitud modelo = obtenerModelo();
             return View(modelo);
         }
+
+        public IActionResult VerModEliPDF()
+        {
+            ViewData["_usuario"] = _requestHandler.GetUsuario();
+            ModeloSolicitud modelo = obtenerModelo();
+            return View(modelo);
+        }
+
         public string hacerPdf()
         {
             ModeloSolicitud modelo = obtenerModelo();
@@ -467,7 +475,7 @@ namespace SimRend.Controllers
         public static String BuscarRepresentante(int idOrganizacion, String rut)
         {
             ModeloSolicitud modelo = new ModeloSolicitud();
-            modelo.Responsables = ConsultaSolicitud.LeerRepresetantes(idOrganizacion);
+            modelo.Responsables = ConsultasGenerales.LeerRepresetantes(idOrganizacion);
             
             foreach (Responsable responsable in modelo.Responsables)
             {

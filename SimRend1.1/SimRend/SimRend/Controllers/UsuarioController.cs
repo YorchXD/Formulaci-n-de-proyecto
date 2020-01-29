@@ -34,7 +34,7 @@ namespace SimRend.Controllers
                 Usuario = usuario,
                 Clave = clave
             };
-            int idOrganizacion = ConsultaSolicitud.IniciarSesion(login);
+            int idOrganizacion = ConsultaUsuario.IniciarSesion(login);
             if(idOrganizacion!=-1)
             {
                 _requestHandler.SetIdAcceso(idOrganizacion, usuario);
@@ -51,12 +51,12 @@ namespace SimRend.Controllers
 
         public IActionResult RecuperarClave(String email)
         {
-            string obtenerClave = ConsultaSolicitud.Leer_Correo(email);
+            string obtenerClave = ConsultaUsuario.Leer_Correo(email);
 
             if(obtenerClave!=null && obtenerClave.Equals(email))
             {
                 string clave = RandomPassword.Generate(8);
-                ConsultaSolicitud.Cambiar_clave(email, clave);
+                ConsultaUsuario.Cambiar_clave(email, clave);
                 EmailSender.Send(email, "Cambio de contraseña", "Su nueva contraseña temporal es: " + clave);
                
                 return RedirectToAction("Login", "Usuario");

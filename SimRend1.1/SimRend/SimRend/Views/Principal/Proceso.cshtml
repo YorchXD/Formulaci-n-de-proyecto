@@ -46,21 +46,21 @@
 
 <div class="wrapperOrientacionBotonFormulario">
     <div class="wrapper wrapperBotonFormulario">
-        @using (Html.BeginForm("IrResumen", "Principal", FormMethod.Get, new { @style = "border:none" }))
+        @using (Html.BeginForm("IrSolicitud", "Principal", FormMethod.Get, new { @style = "border:none" }))
         {
-            <button type="submit" class="buttonSecundary">Resumen Solicitud</button>
+            <button type="submit" class="buttonSolicitud">Ver Solicitud</button>
         }
     </div>
     <div class="wrapper wrapperBotonFormulario toggle">
-        @using (Html.BeginForm("VolverIndex", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+        @using (Html.BeginForm("IrResolucion", "Principal", FormMethod.Get, new { @style = "border:none" }))
         {
-            <button type="submit" class="buttonPrimary">Resolución</button>
+            <button type="submit" class="buttonResolucion">Resolución</button>
         }
     </div>
     <div class="wrapper wrapperBotonFormulario toggle">
-        @using (Html.BeginForm("VolverIndex", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+        @using (Html.BeginForm("IrDeclaracionGastos", "Principal", FormMethod.Get, new { @style = "border:none" }))
         {
-            <button type="submit" class="buttonPrimary">Rendición</button>
+            <button type="submit" class="buttonDeclaracionGastos">Declaración de gastos</button>
         }
     </div>
 </div>
