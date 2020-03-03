@@ -34,10 +34,30 @@ namespace SimRend.Controllers
         }
 
         [HttpPost]
-        public IActionResult AgregarResolucion(Resolucion resolucion)
+        /*public IActionResult AgregarResolucion(Resolucion resolucion)
         {
             resolucion.RefSolicitud= _requestHandler.GetIdSolicitud();
             return IrPrincipal();
+        }*/
+
+        //public IActionResult AgregarResolucion([Bind("NumeroResolucion,AnioResolucion")] Resolucion resolucion)
+        public IActionResult AgregarResolucion([Bind("NumeroResolucion,AnioResolucion")] Resolucion resolucion)
+        {
+            ViewData["_usuario"] = _requestHandler.GetUsuario();
+           // if (ModelState.IsValid)
+           // {
+                //int idproceso = _requestHandler.GetProceso();
+                /*.ModificarEstadoResponsable(solicitud.RutResponsable, "Desabilitado");
+                solicitud.FechaActual = DateTime.Now;
+                solicitud.FechaFinPdf = DateTime.Now;
+                int idOrganizacion = _requestHandler.GetIdAcceso();
+                int idSolicitud = ConsultaSolicitud.CrearSolicitud(solicitud);*/
+                //int estado = 1; /*Representa que la solicitud esta en estado de edicion*/
+                //ConsultaSolicitud.AgregarProcesoFondo(idOrganizacion, idSolicitud, estado);
+                //TempData["idOrganizacion"] = idOrganizacion;
+                //return IrPrincipal();
+            //}
+            return View(resolucion);
         }
     }
 }

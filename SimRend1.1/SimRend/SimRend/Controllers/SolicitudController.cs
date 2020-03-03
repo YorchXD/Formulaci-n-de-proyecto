@@ -205,7 +205,7 @@ namespace SimRend.Controllers
             modelo.Solicitud.FechaFinPdf = DateTime.Now;
             ConsultaSolicitud.Actualizar_Solicitud(modelo.Solicitud);
             int proceso=1; /*Indica que estamos en la solicitud*/
-            int estado = 2; /*Indica que la solicitud esta ingresada*/
+            int estado = 2; /*Indica que la solicitud esta ingresada y en espera de aceptacion*/
             ConsultasGenerales.Actualizar_Estado_Proceso(proceso, idSolicitud, estado);
 
         }

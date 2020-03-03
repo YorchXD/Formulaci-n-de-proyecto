@@ -13,7 +13,7 @@ namespace SimRend.DbSimRend
         /*Crear*/
         /*Leer*/
 
-         public static List<Solicitud> LeerSolicitudOrganizacion(int idOrganizacion)
+        public static List<Solicitud> LeerSolicitudOrganizacion(int idOrganizacion)
         {
             try
             {

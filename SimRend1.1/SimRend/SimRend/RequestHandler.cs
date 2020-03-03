@@ -55,6 +55,23 @@ namespace SimRend.Helpers
             _httpContextAccessor.HttpContext.Session.Remove("_solicitud");
         }
 
+        internal void SetIdProceso(int id)
+        {
+            _httpContextAccessor.HttpContext.Session.SetInt32("_proceso", id);
+        }
+
+        internal int GetProceso()
+        {
+            return _httpContextAccessor.HttpContext.Session.GetInt32("_proceso").Value;
+        }
+
+        internal void RemoveIdProceso()
+        {
+            _httpContextAccessor.HttpContext.Session.Remove("_proceso");
+        }
+
+        
+
         internal void SetIdResolucion(int id)
         {
             _httpContextAccessor.HttpContext.Session.SetInt32("_resolucion", id);
