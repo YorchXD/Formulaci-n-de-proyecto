@@ -2877,18 +2877,8 @@
   "RootNamespace": "SimRend",
   "Documents": [
     {
-      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\Person.cshtml",
-      "TargetPath": "Views\\Solicitud\\Person.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\GeneratePDF.cshtml",
-      "TargetPath": "Views\\Solicitud\\GeneratePDF.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Rendicion\\InfoRendicion.cshtml",
-      "TargetPath": "Views\\Rendicion\\InfoRendicion.cshtml",
+      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\DeclaracionGastos\\InfoRendicion.cshtml",
+      "TargetPath": "Views\\DeclaracionGastos\\InfoRendicion.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2902,11 +2892,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\Category.cshtml",
-      "TargetPath": "Views\\Solicitud\\Category.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -2917,13 +2902,43 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\Index.cshtml",
-      "TargetPath": "Views\\Solicitud\\Index.cshtml",
+      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\VerModEliPDF.cshtml",
+      "TargetPath": "Views\\Solicitud\\VerModEliPDF.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\VerModEliPDF.cshtml",
-      "TargetPath": "Views\\Solicitud\\VerModEliPDF.cshtml",
+      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\DeclaracionGastos\\DeclaracionGastos.cshtml",
+      "TargetPath": "Views\\DeclaracionGastos\\DeclaracionGastos.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\Crear.cshtml",
+      "TargetPath": "Views\\Solicitud\\Crear.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\Categoria.cshtml",
+      "TargetPath": "Views\\Solicitud\\Categoria.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\GenerarPDF.cshtml",
+      "TargetPath": "Views\\Solicitud\\GenerarPDF.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\Resumen.cshtml",
+      "TargetPath": "Views\\Solicitud\\Resumen.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\DeclaracionGastos\\RendicionParticipante.cshtml",
+      "TargetPath": "Views\\DeclaracionGastos\\RendicionParticipante.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\Persona.cshtml",
+      "TargetPath": "Views\\Solicitud\\Persona.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2947,11 +2962,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\Create.cshtml",
-      "TargetPath": "Views\\Solicitud\\Create.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Home\\About.cshtml",
       "TargetPath": "Views\\Home\\About.cshtml",
       "FileKind": "mvc"
@@ -2967,23 +2977,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\Resume.cshtml",
-      "TargetPath": "Views\\Solicitud\\Resume.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Usuario\\Login.cshtml",
       "TargetPath": "Views\\Usuario\\Login.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Rendicion\\RendicionParticipante.cshtml",
-      "TargetPath": "Views\\Rendicion\\RendicionParticipante.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Rendicion\\Rendicion.cshtml",
-      "TargetPath": "Views\\Rendicion\\Rendicion.cshtml",
+      "FilePath": "d:\\Repositorios\\Formulación de proyecto\\SimRend1.1\\SimRend\\SimRend\\Views\\Solicitud\\Actualizar.cshtml",
+      "TargetPath": "Views\\Solicitud\\Actualizar.cshtml",
       "FileKind": "mvc"
     },
     {

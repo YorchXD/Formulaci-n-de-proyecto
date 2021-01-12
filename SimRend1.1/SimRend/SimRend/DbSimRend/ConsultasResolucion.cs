@@ -30,7 +30,7 @@ namespace SimRend.DbSimRend
             return -1;
         }
 
-        public static void Agregar_Resol_ProcFondo(int refResolucion, int refProceso, int estado)
+        /*public static void Agregar_Resol_ProcFondo(int refResolucion, int refProceso, int estado)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace SimRend.DbSimRend
             {
                 Console.WriteLine(ex.ToString());
             }
-        }
+        }*/
         /*###########################################Fin crear Resolucion####################################################*/
 
         /*#############################################Leer Resolucion########################################################*/

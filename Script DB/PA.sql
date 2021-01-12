@@ -329,10 +329,27 @@ END
 DELIMITER ;
 
 
+DROP PROCEDURE IF EXISTS `leer_id_proceso`;
+DELIMITER ;;
+CREATE PROCEDURE `leer_id_proceso`(
+  	in_refSolicitud INTEGER,
+	in_refResolucion INTEGER,
+	in_refDeclaracionGastos INTEGER,
+	OUT out_id INTEGER
+)
+BEGIN
+	CASE
+			WHEN in_refSolicitud != '-1' THEN  SELECT out_id =idFondo FROM procesofondo WHERE in_refSolicitud = procesofondo.refSolicitud;
+			WHEN in_refResolucion != '-1' THEN SELECT out_id =idFondo FROM procesofondo WHERE in_refResolucion = procesofondo.refResolucion;
+			WHEN in_refDeclaracionGastos != '-1' THEN SELECT out_id =idFondo FROM procesofondo WHERE in_refDeclaracionGastos = procesofondo.refDeclaracionGastos;
+	END CASE;
+												
+END
+;;
+DELIMITER ;
 
 
-
-agregar si es  un fondo por rendir(reembolso) o una rendicion
+--agregar si es  un fondo por rendir(reembolso) o una rendicion
 
 
 -- ----------------------------

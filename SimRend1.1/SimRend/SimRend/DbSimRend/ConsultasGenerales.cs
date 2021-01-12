@@ -9,7 +9,15 @@ namespace SimRend.DbSimRend
 {
     public class ConsultasGenerales
     {
+        public static int idSolicitud = -1, idResolucion = -1, idRendicion = -1, idProceso = -1;
        
+        public static void SetId()
+        {
+            idRendicion=-1;
+            idResolucion=-1;
+            idSolicitud=-1;
+        }
+
         /*Crear*/
         /*Leer*/
 
@@ -95,6 +103,29 @@ namespace SimRend.DbSimRend
 
             }
             return null;
+        }
+
+        internal static void Leer_Id_Proceso()
+        {
+            try
+            {
+                if(ConsultasGenerales.idSolicitud!=-1)
+                {
+                    var command = new MySqlCommand() { CommandText = "leer_id_proceso", CommandType = System.Data.CommandType.StoredProcedure };
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = ConsultasGenerales.idSolicitud });
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refResolucion", Direction = System.Data.ParameterDirection.Input, Value = ConsultasGenerales.idResolucion });
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refDeclaracionGastos", Direction = System.Data.ParameterDirection.Input, Value = ConsultasGenerales.idRendicion });
+                    command.Parameters.Add(new MySqlParameter() { ParameterName = "out_idProceso", Direction = System.Data.ParameterDirection.Output, Value = -1 });
+
+                    var datos = ContexDb.ExecuteProcedure(command);
+                    ConsultasGenerales.idProceso = Convert.ToInt32(datos.Parameters["idProceso"]);
+                    SetId();
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         internal static int Leer_Estado_Proceso(int idSolicitud, int proceso)
@@ -262,12 +293,11 @@ namespace SimRend.DbSimRend
 
 
         /*Actualizar*/
-        public static void Actualizar_Estado_Proceso(int proceso, int id_proceso, int estado)
+        public static void Actualizar_Estado_Proceso(int id_proceso, int estado)
         {
             try
             {
                 var command = new MySqlCommand() { CommandText = "actualizar_estado_proceso", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_proceso", Direction = System.Data.ParameterDirection.Input, Value = proceso });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_id_proceso", Direction = System.Data.ParameterDirection.Input, Value = id_proceso });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_estado", Direction = System.Data.ParameterDirection.Input, Value = estado });
                 var datos = ContexDb.ExecuteProcedure(command);
@@ -277,6 +307,28 @@ namespace SimRend.DbSimRend
                 Console.WriteLine(ex.ToString());
             }
         }
+
+        public static void Actualizar_Proceso_Resolucion_DecGatos(int proceso, int id_proceso, int id_procesoActual)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "actualizar_estado_proceso", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_proceso", Direction = System.Data.ParameterDirection.Input, Value = id_proceso });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_id_procesoFondo", Direction = System.Data.ParameterDirection.Input, Value = id_proceso });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_id_proceso_actual", Direction = System.Data.ParameterDirection.Input, Value = id_procesoActual });
+                var datos = ContexDb.ExecuteProcedure(command);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
+
+
+
+
+
 
         public static String ModificarEstadoResponsable(string refResponsable, string estado)
         {

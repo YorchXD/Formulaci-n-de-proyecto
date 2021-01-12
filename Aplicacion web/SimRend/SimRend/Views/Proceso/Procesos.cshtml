@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Procesos";
+}
+
+<div class="br-pagetitle row">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text wd-auto" style="border:none;">
+                <i class="icon fa fa-clipboard-list"></i>
+                <h4 style="padding-left:5%">Lista de procesos realizados</h4>
+            </div>
+        </div>
+
+    </div>
+</div><!-- d-flex -->
+
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+        <div class="dataTables_wrapper">
+            <table id="tablaSolicitudes" class="table display responsive nowrap" style="width:100%">
+                <thead class="thead-colored thead-info">
+                    <tr>
+                        <th data-priority="1">Id</th>
+                        <th>Nombre del evento</th>
+                        <th>Monto</th>
+                        <th>Fecha de inicio del evento </th>
+                        <th>Fecha de término del evento</th>
+                        <th>Lugar del evento</th>
+                        <th>Responsable</th>
+                        <th data-priority="1">Acciones</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/js/Proceso.js"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            obtenerProcesos();
+        });
+    </script>
+
+}

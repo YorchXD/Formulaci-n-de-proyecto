@@ -60,7 +60,7 @@ namespace SimRend.Helpers
             _httpContextAccessor.HttpContext.Session.SetInt32("_proceso", id);
         }
 
-        internal int GetProceso()
+        internal int GetIdProceso()
         {
             return _httpContextAccessor.HttpContext.Session.GetInt32("_proceso").Value;
         }

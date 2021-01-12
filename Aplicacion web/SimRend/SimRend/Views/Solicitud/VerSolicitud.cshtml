@@ -1,0 +1,423 @@
+﻿@{
+    ViewData["Title"] = "Solicitud";
+}
+
+<div class="br-pagetitle row">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text wd-auto" style="border:none;">
+                <i class="icon fas fa-clipboard-check"></i>
+                <h4 style="padding-left:5%">Ver solicitud</h4>
+            </div>
+        </div>
+
+    </div>
+</div><!-- d-flex -->
+
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+        <div id="accordion5" class="accordion accordion-head-colored accordion-inverse mg-t-20" role="tablist" aria-multiselectable="true">
+            <div class="card">
+                <div class="card-header" role="tab" id="headingOne5">
+                    <h6 class="mg-b-0">
+                        <a data-toggle="collapse" data-parent="#accordion5" href="#collapseOne5" aria-expanded="true" aria-controls="collapseOne5">
+                            Datos Principales
+                        </a>
+                    </h6>
+                </div><!-- card-header -->
+
+                <div id="collapseOne5" class="collapse show" role="tabpanel" aria-labelledby="headingOne5">
+                    <div class="card-block pd-20">
+                        <div class="form-group wd-auto">
+                            <label class="form-control-label">Nombre del evento:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-theater-masks tx-16 lh-0 op-6 fa-fw"></i></span>
+                                </div>
+                                <input name="NombreEvento" class="form-control" id="verNombreEvento" readonly type="text" placeholder="Ingrese el nombre del evento">
+                            </div>
+                        </div>
+
+                        <div class="row row-sm">
+                            <div class="form-group wd-auto col-lg-6 col-md-12">
+                                <label class="form-control-label">Lugar del evento:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text wd-xs-45">
+                                            <i class="fas fa-map-marked-alt tx-16 lh-0 op-6 fa-fw"></i>
+                                        </div>
+                                    </div>
+                                    <input name="LugarEvento" class="form-control" id="verLugarEvento" readonly type="text" placeholder="¿Donde se realizará el evento?">
+                                </div>
+                            </div>
+                            <div class="form-group wd-auto col-lg-6 col-md-12">
+                                <label class="form-control-label">Monto($): </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text wd-xs-45">
+                                            <i class="fa fa-money-bill-wave tx-16 lh-0 op-6 fa-fw"></i>
+                                        </div>
+                                    </div>
+                                    <input name="Monto" class="form-control" id="verMonto" readonly type="text" placeholder="¿Cuanto será el monto a solicitar?">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-sm">
+                            <div class="form-group wd-auto col-lg-6 col-md-12">
+                                <label class="form-control-label">Fecha de inicio: </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text wd-xs-45">
+                                            <i class="fas fa-calendar-plus tx-16 lh-0 op-6 fa-fw" style="text-align: center;"></i>
+                                        </div>
+                                    </div>
+                                    <input name="FechaInicio" type="text" class="form-control fc-datepicker" readonly placeholder="¿Cuando inicia el evento?" id="verFechaInicio">
+                                </div>
+                            </div>
+                            <div class="form-group wd-auto col-lg-6 col-md-12">
+                                <label class="form-control-label">Fecha de término: </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text wd-xs-45">
+                                            <i class="fas fa-calendar-check tx-16 lh-0 op-6 fa-fw"></i>
+                                        </div>
+                                    </div>
+                                    <input name="FechaTermino" type="text" class="form-control fc-datepicker" readonly placeholder="¿Cuando terminará el evento?" id="verFechaTermino">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-sm">
+                            <div class="form-group wd-auto col-lg-6 col-md-12">
+                                <label class="form-control-label">Responsable: </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text wd-xs-45">
+                                            <i class="fa fa-user tx-16 lh-0 op-6 fa-fw"></i>
+                                        </div>
+                                    </div>
+                                    <input name="idResponsable" class="form-control" id="verResponsable" readonly type="text" placeholder="¿Qué representante estará a cargo?">
+                                </div>
+                            </div>
+                            <div class="form-group wd-auto col-lg-6 col-md-12">
+                                <label class="form-control-label">Tipo de actividad: </label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text wd-xs-45">
+                                            <i class="fas fa-tag tx-16 lh-0 op-6 fa-fw"></i>
+                                        </div>
+                                    </div>
+                                    <input name="TipoEvento" class="form-control" id="verTipoEvento" readonly type="text" placeholder="Seleccione el tipo de actividad">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" role="tab" id="headingTwo5">
+                    <h6 class="mg-b-0">
+                        <a class="collapsed transition" data-toggle="collapse" data-parent="#accordion5" href="#collapseTwo5" aria-expanded="false" aria-controls="collapseTwo5">
+                            Categorías de gastos del evento
+                        </a>
+                    </h6>
+                </div>
+                <div id="collapseTwo5" class="collapse" role="tabpanel" aria-labelledby="headingTwo5">
+                    <div class="card-block pd-20">
+                        <div class="table-wrapper">
+                            <table id="verTablaCategorias" class="table display responsive nowrap" style="width:100%">
+                                <thead class="thead-colored thead-info">
+                                    <tr>
+                                        <th class="wd-auto">Categoría</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div><!-- table-wrapper -->
+                    </div>
+                </div>
+            </div>
+            <div class="card" id="cardParticipantes">
+                <div class="card-header" role="tab" id="headingThree5">
+                    <h6 class="mg-b-0">
+                        <a class="collapsed transition" data-toggle="collapse" data-parent="#accordion5" href="#collapseThree5" aria-expanded="false" aria-controls="collapseThree5">
+                            Participantes del evento
+                        </a>
+                    </h6>
+                </div>
+                <div id="collapseThree5" class="collapse" role="tabpanel" aria-labelledby="headingThree5">
+                    <div class="card-block pd-20">
+                        <div class="table-wrapper">
+                            <table id="verTablaParticipantes" class="table display responsive nowrap" style="width:100%">
+                                <thead class="thead-colored thead-info">
+                                    <tr>
+                                        <th class="wd-auto">Nombre</th>
+                                        <th class="wd-auto">RUN</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div><!-- table-wrapper -->
+                    </div>
+                </div><!-- collapse -->
+            </div><!-- card -->
+        </div><!-- accordion -->
+        <div class="card-footer bd bd-t-0">
+            <div class="row" id="acciones">
+
+            </div>
+        </div>
+    </div>
+    <!-- MODAL PREGUNTAR ELIMINAR SOLICITUD -->
+    <div class="modal fade" id="modal-confirmar-eliminar">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <i class="ionicons ion-ios-help-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger mg-b-20" id="title-confirmar-eliminar"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-confirmar-eliminar"></p>
+                    <button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                        Cancelar
+                    </button>
+                    <button type="button" id="btnConfirmarEliminar" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL INFORMACION -->
+    <div id="modal-informacion" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-success tx-semibold mg-b-20" id="title-informacion"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-informacion"></p>
+                    <button type="button" id="btnAceptarInformacion" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL ERROR -->
+    <div id="modal-alerta" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
+                    <button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
+
+</div>
+
+@section scripts {
+    <script>
+        var solicitud = "";
+        $.extend($.fn.dataTable.defaults, {
+            'destroy': true,
+            'responsive': true,
+            'dom': "Bfrtip",
+            'searching': false,
+            'ordering': true,
+            'info': false,
+            'autoWidth': true,
+            'paging': true,
+            'scrollX': false,
+            'lengthChange': false,
+            'processing': true,
+            'iDisplayLength': 5,
+            'language': {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+        });
+        
+
+        $(document).ready(function () {
+            $('#verTablaCategorias').DataTable();
+            $('#verTablaParticipantes').DataTable();
+            var opcion = obtenerSolicitud();
+            //console.log("estadoProceso: " + opcion);
+            //var opciones = 1;
+
+        });
+
+        function obtenerSolicitud()
+        {
+            //console.log(solicitud);
+            $.ajax({
+                url: "/Solicitud/LeerSolicitud",
+                method: "POST",
+                async: "false",
+                data: { 'idSolicitud': solicitud.id },
+                success: function (respuesta) {
+                    datosPrincipales(respuesta.solicitud);
+                    categorias(respuesta.solicitud.categorias);
+                    if (respuesta.solicitud.tipoEvento === "Grupal") {
+                        participantes(respuesta.solicitud.participantes);
+                    }
+                    else {
+                        $("#cardParticipantes").css("display", "none");
+                    }
+                    verOpciones(respuesta.estado);
+                }
+            });
+        }
+
+        function verOpciones(opcion) {
+            var acciones = '';
+            if (opcion < 3) {
+                acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
+                    '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
+                    '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-warning" id = "modificar" style="width:100%"><i class="fas fa-pen-square"></i> Modificar</button> </div>' +
+                    '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-danger" id = "eliminar" style="width:100%"><i class="fas fa-trash"></i> Eliminar</button> </div>' +
+                    '<div class="form-group  col-lg-12 col-md-12 col-sm-12"><button class="btn btn-info" id = "descargar" style="width:100%"><i class="fas fa-download"></i> Descargar</button> </div>';
+            }
+            else {
+                acciones = '<div class="form-group  col-lg-4 col-md-4 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-arrow-alt-circle-left"></i> Volver a proceso</button> </div>' +
+                    '<div class="form-group  col-lg-4 col-md-4 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-arrow-alt-circle-left"></i> Volver a procesos</button> </div>' +
+                    '<div class="form-group  col-lg-4 col-md-4 col-sm-12"><button class="btn btn-info" id = "descargar" style="width:100%"><i class="fas fa-download"></i> Descargar</button> </div>';
+            }
+
+            $('#acciones').append(acciones);
+
+            $('#volverProcesos').click(function (e) {
+                e.preventDefault();
+                window.location.href = '/Proceso/Procesos/';
+            });
+
+            $('#volverProceso').click(function (e) {
+                e.preventDefault();
+                window.location.href = '/Proceso/VerProceso';
+            });
+
+            $('#descargar').click(function (e) {
+                e.preventDefault();
+                window.location.href = '/Solicitud/DescargarSolicitud';
+            });
+
+            $('#modificar').click(function (e) {
+                e.preventDefault();
+                window.location.href = '/Solicitud/ActualizarSolicitud';
+            });
+
+            $('#eliminar').click(function (e)
+            {
+                e.preventDefault();
+                $('#title-confirmar-eliminar').text("Eliminar solicitud");
+                $('#body-confirmar-eliminar').text("¿Está seguro que desea eliminar la solicitud?");
+                $('#modal-confirmar-eliminar').modal('show');
+            });
+        }
+
+        function datosPrincipales(solicitud) {
+            $("#verNombreEvento").val(solicitud.nombreEvento);
+            $("#verLugarEvento").val(solicitud.lugarEvento);
+            $("#verMonto").val(formatoNumero(solicitud.monto));
+            $("#verFechaInicio").val(solicitud.fechaInicioEvento.split("T")[0]);
+            $("#verFechaTermino").val(solicitud.fechaTerminoEvento.split("T")[0]);
+            $("#verResponsable").val(solicitud.nombreResponsable);
+            $("#verTipoEvento").val(solicitud.tipoEvento);
+        }
+
+        function categorias(categorias) {
+            var resp = "";
+            for (var i = 0; i < categorias.length; i++) {
+                if (i === 0 || i % 2 === 0) {
+                    resp += "<tr class='odd'>";
+                }
+                else {
+                    resp += "<tr>";
+                }
+                resp += "<td>" + categorias[i].nombre + "</td></tr>";
+            }
+            $("#verTablaCategorias > tbody").empty();
+            $("#verTablaCategorias > tbody").append(resp);
+        }
+
+        function participantes(participantes) {
+            var resp = "";
+            for (var i = 0; i < participantes.length; i++) {
+                if (i === 0 || i % 2 === 0) {
+                    resp += "<tr class='odd'>";
+                }
+                else {
+                    resp += "<tr>";
+                }
+                resp += "<td>" + participantes[i].nombre + "</td>" +
+                    "<td>" + participantes[i].run + "</td></tr>";
+            }
+            $("#verTablaParticipantes > tbody").empty();
+            $("#verTablaParticipantes > tbody").append(resp);
+
+        }
+
+        function formatoNumero(num) {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+        }
+
+        $('#btnConfirmarEliminar').click(function ()
+        {
+            $.ajax({
+                url: "/Solicitud/EliminarSolicitud",
+                method: "POST",
+                async: "false",
+                data: "",
+                success: function (respuesta)
+                {
+                    $('#modal-confirmar-eliminar').modal('hide');
+                    console.log(respuesta)
+                    if (respuesta.validar)
+                    {
+                        $('#title-informacion').text(respuesta.titulo);
+                        $('#body-informacion').text(respuesta.msj);
+                        $('#modal-informacion').modal('show');
+                    }
+                    else
+                    {
+                        $('#title-alerta').text(respuesta.titulo);
+                        $('#body-alerta').text(respuesta.msj);
+                        $('#modal-alerta').modal('show');
+                    }
+                }
+            });
+        }); 
+
+        $('#btnAceptarInformacion').click(function ()
+        {
+            window.location.href = '/Proceso/Procesos';
+        });
+    </script>
+}
+

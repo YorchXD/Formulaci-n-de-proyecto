@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="~/css/font-awesome/css/font-awesome.css" />
 
         <!-- Including Open Sans Condensed from Google Fonts -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic" />
+        <!--link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic" /-->
     </environment>
     <!--environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -43,29 +43,12 @@
                 <ul>
                     <li class="green">
                         <a class="fas fa-search-dollar" asp-area="" asp-controller="Principal" asp-action="TablaSolicitudes"></a>
-                        <!--a class="nav-link" asp-area="" asp-controller="Solicitud" asp-action="Index">Busqueda<span class="sr-only">(current)</span></a!-->
-                        <!--ul>
-                            <li><a href="http://tutorialzine.com/2012/10/css3-dropdown-menu/">Back to the tutorial</a></li>
-                            <li><a href="http://tutorialzine.com/2012/10/css3-dropdown-menu/#comments">Get help</a></li>
-                            <li><a href="http://tutorialzine.com/2012/10/css3-dropdown-menu/">Download this example</a></li>
-                        </ul-->
                     </li>
                     <li class="red">
-                        <a class = "fas fa-file-medical" asp-controller="Solicitud" asp-action="Create"></a>
-                        <!--a class="nav-link" asp-controller="Solicitud" asp-action="Create">Nuevo proceso</a-->
-                        <!--ul>
-                            <li><a href="#">Payment</a></li>
-                            <li><a href="#">Notifications</a></li>
-                            <li><a href="#">Privacy options</a></li>
-                            <li><a href="#">Account Settings</a></li>
-                        </ul-->
+                        <a class = "fas fa-file-medical" asp-controller="Solicitud" asp-action="Crear"></a>
                     </li>
                     <li class="blue">
                         <a href="#" class="icon-twitter"></a>
-                        <!--ul>
-                            <li><a href="http://twitter.com/Tutorialzine">Follow us on Twitter</a></li>
-                            <li><a href="http://www.facebook.com/Tutorialzine">Find us on Facebook</a></li>
-                        </ul-->
                     </li>
                     <li class="yellow">
                         <a href="#" class="icon-beaker"></a>
@@ -78,9 +61,6 @@
                     </li>
                     <li class="purple">
                         <a href="#" class="icon-envelope"></a>
-                        <!--ul>
-                            <li><a href="http://tutorialzine.com/contact/">Contact us</a></li>
-                        </ul-->
                     </li>
                 </ul>
             </nav>
@@ -135,6 +115,7 @@
         <script src="https://kit.fontawesome.com/e7d9838362.js"></script>
         <!--script src="~/js/bootstrap.js"></script-->
         <!--script src="~/js/site.js" asp-append-version="true"></script-->
+        
 
 
 
@@ -146,16 +127,6 @@
                 crossorigin="anonymous"
                 integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
         </script>
-        <!--script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script-->
-        <!--script src="~/js/site.min.js" asp-append-version="true"></script-->
-
-
-
     </environment>
 
     @RenderSection("Scripts", required: false)

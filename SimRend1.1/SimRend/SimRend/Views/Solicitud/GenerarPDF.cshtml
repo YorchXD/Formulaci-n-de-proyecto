@@ -1,0 +1,178 @@
+﻿@using SimRend.Models
+@model SimRend.Models.ModeloSolicitud
+
+@{
+    ViewData["Title"] = "Crear Solicitud";
+}
+
+@section Scripts {
+    <!-- Scripts down here -->
+   
+    <!--script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script-->
+
+    <!-- Code editor -->
+
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js" type="text/javascript" charset="utf-8"></script-->
+}
+
+<div style="background-color:white;margin-bottom:10px; padding: 14px 35px; overflow-y: scroll; display: inline-block; height: 450px; width: 95%">
+    <DIV ALIGN="center" style="margin-top: -10px"> <img src=~/images/GenerarPDF/logoUtalca.png width="120" height="120" border=0 ></DIV>
+
+    <div ALIGN="right"><P> @Html.DisplayFor(model => model.Solicitud.FechaPdf)</P></div>
+
+    <DIV ALIGN="left">
+        @if (Model.CAA != null)
+        {
+            @if (Model.CAA.SexoDirCarrera.Equals("Femenino"))
+            {
+                <P style="line-height:13px"><B>Sra. @Html.DisplayFor(model => model.CAA.NomDirCarrera)</B></P>
+            }
+            else
+            {
+                <P style="line-height:13px"><B> Sr. @Html.DisplayFor(model => model.CAA.NomDirCarrera) </B></P>
+            }
+
+            <P style="line-height:13px"><I>@Html.DisplayFor(model => model.CAA.Cargo)</I></P>
+            <P style="line-height:13px"><I>@Html.DisplayFor(model => model.CAA.Carrera)</I></P>
+        }
+        else
+        {
+            <P style="line-height:13px"><B>@Html.DisplayFor(model => model.Federacion.NomDirDAAE)</B></P>
+            <P style="line-height:13px"><I>@Html.DisplayFor(model => model.Federacion.Cargo)</I></P>
+        }
+
+        <P style="line-height:13px"><I>Universidad de Talca</I></P>
+        <P style="line-height:13px"><B><U>Presente.</U></B></P>
+    </DIV>
+
+    <DIV style="text-align:justify">
+        <P style = "line-height:40px ">
+            De nuestra consideración:
+        </P>
+
+        @if (Model.Organizacion.Tipo.Equals("CAA"))
+        {
+            <P>
+                Junto con saludar cordialmente, me dirijo a usted como @Html.DisplayFor(model => model.Responsable.Cargo) del
+                centro de alumnos de  @Html.DisplayFor(model => model.CAA.Carrera), para solicitarle apoyo económico con el fin de realizar
+                la actividad estudiantil que se indica a continuación:
+            </P>
+        }
+        else
+        {
+            <P>
+                Junto con saludar cordialmente, me dirijo a usted como @Html.DisplayFor(model => model.Responsable.Cargo) de
+                @Html.DisplayFor(model => model.Federacion.NombreFederacion), para solicitarle apoyo económico con el fin de realizar
+                la actividad estudiantil que se indica a continuación:
+            </P>
+        }
+
+        
+        <ul style="padding-left: 30px; padding-top: 10px; padding-bottom: 10px">
+            <li><B>Nombre de la actividad:</B>  @Html.DisplayFor(model => model.Solicitud.NombreEvento).</li>
+            <li><B>Periodo:</B> @Html.DisplayFor(model => model.Solicitud.FechaEvento).</li>
+            <li><B>Ubicación:</B> @Html.DisplayFor(model => model.Solicitud.LugarEvento).</li>
+        </ul>
+
+        @if (Model.Participantes != null)
+        {
+            <P>
+                Para llevar a cabo esta actividad se solicita un monto total de $@Html.DisplayFor(model => model.Solicitud.Monto) sujeto a rendición y así poder otorgar una ayuda
+                de  $@Html.DisplayFor(model => model.Solicitud.MontoPorPersona) a cada estudiante para solventar parcialmente sus gastos de
+                @Html.DisplayFor(model => model.CategoriasConcatenadas).
+            </P>
+
+            <P>Los alumnos que participarán en la actividad son:</P>
+
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Run/Matrícula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Participantes)
+                    {
+                        <tr class="table-light">
+                            <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Run)</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <P>
+                Se solicita un monto total de $@Html.DisplayFor(model => model.Solicitud.Monto) sujeto a rendición para solventar parcialmente los gastos de
+                @Html.DisplayFor(model => model.CategoriasConcatenadas)
+            </P>
+        }
+
+    </DIV>
+
+    <DIV ALIGN="justify">
+
+        @if (Model.Organizacion.Tipo.Equals("CAA"))
+        {
+        <P>
+            Dicho monto quedará bajo la responsabilidad de @Html.DisplayFor(model => model.Responsable.Nombre),
+            RUT @Html.DisplayFor(model => model.Responsable.Run), matrícula @Html.DisplayFor(model => model.Responsable.Matricula),
+            en su calidad de @Html.DisplayFor(model => model.Responsable.Cargo) del Centro de Alumnos de @Html.DisplayFor(model => model.CAA.Carrera) de la
+            Universidad de Talca.
+        </P>
+        }
+        else
+        {
+        <P>
+            Dicho monto quedará bajo la responsabilidad de @Html.DisplayFor(model => model.Responsable.Nombre),
+            RUT @Html.DisplayFor(model => model.Responsable.Run), matrícula @Html.DisplayFor(model => model.Responsable.Matricula),
+            en su calidad de  @Html.DisplayFor(model => model.Responsable.Cargo) de @Html.DisplayFor(model => model.Federacion.NombreFederacion) de la
+            Universidad de Talca.
+        </P>
+        }
+
+        <P>
+            Esperando una buena acogida y una pronta respuesta de esta solicitud, se despide atentamente de usted.
+        </P>
+    </DIV>
+
+    <DIV ALIGN="center" style="padding-top:80px; padding-bottom:20px">
+        <P style="line-height:13px"><B>@Html.DisplayFor(model => model.Responsable.Nombre)</B></P>
+        <P style="line-height:13px"> @Html.DisplayFor(model => model.Responsable.Cargo)</P>
+        @if (Model.Organizacion.Tipo.Equals("CAA"))
+        {
+            <P style="line-height:13px">CAA @Html.DisplayFor(model => model.CAA.Carrera)</P>
+        }
+        else
+        {
+            <P style="line-height:13px">@Html.DisplayFor(model => model.Federacion.NombreFederacion)</P>
+        }
+        <P style="line-height:13px">Universidad de Talca</P>
+    </DIV>
+</div>
+
+<div class="wrapperOrientacionBotonFormulario">
+    <div class="wrapper wrapperBotonFormulario">
+        <button class="buttonDescargar" onclick="location.href='@Url.Action("DescargarPDF","Solicitud")'">Descargar PDF</button>
+    </div>
+    <div class="wrapper wrapperBotonFormulario toggle">
+        @using (Html.BeginForm("FinalizarSolicitud", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+        {
+            <button type="submit" class="buttonPrimary">Finalizar</button>
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

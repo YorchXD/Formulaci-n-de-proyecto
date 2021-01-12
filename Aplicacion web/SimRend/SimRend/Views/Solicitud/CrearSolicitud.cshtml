@@ -1,0 +1,419 @@
+﻿@{
+    ViewData["Title"] = "Crear Solicitud";
+}
+
+<div class="br-pagetitle row">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text wd-auto" style="border:none;">
+                <i class="icon fas fa-plus-square"></i>
+                <h4 style="padding-left:5%">Crear Solicitud</h4>
+            </div>
+        </div>
+
+    </div>
+</div><!-- d-flex -->
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+        <div id="wizard6">
+            <h3 style="display:none">Datos principales de la solicitud</h3>
+            <section>
+                <form id="formDatosPrincipales" data-parsley-validate>
+                    <div class="form-group wd-auto">
+                        <label class="form-control-label">Nombre del evento: <span class="tx-danger">*</span></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-theater-masks tx-16 lh-0 op-6 fa-fw"></i></span>
+                            </div>
+                            <input name="NombreEvento" class="form-control" id="nombreEvento" required="required" type="text" placeholder="Ingrese el nombre del evento" data-parsley-errors-container="#errorNombreEvento">
+                        </div>
+                        <div id="errorNombreEvento"></div>
+                    </div>
+
+                    <div class="row row-sm">
+                        <div class="form-group wd-auto col-lg-6 col-md-12">
+                            <label class="form-control-label">Lugar del evento: <span class="tx-danger">*</span></label>
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text wd-xs-45">
+                                        <i class="fas fa-map-marked-alt tx-16 lh-0 op-6 fa-fw"></i>
+                                    </div>
+                                </div>
+                                <input name="LugarEvento" class="form-control" id="lugarEvento" required="required" type="text" placeholder="¿Donde se realizará el evento?" data-parsley-errors-container="#errorLugarEvento">
+                            </div>
+                            <div id="errorLugarEvento"></div>
+                        </div>
+                        <div class="form-group wd-auto col-lg-6 col-md-12">
+                            <label class="form-control-label">Monto($): <span class="tx-danger">*</span></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text wd-xs-45">
+                                        <i class="fa fa-money-bill-wave tx-16 lh-0 op-6 fa-fw"></i>
+                                    </div>
+                                </div>
+                                <input name="Monto" class="form-control" id="monto" required="required" type="text" placeholder="¿Cuanto será el monto a solicitar?" data-parsley-errors-container="#errorMonto">
+                            </div>
+                            <div id="errorMonto"></div>
+                        </div>
+                    </div>
+                    <div class="row row-sm">
+                        <div class="form-group wd-auto col-lg-6 col-md-12">
+                            <label class="form-control-label">Fecha de inicio: <span class="tx-danger">*</span></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text wd-xs-45">
+                                        <i class="fas fa-calendar-plus tx-16 lh-0 op-6 fa-fw" style="text-align: center;"></i>
+                                    </div>
+                                </div>
+                                <input name="FechaInicio" type="text" class="form-control fc-datepicker" data-format="YYYY-MM-DD" placeholder="¿Cuando inicia el evento?" id="fechaInicio" required="required"  data-parsley-errors-container="#errorFechaInicio">
+                            </div>
+                            <div id="errorFechaInicio"></div>
+                        </div>
+                        <div class="form-group wd-auto col-lg-6 col-md-12">
+                            <label class="form-control-label">Fecha de término: <span class="tx-danger">*</span></label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text wd-xs-45">
+                                        <i class="fas fa-calendar-check tx-16 lh-0 op-6 fa-fw"></i>
+                                    </div>
+                                </div>
+                                <input name="FechaTermino" type="text" class="form-control fc-datepicker" data-format="YYYY-MM-DD" placeholder="¿Cuando terminará el evento?" id="fechaTermino" required="required" data-parsley-errors-container="#errorFechaTermino">
+                            </div>
+                            <div id="errorFechaTermino"></div>
+                        </div>
+                    </div>
+                    <div class="row row-sm">
+                        <div class="form-group col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12" >
+                            <label class="form-control-label">Responsable: <span class="tx-danger">*</span></label>
+                            <div class="input-group parsley-select" id="responsableMarco">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text wd-xs-45">
+                                        <i class="fa fa-user tx-16 lh-0 op-6 fa-fw"></i>
+                                    </div>
+                                </div>
+                                <select name="idResponsable" class="form-control select2" data-placeholder="¿Qué representante estará a cargo?" id="responsable" required
+                                        data-parsley-class-handler="#responsableMarco" data-parsley-errors-container="#errorResponsable">
+                                    <option selected disabled>¿Qué representante estará a cargo?</option>
+                                </select>
+                            </div>
+                            <div id="errorResponsable"></div>
+                        </div>
+                        <div class="form-group col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                            <label class="form-control-label">Tipo de actividad: <span class="tx-danger">*</span></label>
+                            <div class="input-group parsley-select" id="tipoEventoMarco">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text wd-xs-45">
+                                        <i class="fas fa-tag tx-16 lh-0 op-6 fa-fw"></i>
+                                    </div>
+                                </div>
+                                <select name="TipoEvento" class="form-control required" data-placeholder="Seleccione el tipo de actividad" id="tipoEvento"
+                                        data-parsley-class-handler="#tipoEventoMarco" data-parsley-errors-container="#errorTipoEvento" required>
+                                    <option selected disabled>Seleccione el tipo de actividad</option>
+                                    <option value="Masiva">Masiva</option>
+                                    <option value="Grupal">Grupal</option>
+                                </select>
+                            </div>
+                            <div id="errorTipoEvento"></div>
+                        </div>
+                    </div>
+                </form>
+                
+            </section>
+
+            <h3 style="display:none">Gastos del evento</h3>
+            <section>
+                <div class="row row-sm">
+                    <div class="form-group wd-auto col-lg-10 col-md-12 mg-b-0">
+                        <label class="form-control-label">Categoría: <span class="tx-danger">*</span></label>
+                        <div class="input-group">
+                            <select class="form-control select" id="categorias" data-placeholder="Seleccione el tipo de actividad" style="width: 100%">
+                                <option selected disabled>Seleccione una categoría</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group wd-auto col-lg-2 col-md-12 mg-b-40">
+                        <label class="form-control-label" style="visibility:hidden;">Boton agregar: </label>
+                        <button class="btn btn-teal btn-block mg-b-10" id="agregarCategoria"><i class="fa fa-plus mg-r-10"></i> Agregar</button>
+                    </div><!-- col-sm -->
+                </div>
+
+                <div class="table-wrapper">
+                    <table id="tablaCategorias" class="table display responsive nowrap" width="100%">
+                        <thead class="thead-colored thead-info">
+                            <tr>
+                                <th class="wd-auto">Categoría</th>
+                                <th class="wd-auto">Acción</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div><!-- table-wrapper -->
+            </section>
+
+            <h3 style="display:none" class="step3">Participantes</h3>
+            <section class="step3">
+                <div class="row row-sm">
+                    <div class="form-group wd-auto col-lg-5 col-md-12">
+                        <label class="form-control-label">Nombre participante: </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fas fa-user tx-16 lh-0 op-6 fa-fw" style="text-align: center;"></i>
+                                </div>
+                            </div>
+                            <input name="nombreParticipante" type="text" class="form-control" placeholder="Nombre del Participante" id="nombreParticipante">
+                        </div>
+                    </div>
+                    <div class="form-group wd-auto col-lg-5 col-md-12 mg-b-0">
+                        <label class="form-control-label">RUN del participante: </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fa fa-id-card tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="RUNParticipante" type="text" class="form-control" placeholder="RUN del participante" id="runParticipante" oninput="checkRun(this)">
+                        </div>
+                    </div>
+                    <div class="form-group wd-auto col-lg-2 col-md-12 mg-b-40">
+                        <label class="form-control-label" style="visibility:hidden;">Boton agregar: </label>
+                        <button class="btn btn-teal btn-block mg-b-10" id="agregarParticipante"><i class="fa fa-plus mg-r-10"></i> Agregar</button>
+                    </div><!-- col-sm -->
+                </div>
+
+                <div class="table-wrapper">
+                    <table id="tablaParticipantes" class="table display responsive nowrap" width="100%">
+                        <thead class="thead-colored thead-info">
+                            <tr>
+                                <th class="wd-auto">Nombre</th>
+                                <th class="wd-auto">RUN</th>
+                                <th class="wd-auto">Acción</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div><!-- table-wrapper -->
+            </section>
+
+            <h3 style="display:none">Finalizar</h3>
+            <section>
+                <div id="accordion5" class="accordion accordion-head-colored accordion-inverse mg-t-20" role="tablist" aria-multiselectable="true">
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingOne5">
+                            <h6 class="mg-b-0">
+                                <a data-toggle="collapse" data-parent="#accordion5" href="#collapseOne5" aria-expanded="true" aria-controls="collapseOne5">
+                                    Datos Principales
+                                </a>
+                            </h6>
+                        </div><!-- card-header -->
+
+                        <div id="collapseOne5" class="collapse show" role="tabpanel" aria-labelledby="headingOne5">
+                            <div class="card-block pd-20">
+                                <div class="form-group wd-auto">
+                                    <label class="form-control-label">Nombre del evento:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-theater-masks tx-16 lh-0 op-6 fa-fw"></i></span>
+                                        </div>
+                                        <input name="NombreEvento" class="form-control" id="verNombreEvento" readonly type="text" placeholder="Ingrese el nombre del evento">
+                                    </div>
+                                </div>
+
+                                <div class="row row-sm">
+                                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                                        <label class="form-control-label">Lugar del evento:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text wd-xs-45">
+                                                    <i class="fas fa-map-marked-alt tx-16 lh-0 op-6 fa-fw"></i>
+                                                </div>
+                                            </div>
+                                            <input name="LugarEvento" class="form-control" id="verLugarEvento" readonly type="text" placeholder="¿Donde se realizará el evento?">
+                                        </div>
+                                    </div>
+                                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                                        <label class="form-control-label">Monto($): </label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text wd-xs-45">
+                                                    <i class="fa fa-money-bill-wave tx-16 lh-0 op-6 fa-fw"></i>
+                                                </div>
+                                            </div>
+                                            <input name="Monto" class="form-control" id="verMonto" readonly type="text" placeholder="¿Cuanto será el monto a solicitar?">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-sm">
+                                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                                        <label class="form-control-label">Fecha de inicio: </label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text wd-xs-45">
+                                                    <i class="fas fa-calendar-plus tx-16 lh-0 op-6 fa-fw" style="text-align: center;"></i>
+                                                </div>
+                                            </div>
+                                            <input name="FechaInicio" type="text" class="form-control " readonly placeholder="¿Cuando inicia el evento?" id="verFechaInicio">
+                                        </div>
+                                    </div>
+                                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                                        <label class="form-control-label">Fecha de término: </label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text wd-xs-45">
+                                                    <i class="fas fa-calendar-check tx-16 lh-0 op-6 fa-fw"></i>
+                                                </div>
+                                            </div>
+                                            <input name="FechaTermino" type="text" class="form-control " readonly placeholder="¿Cuando terminará el evento?" id="verFechaTermino">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row row-sm">
+                                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                                        <label class="form-control-label">Responsable: </label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text wd-xs-45">
+                                                    <i class="fa fa-user tx-16 lh-0 op-6 fa-fw"></i>
+                                                </div>
+                                            </div>
+                                            <input name="idResponsable" class="form-control" id="verResponsable" readonly type="text" placeholder="¿Qué representante estará a cargo?">
+                                        </div>
+                                    </div>
+                                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                                        <label class="form-control-label">Tipo de actividad: </label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text wd-xs-45">
+                                                    <i class="fas fa-tag tx-16 lh-0 op-6 fa-fw"></i>
+                                                </div>
+                                            </div>
+                                            <input name="TipoEvento" class="form-control" id="verTipoEvento" readonly type="text" placeholder="Seleccione el tipo de actividad">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" role="tab" id="headingTwo5">
+                            <h6 class="mg-b-0">
+                                <a class="collapsed transition" data-toggle="collapse" data-parent="#accordion5" href="#collapseTwo5" aria-expanded="false" aria-controls="collapseTwo5">
+                                    Categorías de gastos del evento
+                                </a>
+                            </h6>
+                        </div>
+                        <div id="collapseTwo5" class="collapse" role="tabpanel" aria-labelledby="headingTwo5">
+                            <div class="card-block pd-20">
+                                <div class="table-wrapper">
+                                    <table id="verTablaCategorias" class="table display responsive nowrap" style="width:100%">
+                                        <thead class="thead-colored thead-info">
+                                            <tr>
+                                                <th class="wd-auto">Categoría</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div><!-- table-wrapper -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" id="cardParticipantes">
+                        <div class="card-header" role="tab" id="headingThree5">
+                            <h6 class="mg-b-0">
+                                <a class="collapsed transition" data-toggle="collapse" data-parent="#accordion5" href="#collapseThree5" aria-expanded="false" aria-controls="collapseThree5">
+                                    Participantes del evento
+                                </a>
+                            </h6>
+                        </div>
+                        <div id="collapseThree5" class="collapse" role="tabpanel" aria-labelledby="headingThree5">
+                            <div class="card-block pd-20">
+                                <div class="table-wrapper">
+                                    <table id="verTablaParticipantes" class="table display responsive nowrap" style="width:100%">
+                                        <thead class="thead-colored thead-info">
+                                            <tr>
+                                                <th class="wd-auto">Nombre</th>
+                                                <th class="wd-auto">RUN</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div><!-- table-wrapper -->
+                            </div>
+                        </div><!-- collapse -->
+                    </div><!-- card -->
+                </div><!-- accordion -->
+            </section>
+        </div>
+
+    </div><!-- br-section-wrapper -->
+</div><!-- br-pagebody -->
+
+<!--style>
+    .ui-state-active {
+        background-color: #17A2B8 !important;
+        color: #ffffff !important;
+    }
+
+    .ui-state-disabled span {
+        /*background-color: #CCCCCC !important;*/
+        color: #CCCCCC !important;
+    }
+</style-->
+
+@section scripts {
+    <script src="~/js/toastr.js"></script>
+    <!--script src="http://codeseven.github.com/toastr/toastr.js"></script-->
+    <script src="../lib/jquery-steps/build/jquery.steps.js"></script>
+    <!--script src="../lib/jquery-steps/build/jquery.steps.min.js"></script-->
+    <script src="../lib/parsleyjs/parsley.min.js"></script>
+    <script src="../lib/parsleyjs/i18n/es.js"></script>
+    <script src="~/js/jquery.numeric.js"></script>
+    <script src="../lib/jquery.maskedinput/jquery.maskedinput.js"></script>
+    <script src="../js/Solicitud.js"></script>
+    <script>
+        $.extend($.fn.dataTable.defaults, {
+            'destroy': true,
+            'responsive': true,
+            'dom': "Bfrtip",
+            'searching': false,
+            'ordering': true,
+            'info': false,
+            'autoWidth': true,
+            'paging': true,
+            'scrollX': false,
+            'lengthChange': false,
+            'processing': true,
+            'iDisplayLength': 5,
+            'language': {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+        });
+
+        $(document).ready(function ()
+        {
+            obtenerResponsables();
+            obtenerCategorias();
+            $('#tablaCategorias').DataTable();
+            $('#tablaParticipantes').DataTable();
+            $('#verTablaCategorias').DataTable();
+            $('#verTablaParticipantes').DataTable();
+            activadorFechas();
+        });
+    </script>
+}
+

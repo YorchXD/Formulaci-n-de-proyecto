@@ -1,0 +1,249 @@
+﻿@{
+    ViewData["Title"] = "Ver Declaración de gastos";
+}
+
+<div class="br-pagetitle row">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text wd-auto" style="border:none;">
+                <!--i class="icon fas fa-sitemap"></i-->
+                <i class="icon fas fa-file-invoice-dollar"></i>
+                <h4 style="padding-left:5%">Ver declaración de gastos</h4>
+            </div>
+        </div>
+    </div>
+</div><!-- d-flex -->
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+        <div class="card bd-0">
+            <div class="card-header bg-teal-info bd bd-0 tx-white-8">
+                Resumen de la declaración de gastos
+            </div><!-- card-header -->
+
+            <div class="card-body bd bd-t-0 rounded-bottom-0">
+                <div class="row row-sm">
+                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                        <label class="form-control-label">Número de resolucion:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-fingerprint tx-16 lh-0 op-6 fa-fw"></i></span>
+                            </div>
+                            <input name="numeroResolucion" class="form-control" id="numeroResolucion" readonly type="text" placeholder="Numero de resolución">
+                        </div>
+                    </div>
+                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                        <label class="form-control-label">Días restante: </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fa fa-calendar-alt tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="diasRestantes" class="form-control" id="diasRestantes" readonly type="text" placeholder="Dias restantes">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-sm">
+                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                        <label class="form-control-label">Monto total solicitado($): </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fa fa-money-bill-wave tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="totaLSolicitado" class="form-control" id="totalSolicitado" readonly type="text" placeholder="Monto total solicitado">
+                        </div>
+                    </div>
+                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                        <label class="form-control-label">Monto total rendido($): </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fa fa-money-bill-wave tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="totalRendido" class="form-control" id="totalRendido" readonly type="text" placeholder="Monto total rendido">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-sm">
+                    <div class="form-group wd-auto col-lg-12 col-md-12">
+                        <label class="form-control-label">Unidad:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fas fa-building  tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="unidad" class="form-control" id="unidad" readonly type="text" placeholder="Unidad">
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-sm">
+                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                        <label class="form-control-label">Nombre jefe directo: </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fa fa-user tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="jefeDirecto" class="form-control" id="jefeDirecto" readonly type="text" placeholder="Nombre jefe directo">
+                        </div>
+                    </div>
+
+                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                        <label class="form-control-label">Fono anexo: </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fas fa-phone tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="fonoAnexo" class="form-control" id="fonoAnexo" readonly type="text" placeholder="Fono anexo">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row row-sm">
+                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                        <label class="form-control-label">Responsable del fondo: </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fa fa-user tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="responsable" type="text" class="form-control" readonly placeholder="Responsable del fondo" id="responsable">
+                        </div>
+                    </div>
+                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                        <label class="form-control-label">RUN Responsable: </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fas fa-address-card tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="runResponsable" type="text" class="form-control" readonly placeholder="RUN del responsable" id="runResponsable">
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-sm">
+                    <div class="form-group wd-auto col-lg-12 col-md-12">
+                        <label class="form-control-label">Email: </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fas fa-at tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="emailResponsable" class="form-control" id="emailResponsable" readonly type="text" placeholder="Email responsable">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bd bd-t-0">
+                <div class="row" id="acciones">
+
+                </div>
+            </div>
+        </div>
+    </div><!-- br-section-wrapper -->
+</div><!-- br-pagebody -->
+
+@section scripts{ 
+    <script>
+        $(document).ready(function ()
+        {
+            obtenerDatos();
+        });
+
+        function obtenerDatos()
+        {
+            verOpciones(5)
+        }
+
+        function verOpciones(opcion)
+        {
+            var acciones = "";
+            switch (opcion)
+            {
+                case 3:
+                    acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
+                        '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
+                        '<div class="form-group  col-lg-12 col-md-12 col-sm-12"><button class="modal-effect btn btn-info" data-effect="effect-just-me" id = "documentacion" style="width:100%"><i class="fas fa-plus"></i> Agregar Documentación</button> </div>';
+                        
+                    break;
+                case 4:
+                    acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
+                        '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
+                        '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-info" data-effect="effect-just-me" id = "documentacion" style="width:100%"><i class="fas fa-eye"></i> Documentación</button> </div>' +
+                        '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-danger" id = "eliminar" style="width:100%"><i class="fas fa-trash"></i> Eliminar</button> </div>' +
+                        '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-info" id="generar" style="width:100%"><i class="fas fa-file-signature"></i> Generar declaración de gastos</button> </div>' +
+                        '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-info" id="descargar" style="width:100%"><i class="fas fa-download"></i> Descargar</button> </div>' +                        
+                        '<div class="form-group col-lg-12 col-md-12 col-sm-12"><button class="btn btn-info" id="finalizar" style="width:100%"><i class="fas fa-eye"></i> Finalizar</button> </div>';
+
+                    break;
+                default:
+                    acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
+                        '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
+                        '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-info" data-effect="effect-just-me" id = "documentacion" style="width:100%"><i class="fas fa-eye"></i> Documentación</button> </div>' +
+                        '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-info" id="descargar" style="width:100%"><i class="fas fa-download"></i> Descargar</button> </div>';
+                    break;
+            }
+
+            $('#acciones').empty().append(acciones);
+
+            $('#volverProceso').click(function (e)
+            {
+                e.preventDefault();
+                window.location.href = '/Proceso/VerProceso';
+            });
+
+            $('#volverProcesos').click(function (e)
+            {
+                e.preventDefault();
+                window.location.href = '/Proceso/Procesos/';
+            });
+
+            $('#documentacion').click(function (e)
+            {
+                e.preventDefault();
+                alert('Ver documentación de la declaración de gastos');
+            });
+
+            $('#generar').click(function (e)
+            {
+                e.preventDefault();
+                alert('Generar documentación de la declaración de gastos');
+            });
+
+            $('#descargar').click(function (e)
+            {
+                e.preventDefault();
+                alert('Descargar documentación de la declaración de gastos');
+            });
+
+            $('#finalizar').click(function (e)
+            {
+                e.preventDefault();
+                alert('Finalizar documentación de la declaración de gastos');
+            });
+
+            $('#eliminar').click(function (e)
+            {
+                e.preventDefault();
+                alert('Eliminar documentación de la declaración de gastos');
+                /*$('#title-confirmar-eliminar').text("Eliminar datos");
+                $('#body-confirmar-eliminar').text("¿Está seguro que desea eliminar toda la documentación de la declaración de gastos?");
+                $('#modal-confirmar-eliminar').modal('show');*/
+            });
+        }
+    </script>
+}

@@ -28,6 +28,12 @@ namespace SimRend.Controllers
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
             int idSolicitud = _requestHandler.GetIdSolicitud();
+            
+            ConsultasGenerales.idSolicitud = idSolicitud;
+            ConsultasGenerales.Leer_Id_Proceso();
+            _requestHandler.SetIdProceso(ConsultasGenerales.idProceso);
+            ConsultasGenerales.idProceso=-1;
+            
             ModeloResolucion modelo = new ModeloResolucion();
             modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud(idSolicitud);
             return View(modelo);
@@ -44,19 +50,15 @@ namespace SimRend.Controllers
         public IActionResult AgregarResolucion([Bind("NumeroResolucion,AnioResolucion")] Resolucion resolucion)
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
-           // if (ModelState.IsValid)
-           // {
-                //int idproceso = _requestHandler.GetProceso();
-                /*.ModificarEstadoResponsable(solicitud.RutResponsable, "Desabilitado");
-                solicitud.FechaActual = DateTime.Now;
-                solicitud.FechaFinPdf = DateTime.Now;
-                int idOrganizacion = _requestHandler.GetIdAcceso();
-                int idSolicitud = ConsultaSolicitud.CrearSolicitud(solicitud);*/
-                //int estado = 1; /*Representa que la solicitud esta en estado de edicion*/
-                //ConsultaSolicitud.AgregarProcesoFondo(idOrganizacion, idSolicitud, estado);
-                //TempData["idOrganizacion"] = idOrganizacion;
-                //return IrPrincipal();
-            //}
+            if (ModelState.IsValid)
+            {
+                int idproceso = _requestHandler.GetIdProceso();
+                int idResolucion = ConsultaResolucion.CrearResolucion(resolucion);
+                ConsultasGenerales.Actualizar_Proceso_Resolucion_DecGatos(2,idproceso, idResolucion); //el dos significa que se agregara el id de la resolucion
+                int estado = 3; /*Representa el estado de la resolucion finalizada*/
+                ConsultasGenerales.Actualizar_Estado_Proceso(idproceso,estado);
+                return RedirectToAction("TablaSolicitudes", "Principal");
+            }
             return View(resolucion);
         }
     }

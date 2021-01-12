@@ -38,6 +38,9 @@ namespace SimRend.Controllers
         public IActionResult IrProcesoFondo(int IdSolicitud)
         {
             _requestHandler.SetIdSolicitud(IdSolicitud);
+            ConsultasGenerales.Leer_Id_Proceso();
+            _requestHandler.SetIdProceso(ConsultasGenerales.idProceso);
+            ConsultasGenerales.idProceso=-1;
             return RedirectToAction("Proceso", "Principal");
             //return RedirectToAction("ProcesoFondoPorRendir", "Solicitud");
             //return RedirectToAction("Resume", "Solicitud");
@@ -53,10 +56,14 @@ namespace SimRend.Controllers
             return RedirectToAction("Resolucion", "Resolucion");
         }
 
-        public IActionResult IrDeclaracionGastos(int IdSolicitud)
+        public IActionResult IrDeclaracionGastos()
         {
-            _requestHandler.SetIdSolicitud(IdSolicitud);
-            return RedirectToAction("Rendicion", "Rendicion");
+            /*_requestHandler.SetIdSolicitud(IdSolicitud);
+            ConsultasGenerales.idSolicitud = IdSolicitud;
+            ConsultasGenerales.Leer_Id_Proceso();
+            _requestHandler.SetIdProceso(ConsultasGenerales.idProceso);
+            ConsultasGenerales.idProceso=-1;*/
+            return RedirectToAction("DeclaracionGastos", "DeclaracionGastos");
         }
 
         public IActionResult Proceso()

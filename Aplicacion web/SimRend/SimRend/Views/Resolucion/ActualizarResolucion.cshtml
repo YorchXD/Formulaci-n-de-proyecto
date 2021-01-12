@@ -1,0 +1,347 @@
+﻿@{
+    ViewData["Title"] = "Actualizar resolución";
+}
+
+<div class="br-pagetitle row">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text wd-auto" style="border:none;">
+                <!--i class="icon fas fa-sitemap"></i-->
+                <i class="icon fas fa-file-invoice-dollar"></i>
+                <h4 style="padding-left:5%">Actualizar resolución</h4>
+            </div>
+        </div>
+    </div>
+</div><!-- d-flex -->
+
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+
+        <div class="card bd-0">
+            <div class="card-header bg-teal-info bd bd-0 tx-white-8 tx-bold">
+                Resumen de la solicitud
+            </div><!-- card-header -->
+
+            <div class="card-body bd bd-t-0 rounded-bottom-0">
+                <dl class="row">
+                    <dt class="col-sm-3 tx-inverse">Nombre del evento</dt>
+                    <dd class="col-sm-9" id="nombreEvento">-</dd>
+
+                    <dt class="col-sm-3 tx-inverse">Responsable de la solicitud</dt>
+                    <dd class="col-sm-9" id="responsable">-</dd>
+
+                    <dt class="col-sm-3 tx-inverse">Monto de la solicitud</dt>
+                    <dd class="col-sm-9" id="monto">-</dd>
+
+                    <dt class="col-sm-3 text-truncate tx-inverse">Fecha de inicio</dt>
+                    <dd class="col-sm-9" id="fechaInicio">-</dd>
+
+                    <dt class="col-sm-3 text-truncate tx-inverse">Fecha de término</dt>
+                    <dd class="col-sm-9" id="fechaTermino">-</dd>
+
+                    <dt class="col-sm-3 text-truncate tx-inverse">Lugar del evento</dt>
+                    <dd class="col-sm-9" id="lugarEvento">-</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="card bd-0 mg-t-40">
+            <div class="card-header bg-teal-info bd bd-0 tx-white-8 tx-bold">
+                Datos de la resolución
+            </div><!-- card-header -->
+
+            <div class="card-body bd bd-t-0 rounded-bottom-0">
+                <div class="form-group wd-auto">
+                    <label class="form-control-label">Número de resolución:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-fingerprint tx-16 lh-0 op-6 fa-fw"></i></span>
+                        </div>
+                        <input name="numResolucion" required="required" class="form-control numeric" id="numResolucion" type="text" placeholder="Ingrese el número de la resolución" onkeypress="" data-parsley-errors-container="#errorNumResolucion">
+                    </div>
+                    <div id="errorNumResolucion"></div>
+                </div>
+
+                <div class="form-group wd-auto">
+                    <label class="form-control-label">Año de la resolución: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fa fa-calendar-alt tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="anioResolucion" required="required" class="form-control numeric" id="anioResolucion" type="text" placeholder="Ingrese el año de la resolución" onkeypress="" data-parsley-errors-container="#errorAnioResolucion">
+                    </div>
+                    <div id="errorAnioResolucion"></div>
+                </div>
+
+                <div class="form-group wd-auto">
+                    <label class="form-control-label">Copia del documento: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="far fa-file-pdf tx-22 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+
+                        <div class="custom-file">
+                            <label class="custom-file-label custom-file-label-inverse" id="nombreArchivo">Seleccione un archivo PDF</label>
+                            <input type="file" required="required" class="custom-file-input" id="resolucion" data-parsley-errors-container="#errorResolucion">
+                        </div>
+                    </div>
+                    <div id="errorResolucion"></div>
+                </div>
+
+            </div>
+            <div class="card-footer bd bd-t-0">
+                <div class="row" id="acciones">
+                    <div class="form-group  col-lg-6 col-md-6 col-sm-12">
+                        <button class="btn btn-secondary" id="cancelar" style="width:100%">
+                            <i class="fas fa-window-close"></i> Cancelar
+                        </button>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-6 col-sm-12">
+                        <button class="modal-effect btn btn-info" id="modificar" data-effect="effect-just-me" style="width:100%">
+                            <i class="fas fa-pen-square"></i> Modificar
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div><!-- br-section-wrapper -->
+    <!-- MODAL INFORMACION -->
+    <div id="modal-informacion" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-success tx-semibold mg-b-20" id="title-informacion"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-informacion"></p>
+                    <button id="btn-ResolucionGuardada" type="button" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL PREGUNTAR GUARDAR RESOLUCION -->
+    <div class="modal fade" id="modal-confirmar-guardar">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <i class="ionicons ion-ios-help-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-success mg-b-20" id="title-confirmar-guardar"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-confirmar-guardar"></p>
+                    <button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                        Cancelar
+                    </button>
+                    <button type="button" id="btnConfirmarGuardar" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ERROR -->
+    <div id="modal-alerta" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
+                    <button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+</div><!-- br-pagebody -->
+
+
+@section scripts
+{
+    <script src="~/lib/parsleyjs/parsley.min.js"></script>
+    <script src="~/lib/parsleyjs/i18n/es.js"></script>
+    <script src="~/js/jquery.numeric.js"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            obtenerSolicitud();
+            obtenerResolucion();
+        });
+
+        var cambioArchivo = false;
+        $('#cancelar').click(function (e)
+        {
+            e.preventDefault();
+            window.location.href = '/Resolucion/VerResolucion';
+        });
+
+        $('#btn-ResolucionGuardada').click(function (e)
+        {
+            e.preventDefault();
+            window.location.href = '/Resolucion/VerResolucion';
+        });
+
+        $('#modificar').click(function (e)
+        {
+            var rutaDoc = $('#resolucion').parsley();
+            var nombreResolucion = $('#nombreArchivo').text();
+            var numResolucion = $("#numResolucion").parsley();
+            var anioResolucion = $("#anioResolucion").parsley();
+
+            console.log(rutaDoc, numResolucion, anioResolucion);
+            if ((rutaDoc.isValid() || nombreResolucion=='Resolucion.pdf') && numResolucion.isValid() && anioResolucion.isValid())
+            {
+                e.preventDefault();
+                $('#title-confirmar-guardar').text("Modificar datos");
+                $('#body-confirmar-guardar').text("¿Está seguro que desea modificar los datos de la resolución?");
+                $('#modal-confirmar-guardar').modal('show');
+            }
+            else
+            {
+                $('#title-alerta').text("Faltan Datos");
+                $('#body-alerta').text("Lo sentimos, no se puede guardar los datos de la resulución debido a que existen campos incompletos. Verifique que todos los campos esten copletados y vuelva a intentarlo.");
+                $('#modal-alerta').modal('show');
+                anioResolucion.validate();
+                numResolucion.validate();
+                
+                if (nombreResolucion != 'Resolucion.pdf')
+                {
+                    rutaDoc.validate();
+                    if (!rutaDoc.isValid())
+                    {
+                        $('#nombreArchivo').addClass('bd-danger');
+                    }
+                }
+                
+            }
+
+        });
+
+        function obtenerSolicitud()
+        {
+            $.ajax({
+                url: "/Solicitud/LeerSolicitud",
+                method: "POST",
+                async: "false",
+                data: "",
+                success: function (respuesta)
+                {
+                    datosPrincipalesSolicitud(respuesta.solicitud);
+                }
+            });
+        }
+
+        function obtenerResolucion()
+        {
+            $.ajax({
+                url: "/Resolucion/LeerResolucion",
+                method: "POST",
+                async: "false",
+                data: "",
+                success: function (respuesta)
+                {
+                    datosResolucion(respuesta.resolucion);
+                }
+            });
+        }
+
+        function datosPrincipalesSolicitud(solicitud)
+        {
+            //console.log(solicitud);
+            document.getElementById("nombreEvento").innerHTML = solicitud.nombreEvento;
+            document.getElementById("lugarEvento").innerHTML = solicitud.lugarEvento;
+            document.getElementById("monto").innerHTML = '$' + formatoNumero(solicitud.monto);
+            document.getElementById("fechaInicio").innerHTML = solicitud.fechaInicioEvento.split("T")[0];
+            document.getElementById("fechaTermino").innerHTML = solicitud.fechaTerminoEvento.split("T")[0];
+            document.getElementById("responsable").innerHTML = solicitud.nombreResponsable;
+        }
+
+        function datosResolucion(resolucion)
+        {
+            var rutaDoc = resolucion.copiaDoc.split("\\");
+            $("#numResolucion").val(resolucion.numResolucion);
+            $("#anioResolucion").val(resolucion.anioResolucion);
+            $("#nombreArchivo").text(rutaDoc[rutaDoc.length - 1]);
+        }
+
+        function formatoNumero(num)
+        {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+        }
+
+        $(".numeric").numeric();
+
+        // File type validation
+        $("#resolucion").on("change", function ()
+        {
+            var file = this.files[0];
+            var fileType = file.type;
+            /*var match = ['application/pdf', 'application/msword', 'application/vnd.ms-office', 'image/jpeg', 'image/png', 'image/jpg'];*/
+            var match = 'application/pdf';
+            if (fileType != match)
+            {
+                $('#title-alerta').text('Error');
+                $('#body-alerta').text('Lo sentimos, solo se pueden subir archivos PDF');
+                $('#modal-alerta').modal('show');
+                $("#nombreArchivo").text('Resolucion.pdf');
+                cambioArchivo = false;
+                return false;
+            }
+            $("#nombreArchivo").text(file.name);
+            cambioArchivo = true;
+            return true;
+        });
+
+        $('#btnConfirmarGuardar').click(function ()
+        {
+            var datos = new FormData();
+            datos.append('Archivo', $('#resolucion')[0].files[0]);
+            datos.append('NumResolucion', $("#numResolucion").val());
+            datos.append('AnioResolucion', $("#anioResolucion").val());
+            datos.append('CambioArchivo', cambioArchivo);
+
+            $('#modal-confirmar-guardar').modal("hide");
+
+            $.ajax({
+                url: "/Resolucion/ModificarResolucion",
+                method: "POST",
+                async: "false",
+                data: datos,
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function (respuesta)
+                {
+                    //console.log(respuesta);
+                    if (respuesta.validar)
+                    {
+                        obtenerSolicitud();
+                        $('#title-informacion').text(respuesta.titulo);
+                        $('#body-informacion').text(respuesta.msj);
+                        $('#modal-informacion').modal('show');
+                    }
+                    else
+                    {
+                        $('#title-alerta').text(respuesta.titulo);
+                        $('#body-alerta').text(respuesta.msj);
+                        $('#modal-alerta').modal('show');
+                    }
+                }
+            });
+        });
+    </script>
+}

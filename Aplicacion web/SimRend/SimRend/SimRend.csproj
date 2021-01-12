@@ -1,0 +1,119 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="libwkhtmltox.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="libwkhtmltox.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\parsleyjs\i18n\al.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ar.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\bg.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ca.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\cs.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\cs.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\da.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\de.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\de.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\el.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\el.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\en.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\en.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\es.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\et.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\eu.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\fa.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\fi.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\fi.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\fr.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\fr.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\he.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\he.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\hr.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\hr.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\hu.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\hu.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\id.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\id.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\it.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\it.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ja.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ja.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ko.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\lt.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\lt.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\lv.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\lv.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ms.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ms.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\nl.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\nl.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\no.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\pl.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\pt-br.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\pt-pt.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ro.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ro.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ru.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ru.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\sk.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\sk.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\sl.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\sl.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\sq.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\sr.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\sr.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\sv.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\sv.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\th.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\th.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\tk.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\tr.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ua.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ua.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\uk.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\uk.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\ur.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\zh_cn.extra.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\zh_cn.js" />
+    <None Include="wwwroot\lib\parsleyjs\i18n\zh_tw.js" />
+    <None Include="wwwroot\lib\rickshaw\node_modules\d3\bin\meteor" />
+    <None Include="wwwroot\lib\rickshaw\node_modules\d3\bin\start" />
+    <None Include="wwwroot\lib\rickshaw\node_modules\d3\bin\uglify" />
+    <None Include="wwwroot\lib\rickshaw\node_modules\d3\d3.min.js" />
+    <None Include="wwwroot\lib\rickshaw\node_modules\d3\package.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\_fortawesome\fontawesome-free\less\" />
+    <Folder Include="wwwroot\lib\_fortawesome\fontawesome-free\scss\" />
+    <Folder Include="wwwroot\lib\chartist\scss\settings\" />
+    <Folder Include="wwwroot\lib\ionicons\less\" />
+    <Folder Include="wwwroot\lib\ionicons\scss\" />
+    <Folder Include="wwwroot\lib\jquery-steps\demo\" />
+    <Folder Include="wwwroot\lib\morris.js\less\" />
+    <Folder Include="wwwroot\lib\morris.js\lib\" />
+    <Folder Include="wwwroot\lib\spectrum-colorpicker\build\" />
+    <Folder Include="wwwroot\lib\spinkit\scss\spinners\" />
+    <Folder Include="wwwroot\Procesos\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="MySql.Data" Version="8.0.20" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+
+
+</Project>

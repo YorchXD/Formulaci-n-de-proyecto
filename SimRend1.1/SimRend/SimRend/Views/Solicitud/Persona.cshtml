@@ -1,0 +1,184 @@
+﻿@model SimRend.Models.Persona
+
+@{
+    ViewData["Title"] = "Crear Solicitud";
+}
+
+<div class="form-inline" style="padding-top: calc(0.5em + 6px);">
+    <h2>Personas que participan en el evento</h2>
+
+    <div class="wrapper toggle">
+        <a href="#popup" ><button class="buttonPrimary"  name="">Agregar Persona</button></a>
+    </div>
+</div>
+
+
+
+
+<!--Contenido-->
+    <div class="contenedor_formulario">
+        <div class="fieldsContainer">
+            @if (ViewData["Personas"] != null)
+            {
+                @foreach (var item in ViewData["Personas"] as List<Persona>)
+                {
+                    @using (Html.BeginForm("EliminarPersona", "Solicitud", FormMethod.Post, new { @style = "border:none" }))
+                    {
+                        
+                            <div class="" for="eliminarPersona">
+                                <div class="cards1">
+                                    <div class="card1">
+                                        <input type="text" readonly="" class="" style="border:none; margin-top: 5px;" name="Nombre" value="@item.Nombre">
+                                    </div>
+
+                                    <div class="card1">
+                                        <input type="text" readonly="" class="" style="border:none; margin-top: 5px;" name="Nombre" value="@item.Run">
+                                    </div>
+                                    
+                                    <div class="card1">
+                                        <div class="wrapper">
+                                            <button type= "submit" class="buttonDelete"   name="">Eliminar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                    }
+                }
+            }
+        </div>
+    </div>
+
+    @using (Html.BeginForm("Resumen", "Solicitud", FormMethod.Get, new { @style = "border:none" }))
+    {
+        <div class =" container" style="padding-top: calc(0.5em + 6px); text-align:right;">
+            <div class="row">
+                <div class="wrapper toggle">
+                    <button type="submit" class="buttonPrimary">Crear Solicitud</button>
+                </div>
+            </div>
+        </div>
+    }
+    <!--Fin Contenido-->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+    <div class="modal-wrapper" id="popup">
+        <div class="popup-contenedor">
+            <div class="bar-title">
+                <span>Agregar persona</span>
+            </div>
+        <!--h2>Agregar categoría</h2-->
+
+            @using (Html.BeginForm("AgregarPersona", "Solicitud", FormMethod.Post, new { @style = "border:none" }))
+            {
+                <div class="popup-contenido">
+                    <div class="contenedor_input">
+                        <div class="control">
+                            <span>Nombre de la persona</span>
+                            <input asp-for="Nombre" class="form-control mr-sm-2" placeholder="Nombre de la persona" />
+                        </div>
+                        
+
+                        <div class="control">
+                            <span>RUN de la persona</span>
+                            <input asp-for="Run" class="form-control mr-sm-2" type="text" id="Run" name="Run" required oninput="checkRun(this)" placeholder="Run de la persona">
+                            <!--input asp-for="Run" class="form-control mr-sm-2" placeholder="Run de la persona" /-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup-footer">
+                    <div class="wrapperOrientacionBotonFormulario">
+                        <div class="wrapper wrapperBotonFormulario toggle">
+                            <a href="#"><button type="button" class="buttonSecundary" data-dismiss="modal">Cerrar</button></a>
+                        </div>
+                        <div class="wrapper wrapperBotonFormulario toggle">
+                            <button type="submit" class="buttonPrimary"  name="">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!--a class="popup-cerrar" href="#">X</a-->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        function checkRun(Run) {
+        // Despejar Puntos
+        var valor = Run.value.replace('.','');
+        // Despejar Guión
+        valor = valor.replace('-','');
+        
+        // Aislar Cuerpo y Dígito Verificador
+        cuerpo = valor.slice(0,-1);
+        dv = valor.slice(-1).toUpperCase();
+        
+        // Formatear RUN
+        Run.value = cuerpo + '-'+ dv
+        
+        // Si no cumple con el mínimo ej. (n.nnn.nnn)
+        if(cuerpo.length < 7) { Run.setCustomValidity("RUN Incompleto"); return false;}
+        
+        // Calcular Dígito Verificador
+        suma = 0;
+        multiplo = 2;
+        
+        // Para cada dígito del Cuerpo
+        for(i=1;i<=cuerpo.length;i++) {
+        
+            // Obtener su Producto con el Múltiplo Correspondiente
+            index = multiplo * valor.charAt(cuerpo.length - i);
+            
+            // Sumar al Contador General
+            suma = suma + index;
+            
+            // Consolidar Múltiplo dentro del rango [2,7]
+            if(multiplo < 7) { multiplo = multiplo + 1; } else { multiplo = 2; }
+    
+        }
+        
+        // Calcular Dígito Verificador en base al Módulo 11
+        dvEsperado = 11 - (suma % 11);
+        
+        // Casos Especiales (0 y K)
+        dv = (dv == 'K')?10:dv;
+        dv = (dv == 0)?11:dv;
+        
+        // Validar que el Cuerpo coincide con su Dígito Verificador
+        if(dvEsperado != dv) { Run.setCustomValidity("RUN Inválido"); return false; }
+        
+        // Si todo sale bien, eliminar errores (decretar que es válido)
+        Run.setCustomValidity('');
+    }
+</script>
+
+}

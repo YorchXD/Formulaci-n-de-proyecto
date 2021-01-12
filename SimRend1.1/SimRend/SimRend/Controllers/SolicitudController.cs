@@ -13,6 +13,7 @@ using DinkToPdf;
 
 namespace SimRend.Controllers
 {
+    
     public class SolicitudController : Controller
     {
         private readonly RequestHandler _requestHandler;
@@ -25,23 +26,30 @@ namespace SimRend.Controllers
         public IActionResult IrCategoria(int IdSolicitud)
         {
             _requestHandler.SetIdSolicitud(IdSolicitud);
-            return RedirectToAction("Category", "Solicitud");
+            return RedirectToAction("Categoria", "Solicitud");
         }
 
         public IActionResult IrCategoria()
         {
-            return RedirectToAction("Category", "Solicitud");
+            return RedirectToAction("Categoria", "Solicitud");
         }
         public IActionResult IrPersona()
         {
             int idSolicitud = _requestHandler.GetIdSolicitud();
             ModeloSolicitud modelo = new ModeloSolicitud();
-            modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud_Finalizada(idSolicitud);
-            if(modelo.Solicitud.TipoActividad.Equals("Masiva"))
+            modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud_Finalizada(idSolicitud); 
+            List<Categoria> CategoriasSeleccionadas = ConsultaSolicitud.LeerCategoriasSeleccionadas(idSolicitud);
+
+            if(CategoriasSeleccionadas==null)
+            {
+                return IrCategoria();
+            }
+            else if(modelo.Solicitud.TipoActividad.Equals("Masiva"))
             {
                 return IrResumen(idSolicitud);
             }
-            return RedirectToAction("Person", "Solicitud");
+
+            return RedirectToAction("Persona", "Solicitud");
         }
 
         public IActionResult IrPrincipal()
@@ -52,9 +60,12 @@ namespace SimRend.Controllers
         public IActionResult IrResumen(int IdSolicitud)
         {
             _requestHandler.SetIdSolicitud(IdSolicitud);
-            //return RedirectToAction("ProcesoFondoPorRendir", "Solicitud");
-            return RedirectToAction("Resume", "Solicitud");
-            //return RedirectToAction("GeneratePDF", "GeneratePDF");
+            ConsultasGenerales.idSolicitud = IdSolicitud;
+            ConsultasGenerales.Leer_Id_Proceso();
+            _requestHandler.SetIdProceso(ConsultasGenerales.idProceso);
+            ConsultasGenerales.idProceso=-1;
+            return RedirectToAction("Resumen", "Solicitud");
+            //return RedirectToAction("GenerarPDF", "GenerarPDF");
             //return RedirectToAction("InfoRendicion", "Rendicion");
             //return RedirectToAction("Resolucion", "Resolucion");
             //return RedirectToAction("Rendicion", "Rendicion");
@@ -65,13 +76,10 @@ namespace SimRend.Controllers
 /*#######################################Proceso de creacion###################################################*/
 
         /*Muestra el listado de responsables habilitados para realizar el proceso de solicitud de fondos*/
-        public IActionResult Create()
+        public IActionResult Crear()
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
-            //Organizacion organizacion = new Organizacion();
-            //organizacion.Id = Convert.ToInt32(TempData["idOrganizacion"]);
             int idOrganizacion = _requestHandler.GetIdAcceso();
-            //TempData["idOrganizacion"] = idOrganizacion;
             ModeloSolicitud modelo = new ModeloSolicitud();
             modelo.Responsables = ConsultasGenerales.LeerRepresetantes(idOrganizacion);
             if (modelo.Responsables != null)
@@ -83,12 +91,12 @@ namespace SimRend.Controllers
 
         }
 
-        // POST: Solicitud/Create
+        // POST: Solicitud/Crear
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Monto,NombreEvento,FechaInicioEvento,FechaTerminoEvento,LugarEvento,RutResponsable, TipoActividad")] Solicitud solicitud)
+        public IActionResult Crear([Bind("Monto,NombreEvento,FechaInicioEvento,FechaTerminoEvento,LugarEvento,RutResponsable, TipoActividad")] Solicitud solicitud)
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
             if (ModelState.IsValid)
@@ -97,11 +105,10 @@ namespace SimRend.Controllers
                 solicitud.FechaActual = DateTime.Now;
                 solicitud.FechaFinPdf = DateTime.Now;
                 int idOrganizacion = _requestHandler.GetIdAcceso();
-                int idSolicitud = ConsultaSolicitud.CrearSolicitud(solicitud);
+                ConsultasGenerales.idSolicitud = ConsultaSolicitud.CrearSolicitud(solicitud);
                 int estado = 1; /*Representa que la solicitud esta en estado de edicion*/
-                ConsultaSolicitud.AgregarProcesoFondo(idOrganizacion, idSolicitud, estado);
-                //TempData["idOrganizacion"] = idOrganizacion;
-                return IrCategoria(idSolicitud);
+                ConsultaSolicitud.AgregarProcesoFondo(idOrganizacion, ConsultasGenerales.idSolicitud, estado);
+                return IrCategoria(ConsultasGenerales.idSolicitud);
             }
             return View(solicitud);
         }
@@ -121,8 +128,6 @@ namespace SimRend.Controllers
                 ConsultaSolicitud.AgregarCategoria(solcat);
                 return IrCategoria();
             }
-            //int idOrganizacion = Convert.ToInt32(TempData["idOrganizacion"]);
-            //TempData["idOrganizacion"] = idOrganizacion;
             return View(solcat);
         }
 
@@ -138,8 +143,6 @@ namespace SimRend.Controllers
                 ConsultaSolicitud.AgregarPerSol(persona.Run, idSolicitud);
                 return IrPersona();
             }
-            //int idOrganizacion = Convert.ToInt32(TempData["idOrganizacion"]);
-            //TempData["idOrganizacion"] = idOrganizacion;
             return View(persona);
         }
 
@@ -149,9 +152,8 @@ namespace SimRend.Controllers
 /*#######################################Proceso de Lecturas###################################################*/
 
         /*Muestra las categorias que ya han sido registradas en el sistema*/
-        public IActionResult Category()
+        public IActionResult Categoria()
         {
-            
             int idSolicitud = _requestHandler.GetIdSolicitud();
             ViewData["_usuario"] = _requestHandler.GetUsuario(); 
             List<Categoria> Categorias = ConsultaSolicitud.LeerTodoCategorias();
@@ -171,17 +173,15 @@ namespace SimRend.Controllers
                     {
                         Categorias.RemoveAt(count);
                     }
-
                 }
                 ViewData["Seleccionadas"] = CategoriasSeleccionadas;
             }
-            //int idOrganizacion = Convert.ToInt32(_requestHandler.GetIdAcceso());
-            //TempData["idOrganizacion"] = idOrganizacion;
+
             return View(Categorias);
         }
 
         /*Muestra las personas que ya se encuentran registradas en el sistema*/
-        public IActionResult Person()
+        public IActionResult Persona()
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
             int idSolicitud = _requestHandler.GetIdSolicitud();
@@ -200,20 +200,60 @@ namespace SimRend.Controllers
         public void Actualizar_FechaPDF_EstadoProceso()
         {
             int idSolicitud = _requestHandler.GetIdSolicitud();
+            int idProceso = _requestHandler.GetIdProceso();
             ModeloSolicitud modelo = new ModeloSolicitud();
             modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud_Finalizada(idSolicitud);
             modelo.Solicitud.FechaFinPdf = DateTime.Now;
             ConsultaSolicitud.Actualizar_Solicitud(modelo.Solicitud);
-            int proceso=1; /*Indica que estamos en la solicitud*/
             int estado = 2; /*Indica que la solicitud esta ingresada y en espera de aceptacion*/
-            ConsultasGenerales.Actualizar_Estado_Proceso(proceso, idSolicitud, estado);
+            ConsultasGenerales.Actualizar_Estado_Proceso(idProceso, estado);
 
+        }
+
+        /*Este metodo sirve para mandar los datos actuales de la solicitud a la vista de modificar*/
+        public IActionResult Actualizar()
+        {
+            ViewData["_usuario"] = _requestHandler.GetUsuario();
+            int idSolicitud = _requestHandler.GetIdSolicitud();
+            int idOrganizacion = _requestHandler.GetIdAcceso();
+            ModeloSolicitud modelo = new ModeloSolicitud();
+            modelo.Solicitud = ConsultaSolicitud.Leer_Solicitud_Finalizada(idSolicitud);
+            modelo.Responsables = ConsultasGenerales.LeerRepresetantes(idOrganizacion);
+
+            if (modelo.Responsables != null)
+            {
+                modelo.Responsables = modelo.Responsables.Where(responsable => (!responsable.Estado.Equals("Desabilitado") || responsable.Run.Equals(modelo.Solicitud.RutResponsable))).ToList();
+                return View(modelo);
+            }
+            return  View(modelo);
+        }
+
+        // POST: Solicitud/Crear
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Actualizar([Bind("Monto,NombreEvento,FechaInicioEvento,FechaTerminoEvento,LugarEvento,RutResponsable, TipoActividad")] Solicitud solicitud)
+        {
+            ViewData["_usuario"] = _requestHandler.GetUsuario();
+            if (ModelState.IsValid)
+            {
+                ConsultasGenerales.ModificarEstadoResponsable(solicitud.RutResponsable, "Desabilitado");
+                solicitud.FechaActual = DateTime.Now;
+                solicitud.FechaFinPdf = DateTime.Now;
+                int idOrganizacion = _requestHandler.GetIdAcceso();
+                //ConsultasGenerales.idSolicitud = ConsultaSolicitud.CrearSolicitud(solicitud);
+                int estado = 1; /*Representa que la solicitud esta en estado de edicion*/
+                //ConsultaSolicitud.AgregarProcesoFondo(idOrganizacion, ConsultasGenerales.idSolicitud, estado);
+                return IrCategoria(ConsultasGenerales.idSolicitud);
+            }
+            return View(solicitud);
         }
 /*###################################Fin Proceso de Actualizacion##############################################*/
 
 /*#######################################Proceso de Eliminar###################################################*/
 
-// POST: Solicitud/Create
+        // POST: Solicitud/Eliminar Categoria
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -233,7 +273,7 @@ namespace SimRend.Controllers
             return View(solcat);
         }
 
-        // POST: Solicitud/Create
+        // POST: Solicitud/Eliminar Persona
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -257,7 +297,7 @@ namespace SimRend.Controllers
 
         
 /*########################Funciones relacionadas con generar el pdf y mostrar la informacion del pdf###########################*/
-        public IActionResult Resume()
+        public IActionResult Resumen()
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
             int idSolicitud = _requestHandler.GetIdSolicitud();
@@ -306,7 +346,7 @@ namespace SimRend.Controllers
             return modelo;
         }
 
-        public IActionResult GeneratePDF()
+        public IActionResult GenerarPDF()
         {
             ViewData["_usuario"] = _requestHandler.GetUsuario();
             ModeloSolicitud modelo = obtenerModelo();
@@ -496,12 +536,5 @@ namespace SimRend.Controllers
         }
 /*####################Fin funciones relacionadas con generar el pdf y mostrar la informacion del pdf###########################*/
 
-
-
-        /*public IActionResult VolverIndex()
-        {
-            _requestHandler.RemoveIdSolicitud();
-            return RedirectToAction("Index", "Solicitud");
-        }*/
     }
 }

@@ -1,0 +1,93 @@
+@model SimRend.Models.ModeloSolicitud
+
+@{
+    ViewData["Title"] = "Actualizar Solicitud";
+}
+
+<h2>Datos principales de la solicitud</h2>
+@using (Html.BeginForm("Actualizar", "Solicitud", FormMethod.Post, new { @style = "border:none" }))
+{
+<div class="contenedor_formulario">
+    <div class="form">
+        <div class="contenedor_input">
+
+            <div class="control">
+                <span>Nombre del evento</span>
+                @Html.TextBox("Solicitud.NombreEvento", null, new { @class = "form-control" })  
+                <!--input asp-for="Solicitud.NombreEvento" class="" required="required" type="text" placeholder="Nombre del evento" value="@Html.TextBoxFor(model => model.Solicitud.NombreEvento)"-->
+                
+            </div>
+
+            <div class="control">
+                <span>Lugar del evento</span>
+                @Html.TextBox("Solicitud.LugarEvento", null, new { @class = "form-control" })  
+                <!--input asp-for="Solicitud.LugarEvento" class="" required="required" type="text" placeholder="Lugar del evento" value="@Html.TextBoxFor(model => model.Solicitud.LugarEvento)"-->
+            </div>
+
+            <div class="form-inline-fechas">
+                <div class="control fecha1">
+                    <span>Fecha de inicio del evento</span>"
+                    @Html.TextBoxFor(model => model.Solicitud.FechaInicioEvento, "{0:yyyy/MM/dd}" ,new {@type="date",  @required="required"})
+                    
+                   
+                </div>
+
+                <div class="control fecha2">
+                    <span>Fecha de termino del evento</span>
+                    @Html.TextBoxFor(model => model.Solicitud.FechaTerminoEvento, "{0:yyyy/MM/dd}" ,new {@type="date",  @required="required"})
+                    <!--input asp-for="Solicitud.FechaTerminoEvento" class="" required="required" type="date" placeholder="Fecha de término del evento" value="Html.TextBoxFor(model => model.Solicitud.FechaTerminoEvento)"-->
+                </div>
+            </div>
+            
+
+            <div class="control">
+                <span>Monto($)</span>
+                @Html.TextBox("Solicitud.Monto", null, new { @class = "form-control" })
+                <!--input asp-for="Solicitud.Monto" class="" required="required" min="1" value="Html.TextBoxFor(model => model.Solicitud.Monto)-->
+
+            </div>
+
+            <div class="control">
+                <span>Responsable</span>
+                <select asp-for="Solicitud.RutResponsable" class="">
+                    <option value="" disabled >Selecciona un responsable</option>
+                    @if (Model.Responsables != null)
+                    {
+                        @foreach (var item in Model.Responsables)
+                        {
+                            @if(item.Estado=="Desabilitado")
+                            {
+                                <option value="@item.Run" selected>@item.Nombre</option>
+                            }
+                            <option value="@item.Run">@item.Nombre</option>
+                        }
+                    }
+                </select>
+            </div>
+
+
+            <div class="control">
+                <span>TipoActividad</span>
+                <select asp-for="Solicitud.TipoActividad" class="">
+                    @if(@Html.DisplayFor(model => model.Solicitud.LugarEvento).Equals("Masiva"))
+                    {
+                        <option value="Masiva" selected>Masiva</option>
+                        <option value="Grupal">Grupal</option>
+                    }
+                    else
+                    {
+                        <option value="Masiva">Masiva</option>
+                        <option value="Grupal" selected>Grupal</option>
+                    }
+                    
+                </select>
+            </div>
+        </div>
+    </div> 
+</div>
+<div class="wrapperOrientacionBotonFormulario">
+    <div class="wrapper">
+        <button class="buttonPrimary" type="submit" name="">Siguiente</button>
+    </div>
+</div>
+}
