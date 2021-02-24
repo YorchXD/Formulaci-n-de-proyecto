@@ -17,7 +17,7 @@ $('#guardar').click(function (e)
     var numResolucion = $("#numResolucion").parsley();
     var anioResolucion = $("#anioResolucion").parsley();
 
-    console.log(rutaDoc, numResolucion, anioResolucion);
+    //console.log(rutaDoc, numResolucion, anioResolucion);
     if (rutaDoc.isValid() && numResolucion.isValid() && anioResolucion.isValid())
     {
         e.preventDefault();
@@ -28,7 +28,7 @@ $('#guardar').click(function (e)
     else
     {
         $('#title-alerta').text("Faltan Datos");
-        $('#body-alerta').text("Lo sentimos, no se puede guardar los datos de la resulución debido a que existen campos incompletos. Verifique que todos los campos esten copletados y vuelva a intentarlo.");
+        $('#body-alerta').text("Lo sentimos, no se puede guardar los datos de la resulución debido a que existen campos incompletos. Verifique que todos los campos esten completados y vuelva a intentarlo.");
         $('#modal-alerta').modal('show');
         anioResolucion.validate();
         numResolucion.validate();

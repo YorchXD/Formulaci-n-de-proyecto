@@ -23,7 +23,7 @@
 
             <div class="card-body bd bd-t-0 rounded-bottom-0">
                 <div class="row row-sm">
-                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <div class="form-group wd-auto col-lg-4 col-md-12">
                         <label class="form-control-label">Número de resolucion:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -32,7 +32,18 @@
                             <input name="numeroResolucion" class="form-control" id="numeroResolucion" readonly type="text" placeholder="Numero de resolución">
                         </div>
                     </div>
-                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <div class="form-group wd-auto col-lg-4 col-md-12">
+                        <label class="form-control-label">Fecha límite para declarar gastos: </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fa fa-calendar-alt tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="fechaLimite" class="form-control" id="fechaLimite" readonly type="text" placeholder="Fecha límite">
+                        </div>
+                    </div>
+                    <div class="form-group wd-auto col-lg-4 col-md-12">
                         <label class="form-control-label">Días restante: </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -46,7 +57,7 @@
                 </div>
 
                 <div class="row row-sm">
-                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <div class="form-group wd-auto col-lg-4 col-md-12">
                         <label class="form-control-label">Monto total solicitado($): </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -57,7 +68,18 @@
                             <input name="totaLSolicitado" class="form-control" id="totalSolicitado" readonly type="text" placeholder="Monto total solicitado">
                         </div>
                     </div>
-                    <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <div class="form-group wd-auto col-lg-4 col-md-12">
+                        <label class="form-control-label">Monto total documentos($): </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fa fa-money-bill-wave tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="totalDocumentos" class="form-control" id="totalDocumentos" readonly type="text" placeholder="Monto total documentos">
+                        </div>
+                    </div>
+                    <div class="form-group wd-auto col-lg-4 col-md-12">
                         <label class="form-control-label">Monto total rendido($): </label>
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -164,9 +186,66 @@
             obtenerDatos();
         });
 
+        var procesoAux;
+
+        function formatearRut(run)
+        {
+            let runAux = run.replace(/\./g, '').replace('-', '');
+
+            if (runAux.match(/^(\d{2})(\d{3}){2}(\w{1})$/))
+            {
+                runAux = runAux.replace(/^(\d{2})(\d{3})(\d{3})(\w{1})$/, '$1.$2.$3-$4');
+            }
+            else if (runAux.match(/^(\d)(\d{3}){2}(\w{0,1})$/))
+            {
+                runAux = runAux.replace(/^(\d)(\d{3})(\d{3})(\w{0,1})$/, '$1.$2.$3-$4');
+            }
+            else if (runAux.match(/^(\d)(\d{3})(\d{0,2})$/))
+            {
+                runAux = runAux.replace(/^(\d)(\d{3})(\d{0,2})$/, '$1.$2.$3');
+            }
+            else if (runAux.match(/^(\d)(\d{0,2})$/))
+            {
+                runAux = runAux.replace(/^(\d)(\d{0,2})$/, '$1.$2');
+            }
+            return runAux;
+        };
+
+
+
         function obtenerDatos()
         {
-            verOpciones(5)
+            $.ajax({
+                url: "/DeclaracionGastos/LeerDeclaracionGastos",
+                method: "POST",
+                data: {},
+                success: function (respuesta)
+                {
+                    //console.log(respuesta); //se debe eliminar
+                    procesoAux = respuesta;
+                    var fecha1 = moment();
+                    var fecha2 = moment(respuesta.proceso.declaracionGastos.fechaLimite.split('T')[0]);
+                    $('#numeroResolucion').val(respuesta.proceso.resolucion.numResolucion);
+                    $('#fechaLimite').val(respuesta.proceso.declaracionGastos.fechaLimite.split('T')[0]);
+                    $('#diasRestantes').val(fecha2.diff(fecha1, 'days'));
+                    $('#totalSolicitado').val(formatoNumero(respuesta.proceso.solicitud.monto));
+                    $('#totalDocumentos').val(formatoNumero(respuesta.proceso.declaracionGastos.totalDocumentacion));
+                    $('#totalRendido').val(formatoNumero(respuesta.proceso.declaracionGastos.totalRendido));
+                    $('#unidad').val(respuesta.proceso.direccion.nombreInstitucion);
+                    $('#jefeDirecto').val(respuesta.proceso.direccion.nombre);
+                    $('#fonoAnexo').val(respuesta.proceso.direccion.fonoAnexo);
+                    $('#responsable').val(respuesta.proceso.responsable.nombre);
+                    $('#runResponsable').val(formatearRut(respuesta.proceso.responsable.run));
+                    $('#emailResponsable').val(respuesta.proceso.responsable.email);
+                    verOpciones(respuesta.proceso.estado);
+                }
+            }); 
+            
+        }
+
+        function formatoNumero(num)
+        {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
         }
 
         function verOpciones(opcion)
@@ -215,7 +294,18 @@
             $('#documentacion').click(function (e)
             {
                 e.preventDefault();
-                alert('Ver documentación de la declaración de gastos');
+                var tipoEvento = procesoAux.proceso.solicitud.tipoEvento;
+                switch (tipoEvento)
+                {
+                    case 'Grupal':
+                        window.location.href = '/DeclaracionGastos/DocumentacionPersonas';
+                        break;
+                    default:
+                        alert('Tipo de actividad: Masiva');
+                        //window.location.href = '/DeclaracionGastos/Documentos';
+                        break;
+                }
+                
             });
 
             $('#generar').click(function (e)
@@ -240,9 +330,6 @@
             {
                 e.preventDefault();
                 alert('Eliminar documentación de la declaración de gastos');
-                /*$('#title-confirmar-eliminar').text("Eliminar datos");
-                $('#body-confirmar-eliminar').text("¿Está seguro que desea eliminar toda la documentación de la declaración de gastos?");
-                $('#modal-confirmar-eliminar').modal('show');*/
             });
         }
     </script>

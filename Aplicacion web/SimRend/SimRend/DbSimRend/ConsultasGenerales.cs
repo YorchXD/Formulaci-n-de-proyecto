@@ -87,16 +87,19 @@ namespace SimRend.DbSimRend
                         int idSolicitud = Convert.ToInt32(prodData["refSolicitud"]);
                         int idResolucion= Convert.ToInt32(prodData["refResolucion"]);
                         int idDeclaracionGastos = Convert.ToInt32(prodData["refDeclaracionGastos"]);
+                        int idResponsable = Convert.ToInt32(prodData["refResponsable"]);
                         Solicitud solicitud = ConsultaSolicitud.LeerSolicitud(idSolicitud);
                         if (solicitud.NombreResponsable == null)
                         {
-                            solicitud.NombreResponsable = ConsultaSolicitud.LeerResponsable(solicitud.IdResponsable).Nombre;
+                            //solicitud.NombreResponsable = ConsultaSolicitud.LeerResponsable(solicitud.IdResponsable).Nombre;
+                            solicitud.NombreResponsable = ConsultaSolicitud.LeerResponsable(idResponsable).Nombre;
                         }
 
                         Proceso proceso = new Proceso()
                         {
                             Id = Convert.ToInt32(prodData["idFondo"]),
                             Estado = Convert.ToInt32(prodData["estado"]),
+                            Responsable = new Usuario() { Id = idResponsable },
                             Solicitud = solicitud,
                             Resolucion = new Resolucion() { Id = idResolucion },
                             DeclaracionGastos = new DeclaracionGastos() { Id = idDeclaracionGastos }

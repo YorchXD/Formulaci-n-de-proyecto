@@ -48,8 +48,6 @@ namespace SimRend.Controllers
             {
                 return RedirectToAction("Procesos", "Proceso");
             }
-
-
         }
 
         public IActionResult ActualizarResolucion()
@@ -57,31 +55,27 @@ namespace SimRend.Controllers
             return View();
         }
 
+        /*#######################################Proceso de creacion###################################################*/
         [HttpPost]
         public JsonResult CrearResolucion(int NumResolucion, int AnioResolucion, IFormFile Archivo)
         {
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
             string idSolicitud = proceso.Solicitud.Id.ToString();
             string ruta = GuardarArchivoResolucion(Archivo, idSolicitud);
-            int idResolucion = ConsultaResolucion.CrearResolucion(AnioResolucion, NumResolucion, idSolicitud, ruta);
+            List<int> ids = ConsultaResolucion.CrearResolucion(AnioResolucion, NumResolucion, idSolicitud, ruta);
             string msj, titulo;
             bool validar;
-            if (idResolucion > 0)
+            if (ids[0] > 0)
             {
-                proceso.Resolucion = new Resolucion
-                {
-                    AnioResolucion = AnioResolucion,
-                    NumResolucion = NumResolucion,
-                    CopiaDoc = ruta,
-                    Id = idResolucion
-                };
+                proceso.Resolucion = ConsultaResolucion.LeerResolucion(ids[0]);
+                proceso.DeclaracionGastos = ConsultaDeclaracionGastos.LeerDeclaracionGastos(ids[1]);
                 proceso.Estado = 3;
                 HttpContext.Session.SetComplexData("Proceso", proceso);
                 validar = true;
                 titulo = "Datos guardados exitosamente";
                 msj = "Los datos se han guardado exitosamente";
             }
-            else if (idResolucion == -2)
+            else if (ids[0] == -2)
             {
                 validar = false;
                 titulo = "Se ha producido un problema";
@@ -134,9 +128,9 @@ namespace SimRend.Controllers
             }
             return null;
         }
+        /*###################################Fin Proceso de creacion###################################################*/
 
-
-
+        /*#######################################Proceso de Lecturas###################################################*/
         /// <summary>
         /// Se encarga de obtener todos los datos de la resolucion los cuales son el año, el número de 
         /// la resolución y la copia del la resolucion en PDF
@@ -146,25 +140,16 @@ namespace SimRend.Controllers
         public JsonResult LeerResolucion()
         {
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
-            var datos = new 
+            var datos = new
             {
-                Estado=proceso.Estado,
+                Estado = proceso.Estado,
                 Resolucion = proceso.Resolucion
             };
             return Json(datos);
         }
+        /*###################################Fin Proceso de Lecturas###################################################*/
 
-        [HttpGet]
-        public FileResult DescargarResolucion()
-        {
-            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
-            //var ruta = @proceso.Resolucion.CopiaDoc;
-            var fileContent = new System.Net.WebClient().DownloadData(proceso.Resolucion.CopiaDoc);
-            return File(fileContent,
-                        "application/pdf",
-                        "Resolucion.pdf");
-        }
-
+        /*#######################################Proceso de Actualizacion##############################################*/
         [HttpPost]
         public JsonResult ModificarResolucion(int NumResolucion, int AnioResolucion, IFormFile Archivo, Boolean CambioArchivo)
         {
@@ -172,10 +157,10 @@ namespace SimRend.Controllers
             bool validar;
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
 
-            if (proceso.Resolucion.AnioResolucion!= AnioResolucion || proceso.Resolucion.NumResolucion!= NumResolucion || CambioArchivo)
+            if (proceso.Resolucion.AnioResolucion != AnioResolucion || proceso.Resolucion.NumResolucion != NumResolucion || CambioArchivo)
             {
 
-                if(CambioArchivo)
+                if (CambioArchivo)
                 {
                     System.IO.File.Delete(proceso.Resolucion.CopiaDoc);
                     ruta = GuardarArchivoResolucion(Archivo, proceso.Solicitud.Id.ToString());
@@ -186,7 +171,7 @@ namespace SimRend.Controllers
 
                 int respuesta = ConsultaResolucion.ActualizarResolucion(proceso.Resolucion);
 
-                if(respuesta==1)
+                if (respuesta == 1)
                 {
                     HttpContext.Session.SetComplexData("Proceso", proceso);
                     validar = true;
@@ -215,18 +200,20 @@ namespace SimRend.Controllers
 
             return Json(datos);
         }
+        /*###################################Fin Proceso de Actualizacion##############################################*/
 
+        /*#######################################Proceso de Eliminar###################################################*/
         [HttpPost]
         public JsonResult EliminarResolucion()
         {
-            string msj, titulo, carpeta="", carpeta1 = "";
+            string msj, titulo, carpeta = "", carpeta1 = "";
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
-            string [] ruta = proceso.Resolucion.CopiaDoc.Split("\\");
+            string[] ruta = proceso.Resolucion.CopiaDoc.Split("\\");
             Boolean validar = false;
 
-            for(int i = 0; i< ruta.Length - 1; i++)
+            for (int i = 0; i < ruta.Length - 1; i++)
             {
-                if(i < ruta.Length - 2)
+                if (i < ruta.Length - 2)
                 {
                     carpeta = Path.Combine(carpeta, ruta[i]);
                 }
@@ -236,11 +223,11 @@ namespace SimRend.Controllers
             try
             {
                 System.IO.File.Delete(proceso.Resolucion.CopiaDoc);
-                System.IO.Directory.Delete(carpeta1);
-                System.IO.Directory.Delete(carpeta);
+                System.IO.Directory.Delete(carpeta1); //Carpeta resolucion
+                System.IO.Directory.Delete(carpeta); //Carpeta con el id de la solicitud
                 int respuesta = ConsultaResolucion.EliminarResolucion(proceso.Resolucion.Id);
 
-                if(respuesta == 1)
+                if (respuesta == 1)
                 {
                     proceso.Resolucion = null;
                     proceso.Estado = 2;
@@ -256,12 +243,12 @@ namespace SimRend.Controllers
                     msj = "La resolución no se ha podido eliminar. Verifique que tenga conexión a internet e intentelo nuevamente. Si el problema persiste favor de contactarse con soporte.";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex);
                 validar = false;
                 titulo = "Error";
-                msj = "Es probable que no se pueda eliminar la resolucion debido a que la carpeta donde se encuentra la resolucion no se encuentan vacias.";
+                msj = "Es probable que no se pueda eliminar la resolucion debido a que la carpeta donde se encuentra la resolucion no se encuentre vacia.";
             }
 
             var datos = new
@@ -272,6 +259,18 @@ namespace SimRend.Controllers
             };
 
             return Json(datos);
+        }
+        /*###################################Fin Proceso de Eliminar###################################################*/
+
+        [HttpGet]
+        public FileResult DescargarResolucion()
+        {
+            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+            //var ruta = @proceso.Resolucion.CopiaDoc;
+            var fileContent = new System.Net.WebClient().DownloadData(proceso.Resolucion.CopiaDoc);
+            return File(fileContent,
+                        "application/pdf",
+                        "Resolucion.pdf");
         }
     }
 }

@@ -1,0 +1,507 @@
+﻿@{
+    ViewData["Title"] = "Documentación";
+}
+
+<div class="br-pagetitle row">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text wd-auto" style="border:none;">
+                <i class="icon fas fa-plus-square"></i>
+                <h4 style="padding-left:5%">Documentación</h4>
+            </div>
+        </div>
+
+    </div>
+</div><!-- d-flex -->
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+
+        <div class="row row-sm mg-b-20">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="bg-white rounded shadow-base overflow-hidden">
+                    <div class="pd-x-20 pd-t-20 pd-b-20 d-flex align-items-center">
+                        <i class="ion ion-earth tx-80 lh-0 tx-primary op-5"></i>
+                        <div class="mg-l-20">
+                            <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase mg-b-10">Total monto documentación</p>
+                            <p class="tx-32 tx-inverse tx-lato tx-black mg-b-0 lh-1" id="montoDocs"></p>
+                            <span class="tx-12 tx-roboto tx-gray-600"><span id="porcentDocs"></span>% del monto solicitado</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- col-6 -->
+            <div class="col-sm-12 col-md-6 col-lg-6 mg-t-20 mg-lg-t-0 mg-md-t-0">
+                <div class="bg-white rounded shadow-base overflow-hidden">
+                    <div class="pd-x-20 pd-t-20 pd-b-20 d-flex align-items-center">
+                        <i class="ion ion-bag tx-80 lh-0 tx-purple op-5"></i>
+                        <div class="mg-l-20">
+                            <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase mg-b-10">Total monto docs. respons.</p>
+                            <p class="tx-32 tx-inverse tx-lato tx-black mg-b-0 lh-1" id="montoDocsSeccion"></p>
+                            <span class="tx-12 tx-roboto tx-gray-600"><span id="porcentDocsSeccion"></span>% del monto solicitado</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- col-6 -->
+
+            <div class="col-sm-12 col-md-6 col-lg-6 mg-t-20">
+                <div class="bg-white rounded shadow-base overflow-hidden">
+                    <div class="pd-x-20 pd-t-20 pd-b-20 d-flex align-items-center">
+                        <i class="ion ion-monitor tx-80 lh-0 tx-teal op-5"></i>
+                        <div class="mg-l-20">
+                            <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase mg-b-10">Total monto docs. rendido</p>
+                            <p class="tx-32 tx-inverse tx-lato tx-black mg-b-0 lh-1" id="montoDocsSelecTotal"></p>
+                            <span class="tx-12 tx-roboto tx-gray-600"><span id="porcentDocsSelecTotal"></span>% del monto solicitado</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- col-6 -->
+
+            <div class="col-sm-12 col-md-6 col-lg-6 mg-t-20">
+                <div class="bg-white rounded shadow-base overflow-hidden">
+                    <div class="pd-x-20 pd-t-20 pd-b-20 d-flex align-items-center">
+                        <i class="ion ion-monitor tx-80 lh-0 tx-teal op-5"></i>
+                        <div class="mg-l-20">
+                            <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase mg-b-10">Total monto docs. rendido respons.</p>
+                            <p class="tx-32 tx-inverse tx-lato tx-black mg-b-0 lh-1" id="montoDocsSelecParticipante"></p>
+                            <span class="tx-12 tx-roboto tx-gray-600"><span id="porcentDocsSelecParticipante"></span>% del monto solicitado</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- col-6 -->
+        </div><!-- row -->
+
+        <div class="card pd-30 shadow-base bd-0 mg-t-20 mg-b-20">
+            <div class="d-lg-flex justify-content-lg-between align-items-lg-center mg-b-30">
+                <div class="mg-b-20 mg-lg-b-0">
+                    <p class="tx-13 mg-b-0">Responsable de los documentos:</p>
+                    <h4 class="tx-normal tx-roboto tx-inverse mg-b-5" id="datosResponsable"></h4>
+                </div>
+                <button class="modal-effect btn btn-info btn-oblong pd-x-25 pd-y-12" data-effect="effect-just-me" id="documentacion"><i class="fas fa-plus"></i> Agregar Documento</button>
+            </div><!-- row -->
+
+            <div class="table-wrapper">
+                <table id="tablaDocumentacion" class="table display responsive nowrap" width="100%">
+                    <thead class="thead-colored thead-info">
+                        <tr>
+                            <th class="wd-auto" data-priority="0">ID</th>
+                            <th class="wd-auto" data-priority="2">Numero de documento</th>
+                            <th class="wd-auto" data-priority="2">Proveedor</th>
+                            <th class="wd-auto" data-priority="2">Fecha del documento</th>
+                            <th class="wd-auto" data-priority="1">Monto($)</th>
+                            <th class="wd-auto" data-priority="3">Categoría del gasto</th>
+                            <th class="wd-auto" data-priority="3">Tipo de documento</th>
+                            <th class="wd-auto" data-priority="0">Seleccionado</th>
+                            <th class="wd-auto" data-priority="1">Acción</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div><!-- table-wrapper -->
+        </div><!-- card -->
+    </div><!-- br-section-wrapper -->
+    <!-- MODAL ELIMINAR DOCUMENTO -->
+    <div id="modal-alerta-eliminar-documento" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta-eliminar-documento"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta-eliminar-documento"></p>
+                    <button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                        Cancelar
+                    </button>
+                    <button type="button" id="btnConfirmarEliminarDocumento" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL INFORMACION ELIMINACION -->
+    <div id="modal-informacion-eliminacion" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-success tx-semibold mg-b-20" id="title-informacion-eliminacion"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-informacion-eliminacion"></p>
+                    <button type="button" id="btn-DocumentoEliminado" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL ALERTA -->
+    <div id="modal-alerta" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+</div><!-- br-pagebody -->
+
+
+@section scripts {
+    <script src="~/js/toastr.js"></script>
+    <!--script src="http://codeseven.github.com/toastr/toastr.js"></script-->
+    <!--script src="../lib/jquery-steps/build/jquery.steps.min.js"></script-->
+    <script src="../lib/parsleyjs/parsley.min.js"></script>
+    <script src="~/js/jquery.numeric.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+    <script>
+        var idDocumento;
+        var table;
+        $.extend($.fn.dataTable.defaults, {
+            'destroy': true,
+            'responsive': true,
+            'dom': "Bfrtip",
+            'searching': false,
+            'ordering': true,
+            'info': false,
+            'autoWidth': true,
+            'paging': true,
+            'scrollX': false,
+            'lengthChange': false,
+            'processing': true,
+            'iDisplayLength': 5,
+            'language': {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+        });
+
+        $(document).ready(function ()
+        {
+            $('#tablaDocumentacion').DataTable();
+            LeerParticipante();
+        });
+
+        $('#documentacion').click(function (e)
+        {
+            e.preventDefault();
+            window.location.href = '/DeclaracionGastos/CrearDocumento';
+        });
+
+        function LeerParticipante()
+        {
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/LeerParticipante",
+                method: "POST",
+                data: "",
+                success: function (respuesta)
+                {
+                    $('#datosResponsable').text(respuesta.participante.nombre);
+
+                    if (respuesta.participante.documentos != null)
+                    {
+                        insertarDocTabla(respuesta.participante.documentos);
+                    }
+
+                    indicadoresDocumentosCreados(respuesta);
+                    indicadorDocumentosSeleccionados();
+
+                }
+            });
+        }
+
+        function insertarDocTabla(documentos)
+        {
+            //console.log(documentos);
+            table = $('#tablaDocumentacion').DataTable({
+                'data': documentos,
+                'order': [[0, "desc"]],
+                
+                'columns': [
+                    {
+                        "data": "id",
+                    },
+                    { "data": "codigoDocumento" },
+                    { "data": "proveedor" },
+                    {
+                        "data": "fechaDocumento", render: function (d)
+                        {
+                            return d.split("T")[0];
+                        }
+                    },
+                    {
+                        "data": "monto", render: function (d)
+                        {
+                            return formatoNumero(d);
+                        }
+                    },
+                    {
+                        "data": "categoria", render: function (d)
+                        {
+                            return d.nombre;
+                        }
+                    },
+                    { "data": "tipoDocumento" },
+                    {
+                        "data": "estado",
+                        "render": function (d)
+                        {
+                            if (d)
+                            {
+                                //return '<input id="toggle" type="checkbox" checked data-toggle="toggle" onchange="seleccionarDocumento(' + id + ', ' + estado + ')">';
+                                return '<input id="toggle" class="toggle" type="checkbox" checked data-toggle="toggle">';
+                            }
+                            //return '<input id="toggle" type="checkbox" data-toggle="toggle" onchange="seleccionarDocumento(' + id + ', ' + estado + ')">';
+                            return '<input id="toggle" class="toggle" type="checkbox" data-toggle="toggle">';
+                        }
+                    },
+                    {
+                        "data": null,
+                        "render": function (data, type, row, meta)
+                        {
+                            var id = data.id;
+                            var estado = data.estado;
+                            return '<button class="btn btn-success btn-icon rounded-circle mg-r-5 mg-b-10" onclick="verDocumento(' + id +  ')"><div><i class="fas fa-eye"></i></div></button>' +
+                                '<button class="btn btn-warning btn-icon rounded-circle mg-r-5 mg-b-10" onclick="modificarDocumento(' + id +  ')"><div><i class="fas fa-edit"></i></div></button>' +
+                                '<button class="btn btn-danger btn-icon rounded-circle mg-r-5 mg-b-10" onclick="eliminarDocumento(' + id + ', ' + estado + ')"><div><i class="fas fa-trash"></i></div></button>'
+                        }
+                    }
+                ],
+                "fnDrawCallback": function ()
+                {
+                    $('.toggle').bootstrapToggle({
+                        size: 'mini',
+                        on: 'Si',
+                        off: 'No',
+                        onstyle: 'success',
+                        offstyle: 'secondary'
+                    });
+                },
+            });
+        }
+
+        $(document).on("change", "#toggle", function ()
+        {
+            //var data = table.row($(this).parents('tr')).data();
+            //console.log("Datos anteriores");
+            //console.log(data);
+            var checked = $(this).prop('checked') 
+            var estado;
+            if (checked)
+            {
+                estado = 1;
+            }
+            else
+            {
+                estado = 0;
+            }
+
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/DocumentoSeleccionado",
+                method: "POST",
+                data: {
+                    'Estado': estado,
+                    'IdDocumento': table.row($(this).parents('tr')).data().id
+                },
+                success: function (respuesta)
+                {
+                    if (respuesta != 1)
+                    {
+
+                        /*En caso de que se selecciono o deselecciono el documento, se debe volver a su estado inicial */
+                        if (checked)
+                        {
+                            $(this).bootstrapToggle('off');
+                        }
+                        else
+                        {
+                            $(this).bootstrapToggle('on');
+                        }
+                    }
+                    else
+                    {
+                        LeerParticipante();
+                        indicadorDocumentosSeleccionados();
+                    }
+                }
+            });
+        });
+
+        function redondearDecimales(numero, decimales)
+        {
+            numeroRegexp = new RegExp('\\d\\.(\\d){' + decimales + ',}');   // Expresion regular para numeros con un cierto numero de decimales o mas
+            if (numeroRegexp.test(numero))
+            {   // Ya que el numero tiene el numero de decimales requeridos o mas, se realiza el redondeo
+                return Number(numero.toFixed(decimales));
+            } else
+            {
+                return Number(numero.toFixed(decimales)) === 0 ? 0 : numero;  // En valores muy bajos, se comprueba si el numero es 0 (con el redondeo deseado), si no lo es se devuelve el numero otra vez.
+            }
+        }
+
+        function indicadoresDocumentosCreados(datos)
+        {
+            var porcentajeDocumentos = (datos.montoDocs / datos.montoSolicitado) * 100;
+            $('#montoDocs').text('$' + formatoNumero(datos.montoDocs));
+            $('#porcentDocs').text(redondearDecimales(porcentajeDocumentos, 2));
+
+            var montoDocsSeccion = 0;
+            var cantDocumentos = 0;
+            if (datos.participante.documentos != null)
+            {
+                cantDocumentos = datos.participante.documentos.length;
+                for (var j = 0; j < cantDocumentos; j++)
+                {
+                    montoDocsSeccion += datos.participante.documentos[j].monto;
+                }
+            }
+            var porcentajeDocsSeccion = (montoDocsSeccion / datos.montoSolicitado) * 100;
+            $('#montoDocsSeccion').text('$' + formatoNumero(montoDocsSeccion));
+            $('#porcentDocsSeccion').text(redondearDecimales(porcentajeDocsSeccion, 2));
+        }
+
+        function indicadorDocumentosSeleccionados()
+        {
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/DocumentosSeleccionados",
+                method: "POST",
+                data: "",
+                success: function (datos)
+                {
+                    var porcentajeDocsSelec = (datos.montoDocsSelec / datos.montoSolicitado) * 100;
+                    $('#montoDocsSelecTotal').text('$' + formatoNumero(datos.montoDocsSelec));
+                    $('#porcentDocsSelecTotal').text(redondearDecimales(porcentajeDocsSelec, 2));
+
+                    var montoDocsSelecParticipante = 0;
+                    var cantDocumentosSelecParticipante = 0;
+                    if (datos.participante.documentos != null)
+                    {
+                        cantDocumentosSelecParticipante = datos.participante.documentos.length;
+                        for (var j = 0; j < cantDocumentosSelecParticipante; j++)
+                        {
+                            if (datos.participante.documentos[j].estado)
+                            {
+                                montoDocsSelecParticipante += datos.participante.documentos[j].monto;
+                            }
+                            
+                        }
+                    }
+                    var porcentajeDocsSelecParticipante = (montoDocsSelecParticipante / datos.montoSolicitado) * 100;
+                    $('#montoDocsSelecParticipante').text('$' + formatoNumero(montoDocsSelecParticipante));
+                    $('#porcentDocsSelecParticipante').text(redondearDecimales(porcentajeDocsSelecParticipante, 2));
+
+                }
+            });
+        }
+
+        function formatoNumero(num)
+        {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+        }
+
+        function verDocumento(id)
+        {
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/GuardarIdDocumento",
+                method: "POST",
+                data: {
+                    'IdDocumento': id,
+                },
+                success: function (respuesta)
+                {
+                    window.location.href = '/DeclaracionGastos/VerDocumento';
+                }
+            });
+        }
+
+        function modificarDocumento(id)
+        {
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/GuardarIdDocumento",
+                method: "POST",
+                data: {
+                    'IdDocumento': id,
+                },
+                success: function (respuesta)
+                {
+                    window.location.href = '/DeclaracionGastos/ActualizarDocumento';
+                }
+            });
+        }
+
+        function eliminarDocumento(id, estado)
+        {
+            if (estado == 0)
+            {
+                idDocumento = id;
+                $('#title-alerta-eliminar-documento').text("Eliminar documento");
+                $('#body-alerta-eliminar-documento').text("¿Esta seguro que desea eliminar el documento?");
+                $('#modal-alerta-eliminar-documento').modal('show');
+            }
+            else
+            {
+                $('#title-alerta').text("Alerta");
+                $('#body-alerta').text("No se puede eliminar el documento debido a que se encuentra seleccionado para ser declarado como gasto del evento. Si desea eliminarlo, debe dejar el documento como no seleccionado y posteriormente preceder a eliminarlo.");
+                $('#modal-alerta').modal('show');
+            }
+        }
+
+        $('#btnConfirmarEliminarDocumento').click(function (e)
+        {
+            e.preventDefault();
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/EliminarDocumento",
+                method: "POST",
+                data: {
+                    'IdDocumento': idDocumento,
+                },
+                success: function (respuesta)
+                {
+                    $('#modal-alerta-eliminar-documento').modal('hide');
+                    $('#title-informacion-eliminacion').text(respuesta.titulo);
+                    $('#body-informacion-eliminacion').text(respuesta.msj);
+                    $('#modal-informacion-eliminacion').modal('show');
+                }
+            });
+        });
+
+        $('#btn-DocumentoEliminado').click(function (e)
+        {
+            e.preventDefault();
+            $('#modal-informacion-eliminacion').modal('hide');
+            window.location.href = '/DeclaracionGastos/Documentos';
+        });
+    </script>
+}
+

@@ -139,7 +139,7 @@ using SimRend.Models;
             WriteLiteral("    <div class=\"contenedor_formulario\">\r\n        <div class=\"form\">\r\n            \r\n            <div class=\"contenedor_input\">\r\n\r\n                <div class=\"control\">\r\n                    <span>Número de resolución</span>\r\n                    ");
             EndContext();
             BeginContext(1817, 99, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0bb6a6e5892f460f8f4a7c307dd36d33", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "be1cf47a148549baafef8be09f811614", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -165,7 +165,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             WriteLiteral("\r\n                </div>\r\n\r\n                <div class=\"control\">\r\n                    <span>Año de la resolución</span>\r\n                    ");
             EndContext();
             BeginContext(2058, 100, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9db5b596a58c4d16b8f0c4ae42974eb1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4315af88f06547e3b8c29fd1f846ce01", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -191,7 +191,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             WriteLiteral("\r\n                </div>\r\n\r\n                <div class=\"control\">\r\n                    <span>Copia del documento</span>\r\n                    ");
             EndContext();
             BeginContext(2299, 114, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a731f29926e34535b05fc59169bf64b2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cef51fb35ed84ffd9d17c5c72f63b67b", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

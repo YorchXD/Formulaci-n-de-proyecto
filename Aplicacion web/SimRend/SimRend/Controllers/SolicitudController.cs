@@ -175,7 +175,7 @@ namespace SimRend.Controllers
             return Json(new object());
         }
 
-        /*Muestra las categorias que ya han sido registradas en el sistema*/
+        /*Muestra las categorias que aun no han sido registradas en la solicitud*/
         [HttpPost]
         public JsonResult LeerCategorias()
         {
@@ -260,6 +260,7 @@ namespace SimRend.Controllers
                 validacion = true,
                 //mensaje = "Se han guardado los datos satisfactoriamente.",
                 solicitud = proceso.Solicitud,
+                idResponsable = proceso.Responsable.Id,
                 estado = proceso.Estado
             }) ;
         }
@@ -307,7 +308,6 @@ namespace SimRend.Controllers
                     Monto = Monto,
                     FechaInicioEvento = FechaInicio,
                     FechaTerminoEvento = FechaTermino,
-                    IdResponsable = IdResponsable,
                     TipoEvento = TipoEvento,
                     FechaCreacion = DateTime.Now,
                     FechaFinPdf = DateTime.Now,
@@ -330,11 +330,12 @@ namespace SimRend.Controllers
                     Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
                     int idOrganizacion = usuario.IdOrganizacionEstudiantil;
                     int estado = 1; /*Representa que la solicitud esta en estado de edicion*/
-                    solicitud.RefProceso = ConsultaSolicitud.CrearProcesoFondo(idOrganizacion, solicitud.Id, estado); //Agrega el estado en que se encuentra la solicitud
-                    ConsultasGenerales.ActualizarEstadoUsurioRepresentate(solicitud.IdResponsable, "Desabilitado");
+                    solicitud.RefProceso = ConsultaSolicitud.CrearProcesoFondo(idOrganizacion, solicitud.Id, estado, IdResponsable); //Agrega el estado en que se encuentra la solicitud
+                    ConsultasGenerales.ActualizarEstadoUsurioRepresentate(IdResponsable, "Desabilitado");
 
                     proceso = new Proceso()
                     {
+                        Responsable = ConsultaSolicitud.LeerResponsable(IdResponsable),
                         Solicitud = solicitud
                     };
 
@@ -350,13 +351,17 @@ namespace SimRend.Controllers
                 else
                 {
                     Boolean DatosModificados = VerificarCambiosSolicitud(solExistente, solicitud);
-                    if (DatosModificados)
+                    if (DatosModificados && proceso.Responsable.Id!= IdResponsable)
                     {
                         solicitud.Id = solExistente.Id;
                         ConsultaSolicitud.ModificarSolicitud(solicitud);
-                        if (solExistente.IdResponsable != solicitud.IdResponsable)
+                        ConsultaSolicitud.ModificarResponsableFondo(solicitud.Id, IdResponsable);
+
+                        if (proceso.Responsable.Id != IdResponsable)
                         {
-                            ConsultasGenerales.ActualizarEstadoUsurioRepresentate(solicitud.IdResponsable, "Habilitado");
+                            ConsultasGenerales.ActualizarEstadoUsurioRepresentate(proceso.Responsable.Id, "Habilitado");
+                            ConsultasGenerales.ActualizarEstadoUsurioRepresentate(IdResponsable, "Desabilitado");
+                            proceso.Responsable = ConsultaSolicitud.LeerResponsable(IdResponsable);
                         }
                         proceso.Solicitud = solicitud;
                         HttpContext.Session.SetComplexData("Proceso", proceso);
@@ -396,7 +401,7 @@ namespace SimRend.Controllers
         {
             if (!solExistente.NombreEvento.Equals(solNueva.NombreEvento) || !solExistente.LugarEvento.Equals(solNueva.LugarEvento) ||
                 solExistente.Monto != solNueva.Monto || solExistente.FechaInicioEvento != solNueva.FechaInicioEvento ||
-                solExistente.FechaTerminoEvento != solNueva.FechaTerminoEvento || solExistente.IdResponsable != solNueva.IdResponsable ||
+                solExistente.FechaTerminoEvento != solNueva.FechaTerminoEvento  ||
                 !solExistente.TipoEvento.Equals(solNueva.TipoEvento))
             {
                 return true;
@@ -408,7 +413,14 @@ namespace SimRend.Controllers
         public JsonResult ActualizarEstadoProceso()
         {
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
-            return Json( ConsultasGenerales.ActualizarEstadoProceso(2, proceso.Solicitud.Id, "Solicitud"));
+            Boolean validar = ConsultasGenerales.ActualizarEstadoProceso(2, proceso.Solicitud.Id, "Solicitud");
+            if(validar)
+            {
+                proceso.Estado = 2;
+                HttpContext.Session.SetComplexData("Proceso", proceso);
+            }
+            
+            return Json(validar);
         }
 
         /*###################################Fin Proceso de Actualizacion##############################################*/
@@ -515,7 +527,11 @@ namespace SimRend.Controllers
             proceso.Solicitud.FechaPdf = proceso.Solicitud.FechaFinPdf.ToString("D", new System.Globalization.CultureInfo("es-ES"));
             proceso.Solicitud.Categorias = ConsultaSolicitud.LeerCategoriasSeleccionadas(procesoAux.Solicitud.Id);
             proceso.Solicitud.Participantes = ConsultaSolicitud.LeerParticipantes(procesoAux.Solicitud.Id);
-            proceso.Responsable = ConsultaSolicitud.LeerResponsableSolicitud(proceso.Solicitud.IdResponsable);
+            
+            
+            proceso.Responsable = ConsultaSolicitud.LeerResponsableSolicitud(procesoAux.Responsable.Id);
+            
+            
             proceso.Organizacion = ConsultaSolicitud.LeerOrganizacion(procesoAux.Solicitud.Id);
             proceso.Direccion = ConsultaSolicitud.LeerDireccion(procesoAux.Solicitud.Id);
 

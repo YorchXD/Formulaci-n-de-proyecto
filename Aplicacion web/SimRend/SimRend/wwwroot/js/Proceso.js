@@ -70,9 +70,10 @@
                     var idSolicitud = data.solicitud.id;
                     var idResolucion = data.resolucion.id;
                     var idDeclaracionGastos = data.declaracionGastos.id;
+                    var idResponsable = data.responsable.id;
                     var estado = data.estado;
 
-                    return '<button class="btn btn-success btn-icon rounded-circle mg-r-5 mg-b-10" onclick="ver(' + idSolicitud + ', ' + idResolucion + ', ' + idDeclaracionGastos + ', ' + estado + ')"><div><i class="fas fa-eye"></i></div></button>' +
+                    return '<button class="btn btn-success btn-icon rounded-circle mg-r-5 mg-b-10" onclick="ver(' + idSolicitud + ', ' + idResolucion + ', ' + idDeclaracionGastos + ', ' + idResponsable + ', ' + estado+ ')"><div><i class="fas fa-eye"></i></div></button>' +
                         //'<button class="btn btn-warning btn-icon rounded-circle mg-r-5 mg-b-10" onclick="modificar(' + idSolicitud + ', ' + idResolucion + ', ' + idDeclaracionGastos +')"><div><i class="fas fa-edit"></i></div></button>' +
                         '<button class="btn btn-danger btn-icon rounded-circle mg-r-5 mg-b-10" onclick="eliminar(' + idSolicitud + ', ' + idResolucion + ', ' + idDeclaracionGastos + ')"><div><i class="fas fa-trash"></i></div></button>'
                 }
@@ -83,7 +84,7 @@
 }
 
 
-function ver(idSolicitud, idResolucion, idDeclaracionGastos, estado)
+function ver(idSolicitud, idResolucion, idDeclaracionGastos, idResponsable , estado)
 {
     //console.log(idSolicitud + ", " + idResolucion + ", " + idDeclaracionGastos);
     $.ajax({
@@ -94,6 +95,7 @@ function ver(idSolicitud, idResolucion, idDeclaracionGastos, estado)
             'IdSolicitud': idSolicitud,
             'IdResolucion': idResolucion,
             'IdDeclaracionGastos': idDeclaracionGastos,
+            'IdResponsable': idResponsable,
             'Estado': estado,
         },
         success: function (respuesta){

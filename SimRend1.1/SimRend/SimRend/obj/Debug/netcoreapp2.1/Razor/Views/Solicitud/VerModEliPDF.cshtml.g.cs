@@ -83,7 +83,7 @@ using SimRend.Models;
             WriteLiteral("\r\n<div style=\"background-color:white;margin-bottom:10px; padding: 14px 35px; overflow-y: scroll; display: inline-block; height: 450px; width: 95%\">\r\n    <DIV ALIGN=\"center\" style=\"margin-top: -10px\"> ");
             EndContext();
             BeginContext(622, 79, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "66b841e7bf1e4f839de13cc910df98e7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "6106585b638f47d9b471d6aba039e487", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

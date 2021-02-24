@@ -17,6 +17,7 @@ namespace SimRend.Controllers
         {
             CrearCarpetaOrganizacion();
             HttpContext.Session.SetComplexData("Proceso", null);
+            HttpContext.Session.SetComplexData("IdParticipante", null);
             /*HttpContext.Session.SetComplexData("Solicitud", null);
             HttpContext.Session.SetComplexData("idSolicitud", null);
             HttpContext.Session.SetComplexData("idResolucion", null);
@@ -50,26 +51,45 @@ namespace SimRend.Controllers
         /// <param name="IdDeclaracionGastos"></param>
         /// <param name="Estado"></param>
         [HttpPost]
-        public void GuardarId(int IdSolicitud, int IdResolucion, int IdDeclaracionGastos, int Estado)
+        public void GuardarId(int IdSolicitud, int IdResolucion, int IdDeclaracionGastos, int IdResponsable, int Estado)
         {
             //HttpContext.Session.SetComplexData("idSolicitud", IdSolicitud);
             Proceso proceso = new Proceso();
             proceso.Estado = Estado;
             proceso.Solicitud = ConsultaSolicitud.LeerSolicitud(IdSolicitud);
+            proceso.Responsable = ConsultaSolicitud.LeerResponsable(IdResponsable);
+            proceso.Direccion = ConsultaSolicitud.LeerDireccion(IdSolicitud);
+            proceso.Solicitud.Categorias = ConsultaSolicitud.LeerCategoriasSeleccionadas(IdSolicitud);
+
             if (proceso.Solicitud.NombreResponsable == null)
             {
-                proceso.Solicitud.NombreResponsable = ConsultaSolicitud.LeerResponsable(proceso.Solicitud.IdResponsable).Nombre;
+                proceso.Solicitud.NombreResponsable = ConsultaSolicitud.LeerResponsable(IdResponsable).Nombre;
             }
+
+            if(proceso.Solicitud.TipoEvento == "Grupal" && proceso.Solicitud.Participantes==null)
+            {
+                proceso.Solicitud.Participantes = ConsultaSolicitud.LeerParticipantes(proceso.Solicitud.Id);
+            }
+            
+            if(proceso.Solicitud.Participantes == null)
+            {
+                proceso.Solicitud.Participantes = new List<Persona>();
+            }
+
+            proceso.Solicitud.Participantes.Add(new Persona()
+            {
+                Nombre = "Documentos en conjunto",
+                RUN = "-1"
+            });
 
             if (IdResolucion!=-1)
             {
-                //HttpContext.Session.SetComplexData("idResolucion", IdResolucion);
                 proceso.Resolucion = ConsultaResolucion.LeerResolucion(IdResolucion);
             }
 
             if(IdDeclaracionGastos!=-1)
             {
-                HttpContext.Session.SetComplexData("idDeclaracionGastos", IdDeclaracionGastos);
+                proceso.DeclaracionGastos = ConsultaDeclaracionGastos.LeerDeclaracionGastos(IdDeclaracionGastos);
             }
             HttpContext.Session.SetComplexData("Proceso", proceso);
         }

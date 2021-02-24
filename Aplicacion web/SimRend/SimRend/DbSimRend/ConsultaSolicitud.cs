@@ -21,7 +21,6 @@ namespace SimRend.DbSimRend
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_nombreEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.NombreEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaInicioEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaInicioEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaTerminoEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaTerminoEvento });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refResponsable", Direction = System.Data.ParameterDirection.Input, Value = solicitud.IdResponsable });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_lugarEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.LugarEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_tipoActividad", Direction = System.Data.ParameterDirection.Input, Value = solicitud.TipoEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaCreacionPDF", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaFinPdf });
@@ -38,7 +37,7 @@ namespace SimRend.DbSimRend
             return -1;
         }
 
-        public static int CrearProcesoFondo(int refOrganizacion, int refSolicitud, int estado)
+        public static int CrearProcesoFondo(int refOrganizacion, int refSolicitud, int estado, int refResponsable)
         {
             try
             {
@@ -46,6 +45,7 @@ namespace SimRend.DbSimRend
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refOrganizacion", Direction = System.Data.ParameterDirection.Input, Value = refOrganizacion });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = refSolicitud });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_estado", Direction = System.Data.ParameterDirection.Input, Value = estado });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refResponsable", Direction = System.Data.ParameterDirection.Input, Value = refResponsable });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
                 var datos = ContexDb.ExecuteProcedure(command);
 
@@ -212,7 +212,7 @@ namespace SimRend.DbSimRend
                         Monto = Convert.ToInt32(prodData["monto"]),
                         FechaInicioEvento = Convert.ToDateTime(prodData["fecIniEvent"]),
                         FechaTerminoEvento = Convert.ToDateTime(prodData["fecTerEvent"]),
-                        IdResponsable = Convert.ToInt32(prodData["refResponsable"]),
+                        //IdResponsable = Convert.ToInt32(prodData["refResponsable"]),
                         TipoEvento = prodData["tipoActividad"].ToString(),
                         RefProceso = Convert.ToInt32(prodData["idFondo"]),
                         FechaFinPdf = Convert.ToDateTime(prodData["fechaCreacionPDF"])/*,
@@ -367,7 +367,8 @@ namespace SimRend.DbSimRend
                         Nombre = prodData["nombre"].ToString(),
                         Cargo = prodData["cargo"].ToString(),
                         NombreInstitucion = prodData["nombreInstitucion"].ToString(),
-                        Sexo = prodData["sexo"].ToString()
+                        Sexo = prodData["sexo"].ToString(),
+                        FonoAnexo = Convert.ToInt32(prodData["fonoAnexo"])
                     };
 
                     return direccion;
@@ -421,7 +422,12 @@ namespace SimRend.DbSimRend
                     responsable = new Usuario()
                     {
                         Id = Convert.ToInt32(prodData["id"]),
-                        Nombre = prodData["nombre"].ToString()
+                        Nombre = prodData["nombre"].ToString(),
+                        RUN = prodData["run"].ToString(),
+                        NombreRol = prodData["cargo"].ToString(),
+                        Carrera = prodData["carrera"].ToString(),
+                        Matricula = Convert.ToInt32(prodData["matricula"]),
+                        Email = prodData["email"].ToString()
                     };
                     return responsable;
                 }
@@ -433,7 +439,7 @@ namespace SimRend.DbSimRend
             return null;
         }
 
-        public static Responsable LeerResponsableSolicitud(int refResponsable)
+        public static Usuario LeerResponsableSolicitud(int refResponsable)
         {
             try
             {
@@ -442,14 +448,14 @@ namespace SimRend.DbSimRend
                 var datos = ContexDb.GetDataSet(command);
                 if (datos.Tables[0].Rows.Count == 1)
                 {
-                    Responsable responsable;
+                    Usuario responsable;
                     var prodData = datos.Tables[0].Rows[0];
-                    responsable = new Responsable()
+                    responsable = new Usuario()
                     {
                         Nombre = prodData["nombre"].ToString(),
                         RUN = prodData["run"].ToString(),
                         Carrera = prodData["carrera"].ToString(),
-                        Cargo = prodData["cargo"].ToString(),
+                        NombreRol = prodData["cargo"].ToString(),
                         Matricula = Convert.ToInt32(prodData["matricula"])
                     };
                     return responsable;
@@ -518,7 +524,6 @@ namespace SimRend.DbSimRend
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_nombreEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.NombreEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaInicioEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaInicioEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaTerminoEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaTerminoEvento });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refResponsable", Direction = System.Data.ParameterDirection.Input, Value = solicitud.IdResponsable });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_lugarEvento", Direction = System.Data.ParameterDirection.Input, Value = solicitud.LugarEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_tipoActividad", Direction = System.Data.ParameterDirection.Input, Value = solicitud.TipoEvento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaCreacionPDF", Direction = System.Data.ParameterDirection.Input, Value = solicitud.FechaFinPdf });
@@ -530,6 +535,22 @@ namespace SimRend.DbSimRend
             {
                 Console.WriteLine(ex.ToString());
             }
+        }
+
+        public static void ModificarResponsableFondo(int RefSolicitud, int RefResponsable)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "Modificar_responsable_proceso", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = RefSolicitud });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refResponsable", Direction = System.Data.ParameterDirection.Input, Value = RefResponsable });
+                var datos = ContexDb.ExecuteProcedure(command);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+    
         }
 
         /*###########################################Fin actualizar Solicitud################################################*/

@@ -13,22 +13,23 @@
 
     <!-- vendor css -->
 
-    <link href="~/lib/_fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet"/>
-    <link href="~/lib/ionicons/css/ionicons.min.css" rel="stylesheet"/>
+    <link href="~/lib/_fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="~/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-   
-    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet"/>
+
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
     <link href="~/lib/select2/css/select2-bootstrap4.min.css" rel="stylesheet" />
 
-    <link href="~/lib/highlightjs/styles/github.css" rel="stylesheet"/>
+    <link href="~/lib/highlightjs/styles/github.css" rel="stylesheet" />
     <link href="~/css/perfect-scrollbar.min.css" rel="stylesheet" />
     <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.7/css/perfect-scrollbar.min.css" /-->
-    <link href="~/lib/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet"/>
-    <link href="~/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet"/>
+    <link href="~/lib/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/lib/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet" />
     <link href="~/css/toastr.css" rel="stylesheet" />
 
     <!-- Bracket CSS -->
-    <link rel="stylesheet" href="~/css/bracket.css"/>
+    <link rel="stylesheet" href="~/css/bracket.css" />
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -258,11 +259,14 @@
     <script src="~/lib/moment/min/moment.min.js"></script>
     <script src="~/lib/peity/jquery.peity.min.js"></script>
 
+
     <script src="~/lib/jquery.flot/jquery.flot.js"></script>
     <script src="~/lib/jquery.flot/jquery.flot.resize.js"></script>
     <script src="~/lib/flot-spline/js/jquery.flot.spline.min.js"></script>
     <script src="~/lib/jquery-sparkline/jquery.sparkline.min.js"></script>
     <script src="~/lib/echarts/echarts.min.js"></script>
+
+
     <script src="~/lib/select2/js/select2.full.min.js"></script>
     <script src="~/lib/datatables.net/js/jquery.dataTables.min.js"></script>
     <!--script src="../lib/datatables.net-dt/js/dataTables.dataTables.min.js"></script-->
@@ -272,30 +276,39 @@
     <script src="~/lib/jquery-ui/ui/widgets/datepicker.js"></script>
     <script src="~/lib/jquery-ui/ui/i18n/datepicker-es.js"></script>
 
+
+    @RenderSection("Scripts", required: false)
+
+
+
     <script src="~/js/bracket.js"></script>
     <script src="~/js/ResizeSensor.js"></script>
-    @RenderSection("Scripts", required: false)
     <script>
-        $(function () {
+        $(function ()
+        {
             'use strict'
 
             // FOR DEMO ONLY
             // menu collapsed by default during first page load or refresh with screen
             // having a size between 992px and 1299px. This is intended on this page only
             // for better viewing of widgets demo.
-            $(window).resize(function () {
+            $(window).resize(function ()
+            {
                 minimizeMenu();
             });
 
             minimizeMenu();
 
-            function minimizeMenu() {
-                if (window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
+            function minimizeMenu()
+            {
+                if (window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches)
+                {
                     // show only the icons and hide left menu label by default
                     $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
                     $('body').addClass('collapsed-menu');
                     $('.show-sub + .br-menu-sub').slideUp();
-                } else if (window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
+                } else if (window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu'))
+                {
                     $('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
                     $('body').removeClass('collapsed-menu');
                     $('.show-sub + .br-menu-sub').slideDown();
@@ -303,7 +316,8 @@
             }
         });
 
-        $(".br-sideleft-menu a").click(function () {
+        $(".br-sideleft-menu a").click(function ()
+        {
             $('a').removeClass('active');
             $(this).addClass("active");
         });
@@ -321,21 +335,26 @@
             });
         });
 
-        $(document).ready(function () {
+        $(document).ready(function ()
+        {
             //$('a').removeClass('active');
             var botonMenuActivo;
-            if (window.location.pathname === '/Resolucion/Resolucion') {
+            if (window.location.pathname === '/Resolucion/Resolucion')
+            {
                 botonMenuActivo = '#resumen';
             }
-            else if (window.location.pathname === '/Proceso/Procesos') {
+            else if (window.location.pathname === '/Proceso/Procesos')
+            {
                 botonMenuActivo = '#solicitudes';
             }
-            else if (window.location.pathname === '/Solicitud/CrearSolicitud') {
+            else if (window.location.pathname === '/Solicitud/CrearSolicitud')
+            {
                 botonMenuActivo = '#crearSolicitud';
             }
             $(botonMenuActivo).addClass('active');
         });
     </script>
+
 
 </body>
 </html>

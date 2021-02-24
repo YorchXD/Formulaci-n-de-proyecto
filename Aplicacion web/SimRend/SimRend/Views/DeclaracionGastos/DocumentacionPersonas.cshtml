@@ -1,0 +1,267 @@
+﻿@{
+    ViewData["Title"] = "Documentación";
+}
+
+<div class="br-pagetitle row">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text wd-auto" style="border:none;">
+                <i class="icon fas fa-plus-square"></i>
+                <h4 style="padding-left:5%">Documentación</h4>
+            </div>
+        </div>
+
+    </div>
+</div><!-- d-flex -->
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+
+        <div class="row row-sm mg-b-20">
+            <div class="col-sm-12 col-lg-6">
+                <div class="bg-white rounded shadow-base overflow-hidden">
+                    <div class="pd-x-20 pd-t-20 pd-b-20 d-flex align-items-center">
+                        <i class="ion ion-earth tx-80 lh-0 tx-primary op-5"></i>
+                        <div class="mg-l-20">
+                            <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase mg-b-10">Total monto documentación</p>
+                            <p class="tx-32 tx-inverse tx-lato tx-black mg-b-0 lh-1" id="montoDocs"></p>
+                            <span class="tx-12 tx-roboto tx-gray-600"><span id="porcentDocs"></span>% del monto solicitado</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- col-6 -->
+
+            <div class="col-sm-12 col-lg-6 mg-t-20 mg-lg-t-0">
+                <div class="bg-white rounded shadow-base overflow-hidden">
+                    <div class="pd-x-20 pd-t-20 pd-b-20 d-flex align-items-center">
+                        <i class="ion ion-bag tx-80 lh-0 tx-purple op-5"></i>
+                        <div class="mg-l-20">
+                            <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase mg-b-10">Total monto docs. rendido</p>
+                            <p class="tx-32 tx-inverse tx-lato tx-black mg-b-0 lh-1" id="montoDocsSelecTotal"></p>
+                            <span class="tx-12 tx-roboto tx-gray-600"><span id="porcentDocsSelecTotal"></span>% del monto solicitado</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- col-6 -->
+        </div><!-- row -->
+
+        <div class="table-wrapper">
+            <table id="tablaParticipantes" class="table display responsive nowrap" width="100%">
+                <thead class="thead-colored thead-info">
+                    <tr>
+                        <th class="wd-auto">Participantes</th>
+                        <th class="wd-auto">Monto documentación($)</th>
+                        <th class="wd-auto">Monto rendido($)</th>
+                        <th class="wd-auto">Acción</th>
+                    </tr>
+                </thead>
+            </table>
+        </div><!-- table-wrapper -->
+
+    </div><!-- br-section-wrapper -->
+</div><!-- br-pagebody -->
+
+
+@section scripts {
+    <script src="~/js/toastr.js"></script>
+    <!--script src="http://codeseven.github.com/toastr/toastr.js"></script-->
+    <script src="../lib/jquery-steps/build/jquery.steps.js"></script>
+    <!--script src="../lib/jquery-steps/build/jquery.steps.min.js"></script-->
+    <script src="../lib/parsleyjs/parsley.min.js"></script>
+    <script src="../lib/parsleyjs/i18n/es.js"></script>
+    <script src="~/js/jquery.numeric.js"></script>
+    <script src="../lib/jquery.maskedinput/jquery.maskedinput.js"></script>
+
+    <div>
+        <script>
+            $.extend($.fn.dataTable.defaults, {
+                'destroy': true,
+                'responsive': true,
+                'dom': "Bfrtip",
+                'searching': false,
+                'ordering': true,
+                'info': false,
+                'autoWidth': true,
+                'paging': true,
+                'scrollX': false,
+                'lengthChange': false,
+                'processing': true,
+                'iDisplayLength': 5,
+                'language': {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                    "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ Entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+
+            $(document).ready(function ()
+            {
+                $('#tablaParticipantes').DataTable();
+                obtenerDatos();
+            });
+
+            function obtenerDatos()
+            {
+                $.ajax({
+                    async: false,
+                    url: "/DeclaracionGastos/LeerParticipantes",
+                    method: "POST",
+                    data: "",
+                    success: function (respuesta)
+                    {
+                        participantes(respuesta.participantes);
+                        indicadores(respuesta);
+                    }
+                });
+            }
+
+            function participantes(datosParticipantes)
+            {
+                $('#tablaParticipantes').DataTable({
+                    'data': datosParticipantes,
+                    'columns': [
+                        { "data": "nombre" },
+                        {
+                            "data": 'documentos',
+                            "render": function (data, type, row, meta)
+                            {
+                                var monto = 0;
+                                for (var index = 0; data!=null && index < data.length; index++)
+                                {
+                                    monto += data[index].monto;
+                                }
+                                return formatoNumero(monto);
+                            }
+                        },
+                        {
+                            "data": 'documentos',
+                            "render": function (data, type, row, meta)
+                            {
+                                var monto = 0;
+                                for (var index = 0; data != null && index < data.length; index++)
+                                {
+                                    if (data[index].estado)
+                                    {
+                                        monto += data[index].monto;
+                                    }
+                                }
+                                return formatoNumero(monto);
+                            }
+                        },
+                        {
+                            "data": 'run',
+                            "render": function (data, type, row, meta)
+                            {
+                                return '<button class="btn btn-success btn-icon rounded-circle mg-r-5 mg-b-10" onclick="ver(\'' + data.toString() + '\')"><div><i class="fas fa-eye"></i></div></button>' +
+                                    //'<button class="btn btn-warning btn-icon rounded-circle mg-r-5 mg-b-10" onclick="modificar(' + idSolicitud + ', ' + idResolucion + ', ' + idDeclaracionGastos +')"><div><i class="fas fa-edit"></i></div></button>' +
+                                    '<button class="btn btn-danger btn-icon rounded-circle mg-r-5 mg-b-10" onclick="eliminar(\'' + data.toString() + '\')"><div><i class="fas fa-trash"></i></div></button>'
+                            }
+                        }
+                    ]
+                })
+            }
+
+            function indicadores(datos)
+            {
+                //console.log(datos);
+                var montoDocs = 0;
+                var montoDocsSelec = 0;
+                var cantParticipantes = datos.participantes.length;
+
+                for (var i = 0; i < cantParticipantes; i++)
+                {
+                    if (datos.participantes[i].documentos != null)
+                    {
+                        var cantDocumentos = datos.participantes[i].documentos.length;
+                        for (var j = 0; j < cantDocumentos; j++)
+                        {
+                            montoDocs += datos.participantes[i].documentos[j].monto;
+                            if (datos.participantes[i].documentos[j].estado)
+                            {
+                                montoDocsSelec += datos.participantes[i].documentos[j].monto
+                            }
+                        }
+                    }
+                    
+                }
+                var porcentajeDocumentos = (montoDocs / datos.montoSolicitado) * 100;
+
+                $('#montoDocs').text('$' + formatoNumero(montoDocs));
+                $('#porcentDocs').text(redondearDecimales(porcentajeDocumentos, 2));
+
+
+                var porcentajeDocsSelec = (montoDocsSelec / datos.montoSolicitado) * 100;
+                $('#montoDocsSelecTotal').text('$' + formatoNumero(montoDocsSelec));
+                $('#porcentDocsSelecTotal').text(redondearDecimales(porcentajeDocsSelec, 2));
+            }
+
+            function redondearDecimales(numero, decimales)
+            {
+                numeroRegexp = new RegExp('\\d\\.(\\d){' + decimales + ',}');   // Expresion regular para numeros con un cierto numero de decimales o mas
+                if (numeroRegexp.test(numero))
+                {         // Ya que el numero tiene el numero de decimales requeridos o mas, se realiza el redondeo
+                    return Number(numero.toFixed(decimales));
+                } else
+                {
+                    return Number(numero.toFixed(decimales)) === 0 ? 0 : numero;  // En valores muy bajos, se comprueba si el numero es 0 (con el redondeo deseado), si no lo es se devuelve el numero otra vez.
+                }
+            }
+
+            function ver(idParticipante)
+            {
+                $.ajax({
+                    async: false,
+                    url: "/DeclaracionGastos/GuardarIdParticipante",
+                    method: "POST",
+                    data: {
+                        'IdParticipante': idParticipante,
+                    },
+                    success: function (respuesta)
+                    {
+                        window.location.href = '/DeclaracionGastos/Documentos';
+                    }
+                });
+
+            }
+
+            function formatoNumero(num)
+            {
+                return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+            }
+
+            function eliminar(idParticipante)
+            {
+                alert("Eliminar documentos participante: " + idParticipante);
+                /*$.ajax({
+                    async: false,
+                    url: "/DeclaracionGastos/GuardarIdParticipante",
+                    method: "POST",
+                    data: {
+                        'IdParticipante': idParticipante,
+                    },
+                    success: function (respuesta)
+                    {
+                        window.location.href = '/DeclaracionGastos/Documentos';
+                    }
+                });*/
+
+            }
+        </script>
+    </div>
+}
+

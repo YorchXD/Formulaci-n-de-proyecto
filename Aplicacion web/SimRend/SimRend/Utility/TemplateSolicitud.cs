@@ -53,11 +53,11 @@ namespace SimRend.Utility
 
             if (proceso.Organizacion.Tipo.Equals("CAA"))
             {
-                pagina += "<P>Junto con saludar cordialmente, me dirijo a usted como " + proceso.Responsable.Cargo + " del centro de alumnos de  " + proceso.Responsable.Carrera + ", para solicitarle apoyo económico con el fin de realizar la actividad estudiantil que se indica a continuación:</P>";
+                pagina += "<P>Junto con saludar cordialmente, me dirijo a usted como " + proceso.Responsable.NombreRol + " del centro de alumnos de  " + proceso.Responsable.Carrera + ", para solicitarle apoyo económico con el fin de realizar la actividad estudiantil que se indica a continuación:</P>";
             }
             else
             {
-                pagina += "<P>Junto con saludar cordialmente, me dirijo a usted como " + proceso.Responsable.Cargo + " de " + proceso.Organizacion.Nombre + ", para solicitarle apoyo económico con el fin de realizar la actividad estudiantil que se indica a continuación:</P>";
+                pagina += "<P>Junto con saludar cordialmente, me dirijo a usted como " + proceso.Responsable.NombreRol + " de " + proceso.Organizacion.Nombre + ", para solicitarle apoyo económico con el fin de realizar la actividad estudiantil que se indica a continuación:</P>";
             }
 
             pagina += "<ul><li><B>Nombre de la actividad: </B>" + proceso.Solicitud.NombreEvento + ".</li>";
@@ -98,19 +98,19 @@ namespace SimRend.Utility
             if (proceso.Organizacion.Tipo.Equals("CAA"))
             {
                 pagina += "<P>Dicho monto quedará bajo la responsabilidad de " + proceso.Responsable.Nombre + ", RUT " + FormatearRut(proceso.Responsable.RUN);
-                pagina += ", matrícula " + proceso.Responsable.Matricula + ", en su calidad de " + proceso.Responsable.Cargo;
+                pagina += ", matrícula " + proceso.Responsable.Matricula + ", en su calidad de " + proceso.Responsable.NombreRol;
                 pagina += " del Centro de Alumnos de " + proceso.Responsable.Carrera + " de la Universidad de Talca. </P>";
             }
             else
             {
                 pagina += "<P>Dicho monto quedará bajo la responsabilidad de " + proceso.Responsable.Nombre + ", RUT " + FormatearRut(proceso.Responsable.RUN);
-                pagina += ", matrícula " + proceso.Responsable.Matricula + ", en su calidad de  " + proceso.Responsable.Cargo + " de ";
+                pagina += ", matrícula " + proceso.Responsable.Matricula + ", en su calidad de  " + proceso.Responsable.NombreRol + " de ";
                 pagina += proceso.Organizacion.Nombre + " de la Universidad de Talca.</P>";
             }
 
             pagina += "<P>Esperando una buena acogida y una pronta respuesta de esta solicitud, se despide atentamente de usted.</P>";
             pagina += "<DIV ALIGN='center' style='padding-top:80px;'><P style='line-height:3px'><B>" + proceso.Responsable.Nombre + "</B></P>";
-            pagina += "<P style='line-height:3px'>" + proceso.Responsable.Cargo + "</P>";
+            pagina += "<P style='line-height:3px'>" + proceso.Responsable.NombreRol + "</P>";
 
             if (proceso.Organizacion.Tipo.Equals("CAA"))
             {
@@ -129,8 +129,7 @@ namespace SimRend.Utility
         // rutina que formatea con separadores de miles y agrega el guion
         public static string FormatearRut(string rut)
         {
-            string rutFormateado = string.Empty;
-
+            string rutFormateado;
             if (rut.Length == 0)
             {
                 rutFormateado = "";
@@ -175,7 +174,6 @@ namespace SimRend.Utility
                     }
                 }
             }
-
             return rutFormateado;
         }
     }

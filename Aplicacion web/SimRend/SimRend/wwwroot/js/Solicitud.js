@@ -100,11 +100,12 @@ $('#wizard6').steps({
 
                 if (nombreEvento.isValid() && lugarEvento.isValid() && monto.isValid()
                     && fechaInicio.isValid() && fechaTermino.isValid() && responsable.isValid() && tipoEvento.isValid()) {
-
+                    //console.log($("#monto").val().replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ""));
                     var datos = {
                         'NombreEvento': $("#nombreEvento").val(),
                         'LugarEvento': $("#lugarEvento").val(),
-                        'Monto': $("#monto").val(),
+                        'Monto': $("#monto").val().replace(/\D/g, "")
+                            .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ""),
                         'FechaInicio': $("#fechaInicio").val(),
                         'FechaTermino': $("#fechaTermino").val(),
                         'IdResponsable': $("#responsable").val(),
@@ -646,7 +647,7 @@ function ingresarDatos() {
             $("#fechaTermino").val(solicitud.fechaTerminoEvento.split("T")[0]);
             /*Fin de registro minimo y maximo de fechas*/
 
-            obtenerResponsablesActualizar(solicitud.idResponsable);
+            obtenerResponsablesActualizar(respuesta.idResponsable);
             $('#tipoEvento > option[value="' + solicitud.tipoEvento + '"]').attr('selected', 'selected');
             
             /*if (solicitud.tipoEvento == 'Grupal') {
@@ -706,10 +707,6 @@ function obtenerResponsablesActualizar(idResponsable) {
     });
 }
 
-function modificarParticipante(run) 
-{
-    alert("Se modifica el participante con el run" + run)
-}
 
 function actualizarEstadoProceso() {
     $.ajax({
@@ -845,4 +842,9 @@ function activadorFechas()
     {
         $("#fechaTermino").datepicker("option", "disabled", false);
     }
+}
+
+function modificarParticipante(run) 
+{
+    alert("Se modifica el participante con el run" + run)
 }

@@ -37,8 +37,6 @@ namespace SimRend.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime FechaModificacion { get; set; }
 
-        public int EstadoProceso { get; set; }
-
         public string NombreResponsable { get; set; }
         
         public string FechaPdf {get; set;}

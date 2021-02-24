@@ -11,7 +11,7 @@ namespace SimRend.DbSimRend
     public class ConsultaResolucion
     {
         /*#############################################Crear######################################################*/
-        public static int CrearResolucion(int anioResolucion, int numeroResolucion, string refSolicitud, string ruta)
+        public static List<int> CrearResolucion(int anioResolucion, int numeroResolucion, string refSolicitud, string ruta)
         {
             try
             {
@@ -20,15 +20,20 @@ namespace SimRend.DbSimRend
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_anioResolucion", Direction = System.Data.ParameterDirection.Input, Value = anioResolucion });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_numeroResolucion", Direction = System.Data.ParameterDirection.Input, Value = numeroResolucion });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_ruta", Direction = System.Data.ParameterDirection.Input, Value = ruta });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id_resolucion", Direction = System.Data.ParameterDirection.Output, Value = -1 });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id_declaracion_gastos", Direction = System.Data.ParameterDirection.Output, Value = -1 });
                 var datos = ContexDb.ExecuteProcedure(command);
-                return Convert.ToInt32(datos.Parameters["out_id"].Value);
+                List<int> ids = new List<int>();
+                ids.Add(Convert.ToInt32(datos.Parameters["out_id_resolucion"].Value));
+                ids.Add(Convert.ToInt32(datos.Parameters["out_id_declaracion_gastos"].Value));
+
+                return ids;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
-            return -1;
+            return null;
         }
 
         /*###########################################Fin crear####################################################*/

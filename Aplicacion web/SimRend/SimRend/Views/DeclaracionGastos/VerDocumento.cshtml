@@ -1,0 +1,312 @@
+﻿@{
+    ViewData["Title"] = "Ver documento";
+}
+
+<div class="br-pagetitle row">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text wd-auto" style="border:none;">
+                <!--i class="icon fas fa-sitemap"></i-->
+                <i class="icon fas fa-file-invoice-dollar"></i>
+                <h4 style="padding-left:5%">Ver documento</h4>
+            </div>
+        </div>
+    </div>
+</div><!-- d-flex -->
+
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+
+        <div class="form-layout">
+
+            <div class="row mg-b-25">
+                <div class="form-group wd-auto col-sm-12 col-lg-6">
+                    <label class="form-control-label">Código del documento:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-barcode tx-20 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="codigoDocumento" required="required" class="form-control" id="codigoDocumento" type="text" placeholder="Ingrese el código del documento" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group wd-auto col-sm-12 col-lg-6">
+                    <label class="form-control-label">Proveedor: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-store tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="proveedor" required="required" class="form-control" id="proveedor" type="text" placeholder="Ingrese el nombre del proveedor" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Fecha del documento: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fa fa-calendar-alt tx-20 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="fechaDocumento" type="text" class="form-control fc-datepicker" placeholder="Ingrese la fecha del documento" id="fechaDocumento" required="required" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Monto($): </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fa fa-money-bill-wave tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="Monto" class="form-control" id="monto" required="required" type="text" placeholder="Monto del documento" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Descripción del documento: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-file-signature tx-20 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="descripcionDocumento" class="form-control" id="descripcionDocumento" required="required" type="text" placeholder="Ingrese la descripción del documento" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Categoria: </label>
+                    <div class="input-group parsley-select" id="categoriaMarco">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-tag tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="categoria" class="form-control" id="categoria" required="required" type="text" placeholder="Categoría del documento" readonly>
+                    </div>
+                </div>
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Tipo de documento: </label>
+                    <div class="input-group parsley-select" id="tipoDocumentoMarco">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-file-invoice-dollar tx-22 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="tipoDocumento" class="form-control" id="tipoDocumento" required="required" type="text" placeholder="Categoría del documento" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group wd-auto col-sm-12 col-lg-6">
+                    <label class="form-control-label">Copia del documento: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="far fa-file-pdf tx-22 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" id="nombreArchivo" placeholder="Nombre del documento" readonly>
+                        <span class="input-group-append">
+                            <button class="btn btn-secondary" type="button" id="descargarDocumento" title="Descargar"><i class="fa fa-download tx-16"></i></button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-layout-footer">
+                <div class="row" id="acciones">
+                    <div class="form-group  col-lg-4 col-md-4 col-sm-12">
+                        <button class="btn btn-secondary" id="volverDocumentos" style="width:100%">
+                            <i class="fas fa-arrow-circle-left"></i> Volver
+                        </button>
+                    </div>
+                    <div class="form-group  col-lg-4 col-md-4 col-sm-12">
+                        <button class="modal-effect btn btn-warning tx-transform-none" id="modificarDocumento" data-effect="effect-just-me" style="width:100%">
+                            <i class="fas fa-edit"></i> Modificar
+                        </button>
+                    </div>
+                    <div class="form-group  col-lg-4 col-md-4 col-sm-12">
+                        <button class="modal-effect btn btn-danger tx-transform-none" id="eliminarDocumento" data-effect="effect-just-me" style="width:100%">
+                            <i class="fas fa-trash"></i> Eliminar
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div><!-- br-section-wrapper -->
+    <!-- MODAL ELIMINAR DOCUMENTO -->
+    <div id="modal-alerta-eliminar-documento" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta-eliminar-documento"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta-eliminar-documento"></p>
+                    <button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                        Cancelar
+                    </button>
+                    <button type="button" id="btnConfirmarEliminarDocumento" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL INFORMACION ELIMINACION -->
+    <div id="modal-informacion-eliminacion" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-success tx-semibold mg-b-20" id="title-informacion-eliminacion"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-informacion-eliminacion"></p>
+                    <button type="button" id="btn-DocumentoEliminado" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL ALERTA -->
+    <div id="modal-alerta" class="modal fade">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+</div><!-- br-pagebody -->
+
+
+@section scripts
+{
+    <script src="~/lib/parsleyjs/parsley.min.js"></script>
+    <script src="~/lib/parsleyjs/i18n/es.js"></script>
+    <script src="~/lib/jquery.maskedinput/jquery.maskedinput.js"></script>
+    <script>
+
+        var id, estado;
+
+        $(document).ready(function ()
+        {
+            verDocumento();
+        });
+
+        function verDocumento()
+        {
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/DatosDocumento",
+                method: "POST",
+                data: "",
+                success: function (respuesta)
+                {
+                    console.log(respuesta);
+                    id = respuesta.id;
+                    estado = respuesta.estado;
+                    $('#codigoDocumento').val(respuesta.codigoDocumento);
+                    $('#proveedor').val(respuesta.proveedor);
+                    $('#fechaDocumento').val(respuesta.fechaDocumento.split("T")[0]);
+                    $('#monto').val(formatoNumero(respuesta.monto));
+                    $('#descripcionDocumento').val(respuesta.descripcionDocumento);
+                    $('#categoria').val(respuesta.categoria.nombre);
+                    $('#tipoDocumento').val(respuesta.tipoDocumento);
+                    var rutaDoc = respuesta.copiaDoc.split("\\");
+                    $('#nombreArchivo').val(rutaDoc[rutaDoc.length - 1]);
+                }
+            });
+        }
+
+        $('#volverDocumentos').click(function (e)
+        {
+            e.preventDefault();
+            window.location.href = '/DeclaracionGastos/Documentos';
+        });
+
+        $('#modificarDocumento').click(function (e)
+        {
+            e.preventDefault();
+            window.location.href = '/DeclaracionGastos/ActualizarDocumento';
+        })
+
+        $("#descargarDocumento").click(function (e)
+        {
+            e.preventDefault();
+            window.location.href = '/DeclaracionGastos/DescargarDocumento';
+        });
+
+        function formatoNumero(num)
+        {
+            return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
+        }
+
+
+        $('#eliminarDocumento').click(function (e)
+        {
+            e.preventDefault();
+            if (estado == 0)
+            {
+                $('#title-alerta-eliminar-documento').text("Eliminar documento");
+                $('#body-alerta-eliminar-documento').text("¿Esta seguro que desea eliminar el documento?");
+                $('#modal-alerta-eliminar-documento').modal('show');
+            }
+            else
+            {
+                $('#title-alerta').text("Alerta");
+                $('#body-alerta').text("No se puede eliminar el documento debido a que se encuentra seleccionado para ser declarado como gasto del evento. Si desea eliminarlo, debe dejar el documento como no seleccionado y posteriormente preceder a eliminarlo.");
+                $('#modal-alerta').modal('show');
+            }
+        });
+
+        $('#btnConfirmarEliminarDocumento').click(function (e)
+        {
+            e.preventDefault();
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/EliminarDocumento",
+                method: "POST",
+                data: {
+                    'IdDocumento': id,
+                },
+                success: function (respuesta)
+                {
+                    $('#modal-alerta-eliminar-documento').modal('hide');
+                    $('#title-informacion-eliminacion').text(respuesta.titulo);
+                    $('#body-informacion-eliminacion').text(respuesta.msj);
+                    $('#modal-informacion-eliminacion').modal('show');
+                }
+            });
+        });
+
+        $('#btn-DocumentoEliminado').click(function (e)
+        {
+            e.preventDefault();
+            $('#modal-informacion-eliminacion').modal('hide');
+            window.location.href = '/DeclaracionGastos/Documentos';
+        });
+
+    </script>
+
+}

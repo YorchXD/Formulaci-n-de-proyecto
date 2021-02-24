@@ -64,3 +64,8 @@ D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debu
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Resolucion\CrearResolucion.cshtml.g.cs
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Resolucion\ActualizarResolucion.cshtml.g.cs
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\DeclaracionGastos\VerDeclaracionGastos.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\DeclaracionGastos\DocumentacionPersonas.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\DeclaracionGastos\Documentos.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\DeclaracionGastos\CrearDocumento.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\DeclaracionGastos\VerDocumento.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\DeclaracionGastos\ActualizarDocumento.cshtml.g.cs

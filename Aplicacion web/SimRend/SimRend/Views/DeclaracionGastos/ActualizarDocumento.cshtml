@@ -1,0 +1,254 @@
+﻿@{
+    ViewData["Title"] = "Actualizar documento";
+}
+
+<div class="br-pagetitle row">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text wd-auto" style="border:none;">
+                <!--i class="icon fas fa-sitemap"></i-->
+                <i class="icon fas fa-file-invoice-dollar"></i>
+                <h4 style="padding-left:5%">Actualizar documento</h4>
+            </div>
+        </div>
+    </div>
+</div><!-- d-flex -->
+
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+
+        <div class="form-layout">
+
+            <div class="row mg-b-25">
+                <div class="form-group wd-auto col-sm-12 col-lg-6">
+                    <label class="form-control-label">Código del documento:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-barcode tx-20 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="codigoDocumento" required="required" class="form-control" id="codigoDocumento" type="text" placeholder="Ingrese el código del documento" onkeypress="" data-parsley-errors-container="#errorCodigoDocumento">
+                    </div>
+                    <div id="errorCodigoDocumento"></div>
+                </div>
+
+                <div class="form-group wd-auto col-sm-12 col-lg-6">
+                    <label class="form-control-label">Proveedor: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-store tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="proveedor" required="required" class="form-control" id="proveedor" type="text" placeholder="Ingrese el nombre del proveedor" onkeypress="" data-parsley-errors-container="#errorProveedor">
+                    </div>
+                    <div id="errorProveedor"></div>
+                </div>
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Fecha del documento: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fa fa-calendar-alt tx-20 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="fechaDocumento" type="text" class="form-control fc-datepicker" placeholder="Ingrese la fecha del documento" id="fechaDocumento" required="required" data-parsley-errors-container="#errorFechaDocumento">
+                    </div>
+                    <div id="errorFechaDocumento"></div>
+                </div>
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Monto($): </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fa fa-money-bill-wave tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="Monto" class="form-control" id="monto" required="required" type="text" placeholder="Monto del documento" data-parsley-errors-container="#errorMonto">
+                    </div>
+                    <div id="errorMonto"></div>
+                </div>
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Descripción del documento: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-file-signature tx-20 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="descripcionDocumento" class="form-control" id="descripcionDocumento" required="required" type="text" placeholder="Ingrese la descripción del documento" data-parsley-errors-container="#errorDescripcionDocumento">
+                    </div>
+                    <div id="errorDescripcionDocumento"></div>
+                </div>
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Categoria: </label>
+                    <div class="input-group parsley-select" id="categoriaMarco">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-tag tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <select name="idCategoria" class="form-control select2" data-placeholder="Seleccione la categoria del documento" id="categoria" required
+                                data-parsley-class-handler="#categoriaMarco" data-parsley-errors-container="#errorCategoria">
+                            <option selected disabled>Seleccione la categoria del documento</option>
+                        </select>
+                    </div>
+                    <div id="errorCategoria"></div>
+                </div>
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Tipo de documento: </label>
+                    <div class="input-group parsley-select" id="tipoDocumentoMarco">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-file-invoice-dollar tx-22 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <select name="TipoDocumento" class="form-control required" data-placeholder="Seleccione el tipo de documento" id="tipoDocumento"
+                                data-parsley-class-handler="#tipoDocumentoMarco" data-parsley-errors-container="#errorTipoDocumento" required>
+                            <option selected disabled>Seleccione el tipo de documento</option>
+                            <option value="Boleta">Boleta</option>
+                            <option value="Factura">Factura</option>
+                        </select>
+                    </div>
+                    <div id="errorTipoDocumento"></div>
+                </div>
+
+                <div class="form-group wd-auto col-sm-12 col-lg-6">
+                    <label class="form-control-label">Copia del documento: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="far fa-file-pdf tx-22 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+
+                        <div class="custom-file">
+                            <label class="custom-file-label custom-file-label-inverse" id="nombreArchivo">Seleccione un archivo PDF, JPEG, PNG o JPG</label>
+                            <input type="file" required="required" class="custom-file-input" id="documento" data-parsley-errors-container="#errorDocumento">
+                        </div>
+                    </div>
+                    <div id="errorDocumento"></div>
+                </div>
+
+            </div>
+            <div class="form-layout-footer">
+                <div class="row" id="acciones">
+                    <div class="form-group  col-lg-6 col-md-6 col-sm-12">
+                        <button class="btn btn-secondary" id="cancelarDocumento" style="width:100%">
+                            <i class="fas fa-window-close"></i> Cancelar
+                        </button>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-6 col-sm-12">
+                        <button class="modal-effect btn btn-warning tx-transform-none" id="guardar" data-effect="effect-just-me" style="width:100%">
+                            <i class="fas fa-edit"></i> Modificar
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div><!-- br-section-wrapper -->
+        <!-- MODAL INFORMACION -->
+        <div id="modal-informacion" class="modal fade" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content tx-size-sm">
+                    <div class="modal-body tx-center pd-y-20 pd-x-20">
+                        <i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                        <h4 class="tx-success tx-semibold mg-b-20" id="title-informacion"></h4>
+                        <p class="mg-b-20 mg-x-20" id="body-informacion"></p>
+                        <button type="button" id="btn-DocumentoCreado" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">
+                            Aceptar
+                        </button>
+                    </div><!-- modal-body -->
+                </div><!-- modal-content -->
+            </div><!-- modal-dialog -->
+        </div><!-- modal -->
+        <!-- MODAL PREGUNTAR GUARDAR RESOLUCION -->
+        <div class="modal fade" id="modal-confirmar-guardar">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content tx-size-sm">
+                    <div class="modal-body tx-center pd-y-20 pd-x-20">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <i class="ionicons ion-ios-help-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                        <h4 class="tx-success mg-b-20" id="title-confirmar-guardar"></h4>
+                        <p class="mg-b-20 mg-x-20" id="body-confirmar-guardar"></p>
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                            Cancelar
+                        </button>
+                        <button type="button" id="btnConfirmarGuardar" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                            Aceptar
+                        </button>
+                    </div><!-- modal-body -->
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL ERROR -->
+        <div id="modal-alerta" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content tx-size-sm">
+                    <div class="modal-body tx-center pd-y-20 pd-x-20">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                        <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta"></h4>
+                        <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
+                        <button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">
+                            Aceptar
+                        </button>
+                    </div><!-- modal-body -->
+                </div><!-- modal-content -->
+            </div><!-- modal-dialog -->
+        </div><!-- modal -->
+        <!-- MODAL CANCELAR DOCUMENTO -->
+        <div id="modal-alerta-cancelar" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content tx-size-sm">
+                    <div class="modal-body tx-center pd-y-20 pd-x-20">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                        <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta-cancelar"></h4>
+                        <p class="mg-b-20 mg-x-20" id="body-alerta-cancelar"></p>
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                            Cancelar
+                        </button>
+                        <button type="button" id="btnConfirmarCancelar" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
+                            Aceptar
+                        </button>
+                    </div><!-- modal-body -->
+                </div><!-- modal-content -->
+            </div><!-- modal-dialog -->
+        </div><!-- modal -->
+    </div><!-- br-pagebody -->
+
+
+@section scripts
+{
+    <script src="~/lib/parsleyjs/parsley.min.js"></script>
+    <script src="~/lib/parsleyjs/i18n/es.js"></script>
+    <script src="~/lib/jquery.maskedinput/jquery.maskedinput.js"></script>
+    <script src="~/js/DeclaracionGastos.js"></script>
+    <script>
+
+        var id, estado;
+
+        $(document).ready(function ()
+        {
+            ObtenerDatosPrincipales();
+            obtenerDatosDocumento();
+        });
+
+
+    </script>
+
+}
