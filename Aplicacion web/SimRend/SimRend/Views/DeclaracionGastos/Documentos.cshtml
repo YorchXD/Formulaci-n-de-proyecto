@@ -90,7 +90,7 @@
                             <th class="wd-auto" data-priority="1">Monto($)</th>
                             <th class="wd-auto" data-priority="3">Categoría del gasto</th>
                             <th class="wd-auto" data-priority="3">Tipo de documento</th>
-                            <th class="wd-auto" data-priority="0">Seleccionado</th>
+                            <th class="wd-auto" data-priority="2">Seleccionado</th>
                             <th class="wd-auto" data-priority="1">Acción</th>
                         </tr>
                     </thead>
@@ -242,7 +242,22 @@
             table = $('#tablaDocumentacion').DataTable({
                 'data': documentos,
                 'order': [[0, "desc"]],
-                
+                'columnDefs': [{
+                    targets: 7,
+                    data: "estado",
+                    render: function (data, type, row)
+                    {
+                        if (type === 'display')
+                        {
+                            if (data)
+                            {
+                                return '<input id="toggle" class="editor-active" type="checkbox" checked>';
+                            }
+                            return '<input id="toggle" class="editor-active" type="checkbox">';
+                        }
+                        return data;
+                    }
+                }],
                 'columns': [
                     {
                         "data": "id",
@@ -268,19 +283,7 @@
                         }
                     },
                     { "data": "tipoDocumento" },
-                    {
-                        "data": "estado",
-                        "render": function (d)
-                        {
-                            if (d)
-                            {
-                                //return '<input id="toggle" type="checkbox" checked data-toggle="toggle" onchange="seleccionarDocumento(' + id + ', ' + estado + ')">';
-                                return '<input id="toggle" class="toggle" type="checkbox" checked data-toggle="toggle">';
-                            }
-                            //return '<input id="toggle" type="checkbox" data-toggle="toggle" onchange="seleccionarDocumento(' + id + ', ' + estado + ')">';
-                            return '<input id="toggle" class="toggle" type="checkbox" data-toggle="toggle">';
-                        }
-                    },
+                    { "data": "estado" },
                     {
                         "data": null,
                         "render": function (data, type, row, meta)
@@ -293,24 +296,23 @@
                         }
                     }
                 ],
-                "fnDrawCallback": function ()
+
+                'rowCallback': function (row, data)
                 {
-                    $('.toggle').bootstrapToggle({
+                    $('.editor-active', row).prop('checked', data.estado == 1).bootstrapToggle({
                         size: 'mini',
                         on: 'Si',
                         off: 'No',
                         onstyle: 'success',
-                        offstyle: 'secondary'
-                    });
+                        offstyle: 'secondary'});
                 },
             });
         }
 
+        
+
         $(document).on("change", "#toggle", function ()
         {
-            //var data = table.row($(this).parents('tr')).data();
-            //console.log("Datos anteriores");
-            //console.log(data);
             var checked = $(this).prop('checked') 
             var estado;
             if (checked)
@@ -335,7 +337,7 @@
                     if (respuesta != 1)
                     {
 
-                        /*En caso de que se selecciono o deselecciono el documento, se debe volver a su estado inicial */
+                        //En caso de que se selecciono o deselecciono el documento, se debe volver a su estado inicial 
                         if (checked)
                         {
                             $(this).bootstrapToggle('off');
