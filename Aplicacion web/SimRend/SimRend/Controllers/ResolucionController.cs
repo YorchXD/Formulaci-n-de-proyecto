@@ -101,9 +101,10 @@ namespace SimRend.Controllers
         public String GuardarArchivoResolucion(IFormFile archivo, string idSolicitud)
         {
             Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
             string webRootPath = _webHostEnvironment.WebRootPath;
             string carpeta = "";
-            carpeta = Path.Combine(webRootPath, "Procesos", usuario.NombreOrganizacionEstudiantil, DateTime.Today.Year.ToString(), idSolicitud, "Resolucion");
+            carpeta = Path.Combine(webRootPath, "Procesos", usuario.NombreOrganizacionEstudiantil, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), idSolicitud, "Resolucion");
             string rutaArchivo = "";
             //string carpeta = "wwwroot/Procesos/" + usuario.NombreOrganizacionEstudiantil + "/" + DateTime.Today.Year + "/" + idSolicitud + "/Resolucion";
             try

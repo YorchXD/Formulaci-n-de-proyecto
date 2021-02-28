@@ -19,7 +19,6 @@
     <div class="br-section-wrapper">
 
         <div class="form-layout">
-
             <div class="row mg-b-25">
                 <div class="form-group wd-auto col-sm-12 col-lg-6">
                     <label class="form-control-label">Código del documento:</label>
@@ -122,22 +121,7 @@
             </div>
             <div class="form-layout-footer">
                 <div class="row" id="acciones">
-                    <div class="form-group  col-lg-4 col-md-4 col-sm-12">
-                        <button class="btn btn-secondary" id="volverDocumentos" style="width:100%">
-                            <i class="fas fa-arrow-circle-left"></i> Volver
-                        </button>
-                    </div>
-                    <div class="form-group  col-lg-4 col-md-4 col-sm-12">
-                        <button class="modal-effect btn btn-warning tx-transform-none" id="modificarDocumento" data-effect="effect-just-me" style="width:100%">
-                            <i class="fas fa-edit"></i> Modificar
-                        </button>
-                    </div>
-                    <div class="form-group  col-lg-4 col-md-4 col-sm-12">
-                        <button class="modal-effect btn btn-danger tx-transform-none" id="eliminarDocumento" data-effect="effect-just-me" style="width:100%">
-                            <i class="fas fa-trash"></i> Eliminar
-                        </button>
-                    </div>
-
+                    
                 </div>
             </div>
         </div>
@@ -223,33 +207,50 @@
                 data: "",
                 success: function (respuesta)
                 {
-                    console.log(respuesta);
-                    id = respuesta.id;
-                    estado = respuesta.estado;
-                    $('#codigoDocumento').val(respuesta.codigoDocumento);
-                    $('#proveedor').val(respuesta.proveedor);
-                    $('#fechaDocumento').val(respuesta.fechaDocumento.split("T")[0]);
-                    $('#monto').val(formatoNumero(respuesta.monto));
-                    $('#descripcionDocumento').val(respuesta.descripcionDocumento);
-                    $('#categoria').val(respuesta.categoria.nombre);
-                    $('#tipoDocumento').val(respuesta.tipoDocumento);
-                    var rutaDoc = respuesta.copiaDoc.split("\\");
+                    //console.log(respuesta);
+                    id = respuesta.documento.id;
+                    estado = respuesta.documento.estado;
+                    $('#codigoDocumento').val(respuesta.documento.codigoDocumento);
+                    $('#proveedor').val(respuesta.documento.proveedor);
+                    $('#fechaDocumento').val(respuesta.documento.fechaDocumento.split("T")[0]);
+                    $('#monto').val(formatoNumero(respuesta.documento.monto));
+                    $('#descripcionDocumento').val(respuesta.documento.descripcionDocumento);
+                    $('#categoria').val(respuesta.documento.categoria.nombre);
+                    $('#tipoDocumento').val(respuesta.documento.tipoDocumento);
+                    var rutaDoc = respuesta.documento.copiaDoc.split("\\");
                     $('#nombreArchivo').val(rutaDoc[rutaDoc.length - 1]);
+                    insertarAcciones(respuesta.estadoProceso, respuesta.estadoFinalProceso);
                 }
             });
         }
 
-        $('#volverDocumentos').click(function (e)
+        function insertarAcciones(estadoProceso, estadoFinalProceso)
         {
-            e.preventDefault();
-            window.location.href = '/DeclaracionGastos/Documentos';
-        });
+            if (estadoProceso == 4 && estadoFinalProceso == "Abierta")
+            {
+                var volver = '<div class="form-group  col-lg-4 col-md-4 col-sm-12"> <button class="btn btn-secondary" id="volverDocumentos" style="width:100%" onclick="volverDocumentos()"><i class="fas fa-arrow-circle-left"></i> Volver</button></div>';
+                var modificar = '<div class="form-group  col-lg-4 col-md-4 col-sm-12"><button class="modal-effect btn btn-warning tx-transform-none" id="modificarDocumento" data-effect="effect-just-me" style="width:100%" onclic="modificarDocumento()"><i class="fas fa-edit"></i> Modificar</button></div>';
+                var eliminar = '<div class="form-group  col-lg-4 col-md-4 col-sm-12"><button class="modal-effect btn btn-danger tx-transform-none" id="eliminarDocumento" data-effect="effect-just-me" style="width:100%" onclick="eliminarDocumento()"><i class="fas fa-trash"></i> Eliminar</button></div >';
+                $('#acciones').empty().append(volver);
+                $('#acciones').append(modificar);
+                $('#acciones').append(eliminar);
+            }
+            else
+            {
+                var volver = '<div class="form-group  col-lg-12 col-md-12 col-sm-12"> <button class="btn btn-secondary" id="volverDocumentos" style="width:100%" onclick="volverDocumentos()"><i class="fas fa-arrow-circle-left"></i> Volver</button></div>';
+                $('#acciones').empty().append(volver);
+            }
+        }
 
-        $('#modificarDocumento').click(function (e)
+        function volverDocumentos()
         {
-            e.preventDefault();
+            window.location.href = '/DeclaracionGastos/Documentos';
+        };
+
+        function modificarDocumento()
+        {
             window.location.href = '/DeclaracionGastos/ActualizarDocumento';
-        })
+        }
 
         $("#descargarDocumento").click(function (e)
         {
@@ -263,9 +264,8 @@
         }
 
 
-        $('#eliminarDocumento').click(function (e)
+        function eliminarDocumento()
         {
-            e.preventDefault();
             if (estado == 0)
             {
                 $('#title-alerta-eliminar-documento').text("Eliminar documento");
@@ -278,7 +278,7 @@
                 $('#body-alerta').text("No se puede eliminar el documento debido a que se encuentra seleccionado para ser declarado como gasto del evento. Si desea eliminarlo, debe dejar el documento como no seleccionado y posteriormente preceder a eliminarlo.");
                 $('#modal-alerta').modal('show');
             }
-        });
+        };
 
         $('#btnConfirmarEliminarDocumento').click(function (e)
         {

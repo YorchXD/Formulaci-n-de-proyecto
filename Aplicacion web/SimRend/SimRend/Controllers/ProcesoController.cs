@@ -18,6 +18,7 @@ namespace SimRend.Controllers
             CrearCarpetaOrganizacion();
             HttpContext.Session.SetComplexData("Proceso", null);
             HttpContext.Session.SetComplexData("IdParticipante", null);
+            HttpContext.Session.SetComplexData("IdDocumento", null);
             /*HttpContext.Session.SetComplexData("Solicitud", null);
             HttpContext.Session.SetComplexData("idSolicitud", null);
             HttpContext.Session.SetComplexData("idResolucion", null);
@@ -125,14 +126,19 @@ namespace SimRend.Controllers
 
         public void CrearCarpetaOrganizacion()
         {
-            Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
-            string carpeta = @"wwwroot/Procesos/" + usuario.NombreOrganizacionEstudiantil;
             try
             {
-                if (!Directory.Exists(carpeta))
+                Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+
+                if(usuario!=null)
                 {
-                    Directory.CreateDirectory(carpeta);
+                    string carpeta = @"wwwroot/Procesos/" + usuario.NombreOrganizacionEstudiantil;
+                    if (!Directory.Exists(carpeta))
+                    {
+                        Directory.CreateDirectory(carpeta);
+                    }
                 }
+                
             }
             catch (Exception ex)
             {

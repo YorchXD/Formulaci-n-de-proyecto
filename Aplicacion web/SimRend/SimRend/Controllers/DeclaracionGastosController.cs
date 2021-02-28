@@ -108,9 +108,10 @@ namespace SimRend.DbSimRend
             }
             else if (DocumentoAux.Id == -2)
             {
+                System.IO.File.Delete(DocumentoAux.CopiaDoc);
                 validar = false;
                 titulo = "Se ha producido un problema";
-                msj = "Los datos no se han registrado correctamente. Esto se debe a que el número de la resolución y el año ya se encuentran registrado con anterioridad";
+                msj = "Los datos no se han registrado correctamente. Esto se debe a que ya se encuentra registrado un documento con el mismo código y proveedor.";
             }
             else
             {
@@ -174,6 +175,7 @@ namespace SimRend.DbSimRend
         {
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
             proceso.DeclaracionGastos = ConsultaDeclaracionGastos.LeerDeclaracionGastos(proceso.DeclaracionGastos.Id);
+            proceso = ConsultasGenerales.LeerEstadoProceso(proceso);
             HttpContext.Session.SetComplexData("Proceso", proceso);
 
             var datos = new
@@ -188,12 +190,21 @@ namespace SimRend.DbSimRend
         public JsonResult LeerParticipantes()
         {
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+            proceso = ConsultasGenerales.LeerEstadoProceso(proceso);
+            HttpContext.Session.SetComplexData("Proceso", proceso);
             if (proceso.Solicitud.Participantes != null)
             {
+                for (int j = 0; j < proceso.Solicitud.Participantes.Count(); j++)
+                {
+                    proceso.Solicitud.Participantes[j].Documentos = null;
+                }
+
                 var datos = new
                 {
                     participantes = ConsultaDeclaracionGastos.LeerDocumentos(proceso.DeclaracionGastos.Id, proceso.Solicitud.Participantes, proceso.Solicitud.Categorias),
-                    montoSolicitado = proceso.Solicitud.Monto
+                    montoSolicitado = proceso.Solicitud.Monto,
+                    estado = proceso.Estado,
+                    estadoFinal = proceso.EstadoFinal
                 };
                 return Json(datos);
             }
@@ -206,9 +217,15 @@ namespace SimRend.DbSimRend
         {
             String IdParticipante = HttpContext.Session.GetComplexData<String>("IdParticipante");
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+            proceso = ConsultasGenerales.LeerEstadoProceso(proceso);
+            HttpContext.Session.SetComplexData("Proceso", proceso);
 
             if (IdParticipante != null)
             {
+                for(int j = 0; j<proceso.Solicitud.Participantes.Count(); j++)
+                {
+                    proceso.Solicitud.Participantes[j].Documentos = null;
+                }
                 List<Persona> participantes = ConsultaDeclaracionGastos.LeerDocumentos(proceso.DeclaracionGastos.Id, proceso.Solicitud.Participantes, proceso.Solicitud.Categorias);
                 int montoDocs = 0;
                 for (int i = 0; i < participantes.Count(); i++)
@@ -223,8 +240,9 @@ namespace SimRend.DbSimRend
                 {
                     participante = participantes.Find(participante => participante.RUN == IdParticipante),
                     montoSolicitado = proceso.Solicitud.Monto,
-                    categorias = proceso.Solicitud.Categorias,
-                    montoDocs
+                    montoDocs,
+                    estado = proceso.Estado,
+                    estadoFinal = proceso.EstadoFinal
                 };
                 return Json(datos);
             }
@@ -254,7 +272,26 @@ namespace SimRend.DbSimRend
             int IdDocumento = HttpContext.Session.GetComplexData<int>("IdDocumento");
             proceso.Solicitud.Participantes = ConsultaDeclaracionGastos.LeerDocumentos(proceso.DeclaracionGastos.Id, proceso.Solicitud.Participantes, proceso.Solicitud.Categorias);
             Documento documento = proceso.Solicitud.Participantes.Find(participante => participante.RUN.Equals(IdParticipante)).Documentos.Find(documento => documento.Id == IdDocumento);
-            return Json(documento);
+            var datos = new
+            {
+                documento,
+                estadoProceso = proceso.Estado,
+                estadoFinalProceso = proceso.EstadoFinal
+            };
+            
+            
+            return Json(datos);
+        }
+
+        /// <summary>
+        /// Es para saber el tipo de evento ingresado en la solicitud
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult TipoEvento()
+        {
+            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+            return Json(proceso.Solicitud.TipoEvento);
         }
         /*###################################Fin Proceso de Lecturas###################################################*/
 
@@ -393,8 +430,6 @@ namespace SimRend.DbSimRend
                 if (cantDocumentos == 1 && respEliminacion == 1)
                 {
                     System.IO.Directory.Delete(carpetaDeclaracionGasto);
-                    proceso.Estado = 3;
-                    HttpContext.Session.SetComplexData("Proceso", proceso);
                 }
 
                 if (respEliminacion == 1)
@@ -435,23 +470,6 @@ namespace SimRend.DbSimRend
         /*###################################Fin Proceso de Eliminar###################################################*/
 
 
-
-
-
-
-
-
-        
-
-        
-
-
-        
-
-        
-
-        
-        
 
         [HttpGet]
         public FileResult DescargarDocumento()
@@ -536,6 +554,108 @@ namespace SimRend.DbSimRend
             }
 
             return Json(new object());
+        }
+
+        /// <summary>
+        /// Elimina todos los documentos asociados a un participante del evento y a la declaracion de gasto correspondiente
+        /// </summary>
+        /// <param name="IdParticipante"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult EliminarDocumentosPaticipante(String IdParticipante)
+        {
+
+            Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+            proceso.Solicitud.Participantes = ConsultaDeclaracionGastos.LeerDocumentos(proceso.DeclaracionGastos.Id, proceso.Solicitud.Participantes, proceso.Solicitud.Categorias);
+            if (IdParticipante==null)
+            {
+                IdParticipante = HttpContext.Session.GetComplexData<String>("IdParticipante");
+            }
+            
+
+            string webRootPath = _webHostEnvironment.WebRootPath;
+            
+            try
+            {
+                int cantParticipantes = proceso.Solicitud.Participantes.Count();
+                bool existenDocumentosParticipantes = false;
+                for (int i = 0; i < cantParticipantes; i++)
+                {
+                    if (!proceso.Solicitud.Participantes[i].RUN.Equals(IdParticipante) && proceso.Solicitud.Participantes[i].Documentos!=null && proceso.Solicitud.Participantes[i].Documentos.Count()>0)
+                    {
+                        existenDocumentosParticipantes = true;
+                    }
+                }
+
+                int validar = ConsultaDeclaracionGastos.EliminarDocumentosParticipante(proceso.DeclaracionGastos.Id, IdParticipante);
+
+                if(validar==1)
+                {
+                    string rutaCarpetaParticiapnte = Path.Combine(webRootPath, "Procesos", usuario.NombreOrganizacionEstudiantil, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), proceso.Solicitud.Id.ToString(), "DeclaracionGastos", IdParticipante);
+                    string rutaCarpetaDG = Path.Combine(webRootPath, "Procesos", usuario.NombreOrganizacionEstudiantil, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), proceso.Solicitud.Id.ToString(), "DeclaracionGastos");
+                    
+                    if (existenDocumentosParticipantes && Directory.Exists(rutaCarpetaParticiapnte))
+                    {
+                        Directory.Delete(rutaCarpetaParticiapnte, true);
+                        return Json("1");
+                    }
+                    else if(!existenDocumentosParticipantes && Directory.Exists(rutaCarpetaDG))
+                    {
+                        Directory.Delete(rutaCarpetaDG, true);
+                        return Json("1");
+                    }
+                    else
+                    {
+                        return Json("0");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            return Json("-1");
+        }
+
+        /// <summary>
+        /// Elimina todos los documentos asociados a la declaracion de gastos.
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult EliminarDocumentosDG()
+        {
+
+            Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+            string webRootPath = _webHostEnvironment.WebRootPath;
+
+            try
+            {
+                int validar = ConsultaDeclaracionGastos.EliminarDocumentosDG(proceso.DeclaracionGastos.Id);
+
+                if (validar == 1)
+                {
+                    string rutaCarpetaDG = Path.Combine(webRootPath, "Procesos", usuario.NombreOrganizacionEstudiantil, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), proceso.Solicitud.Id.ToString(), "DeclaracionGastos");
+
+                    if (Directory.Exists(rutaCarpetaDG))
+                    {
+                        Directory.Delete(rutaCarpetaDG, true);
+                        return Json("1");
+                    }
+                    else
+                    {
+                        return Json("0");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            return Json("-1");
         }
     }
 }

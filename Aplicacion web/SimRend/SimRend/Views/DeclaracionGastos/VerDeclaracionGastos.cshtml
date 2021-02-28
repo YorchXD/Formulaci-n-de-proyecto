@@ -177,6 +177,53 @@
             </div>
         </div>
     </div><!-- br-section-wrapper -->
+    <!-- MODAL ELIMINAR DOCUMENTO -->
+    <div id="modal-alerta-eliminar-documento" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta-eliminar-documento"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta-eliminar-documento"></p>
+
+                    <div id="actions-alerta-eliminar-documento">
+
+                    </div>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL INFORMACION ELIMINACION -->
+    <div id="modal-informacion-eliminacion" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-success tx-semibold mg-b-20" id="title-informacion-eliminacion"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-informacion-eliminacion"></p>
+                    <button type="button" id="btn-DocumentosEliminados" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL ALERTA -->
+    <div id="modal-alerta" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
+                    <div id="actions-alerta">
+
+                    </div>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
 </div><!-- br-pagebody -->
 
 @section scripts{ 
@@ -237,7 +284,7 @@
                     $('#responsable').val(respuesta.proceso.responsable.nombre);
                     $('#runResponsable').val(formatearRut(respuesta.proceso.responsable.run));
                     $('#emailResponsable').val(respuesta.proceso.responsable.email);
-                    verOpciones(respuesta.proceso.estado);
+                    verOpciones(respuesta.proceso.estado, respuesta.proceso.estadoFinal);
                 }
             }); 
             
@@ -248,34 +295,61 @@
             return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
         }
 
-        function verOpciones(opcion)
+        function verOpciones(estado, estadoFinal)
         {
             var acciones = "";
-            switch (opcion)
+            if (estadoFinal == "Abierta")
             {
-                case 3:
-                    acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
-                        '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
-                        '<div class="form-group  col-lg-12 col-md-12 col-sm-12"><button class="modal-effect btn btn-info" data-effect="effect-just-me" id = "documentacion" style="width:100%"><i class="fas fa-plus"></i> Agregar Documentación</button> </div>';
-                        
-                    break;
-                case 4:
-                    acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
-                        '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
-                        '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-info" data-effect="effect-just-me" id = "documentacion" style="width:100%"><i class="fas fa-eye"></i> Documentación</button> </div>' +
-                        '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-danger" id = "eliminar" style="width:100%"><i class="fas fa-trash"></i> Eliminar</button> </div>' +
-                        '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-info" id="generar" style="width:100%"><i class="fas fa-file-signature"></i> Generar declaración de gastos</button> </div>' +
-                        '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-info" id="descargar" style="width:100%"><i class="fas fa-download"></i> Descargar</button> </div>' +                        
-                        '<div class="form-group col-lg-12 col-md-12 col-sm-12"><button class="btn btn-info" id="finalizar" style="width:100%"><i class="fas fa-eye"></i> Finalizar</button> </div>';
+                switch (estado)
+                {
+                    case 3:
+                        acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
+                            '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
+                            '<div class="form-group  col-lg-12 col-md-12 col-sm-12"><button class="modal-effect btn btn-info" data-effect="effect-just-me" style="width:100%" onclick="documentacion()"><i class="fas fa-plus"></i> Agregar Documentación</button> </div>';
 
-                    break;
-                default:
-                    acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
-                        '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
-                        '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-info" data-effect="effect-just-me" id = "documentacion" style="width:100%"><i class="fas fa-eye"></i> Documentación</button> </div>' +
-                        '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-info" id="descargar" style="width:100%"><i class="fas fa-download"></i> Descargar</button> </div>';
-                    break;
+                        break;
+                    case 4:
+                        acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
+                            '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
+                            '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-info" data-effect="effect-just-me" style="width:100%" onclick="documentacion()"><i class="fas fa-eye"></i> Documentación</button> </div>' +
+                            '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-danger" style="width:100%" onclick="eliminarDocumentosDG()"><i class="fas fa-trash"></i> Eliminar</button> </div>' +
+                            '<div class="form-group col-lg-12 col-md-12 col-sm-12"><button class="btn btn-info" id="generar" style="width:100%"><i class="fas fa-file-signature"></i> Generar declaración de gastos</button> </div>';
+
+                        break;
+                    default:
+                        acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
+                            '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
+                            '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-secondary" data-effect="effect-just-me" style="width:100%" onclick="documentacion()"><i class="fas fa-eye"></i> Documentación</button> </div>' +
+                            '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="descargar" style="width:100%"><i class="fas fa-download"></i> Descargar</button> </div>' +
+                            '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-danger" data-effect="effect-just-me" id = "rechazar" style="width:100%"><i class="fas fa-window-close"></i> Declaración rechazada</button> </div>' +
+                            '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-info" id="aceptar" style="width:100%"><i class="fas fa-check-square"></i> Declaración aceptda</button> </div>';
+                        break;
+                }
             }
+            else
+            {
+                switch (estado)
+                {
+                    case 3:
+                        acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
+                            '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>';
+
+                        break;
+                    case 4:
+                        acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
+                            '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
+                            '<div class="form-group  col-lg-12 col-md-12 col-sm-12"><button class="modal-effect btn btn-info" data-effect="effect-just-me" style="width:100%" onclick="documentacion()"><i class="fas fa-eye"></i> Documentación</button> </div>';
+
+                        break;
+                    default:
+                        acciones = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProceso" style="width:100%"><i class="fas fa-sitemap"></i> Volver a proceso</button> </div>' +
+                            '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
+                            '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-info" data-effect="effect-just-me" id = "documentacion" style="width:100%"><i class="fas fa-eye"></i> Documentación</button> </div>' +
+                            '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-info" id="descargar" style="width:100%"><i class="fas fa-download"></i> Descargar</button> </div>';
+                        break;
+                }
+            }
+            
 
             $('#acciones').empty().append(acciones);
 
@@ -291,22 +365,7 @@
                 window.location.href = '/Proceso/Procesos/';
             });
 
-            $('#documentacion').click(function (e)
-            {
-                e.preventDefault();
-                var tipoEvento = procesoAux.proceso.solicitud.tipoEvento;
-                switch (tipoEvento)
-                {
-                    case 'Grupal':
-                        window.location.href = '/DeclaracionGastos/DocumentacionPersonas';
-                        break;
-                    default:
-                        alert('Tipo de actividad: Masiva');
-                        //window.location.href = '/DeclaracionGastos/Documentos';
-                        break;
-                }
-                
-            });
+            
 
             $('#generar').click(function (e)
             {
@@ -320,17 +379,99 @@
                 alert('Descargar documentación de la declaración de gastos');
             });
 
-            $('#finalizar').click(function (e)
+            $('#rechazar').click(function (e)
             {
                 e.preventDefault();
-                alert('Finalizar documentación de la declaración de gastos');
+                alert('Declaración de gastos rechazada.');
             });
 
-            $('#eliminar').click(function (e)
+            $('#aceptar').click(function (e)
             {
                 e.preventDefault();
-                alert('Eliminar documentación de la declaración de gastos');
+                alert('Declaración de gastos aceptada.');
+            });
+
+        }
+
+        function documentacion()
+        {
+            var tipoEvento = procesoAux.proceso.solicitud.tipoEvento;
+            switch (tipoEvento)
+            {
+                case 'Grupal':
+                    window.location.href = '/DeclaracionGastos/DocumentacionPersonas';
+                    break;
+                default:
+                    $.ajax({
+                        async: false,
+                        url: "/DeclaracionGastos/GuardarIdParticipante",
+                        method: "POST",
+                        data: {
+                            'IdParticipante': "-1",
+                        },
+                        success: function (respuesta)
+                        {
+                            window.location.href = '/DeclaracionGastos/Documentos';
+                        }
+                    });
+                    break;
+            }
+        };
+
+        function eliminarDocumentosDG()
+        {
+            $('#title-alerta-eliminar-documento').text("Eliminar documentos");
+            $('#body-alerta-eliminar-documento').text("¿Esta seguro que desea eliminar todos los documento de la declaracion de gasto?");
+
+            var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
+            var botonAceptar = '<button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmarEliminarDocumentosDG()">Aceptar</button>';
+
+            $('#actions-alerta-eliminar-documento').empty().append(botonCancelar);
+            $('#actions-alerta-eliminar-documento').append(botonAceptar);
+            $('#modal-alerta-eliminar-documento').modal('show');
+        }
+
+        function confirmarEliminarDocumentosDG()
+        {
+            $('#modal-alerta-eliminar-documento').modal('hide');
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/EliminarDocumentosDG",
+                method: "POST",
+                data: "",
+                success: function (respuesta)
+                {
+                    if (respuesta == "1")
+                    {
+                        $('#title-informacion-eliminacion').text("Eliminacion exitosa");
+                        $('#body-informacion-eliminacion').text("Se eliminaron todos los documentos y la carpeta de la declaración de gastos.");
+                        $('#modal-informacion-eliminacion').modal('show');
+                    }
+                    else if (respuesta == "0")
+                    {
+                        $('#title-alerta').text("Alerta");
+                        $('#body-alerta').text("No se eliminaron los documentos de la declaración de gastos debido a que no existen.");
+                        var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                        $('#actions-alerta').empty().append(boton);
+                        $('#modal-alerta').modal('show');
+                    }
+                    else
+                    {
+                        $('#title-alerta').text("Alerta");
+                        $('#body-alerta').text("No se eliminaron los documentos debido a que ha ocurrido un problema de conexión. Favor de volver a intentarlo y si el problema persiste contactar a soporte");
+                        var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                        $('#actions-alerta').empty().append(boton);
+                        $('#modal-alerta').modal('show');
+                    }
+                }
             });
         }
+
+        $('#btn-DocumentosEliminados').click(function (e)
+        {
+            e.preventDefault();
+            $('#modal-informacion-eliminacion').modal('hide');
+            window.location.href = '/DeclaracionGastos/VerDeclaracionGastos';
+        });
     </script>
 }

@@ -80,8 +80,8 @@ namespace SimRend.DbSimRend
 
                         participantes.Find(participante => participante.RUN.Equals(refPaticipante)).Documentos.Add(documento);
                     }
-                    return participantes;
                 }
+                return participantes;
 
             }
             catch (Exception ex)
@@ -177,6 +177,49 @@ namespace SimRend.DbSimRend
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_tipoDocumento", Direction = System.Data.ParameterDirection.Input, Value = Documento.TipoDocumento });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_copiaDoc", Direction = System.Data.ParameterDirection.Input, Value = Documento.CopiaDoc });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refCategoria", Direction = System.Data.ParameterDirection.Input, Value = Documento.Categoria.Id });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "out_validacion", Direction = System.Data.ParameterDirection.Output, Value = -1 });
+                var datos = ContexDb.ExecuteProcedure(command);
+
+                return Convert.ToInt32(datos.Parameters["out_validacion"].Value);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return -1;
+        }
+
+        public static int EliminarDocumentosParticipante(int IdDeclaracionGastos, string IdParticipante)
+        {
+            try
+            {
+                if(IdParticipante=="-1")
+                {
+                    IdParticipante = null;
+                }
+                var command = new MySqlCommand() { CommandText = "Eliminar_documentos_participante", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idDeclaracionGastos", Direction = System.Data.ParameterDirection.Input, Value = IdDeclaracionGastos });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idParticipante", Direction = System.Data.ParameterDirection.Input, Value = IdParticipante });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "out_validacion", Direction = System.Data.ParameterDirection.Output, Value = -1 });
+                var datos = ContexDb.ExecuteProcedure(command);
+
+                return Convert.ToInt32(datos.Parameters["out_validacion"].Value);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return -1;
+        }
+
+        public static int EliminarDocumentosDG(int IdDeclaracionGastos)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "Eliminar_documentos_declaracion_gastos", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idDeclaracionGastos", Direction = System.Data.ParameterDirection.Input, Value = IdDeclaracionGastos });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "out_validacion", Direction = System.Data.ParameterDirection.Output, Value = -1 });
                 var datos = ContexDb.ExecuteProcedure(command);
 

@@ -58,7 +58,56 @@
             </table>
         </div><!-- table-wrapper -->
 
+        <div class="row mg-t-50" id="acciones">
+
+        </div>
     </div><!-- br-section-wrapper -->
+    <!-- MODAL ELIMINAR DOCUMENTO -->
+    <div id="modal-alerta-eliminar-documento" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta-eliminar-documento"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta-eliminar-documento"></p>
+
+                    <div id="actions-alerta-eliminar-documento">
+
+                    </div>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL INFORMACION ELIMINACION -->
+    <div id="modal-informacion-eliminacion" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-success tx-semibold mg-b-20" id="title-informacion-eliminacion"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-informacion-eliminacion"></p>
+                    <button type="button" id="btn-DocumentosEliminados" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL ALERTA -->
+    <div id="modal-alerta" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
+                    <div id="actions-alerta">
+
+                    </div>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
 </div><!-- br-pagebody -->
 
 
@@ -115,6 +164,8 @@
                 obtenerDatos();
             });
 
+            var IdParticipante;
+
             function obtenerDatos()
             {
                 $.ajax({
@@ -126,6 +177,7 @@
                     {
                         participantes(respuesta.participantes);
                         indicadores(respuesta);
+                        insertarAcciones(respuesta.estado, respuesta.estadoFinal);
                     }
                 });
             }
@@ -141,7 +193,7 @@
                             "render": function (data, type, row, meta)
                             {
                                 var monto = 0;
-                                for (var index = 0; data!=null && index < data.length; index++)
+                                for (var index = 0; data != null && index < data.length; index++)
                                 {
                                     monto += data[index].monto;
                                 }
@@ -173,7 +225,8 @@
                             }
                         }
                     ]
-                })
+                });
+
             }
 
             function indicadores(datos)
@@ -210,6 +263,23 @@
                 $('#porcentDocsSelecTotal').text(redondearDecimales(porcentajeDocsSelec, 2));
             }
 
+            function insertarAcciones(estado, estadoFinal)
+            {
+                if (estado == 4 && estadoFinal == "Abierta")
+                {
+                    var volver = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"> <button class="btn btn-secondary"  style="width:100%" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button></div>';
+                    var eliminar = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-danger tx-transform-none"  data-effect="effect-just-me" style="width:100%" onclick="eliminarDocumentosDG()"><i class="fas fa-trash"></i> Eliminar documentación</button></div>';
+
+                    $('#acciones').empty().append(volver);
+                    $('#acciones').append(eliminar);
+                }
+                else
+                {
+                    var volver = '<div class="form-group  col-lg-12 col-md-12 col-sm-12"> <button class="btn btn-secondary" style="width:100%" onclick="volver()"><i class="fas fa-arrow-circle-left" ></i> Volver</button></div>';
+                    $('#acciones').empty().append(volver);
+                }
+            }
+
             function redondearDecimales(numero, decimales)
             {
                 numeroRegexp = new RegExp('\\d\\.(\\d){' + decimales + ',}');   // Expresion regular para numeros con un cierto numero de decimales o mas
@@ -239,6 +309,11 @@
 
             }
 
+            function volver()
+            {
+                window.location.href = '/DeclaracionGastos/VerDeclaracionGastos';
+            }
+
             function formatoNumero(num)
             {
                 return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
@@ -246,21 +321,113 @@
 
             function eliminar(idParticipante)
             {
-                alert("Eliminar documentos participante: " + idParticipante);
-                /*$.ajax({
+                IdParticipante = idParticipante;
+                $('#title-alerta-eliminar-documento').text("Eliminar documentos");
+                $('#body-alerta-eliminar-documento').text("¿Esta seguro que desea eliminar todos los documento?");
+
+                var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
+                var botonAceptar = '<button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmarEliminarDocumentos()">Aceptar</button>';
+
+                $('#actions-alerta-eliminar-documento').empty().append(botonCancelar);
+                $('#actions-alerta-eliminar-documento').append(botonAceptar);
+                $('#modal-alerta-eliminar-documento').modal('show');
+
+            }
+
+            function confirmarEliminarDocumentos()
+            {
+                $('#modal-alerta-eliminar-documento').modal('hide');
+                console.log(IdParticipante);
+                $.ajax({
                     async: false,
-                    url: "/DeclaracionGastos/GuardarIdParticipante",
+                    url: "/DeclaracionGastos/EliminarDocumentosPaticipante",
                     method: "POST",
                     data: {
-                        'IdParticipante': idParticipante,
+                        'IdParticipante': IdParticipante,
                     },
                     success: function (respuesta)
                     {
-                        window.location.href = '/DeclaracionGastos/Documentos';
+                        if (respuesta == "1")
+                        {
+                            $('#title-informacion-eliminacion').text("Eliminacion exitosa");
+                            $('#body-informacion-eliminacion').text("Se eliminaron todos los documentos y la carpeta del participante");
+                            $('#modal-informacion-eliminacion').modal('show');
+                        }
+                        else if (respuesta == "0")
+                        {
+                            $('#title-alerta').text("Alerta");
+                            $('#body-alerta').text("No se eliminaron los documentos debido a que no existen.");
+                            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                            $('#actions-alerta').empty().append(boton);
+                            $('#modal-alerta').modal('show');
+                        }
+                        else
+                        {
+                            $('#title-alerta').text("Alerta");
+                            $('#body-alerta').text("No se eliminaron los documentos debido a que ha ocurrido un problema de conexión. Favor de volver a intentarlo y si el problema persiste contactar a soporte");
+                            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                            $('#actions-alerta').empty().append(boton);
+                            $('#modal-alerta').modal('show');
+                        }
                     }
-                });*/
-
+                });
             }
+
+            function eliminarDocumentosDG()
+            {
+                $('#title-alerta-eliminar-documento').text("Eliminar documentos");
+                $('#body-alerta-eliminar-documento').text("¿Esta seguro que desea eliminar todos los documento de la declaracion de gasto?");
+
+                var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
+                var botonAceptar = '<button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmarEliminarDocumentosDG()">Aceptar</button>';
+
+                $('#actions-alerta-eliminar-documento').empty().append(botonCancelar);
+                $('#actions-alerta-eliminar-documento').append(botonAceptar);
+                $('#modal-alerta-eliminar-documento').modal('show');
+            }
+            
+            function confirmarEliminarDocumentosDG()
+            {
+                $('#modal-alerta-eliminar-documento').modal('hide');
+                $.ajax({
+                    async: false,
+                    url: "/DeclaracionGastos/EliminarDocumentosDG",
+                    method: "POST",
+                    data: "",
+                    success: function (respuesta)
+                    {
+                        if (respuesta == "1")
+                        {
+                            $('#title-informacion-eliminacion').text("Eliminacion exitosa");
+                            $('#body-informacion-eliminacion').text("Se eliminaron todos los documentos y la carpeta de la declaración de gastos.");
+                            $('#modal-informacion-eliminacion').modal('show');
+                        }
+                        else if (respuesta == "0")
+                        {
+                            $('#title-alerta').text("Alerta");
+                            $('#body-alerta').text("No se eliminaron los documentos de la declaración de gastos debido a que no existen.");
+                            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                            $('#actions-alerta').empty().append(boton);
+                            $('#modal-alerta').modal('show');
+                        }
+                        else
+                        {
+                            $('#title-alerta').text("Alerta");
+                            $('#body-alerta').text("No se eliminaron los documentos debido a que ha ocurrido un problema de conexión. Favor de volver a intentarlo y si el problema persiste contactar a soporte");
+                            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                            $('#actions-alerta').empty().append(boton);
+                            $('#modal-alerta').modal('show');
+                        }
+                    }
+                });
+            }
+
+            $('#btn-DocumentosEliminados').click(function (e)
+            {
+                e.preventDefault();
+                $('#modal-informacion-eliminacion').modal('hide');
+                window.location.href = '/DeclaracionGastos/DocumentacionPersonas';
+            });
         </script>
     </div>
 }

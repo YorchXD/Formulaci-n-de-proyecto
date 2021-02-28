@@ -238,7 +238,7 @@ namespace SimRend.Controllers
 
             if(proceso.Solicitud.NombreResponsable == null)
             {
-                proceso.Solicitud.NombreResponsable = ConsultaSolicitud.LeerResponsable(proceso.Solicitud.IdResponsable).Nombre;
+                proceso.Solicitud.NombreResponsable = proceso.Responsable.Nombre;
             }
 
             if(proceso.Solicitud.Categorias==null)
@@ -351,7 +351,7 @@ namespace SimRend.Controllers
                 else
                 {
                     Boolean DatosModificados = VerificarCambiosSolicitud(solExistente, solicitud);
-                    if (DatosModificados && proceso.Responsable.Id!= IdResponsable)
+                    if (DatosModificados)
                     {
                         solicitud.Id = solExistente.Id;
                         ConsultaSolicitud.ModificarSolicitud(solicitud);
