@@ -9,6 +9,7 @@ namespace SimRend.Models
     {
         public string Nombre { get; set; }
         public string RUN { get; set; }
+        public int EstadoEdicion { get; set; }
         public List<Documento> Documentos { get; set; }
     }
 }

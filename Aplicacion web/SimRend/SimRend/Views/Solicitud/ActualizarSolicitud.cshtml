@@ -152,17 +152,6 @@
             <h3 style="display:none" class="step3">Participantes</h3>
             <section class="step3">
                 <div class="row row-sm">
-                    <div class="form-group wd-auto col-lg-5 col-md-12">
-                        <label class="form-control-label">Nombre participante: </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text wd-xs-45">
-                                    <i class="fas fa-user tx-16 lh-0 op-6 fa-fw" style="text-align: center;"></i>
-                                </div>
-                            </div>
-                            <input name="nombreParticipante" type="text" class="form-control" placeholder="Nombre del Participante" id="nombreParticipante">
-                        </div>
-                    </div>
                     <div class="form-group wd-auto col-lg-5 col-md-12 mg-b-0">
                         <label class="form-control-label">RUN del participante: </label>
                         <div class="input-group">
@@ -171,7 +160,18 @@
                                     <i class="fa fa-id-card tx-16 lh-0 op-6 fa-fw"></i>
                                 </div>
                             </div>
-                            <input name="RUNParticipante" type="text" class="form-control" placeholder="RUN del participante" id="runParticipante" oninput="checkRun(this)">
+                            <input name="RUNParticipante" type="text" class="form-control" placeholder="RUN del participante" id="runParticipante" oninput="checkRun(this)" onblur="verificarExistenciaParticipante(this)">
+                        </div>
+                    </div>
+                    <div class="form-group wd-auto col-lg-5 col-md-12">
+                        <label class="form-control-label">Nombre participante: </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fas fa-user tx-16 lh-0 op-6 fa-fw" style="text-align: center;"></i>
+                                </div>
+                            </div>
+                            <input name="nombreParticipante" type="text" class="form-control" placeholder="Nombre del Participante" id="nombreParticipante" readonly>
                         </div>
                     </div>
                     <div class="form-group wd-auto col-lg-2 col-md-12 mg-b-40">
@@ -340,8 +340,82 @@
                 </div><!-- accordion -->
             </section>
         </div>
-
     </div><!-- br-section-wrapper -->
+
+    <div id="modal-modificar" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered wd-350" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body pd-y-20 pd-x-20 tx-center">
+                    <i class="icon ion-edit tx-90 tx-warning lh-1 mg-t-20 d-inline-block"></i>
+                    <h5 class="tx-xs-24 tx-normal tx-gray-900 mg-b-30 tx-center">Modificar Participante</h5>
+
+                    <div class="form-group tx-left">
+                        <label class="form-control-label">RUN del participante: </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fa fa-id-card tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="RUNParticipanteModal" type="text" class="form-control" placeholder="RUN del participante" id="RUNParticipanteModal" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group tx-left">
+                        <label class="form-control-label">Nombre participante: </label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fas fa-user tx-16 lh-0 op-6 fa-fw" style="text-align: center;"></i>
+                                </div>
+                            </div>
+                            <input name="nombreParticipanteModal" type="text" class="form-control" placeholder="Nombre del Participante" id="nombreParticipanteModal">
+                        </div>
+                    </div>
+                    <div class="row mg-t-40">
+                        <div class="form-group  col-lg-6 col-md-6 col-sm-12"> <button class="modal-effect btn btn-secondary tx-transform-none" data-effect="effect-just-me" data-dismiss="modal" style="width:100%">Cancelar</button></div>
+                        <div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-warning tx-transform-none" data-effect="effect-just-me" style="width:100%" id="modificar">Aceptar</button></div>
+                    </div>
+
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL CONSULTA -->
+    <div id="modal-consulta-confirmacion" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <div id="modal-icon-consulta-confirmacion"></div>
+                    <h4 class="tx-success  tx-semibold mg-b-20" id="title-consulta-confirmacion"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-consulta-confirmacion"></p>
+                    <div id="actions-consulta-confirmacion">
+
+                    </div>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
+    <!-- MODAL ALERTA -->
+    <div id="modal-alerta" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
+                    <div id="actions-alerta">
+
+                    </div>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
+
+
+
+
 </div><!-- br-pagebody -->
 
 

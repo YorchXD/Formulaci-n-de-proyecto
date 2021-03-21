@@ -16,13 +16,9 @@
 
 <div class="br-pagebody">
     <div class="br-section-wrapper">
-        <div class="card bd-0">
-            <div class="card-header bg-teal-info bd bd-0 tx-white-8">
-                Datos principales del evento
-            </div><!-- card-header -->
-
-            <div class="card-body bd bd-t-0 rounded-bottom-0">
-                <div class="form-group wd-auto">
+        <div class="form-layout">
+            <div class="row mg-b-25">
+                <div class="form-group wd-auto col-lg-12 col-md-12">
                     <label class="form-control-label">Nombre del evento:</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -32,80 +28,74 @@
                     </div>
                 </div>
 
-                <div class="row row-sm">
-                    <div class="form-group wd-auto col-lg-6 col-md-12">
-                        <label class="form-control-label">Lugar del evento:</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text wd-xs-45">
-                                    <i class="fas fa-map-marked-alt tx-16 lh-0 op-6 fa-fw"></i>
-                                </div>
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Lugar del evento:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-map-marked-alt tx-16 lh-0 op-6 fa-fw"></i>
                             </div>
-                            <input name="LugarEvento" class="form-control" id="verLugarEvento" readonly type="text" placeholder="¿Donde se realizará el evento?">
                         </div>
-                    </div>
-                    <div class="form-group wd-auto col-lg-6 col-md-12">
-                        <label class="form-control-label">Monto($): </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text wd-xs-45">
-                                    <i class="fa fa-money-bill-wave tx-16 lh-0 op-6 fa-fw"></i>
-                                </div>
-                            </div>
-                            <input name="Monto" class="form-control" id="verMonto" readonly type="text" placeholder="¿Cuanto será el monto a solicitar?">
-                        </div>
+                        <input name="LugarEvento" class="form-control" id="verLugarEvento" readonly type="text" placeholder="¿Donde se realizará el evento?">
                     </div>
                 </div>
-                <div class="row row-sm">
-                    <div class="form-group wd-auto col-lg-6 col-md-12">
-                        <label class="form-control-label">Fecha de inicio: </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text wd-xs-45">
-                                    <i class="fas fa-calendar-plus tx-16 lh-0 op-6 fa-fw" style="text-align: center;"></i>
-                                </div>
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Monto($): </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fa fa-money-bill-wave tx-16 lh-0 op-6 fa-fw"></i>
                             </div>
-                            <input name="FechaInicio" type="text" class="form-control fc-datepicker" readonly placeholder="¿Cuando inicia el evento?" id="verFechaInicio">
                         </div>
-                    </div>
-                    <div class="form-group wd-auto col-lg-6 col-md-12">
-                        <label class="form-control-label">Fecha de término: </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text wd-xs-45">
-                                    <i class="fas fa-calendar-check tx-16 lh-0 op-6 fa-fw"></i>
-                                </div>
-                            </div>
-                            <input name="FechaTermino" type="text" class="form-control fc-datepicker" readonly placeholder="¿Cuando terminará el evento?" id="verFechaTermino">
-                        </div>
+                        <input name="Monto" class="form-control" id="verMonto" readonly type="text" placeholder="¿Cuanto será el monto a solicitar?">
                     </div>
                 </div>
-                <div class="row row-sm">
-                    <div class="form-group wd-auto col-lg-6 col-md-12">
-                        <label class="form-control-label">Responsable: </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text wd-xs-45">
-                                    <i class="fa fa-user tx-16 lh-0 op-6 fa-fw"></i>
-                                </div>
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Fecha de inicio: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-calendar-plus tx-16 lh-0 op-6 fa-fw" style="text-align: center;"></i>
                             </div>
-                            <input name="idResponsable" class="form-control" id="verResponsable" readonly type="text" placeholder="¿Qué representante estará a cargo?">
                         </div>
+                        <input name="FechaInicio" type="text" class="form-control fc-datepicker" readonly placeholder="¿Cuando inicia el evento?" id="verFechaInicio">
                     </div>
-                    <div class="form-group wd-auto col-lg-6 col-md-12">
-                        <label class="form-control-label">Tipo de actividad: </label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text wd-xs-45">
-                                    <i class="fas fa-tag tx-16 lh-0 op-6 fa-fw"></i>
-                                </div>
+                </div>
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Fecha de término: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-calendar-check tx-16 lh-0 op-6 fa-fw"></i>
                             </div>
-                            <input name="TipoEvento" class="form-control" id="verTipoEvento" readonly type="text" placeholder="Seleccione el tipo de actividad">
                         </div>
+                        <input name="FechaTermino" type="text" class="form-control fc-datepicker" readonly placeholder="¿Cuando terminará el evento?" id="verFechaTermino">
+                    </div>
+                </div>
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Responsable: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fa fa-user tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="idResponsable" class="form-control" id="verResponsable" readonly type="text" placeholder="¿Qué representante estará a cargo?">
+                    </div>
+                </div>
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Tipo de actividad: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-tag tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="TipoEvento" class="form-control" id="verTipoEvento" readonly type="text" placeholder="Seleccione el tipo de actividad">
                     </div>
                 </div>
             </div>
-            <div class="card-footer bd bd-t-0">
+            <div class="form-layout-footer">
                 <div class="row" id="acciones">
 
                 </div>

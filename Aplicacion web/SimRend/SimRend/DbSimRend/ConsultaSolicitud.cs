@@ -309,7 +309,8 @@ namespace SimRend.DbSimRend
                         var participante = new Persona()
                         {
                             Nombre = prodData["nombre"].ToString(),
-                            RUN = prodData["run"].ToString()
+                            RUN = prodData["run"].ToString(),
+                            EstadoEdicion = Convert.ToInt32(prodData["estadoEdicion"])
                         };
 
                         participantes.Add(participante);
@@ -350,6 +351,25 @@ namespace SimRend.DbSimRend
                 Console.WriteLine(ex.ToString());
             }
             return null;
+        }
+
+        public static int ModificarParticipante(String Nombre, String Run)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "Actualizar_participante", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_nombre", Direction = System.Data.ParameterDirection.Input, Value = Nombre });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_run", Direction = System.Data.ParameterDirection.Input, Value = Run });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "out_validacion", Direction = System.Data.ParameterDirection.Output, Value = -1 });
+                var datos = ContexDb.ExecuteProcedure(command);
+
+                return Convert.ToInt32(datos.Parameters["out_validacion"].Value);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return -1;
         }
 
         public static Direccion LeerDireccion(int refSolicitud)
@@ -396,7 +416,8 @@ namespace SimRend.DbSimRend
                     participante = new Persona()
                     {
                         Nombre = prodData["nombre"].ToString(),
-                        RUN = prodData["run"].ToString()
+                        RUN = prodData["run"].ToString(),
+                        EstadoEdicion = Convert.ToInt32(prodData["estadoEdicion"])
                     };
                     return participante;
                 }

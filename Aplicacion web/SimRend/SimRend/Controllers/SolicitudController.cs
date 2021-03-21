@@ -138,9 +138,33 @@ namespace SimRend.Controllers
                 validacion = false,
                 mensaje = "No se han guardado los datos del participante. Verifique los campos y vuelva a intentarlo nuevamente."
             });
+        }
 
+        [HttpPost]
+        public JsonResult LeerParticipante(String RUN)
+        {
+            /*Buscar participante si es que existe en la solicitud*/
+            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+            List<Persona> Participantes = ConsultaSolicitud.LeerParticipantes(proceso.Solicitud.Id);
+            Boolean exitPartSol = false;
+            if (Participantes != null)
+            {
+                exitPartSol = Participantes.Any(participante => participante.RUN == RUN);
+            }
 
+            Persona participante;
 
+            /*Si existe el participante en la solicitud envia los datos del participante de la solicitud*/
+            if (exitPartSol)
+            {
+                participante = Participantes.Find(participante => participante.RUN == RUN);
+            }
+            /*Si no existe el participante en la solicitud envia los datos del participante que se encuentre registrado en el sistema. Y si no existe, se envia un null*/
+            else
+            {
+                participante = ConsultaSolicitud.LeerParticipante(RUN);
+            }
+            return Json(new { participante, exitPartSol });
         }
         /*###################################Fin Proceso de creacion###################################################*/
 
@@ -228,7 +252,6 @@ namespace SimRend.Controllers
         public JsonResult LeerSolicitud()
         {
             //Solicitud solicitud = HttpContext.Session.GetComplexData<Solicitud>("Solicitud");
-
             //int idSolicitud = Convert.ToInt32(HttpContext.Session.GetComplexData<String>("idSolicitud"));
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
             /*if (proceso.Solicitud==null)
@@ -271,7 +294,6 @@ namespace SimRend.Controllers
             //Solicitud solicitud = HttpContext.Session.GetComplexData<Solicitud>("Solicitud");
             //Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
-
             List<Persona> Participantes = ConsultaSolicitud.LeerParticipantes(proceso.Solicitud.Id);
 
             if (Participantes != null)
@@ -423,6 +445,13 @@ namespace SimRend.Controllers
             return Json(validar);
         }
 
+        public JsonResult ActualizarParticipante(String Run, String Nombre)
+        {
+            int validar = ConsultaSolicitud.ModificarParticipante(Nombre, Run);
+            return Json(validar);
+        }
+
+        
         /*###################################Fin Proceso de Actualizacion##############################################*/
 
         /*#######################################Proceso de Eliminar###################################################*/

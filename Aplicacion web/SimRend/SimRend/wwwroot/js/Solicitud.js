@@ -1,4 +1,5 @@
-﻿var idSolicitud = 0;
+﻿
+var idSolicitud = 0;
 var solicitud = null;
 var showToastrs = false;
 
@@ -357,12 +358,31 @@ function obtenerParticipantes()
         },
         'columns': [
             { "data": "nombre" },
-            { "data": "run" },
             {
-                "data": 'run',
-                "render": function (data, type, row, meta) {
-                    return '<button class="btn btn-warning btn-icon rounded-circle mg-r-5 mg-b-10" onclick="modificarParticipante(\'' + data.toString() + '\')"><div><i class="fas fa-pen-square"></i></div></button>'+
-                        '<button class="btn btn-danger btn-icon rounded-circle mg-r-5 mg-b-10" onclick="eliminarParticipante(\'' + data.toString() + '\')"><div><i class="fas fa-trash"></i></div></button>'
+                "data": "run",
+                "render": function (data, type, row, meta)
+                {
+                    return formatearRut(data);
+                }
+            },
+            {
+                "data": null,
+                "render": function (data, type, row, meta)
+                {
+                    var nombre = data.nombre;
+                    var run = data.run;
+                    var accionesAux = "";
+                    if (row.estadoEdicion == 1)
+                    {
+                        accionesAux = '<button class="btn btn-warning btn-icon rounded-circle mg-r-5 mg-b-10" onclick="modificarParticipante(\'' + nombre + '\',\'' + run + '\')"><div><i class="fas fa-pen-square"></i></div></button>' +
+                            '<button class="btn btn-danger btn-icon rounded-circle mg-r-5 mg-b-10" onclick="eliminarParticipante(\'' + row.run.toString() +'\')"><div><i class="fas fa-trash"></i></div></button>';
+                    }
+                    else
+                    {
+                        accionesAux = '<button class="btn btn-danger btn-icon rounded-circle mg-r-5 mg-b-10" onclick="eliminarParticipante(\'' + row.run.toString() + '\')"><div><i class="fas fa-trash"></i></div></button>';
+                    }
+
+                    return accionesAux;
                 }
             }
         ]
@@ -374,7 +394,8 @@ $('#agregarParticipante').click(function (e) {
     e.preventDefault();
     var run = $('#runParticipante').val();
     var nombre = $('#nombreParticipante').val();
-    if (validarRUN(run) && nombre!="") {
+    if (validarRUN(run) && nombre != "")
+    {
         $.ajax({
             url: "/Solicitud/AgregarParticipante",
             method: "POST",
@@ -382,17 +403,28 @@ $('#agregarParticipante').click(function (e) {
                 'RUN': run,
                 'Nombre': nombre
             },
-            success: function (respuesta) {
-                if (respuesta.validacion == true) {
+            success: function (respuesta)
+            {
+                if (respuesta.validacion == true)
+                {
                     limpiarCamposParticipante();
                     obtenerParticipantes();
                     toastr.success(respuesta.mensaje, 'Guardado existosa');
                 }
-                else {
+                else
+                {
                     toastr.error(respuesta.mensaje, 'Error Critico!');
                 }
             }
         });
+    }
+    else
+    {
+        $('#title-alerta').text("Alerta");
+        $('#body-alerta').text('Exiten campos incompletos. Favor verificar que todos los campos esten completados y vuelva a intentarlo.');
+        var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+        $('#actions-alerta').empty().append(boton);
+        $('#modal-alerta').modal('show');
     }
 });
 
@@ -416,14 +448,12 @@ function eliminarParticipante(run) {
 
 function checkRun(Run) {
     // Despejar Puntos
-    var valor = Run.value.replace('.', '');
+    var valor = Run.value.replaceAll('.', '');
     // Despejar Guión
-    valor = valor.replace('-', '');
-
+    valor = valor.replaceAll('-', '');
     // Aislar Cuerpo y Dígito Verificador
     cuerpo = valor.slice(0, -1);
     dv = valor.slice(-1).toUpperCase();
-
     // Formatear RUN
     Run.value = cuerpo + '-' + dv
 
@@ -435,11 +465,10 @@ function checkRun(Run) {
     multiplo = 2;
 
     // Para cada dígito del Cuerpo
-    for (i = 1; i <= cuerpo.length; i++) {
-
+    for (i = 1; i <= cuerpo.length; i++) 
+    {
         // Obtener su Producto con el Múltiplo Correspondiente
         index = multiplo * valor.charAt(cuerpo.length - i);
-
         // Sumar al Contador General
         suma = suma + index;
 
@@ -450,22 +479,18 @@ function checkRun(Run) {
         else {
             multiplo = 2;
         }
-
     }
 
     // Calcular Dígito Verificador en base al Módulo 11
     dvEsperado = 11 - (suma % 11);
-
     // Casos Especiales (0 y K)
     dv = (dv == 'K') ? 10 : dv;
     dv = (dv == 0) ? 11 : dv;
-
     // Validar que el Cuerpo coincide con su Dígito Verificador
     if (dvEsperado != dv) {
         Run.setCustomValidity("RUN Inválido");
         return false;
     }
-
     // Si todo sale bien, eliminar errores (decretar que es válido)
     Run.setCustomValidity('');
 }
@@ -474,14 +499,12 @@ function checkRun(Run) {
 function validarRUN(run)
 {
     // Despejar Puntos
-    var valor = run.replace('.', '');
+    var valor = run.replaceAll('.', '');
     // Despejar Guión
-    valor = valor.replace('-', '');
-
+    valor = valor.replaceAll('-', '');
     // Aislar Cuerpo y Dígito Verificador
     cuerpo = valor.slice(0, -1);
     dv = valor.slice(-1).toUpperCase();
-
     // Formatear RUN
     run = cuerpo + '-' + dv
 
@@ -496,11 +519,10 @@ function validarRUN(run)
     multiplo = 2;
 
     // Para cada dígito del Cuerpo
-    for (i = 1; i <= cuerpo.length; i++) {
-
+    for (i = 1; i <= cuerpo.length; i++) 
+    {
         // Obtener su Producto con el Múltiplo Correspondiente
         index = multiplo * valor.charAt(cuerpo.length - i);
-
         // Sumar al Contador General
         suma = suma + index;
 
@@ -511,7 +533,6 @@ function validarRUN(run)
         else {
             multiplo = 2;
         }
-
     }
 
     // Calcular Dígito Verificador en base al Módulo 11
@@ -529,6 +550,63 @@ function validarRUN(run)
 
     return true;
 }
+
+function verificarExistenciaParticipante(run)
+{
+    var runAux = run.value;
+    if (validarRUN(runAux))
+    {
+        $.ajax({
+            url: "/Solicitud/LeerParticipante",
+            method: "POST",
+            data: { "RUN": runAux},
+            success: function (respuesta)
+            {
+                console.log(respuesta.participante);
+                if (respuesta.participante != null && !respuesta.exitPartSol)
+                {
+                    $('#nombreParticipante').prop('readonly', true).val(respuesta.participante.nombre);
+                }
+                else if (respuesta.participante != null && respuesta.exitPartSol)
+                {
+                    $('#title-alerta').text("Alerta");
+                    $('#body-alerta').text('El participante de nombre ' + respuesta.participante.nombre + ', RUN ' + formatearRut(respuesta.participante.run) + ' ya se encuentra registrado en la solicitud.');
+                    var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                    $('#actions-alerta').empty().append(boton);
+                    $('#modal-alerta').modal('show');
+                    limpiarCamposParticipante();
+                }
+                else
+                {
+                    $('#nombreParticipante').prop('readonly', false).val('');
+                }
+            }
+        });
+    }
+}
+
+function formatearRut(run)
+{
+    let runAux = run.replace(/\./g, '').replace('-', '');
+
+    if (runAux.match(/^(\d{2})(\d{3}){2}(\w{1})$/))
+    {
+        runAux = runAux.replace(/^(\d{2})(\d{3})(\d{3})(\w{1})$/, '$1.$2.$3-$4');
+    }
+    else if (runAux.match(/^(\d)(\d{3}){2}(\w{0,1})$/))
+    {
+        runAux = runAux.replace(/^(\d)(\d{3})(\d{3})(\w{0,1})$/, '$1.$2.$3-$4');
+    }
+    else if (runAux.match(/^(\d)(\d{3})(\d{0,2})$/))
+    {
+        runAux = runAux.replace(/^(\d)(\d{3})(\d{0,2})$/, '$1.$2.$3');
+    }
+    else if (runAux.match(/^(\d)(\d{0,2})$/))
+    {
+        runAux = runAux.replace(/^(\d)(\d{0,2})$/, '$1.$2');
+    }
+    return runAux;
+};
 
 function limpiarCamposParticipante()
 {
@@ -596,7 +674,6 @@ function participantes(participantes) {
     }
     $("#verTablaParticipantes > tbody").empty();
     $("#verTablaParticipantes > tbody").append(resp);
-
 }
 
 function formatoNumero(num) {
@@ -664,8 +741,6 @@ function ingresarDatos() {
 
         }
     });
-
-    
     //$("#tipoEvento").val();
 }
 
@@ -706,7 +781,6 @@ function obtenerResponsablesActualizar(idResponsable) {
         }
     });
 }
-
 
 function actualizarEstadoProceso() {
     $.ajax({
@@ -844,7 +918,93 @@ function activadorFechas()
     }
 }
 
-function modificarParticipante(run) 
+//Funciones para la etapa de mdificacion del nombre del participante (en caso de que el run sea incorrecto simplemente debe borrar al participante)
+var cambioNombreParticipante;
+function modificarParticipante(nombre, run) 
 {
-    alert("Se modifica el participante con el run" + run)
+    $('#RUNParticipanteModal').val(formatearRut(run));
+    $('#nombreParticipanteModal').val(nombre);
+    cambioNombreParticipante = 0;
+    $('#modal-modificar').modal('show');
 }
+
+$('#nombreParticipanteModal').on('change', function ()
+{
+    cambioNombreParticipante = 1;
+});
+
+$('#modificar').on('click', function ()
+{
+    var icono = '<i class="icon ion-ios-help-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>';
+    var boton = '<button type="button" class="btn btn-secondary pd-y-12 pd-x-25 mg-b-20 mg-r-5 tx-transform-none" data-dismiss="modal">Cancelar</button><button id="confirmacionModificarParticipante" type="button" class="btn btn-success pd-y-12 pd-x-25 mg-b-20 mg-l-5 tx-transform-none" onclick="confirmacionModificarParticipante()">Aceptar</button>';
+    $('#modal-icon-consulta-confirmacion').empty().append(icono);
+    $('#title-consulta-confirmacion').text("Alerta");
+    $('#body-consulta-confirmacion').text('¿Está seguro(a) de modificar el nombre del participante?');
+    $('#actions-consulta-confirmacion').empty().append(boton);
+    $('#modal-consulta-confirmacion').modal('show');
+});
+
+function confirmacionModificarParticipante()
+{
+    var nombre = $('#nombreParticipanteModal').val();
+    var run = $('#RUNParticipanteModal').val().replaceAll('.', '');
+    if (cambioNombreParticipante && nombre.replaceAll(' ', '') !='')
+    {
+        $('#modal-modificar').modal('hide');
+        $.ajax({
+            url: "/Solicitud/ActualizarParticipante",
+            method: "POST",
+            data: {
+                'Run': run,
+                'Nombre': nombre
+            },
+            success: function (respuesta)
+            {
+                if (respuesta)
+                {
+                    var icono = '<i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>';
+                    var boton = '<button type="button" class="btn btn-success pd-y-12 pd-x-25 mg-b-20 mg-r-5 tx-transform-none" data-dismiss="modal">Aceptar</button>';
+                    $('#modal-icon-consulta-confirmacion').empty().append(icono);
+                    $('#title-consulta-confirmacion').text("Confirmación");
+                    $('#body-consulta-confirmacion').text('Se ha modificado el nombre del participante.');
+                    $('#actions-consulta-confirmacion').empty().append(boton);
+                    obtenerParticipantes();
+                }
+                else
+                {
+                    $('#modal-consulta-confirmacion').modal('hide');
+                    $('#nombreParticipanteModal').val('');
+                    $('#title-alerta').text("Alerta");
+                    $('#body-alerta').text('No se ha guardado los cambios. Esto puede ser debido a que se ha perdido la conexión de internet o el participante ya no se encuentre registrado en el sistema. En el caso de haber pedido la conexión de internet vuelva a intentarlo, en caso cotrario, registre al participante nuevamente.');
+                    var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                    $('#actions-alerta').empty().append(boton);
+                    $('#modal-alerta').modal('show');
+                    
+                }
+            }
+        });
+    }
+    else if (cambioNombreParticipante && nombre.replaceAll(' ', '') == '')
+    {
+        $('#modal-consulta-confirmacion').modal('hide');
+        $('#nombreParticipanteModal').val('');
+        $('#title-alerta').text("Alerta");
+        $('#body-alerta').text('No se ha guardado los cambios debido a que el campo nombre se encuentra vacio. Favor verificar los datos e intentelo nuevamente.');
+        var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+        $('#actions-alerta').empty().append(boton);
+        $('#modal-alerta').modal('show');
+    }
+    else
+    {
+        $('#modal-modificar').modal('hide');
+        var icono = '<i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>';
+        var boton = '<button type="button" class="btn btn-success pd-y-12 pd-x-25 mg-b-20 mg-r-5 tx-transform-none" data-dismiss="modal">Aceptar</button>';
+        $('#modal-icon-consulta-confirmacion').empty().append(icono);
+        $('#title-consulta-confirmacion').text("Confirmación");
+        $('#body-consulta-confirmacion').text('No existen cambios en el nombre del participante');
+        $('#actions-consulta-confirmacion').empty().append(boton);
+    }
+    
+}
+
+//Fin funciones para la etapa de mdificacion del nombre del participante

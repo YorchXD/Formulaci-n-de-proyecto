@@ -267,9 +267,7 @@
         $(document).ready(function () {
             $('#verTablaCategorias').DataTable();
             $('#verTablaParticipantes').DataTable();
-            var opcion = obtenerSolicitud();
-            //console.log("estadoProceso: " + opcion);
-            //var opciones = 1;
+            obtenerSolicitud();
 
         });
 
@@ -368,15 +366,21 @@
 
         function participantes(participantes) {
             var resp = "";
-            for (var i = 0; i < participantes.length; i++) {
-                if (i === 0 || i % 2 === 0) {
-                    resp += "<tr class='odd'>";
+            for (var i = 0; i < participantes.length; i++)
+            {
+                if (participantes[i].run != '-1')
+                {
+                    if (i === 0 || i % 2 === 0)
+                    {
+                        resp += "<tr class='odd'>";
+                    }
+                    else
+                    {
+                        resp += "<tr>";
+                    }
+                    resp += "<td>" + participantes[i].nombre + "</td>" +
+                        "<td>" + formatearRut(participantes[i].run) + "</td></tr>";
                 }
-                else {
-                    resp += "<tr>";
-                }
-                resp += "<td>" + participantes[i].nombre + "</td>" +
-                    "<td>" + participantes[i].run + "</td></tr>";
             }
             $("#verTablaParticipantes > tbody").empty();
             $("#verTablaParticipantes > tbody").append(resp);
@@ -418,6 +422,29 @@
         {
             window.location.href = '/Proceso/Procesos';
         });
+
+        function formatearRut(run)
+        {
+            let runAux = run.replace(/\./g, '').replace('-', '');
+
+            if (runAux.match(/^(\d{2})(\d{3}){2}(\w{1})$/))
+            {
+                runAux = runAux.replace(/^(\d{2})(\d{3})(\d{3})(\w{1})$/, '$1.$2.$3-$4');
+            }
+            else if (runAux.match(/^(\d)(\d{3}){2}(\w{0,1})$/))
+            {
+                runAux = runAux.replace(/^(\d)(\d{3})(\d{3})(\w{0,1})$/, '$1.$2.$3-$4');
+            }
+            else if (runAux.match(/^(\d)(\d{3})(\d{0,2})$/))
+            {
+                runAux = runAux.replace(/^(\d)(\d{3})(\d{0,2})$/, '$1.$2.$3');
+            }
+            else if (runAux.match(/^(\d)(\d{0,2})$/))
+            {
+                runAux = runAux.replace(/^(\d)(\d{0,2})$/, '$1.$2');
+            }
+            return runAux;
+        };
     </script>
 }
 
