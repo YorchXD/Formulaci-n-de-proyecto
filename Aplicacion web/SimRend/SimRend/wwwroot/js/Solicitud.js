@@ -623,11 +623,30 @@ function obtenerSolicitud()
         data: {},
         success: function (respuesta) {
             datosPrincipales(respuesta.solicitud);
-            categorias(respuesta.solicitud.categorias);
-            if (respuesta.solicitud.tipoEvento === "Grupal") {
-                participantes(respuesta.solicitud.participantes);
+            //categorias(respuesta.solicitud.categorias);
+
+            if (respuesta.solicitud.categorias != null)
+            {
+                categorias(respuesta.solicitud.categorias);
             }
-            else {
+            else
+            {
+                $("#cardCategorias").css("display", "none");
+            }
+
+            if (respuesta.solicitud.tipoEvento === "Grupal")
+            {
+                if (respuesta.solicitud.participantes.length > 1 || (respuesta.solicitud.participantes.length == 1 && respuesta.solicitud.participantes[0].run != "-1"))
+                {
+                    participantes(respuesta.solicitud.participantes);
+                }
+                else
+                {
+                    $("#cardParticipantes").css("display", "none");
+                }
+            }
+            else 
+            {
                 $("#cardParticipantes").css("display", "none"); 
             }
         }
@@ -662,15 +681,22 @@ function categorias(categorias) {
 
 function participantes(participantes) {
     var resp = "";
-    for (var i = 0; i < participantes.length; i++) {
-        if (i === 0 || i % 2 === 0) {
-            resp += "<tr class='odd'>";
+    for (var i = 0; i < participantes.length; i++)
+    {
+        if (participantes[i].run!="-1")
+        {
+            if (i === 0 || i % 2 === 0)
+            {
+                resp += "<tr class='odd'>";
+            }
+            else
+            {
+                resp += "<tr>";
+            }
+            resp += "<td>" + participantes[i].nombre + "</td>" +
+                "<td>" + formatearRut(participantes[i].run) + "</td></tr>";
         }
-        else {
-            resp += "<tr>";
-        }
-        resp += "<td>" + participantes[i].nombre + "</td>" +
-            "<td>" + participantes[i].run + "</td></tr>";
+        
     }
     $("#verTablaParticipantes > tbody").empty();
     $("#verTablaParticipantes > tbody").append(resp);

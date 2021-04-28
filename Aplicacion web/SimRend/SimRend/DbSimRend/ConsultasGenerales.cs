@@ -69,12 +69,14 @@ namespace SimRend.DbSimRend
             return null;
         }
 
-        public static List<Proceso> LeerProcesosOrganizacion(int refOrganizacionEstudiantil)
+        public static List<Proceso> LeerProcesosOrganizacion(int refOrganizacionEstudiantil, int anio, String tipoProceso)
         {
             try
             {
                 var command = new MySqlCommand() { CommandText = "Leer_Procesos_Organizacion", CommandType = System.Data.CommandType.StoredProcedure };
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idOrganizacion", Direction = System.Data.ParameterDirection.Input, Value = refOrganizacionEstudiantil });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_anio", Direction = System.Data.ParameterDirection.Input, Value = anio });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_tipoProceso", Direction = System.Data.ParameterDirection.Input, Value = tipoProceso });
                 //ejemplo command.Parameters.Add(new MySqlParameter() { ParameterName = "in_id", Direction = System.Data.ParameterDirection.Input, Value = id });
                 var datos = ContexDb.GetDataSet(command);
 
@@ -88,7 +90,23 @@ namespace SimRend.DbSimRend
                         int idResolucion= Convert.ToInt32(prodData["refResolucion"]);
                         int idDeclaracionGastos = Convert.ToInt32(prodData["refDeclaracionGastos"]);
                         int idResponsable = Convert.ToInt32(prodData["refResponsable"]);
-                        Solicitud solicitud = ConsultaSolicitud.LeerSolicitud(idSolicitud);
+
+
+                        Solicitud solicitud = new Solicitud()
+                        {
+                            Id = Convert.ToInt32(prodData["id"]),
+                            NombreEvento = prodData["nomEvent"].ToString(),
+                            LugarEvento = prodData["lugarEvent"].ToString(),
+                            Monto = Convert.ToInt32(prodData["monto"]),
+                            FechaInicioEvento = Convert.ToDateTime(prodData["fecIniEvent"]),
+                            FechaTerminoEvento = Convert.ToDateTime(prodData["fecTerEvent"]),
+                            TipoEvento = prodData["tipoActividad"].ToString(),
+                            RefProceso = Convert.ToInt32(prodData["idFondo"]),
+                            FechaFinPdf = Convert.ToDateTime(prodData["fechaCreacionPDF"])
+                        };
+
+                        //Solicitud solicitud = ConsultaSolicitud.LeerSolicitud(idSolicitud);
+
                         if (solicitud.NombreResponsable == null)
                         {
                             //solicitud.NombreResponsable = ConsultaSolicitud.LeerResponsable(solicitud.IdResponsable).Nombre;
@@ -99,6 +117,7 @@ namespace SimRend.DbSimRend
                         {
                             Id = Convert.ToInt32(prodData["idFondo"]),
                             Estado = Convert.ToInt32(prodData["estado"]),
+                            EstadoFinal = prodData["estadoFinal"].ToString(),
                             Responsable = new Usuario() { Id = idResponsable },
                             Solicitud = solicitud,
                             Resolucion = new Resolucion() { Id = idResolucion },
@@ -111,6 +130,36 @@ namespace SimRend.DbSimRend
                     return procesos;
                 }
 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return null;
+        }
+
+        public static List<int> LeerAniosProcesos(int idOrganizacionEstudiantil)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "Leer_Anios_Procesos_Organizacion", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idOrganizacion", Direction = System.Data.ParameterDirection.Input, Value = idOrganizacionEstudiantil });
+                var datos = ContexDb.GetDataSet(command);
+                List<int> anios = new List<int>();
+
+                if (datos.Tables[0].Rows.Count > 0)
+                {
+                    foreach (System.Data.DataRow row in datos.Tables[0].Rows)
+                    {
+                        var prodData = row;
+                        anios.Add(Convert.ToInt32(prodData["anios"]));
+                    }
+                }
+                else
+                {
+                    anios.Add(DateTime.Now.Year);
+                }
+                return anios;
             }
             catch (Exception ex)
             {

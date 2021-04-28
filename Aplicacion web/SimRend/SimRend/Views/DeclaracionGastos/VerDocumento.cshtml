@@ -131,10 +131,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content tx-size-sm">
                 <div class="modal-body tx-center pd-y-20 pd-x-20">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <i class="ionicons ion-ios-help-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
                     <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta-eliminar-documento"></h4>
                     <p class="mg-b-20 mg-x-20" id="body-alerta-eliminar-documento"></p>
                     <button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">
@@ -147,6 +144,7 @@
             </div><!-- modal-content -->
         </div><!-- modal-dialog -->
     </div><!-- modal -->
+
     <!-- MODAL INFORMACION ELIMINACION -->
     <div id="modal-informacion-eliminacion" class="modal fade" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -162,14 +160,12 @@
             </div><!-- modal-content -->
         </div><!-- modal-dialog -->
     </div><!-- modal -->
+
     <!-- MODAL ALERTA -->
     <div id="modal-alerta" class="modal fade">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content tx-size-sm">
                 <div class="modal-body tx-center pd-y-20 pd-x-20">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                     <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
                     <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta"></h4>
                     <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
@@ -225,7 +221,7 @@
 
         function insertarAcciones(estadoProceso, estadoFinalProceso)
         {
-            if (estadoProceso == 4 && estadoFinalProceso == "Abierta")
+            if (estadoProceso == 4 && estadoFinalProceso == "Abierto")
             {
                 var volver = '<div class="form-group  col-lg-4 col-md-4 col-sm-12"> <button class="btn btn-secondary" id="volverDocumentos" style="width:100%" onclick="volverDocumentos()"><i class="fas fa-arrow-circle-left"></i> Volver</button></div>';
                 var modificar = '<div class="form-group  col-lg-4 col-md-4 col-sm-12"><button class="modal-effect btn btn-warning tx-transform-none" id="modificarDocumento" data-effect="effect-just-me" style="width:100%" onclic="modificarDocumento()"><i class="fas fa-edit"></i> Modificar</button></div>';

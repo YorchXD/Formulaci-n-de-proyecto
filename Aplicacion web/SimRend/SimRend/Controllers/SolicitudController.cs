@@ -91,7 +91,8 @@ namespace SimRend.Controllers
 
                 proceso.Solicitud.Categorias.Add(categoria);
 
-                ConsultaSolicitud.AgregarCategoria(proceso.Solicitud.Id, categoria.Id);
+                ConsultaSolicitud.AgregarCategoria(proceso.Solicitud.Id, categoria.Id, DateTime.Now);
+                HttpContext.Session.SetComplexData("Proceso", proceso);
                 return Json(true);
             }
             catch(Exception ex)
@@ -115,12 +116,19 @@ namespace SimRend.Controllers
                 //Solicitud solicitud = HttpContext.Session.GetComplexData<Solicitud>("Solicitud");
                 Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
 
+                if(proceso.Solicitud.Participantes==null)
+                {
+                    proceso.Solicitud.Participantes = new List<Persona>();
+                }
+
                 if (ConsultaSolicitud.LeerParticipante(participante.RUN)==null)
                 {
                     ConsultaSolicitud.AgregarParticipante(participante);
                 }
-                
-                ConsultaSolicitud.AgregarParSol(participante.RUN, proceso.Solicitud.Id);
+
+                ConsultaSolicitud.AgregarParSol(participante.RUN, proceso.Solicitud.Id, DateTime.Now);
+                proceso.Solicitud.Participantes.Add(participante);
+                HttpContext.Session.SetComplexData("Proceso", proceso);
 
                 return Json(new
                 {
@@ -140,6 +148,10 @@ namespace SimRend.Controllers
             });
         }
 
+
+        /*###################################Fin Proceso de creacion###################################################*/
+
+        /*#######################################Proceso de Lecturas###################################################*/
         [HttpPost]
         public JsonResult LeerParticipante(String RUN)
         {
@@ -166,9 +178,6 @@ namespace SimRend.Controllers
             }
             return Json(new { participante, exitPartSol });
         }
-        /*###################################Fin Proceso de creacion###################################################*/
-
-        /*#######################################Proceso de Lecturas###################################################*/
 
         [HttpPost]
         public JsonResult LeerRepresentantesHabilitados()
@@ -281,10 +290,10 @@ namespace SimRend.Controllers
             return Json(new
             {
                 validacion = true,
-                //mensaje = "Se han guardado los datos satisfactoriamente.",
                 solicitud = proceso.Solicitud,
                 idResponsable = proceso.Responsable.Id,
-                estado = proceso.Estado
+                estado = proceso.Estado,
+                estadoFinal = proceso.EstadoFinal
             }) ;
         }
 
@@ -385,7 +394,9 @@ namespace SimRend.Controllers
                             ConsultasGenerales.ActualizarEstadoUsurioRepresentate(IdResponsable, "Desabilitado");
                             proceso.Responsable = ConsultaSolicitud.LeerResponsable(IdResponsable);
                         }
+                        
                         proceso.Solicitud = solicitud;
+
                         HttpContext.Session.SetComplexData("Proceso", proceso);
                         return Json(new
                         {
@@ -447,7 +458,9 @@ namespace SimRend.Controllers
 
         public JsonResult ActualizarParticipante(String Run, String Nombre)
         {
-            int validar = ConsultaSolicitud.ModificarParticipante(Nombre, Run);
+            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+            DateTime fechaModificacion = DateTime.Now;
+            int validar = ConsultaSolicitud.ModificarParticipante(Nombre, Run, proceso.Solicitud.Id, fechaModificacion);
             return Json(validar);
         }
 
@@ -461,7 +474,13 @@ namespace SimRend.Controllers
         {
             //Solicitud solicitud = HttpContext.Session.GetComplexData<Solicitud>("Solicitud");
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
-            return Json(ConsultaSolicitud.EliminarCategoria(proceso.Solicitud.Id, IdCategoria));
+            Boolean validar = ConsultaSolicitud.EliminarCategoria(proceso.Solicitud.Id, IdCategoria, DateTime.Now);
+
+            if(validar)
+            {
+                HttpContext.Session.SetComplexData("Proceso", proceso);
+            }
+            return Json(validar);
         }
 
         [HttpPost]
@@ -469,7 +488,13 @@ namespace SimRend.Controllers
         {
             //Solicitud solicitud = HttpContext.Session.GetComplexData<Solicitud>("Solicitud");
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
-            return Json(ConsultaSolicitud.EliminarParticipante(proceso.Solicitud.Id, IdParticipante));
+            Boolean validar = ConsultaSolicitud.EliminarParticipante(proceso.Solicitud.Id, IdParticipante, DateTime.Now);
+            if(validar)
+            {
+                proceso.Solicitud.Participantes.RemoveAll(participante => participante.RUN == IdParticipante);
+                HttpContext.Session.SetComplexData("Proceso", proceso);
+            }
+            return Json(validar);
         }
 
         [HttpPost]

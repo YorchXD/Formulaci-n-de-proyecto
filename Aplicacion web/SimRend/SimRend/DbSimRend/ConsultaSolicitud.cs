@@ -58,13 +58,15 @@ namespace SimRend.DbSimRend
             return -1;
         }
 
-        public static void AgregarCategoria(int idSolicitud, int idCategoria)
+        public static void AgregarCategoria(int idSolicitud, int idCategoria, DateTime FechaModificacion)
         {
             try
             {
                 var command = new MySqlCommand() { CommandText = "Agregar_categoria", CommandType = System.Data.CommandType.StoredProcedure };
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = idSolicitud });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refCategoria", Direction = System.Data.ParameterDirection.Input, Value = idCategoria });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaModificacion", Direction = System.Data.ParameterDirection.Input, Value = FechaModificacion });
+
                 var datos = ContexDb.ExecuteProcedure(command);
             }
             catch(Exception ex)
@@ -91,13 +93,14 @@ namespace SimRend.DbSimRend
             }
         }
 
-        public static void AgregarParSol(String refParticipante, int refSolicitud)
+        public static void AgregarParSol(String refParticipante, int refSolicitud, DateTime FechaModificacion)
         {
             try
             {
                 var command = new MySqlCommand() { CommandText = "Agregar_parsol", CommandType = System.Data.CommandType.StoredProcedure };
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refParticipante", Direction = System.Data.ParameterDirection.Input, Value = refParticipante });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = refSolicitud });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaModificacion", Direction = System.Data.ParameterDirection.Input, Value = FechaModificacion });
                 //command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
                 var datos = ContexDb.ExecuteProcedure(command);
 
@@ -353,25 +356,6 @@ namespace SimRend.DbSimRend
             return null;
         }
 
-        public static int ModificarParticipante(String Nombre, String Run)
-        {
-            try
-            {
-                var command = new MySqlCommand() { CommandText = "Actualizar_participante", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_nombre", Direction = System.Data.ParameterDirection.Input, Value = Nombre });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_run", Direction = System.Data.ParameterDirection.Input, Value = Run });
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "out_validacion", Direction = System.Data.ParameterDirection.Output, Value = -1 });
-                var datos = ContexDb.ExecuteProcedure(command);
-
-                return Convert.ToInt32(datos.Parameters["out_validacion"].Value);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            return -1;
-        }
-
         public static Direccion LeerDireccion(int refSolicitud)
         {
             try
@@ -489,48 +473,6 @@ namespace SimRend.DbSimRend
             return null;
         }
 
-        public static List<Solicitud> LeerSolicitudOrganizacion(int refOrganizacionEstudiantil)
-        {
-            try
-            {
-                var command = new MySqlCommand() { CommandText = "Leertodas_Solicitudes_Organizacion", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idOrganizacion", Direction = System.Data.ParameterDirection.Input, Value = refOrganizacionEstudiantil });
-                //ejemplo command.Parameters.Add(new MySqlParameter() { ParameterName = "in_id", Direction = System.Data.ParameterDirection.Input, Value = id });
-                var datos = ContexDb.GetDataSet(command);
-                List<Solicitud> solicitudes = new List<Solicitud>();
-                if (datos.Tables[0].Rows.Count > 0)
-                {
-                    foreach (System.Data.DataRow row in datos.Tables[0].Rows)
-                    {
-                        var prodData = row;
-
-                        var solicitud = new Solicitud()
-                        {
-                            Id = Convert.ToInt32(prodData["id"]),
-                            FechaCreacion = Convert.ToDateTime(prodData["fechaCreacion"]),
-                            Monto = Convert.ToInt32(prodData["monto"]),
-                            NombreEvento = prodData["nomEvent"].ToString(),
-                            FechaInicioEvento = Convert.ToDateTime(prodData["fecIniEvent"]),
-                            FechaTerminoEvento = Convert.ToDateTime(prodData["fecTerEvent"]),
-                            IdResponsable = Convert.ToInt32(prodData["refResponsable"]),
-                            LugarEvento = prodData["lugarEvent"].ToString(),
-                            NombreResponsable = prodData["nombre"].ToString()
-                        };
-
-                        solicitudes.Add(solicitud);
-                    }
-                    return solicitudes;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            return null;
-
-        }
-
         /*###########################################Fin leer Solicitud######################################################*/
 
         /*#############################################Actualizar Solicitud##################################################*/
@@ -574,11 +516,32 @@ namespace SimRend.DbSimRend
     
         }
 
+        public static int ModificarParticipante(String Nombre, String Run, int IdSolicitud, DateTime FechaModificacion)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "Actualizar_participante", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_nombre", Direction = System.Data.ParameterDirection.Input, Value = Nombre });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_run", Direction = System.Data.ParameterDirection.Input, Value = Run });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idSolicitud", Direction = System.Data.ParameterDirection.Input, Value = IdSolicitud });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaModificacion", Direction = System.Data.ParameterDirection.Input, Value = FechaModificacion });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "out_validacion", Direction = System.Data.ParameterDirection.Output, Value = -1 });
+                var datos = ContexDb.ExecuteProcedure(command);
+
+                return Convert.ToInt32(datos.Parameters["out_validacion"].Value);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return -1;
+        }
+
         /*###########################################Fin actualizar Solicitud################################################*/
 
         /*##############################################Eliminar Solicitud###################################################*/
 
-        public static Boolean EliminarCategoria(int IdSolicitud, int IdCategoria)
+        public static Boolean EliminarCategoria(int IdSolicitud, int IdCategoria, DateTime FechaModificacion)
         {
 
             try
@@ -586,6 +549,7 @@ namespace SimRend.DbSimRend
                 var command = new MySqlCommand() { CommandText = "Eliminar_categoria_seleccionada", CommandType = System.Data.CommandType.StoredProcedure };
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = IdSolicitud });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refCategoria", Direction = System.Data.ParameterDirection.Input, Value = IdCategoria });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaModificacion", Direction = System.Data.ParameterDirection.Input, Value = FechaModificacion });
                 //command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
                 var datos = ContexDb.ExecuteProcedure(command);
                 return true;
@@ -597,7 +561,7 @@ namespace SimRend.DbSimRend
             return false;
         }
 
-        public static Boolean EliminarParticipante(int IdSolicitud, String IdParticipante)
+        public static Boolean EliminarParticipante(int IdSolicitud, String IdParticipante, DateTime FechaModificacion)
         {
 
             try
@@ -605,6 +569,7 @@ namespace SimRend.DbSimRend
                 var command = new MySqlCommand() { CommandText = "Eliminar_Participante", CommandType = System.Data.CommandType.StoredProcedure };
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refSolicitud", Direction = System.Data.ParameterDirection.Input, Value = IdSolicitud });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_refParticipante", Direction = System.Data.ParameterDirection.Input, Value = IdParticipante });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_fechaModificacion", Direction = System.Data.ParameterDirection.Input, Value = FechaModificacion });
                 //command.Parameters.Add(new MySqlParameter() { ParameterName = "out_id", Direction = System.Data.ParameterDirection.Output, Value = -1 });
                 var datos = ContexDb.ExecuteProcedure(command);
                 return true;

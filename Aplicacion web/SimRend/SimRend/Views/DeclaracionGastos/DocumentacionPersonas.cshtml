@@ -67,7 +67,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content tx-size-sm">
                 <div class="modal-body tx-center pd-y-20 pd-x-20">
-                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <i class="ionicons ion-ios-help-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
                     <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta-eliminar-documento"></h4>
                     <p class="mg-b-20 mg-x-20" id="body-alerta-eliminar-documento"></p>
 
@@ -175,14 +175,14 @@
                     data: "",
                     success: function (respuesta)
                     {
-                        participantes(respuesta.participantes);
+                        participantes(respuesta.participantes, respuesta.estado);
                         indicadores(respuesta);
                         insertarAcciones(respuesta.estado, respuesta.estadoFinal);
                     }
                 });
             }
 
-            function participantes(datosParticipantes)
+            function participantes(datosParticipantes, estadoProceso)
             {
                 $('#tablaParticipantes').DataTable({
                     'data': datosParticipantes,
@@ -219,9 +219,12 @@
                             "data": 'run',
                             "render": function (data, type, row, meta)
                             {
-                                return '<button class="btn btn-success btn-icon rounded-circle mg-r-5 mg-b-10" onclick="ver(\'' + data.toString() + '\')"><div><i class="fas fa-eye"></i></div></button>' +
-                                    //'<button class="btn btn-warning btn-icon rounded-circle mg-r-5 mg-b-10" onclick="modificar(' + idSolicitud + ', ' + idResolucion + ', ' + idDeclaracionGastos +')"><div><i class="fas fa-edit"></i></div></button>' +
-                                    '<button class="btn btn-danger btn-icon rounded-circle mg-r-5 mg-b-10" onclick="eliminar(\'' + data.toString() + '\')"><div><i class="fas fa-trash"></i></div></button>'
+                                if (estadoProceso == 4)
+                                {
+                                    return '<button class="btn btn-success btn-icon rounded-circle mg-r-5 mg-b-10" onclick="ver(\'' + data.toString() + '\')"><div><i class="fas fa-eye"></i></div></button>' +
+                                        '<button class="btn btn-danger btn-icon rounded-circle mg-r-5 mg-b-10" onclick="eliminar(\'' + data.toString() + '\')"><div><i class="fas fa-trash"></i></div></button>';
+                                }
+                                return '<button class="btn btn-success btn-icon rounded-circle mg-r-5 mg-b-10" onclick="ver(\'' + data.toString() + '\')"><div><i class="fas fa-eye"></i></div></button>';
                             }
                         }
                     ]
@@ -265,7 +268,7 @@
 
             function insertarAcciones(estado, estadoFinal)
             {
-                if (estado == 4 && estadoFinal == "Abierta")
+                if (estado == 4 && estadoFinal == "Abierto")
                 {
                     var volver = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"> <button class="btn btn-secondary"  style="width:100%" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button></div>';
                     var eliminar = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-danger tx-transform-none"  data-effect="effect-just-me" style="width:100%" onclick="eliminarDocumentosDG()"><i class="fas fa-trash"></i> Eliminar documentación</button></div>';

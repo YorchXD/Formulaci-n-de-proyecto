@@ -162,7 +162,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content tx-size-sm">
                 <div class="modal-body tx-center pd-y-20 pd-x-20">
-                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <i class="ionicons ion-ios-help-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
                     <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta-eliminar-documento"></h4>
                     <p class="mg-b-20 mg-x-20" id="body-alerta-eliminar-documento"></p>
 
@@ -193,10 +193,26 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content tx-size-sm">
                 <div class="modal-body tx-center pd-y-20 pd-x-20">
-                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <div id="icono-alerta"></div>
                     <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta"></h4>
                     <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
                     <div id="actions-alerta">
+
+                    </div>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
+    <!-- MODAL INFORMACION -->
+    <div id="modal-alerta-informacion" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <div id="icono-alerta-informacion"></div>
+                    <h4 class="tx-success  tx-semibold mg-b-20" id="title-alerta-informacion"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta-informacion"></p>
+                    <div id="actions-alerta-informacion">
 
                     </div>
                 </div><!-- modal-body -->
@@ -277,7 +293,7 @@
         function verOpciones(estado, estadoFinal)
         {
             var acciones = "";
-            if (estadoFinal == "Abierta")
+            if (estadoFinal == "Abierto")
             {
                 switch (estado)
                 {
@@ -292,7 +308,8 @@
                             '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="volverProcesos" style="width:100%"><i class="fas fa-clipboard-list"></i> Volver a procesos</button> </div>' +
                             '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-info" data-effect="effect-just-me" style="width:100%" onclick="documentacion()"><i class="fas fa-eye"></i> Documentación</button> </div>' +
                             '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="btn btn-danger" style="width:100%" onclick="eliminarDocumentosDG()"><i class="fas fa-trash"></i> Eliminar</button> </div>' +
-                            '<div class="form-group col-lg-12 col-md-12 col-sm-12"><button class="btn btn-info" id="generar" style="width:100%"><i class="fas fa-file-signature"></i> Generar declaración de gastos</button> </div>';
+                            '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-info" id="generar" style="width:100%"><i class="fas fa-file-signature"></i> Generar declaración de gastos</button> </div>' +
+                            '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-info" id="finalizar" style="width:100%"><i class="fas fa-file-signature"></i> Finalizar declaración</button> </div>';
 
                         break;
                     default:
@@ -301,7 +318,7 @@
                             '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-secondary" data-effect="effect-just-me" style="width:100%" onclick="documentacion()"><i class="fas fa-eye"></i> Documentación</button> </div>' +
                             '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-secondary" id="descargar" style="width:100%"><i class="fas fa-download"></i> Descargar</button> </div>' +
                             '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-danger" data-effect="effect-just-me" id = "rechazar" style="width:100%"><i class="fas fa-window-close"></i> Declaración rechazada</button> </div>' +
-                            '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-info" id="aceptar" style="width:100%"><i class="fas fa-check-square"></i> Declaración aceptda</button> </div>';
+                            '<div class="form-group col-lg-6 col-md-6 col-sm-12"><button class="btn btn-info" id="aceptar" style="width:100%"><i class="fas fa-check-square"></i> Declaración aceptada</button> </div>';
                         break;
                 }
             }
@@ -344,12 +361,35 @@
                 window.location.href = '/Proceso/Procesos/';
             });
 
-
-
             $('#generar').click(function (e)
             {
                 e.preventDefault();
-                alert('Generar documentación de la declaración de gastos');
+                $('#icono-alerta-informacion').empty().append('<i class="icon icon ion-ios-help-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>');
+                $('#title-alerta-informacion').text("Generar declaración de gastos");
+                $('#body-alerta-informacion').text("¿Está seguro que desea que el sistema seleccione la documentación a declarar?");
+
+                var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
+                var botonAceptar = '<button type="button" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="seleccionarDocumentacionAutomatica()">Aceptar</button>';
+
+                $('#actions-alerta-informacion').empty().append(botonCancelar);
+                $('#actions-alerta-informacion').append(botonAceptar);
+                $('#modal-alerta-informacion').modal('show');
+                
+            });
+
+            $('#finalizar').click(function (e)
+            {
+                e.preventDefault();
+                $('#icono-alerta-informacion').empty().append('<i class="icon icon ion-ios-help-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>');
+                $('#title-alerta-informacion').text("Finalizar declaración de gastos");
+                $('#body-alerta-informacion').text("¿Está seguro que desea finalizar la delcaración de gastos?");
+
+                var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
+                var botonAceptar = '<button type="button" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="FinalizarDG()">Aceptar</button>';
+
+                $('#actions-alerta-informacion').empty().append(botonCancelar);
+                $('#actions-alerta-informacion').append(botonAceptar);
+                $('#modal-alerta-informacion').modal('show');
             });
 
             $('#descargar').click(function (e)
@@ -361,15 +401,181 @@
             $('#rechazar').click(function (e)
             {
                 e.preventDefault();
-                alert('Declaración de gastos rechazada.');
+                $('#icono-alerta').empty().append('<i class="icon icon ion-ios-help-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>');
+                $('#title-alerta').text("Declaración de gastos rechazada");
+                $('#body-alerta').text("¿Está seguro que desea rechazar la delcaración de gastos?");
+
+                var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
+                var botonAceptar = '<button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="RechazarDG()">Aceptar</button>';
+
+                $('#actions-alerta').empty().append(botonCancelar);
+                $('#actions-alerta').append(botonAceptar);
+                $('#modal-alerta').modal('show');
             });
 
             $('#aceptar').click(function (e)
             {
                 e.preventDefault();
-                alert('Declaración de gastos aceptada.');
+                $('#icono-alerta-informacion').empty().append('<i class="icon icon ion-ios-help-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>');
+                $('#title-alerta-informacion').text("Declaración de gastos aceptada");
+                $('#body-alerta-informacion').text("¿Está seguro que desea aceptar la delcaración de gastos?");
+
+                var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
+                var botonAceptar = '<button type="button" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="AceptarDG()">Aceptar</button>';
+
+                $('#actions-alerta-informacion').empty().append(botonCancelar);
+                $('#actions-alerta-informacion').append(botonAceptar);
+                $('#modal-alerta-informacion').modal('show');
             });
 
+        }
+
+        function seleccionarDocumentacionAutomatica()
+        {
+            $('#modal-alerta-informacion').modal('hide');
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/GenerarDG",
+                method: "POST",
+                data: "",
+                success: function (respuesta)
+                {
+                    if (respuesta == true)
+                    {
+                        $('#icono-alerta-informacion').empty().append('<i class="icon icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>');
+                        $('#title-alerta-informacion').text("Declaración de gastos realizada");
+                        $('#body-alerta-informacion').text("La selección de documentación automatica para la declaración de gastos se ha realizado exitosamente.");
+
+                        var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="CerrarModalAlertaInfo()">Aceptar</button >';
+
+                        $('#actions-alerta-informacion').empty().append(botonAceptar);
+                        $('#modal-alerta-informacion').modal('show');
+                    }
+                    else
+                    {
+                        $('#icono-alerta').empty().append('<i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>');
+                        $('#title-alerta').text("Alerta");
+                        $('#body-alerta').text("No se han seleccionado documentos automaticamente para generar la declaración de gastos. Favor de volver a intentarlo y si el problema persiste, contactese con soporte.");
+                        var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                        $('#actions-alerta').empty().append(boton);
+                        $('#modal-alerta').modal('show');
+                    }
+                }
+            });
+        }
+
+        function FinalizarDG()
+        {
+            $('#modal-alerta-informacion').modal('hide');
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/ActualizarEstadoProceso",
+                method: "POST",
+                data: {'Estado':5},
+                success: function (respuesta)
+                {
+                    if (respuesta == true)
+                    {
+                        $('#icono-alerta-informacion').empty().append('<i class="icon icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>');
+                        $('#title-alerta-informacion').text("Declaración de gastos finalizada");
+                        $('#body-alerta-informacion').text("La declaración de gastos ha sido finalizada exitosamente.");
+
+                        var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="CerrarModalAlertaInfo()">Aceptar</button >';
+
+                        $('#actions-alerta-informacion').empty().append(botonAceptar);
+                        $('#modal-alerta-informacion').modal('show');
+                    }
+                    else
+                    {
+                        $('#icono-alerta').empty().append('<i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>');
+                        $('#title-alerta').text("Alerta");
+                        $('#body-alerta').text("No se ha finalizado la declaración de gastos. Favor de volver a intentarlo y si el problema persiste, contactese con soporte.");
+                        var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                        $('#actions-alerta').empty().append(boton);
+                        $('#modal-alerta').modal('show');
+                    }
+                }
+            });
+        }
+
+        function RechazarDG()
+        {
+            $('#modal-alerta-informacion').modal('hide');
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/ActualizarEstadoProceso",
+                method: "POST",
+                data: { 'Estado': 4 },
+                success: function (respuesta)
+                {
+                    if (respuesta == true)
+                    {
+                        $('#icono-alerta').empty().append('<i class="icon icon ion-ios-checkmark-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>');
+                        $('#title-alerta').text("Declaración de gastos finalizada");
+                        $('#body-alerta').text("La declaración de gastos ha sido finalizada exitosamente.");
+
+                        var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="CerrarModalAlerta()">Aceptar</button >';
+
+                        $('#actions-alerta').empty().append(botonAceptar);
+                        $('#modal-alerta').modal('show');
+                    }
+                    else
+                    {
+                        $('#icono-alerta').empty().append('<i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>');
+                        $('#title-alerta').text("Alerta");
+                        $('#body-alerta').text("No se ha rechazado la declaración de gastos. Favor de volver a intentarlo y si el problema persiste, contactese con soporte.");
+                        var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                        $('#actions-alerta').empty().append(boton);
+                        $('#modal-alerta').modal('show');
+                    }
+                }
+            });
+        }
+
+        function AceptarDG()
+        {
+            $('#modal-alerta-informacion').modal('hide');
+            $.ajax({
+                async: false,
+                url: "/DeclaracionGastos/ActualizarEstadoProceso",
+                method: "POST",
+                data: { 'Estado': 6 },
+                success: function (respuesta)
+                {
+                    if (respuesta == true)
+                    {
+                        $('#icono-alerta-informacion').empty().append('<i class="icon icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>');
+                        $('#title-alerta-informacion').text("Declaración de gastos aceptada");
+                        $('#body-alerta-informacion').text("La declaración de gastos ha sido aceptada y el proceso se ha finalizado exitosamente.");
+
+                        var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="CerrarModalAlertaInfo()">Aceptar</button >';
+
+                        $('#actions-alerta-informacion').empty().append(botonAceptar);
+                        $('#modal-alerta-informacion').modal('show');
+                    }
+                    else
+                    {
+                        $('#icono-alerta').empty().append('<i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>');
+                        $('#title-alerta').text("Alerta");
+                        $('#body-alerta').text("No se ha aceptado la declaración de gastos. Favor de volver a intentarlo y si el problema persiste, contactese con soporte.");
+                        var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                        $('#actions-alerta').empty().append(boton);
+                        $('#modal-alerta').modal('show');
+                    }
+                }
+            });
+        }
+
+        function CerrarModalAlertaInfo()
+        {
+            $('#modal-alerta-informacion').modal('hide');
+            actualizarPagina();
+        }
+
+        function CerrarModalAlerta()
+        {
+            $('#modal-alerta').modal('hide');
+            actualizarPagina();
         }
 
         function documentacion()
@@ -428,6 +634,7 @@
                     }
                     else if (respuesta == "0")
                     {
+                        $('#icono-alerta').empty().append('<i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>');
                         $('#title-alerta').text("Alerta");
                         $('#body-alerta').text("No se eliminaron los documentos de la declaración de gastos debido a que no existen.");
                         var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
@@ -436,6 +643,7 @@
                     }
                     else
                     {
+                        $('#icono-alerta').empty().append('<i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>');
                         $('#title-alerta').text("Alerta");
                         $('#body-alerta').text("No se eliminaron los documentos debido a que ha ocurrido un problema de conexión. Favor de volver a intentarlo y si el problema persiste contactar a soporte");
                         var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
@@ -450,7 +658,12 @@
         {
             e.preventDefault();
             $('#modal-informacion-eliminacion').modal('hide');
-            window.location.href = '/DeclaracionGastos/VerDeclaracionGastos';
+            actualizarPagina();
         });
+
+        function actualizarPagina()
+        {
+            window.location.href = '/DeclaracionGastos/VerDeclaracionGastos';
+        }
     </script>
 }

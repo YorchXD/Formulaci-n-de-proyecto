@@ -10,30 +10,121 @@
                 <h4 style="padding-left:5%">Lista de procesos realizados</h4>
             </div>
         </div>
-
     </div>
 </div><!-- d-flex -->
 
 
 <div class="br-pagebody">
     <div class="br-section-wrapper">
-        <div class="dataTables_wrapper">
-            <table id="tablaSolicitudes" class="table display responsive nowrap" style="width:100%">
-                <thead class="thead-colored thead-info">
-                    <tr>
-                        <th data-priority="1">Id</th>
-                        <th>Nombre del evento</th>
-                        <th>Monto</th>
-                        <th>Fecha de inicio del evento </th>
-                        <th>Fecha de término del evento</th>
-                        <th>Lugar del evento</th>
-                        <th>Responsable</th>
-                        <th data-priority="1">Acciones</th>
-                    </tr>
-                </thead>
-            </table>
+        <div class="form-layout">
+            <div class="row mg-b-25">
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Año de los procesos: </label>
+                    <div class="input-group parsley-select" id="anioMarco">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-calendar tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <select name="anio" class="form-control select2" data-placeholder="Seleccione un año" id="anio" required
+                                data-parsley-class-handler="#anioMarco" data-parsley-errors-container="#errorAnio">
+                            <option selected disabled>Seleccione un año</option>
+                        </select>
+                    </div>
+                    <div id="errorAnio"></div>
+                </div>
+
+
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Estado de los procesos: </label>
+                    <div class="input-group parsley-select" id="estadoProcesoMarco">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-tag tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <select name="estadoProceso" class="form-control select2" data-placeholder="Seleccione el tipo de proceso" id="estadoProceso" required
+                                data-parsley-class-handler="#estadoProcesoMarco" data-parsley-errors-container="#errorEstadoProceso">
+                            <option selected disabled>Seleccione el estado del proceso</option>
+                        </select>
+                    </div>
+                    <div id="errorEstadoProceso"></div>
+                </div>
+
+            </div>
+            
         </div>
-    </div>
+
+
+            <div class="dataTables_wrapper">
+                <table id="tablaSolicitudes" class="table display responsive nowrap" style="width:100%">
+                    <thead class="thead-colored thead-info">
+                        <tr>
+                            <th data-priority="1">Id</th>
+                            <th>Nombre del evento</th>
+                            <th>Monto</th>
+                            <th>Fecha de inicio del evento </th>
+                            <th>Fecha de término del evento</th>
+                            <th>Lugar del evento</th>
+                            <th>Responsable</th>
+                            <th>Estado del proceso</th>
+                            <th data-priority="1">Acciones</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    <!-- MODAL ELIMINAR PROCESO -->
+    <div id="modal-alerta-eliminar-proceso" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="ionicons ion-ios-help-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta-eliminar-proceso"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta-eliminar-proceso"></p>
+                    <input type="hidden" id="idSolicitud" name="idSolicitud" value="" />
+                    <input type="hidden" id="idResolucion" name="idResolucion" value="" />
+                    <input type="hidden" id="idDeclaracionGastos" name="idDeclaracionGastos" value="" />
+                    <input type="hidden" id="fechaTerminoEvento" name="fechaTerminoEvento" value="" />
+                    <input type="hidden" id="estadoFinal" name="estadoFinal" value="" />
+                    <div id="actions-alerta-eliminar-proceso">
+
+                    </div>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL INFORMACION ELIMINACION -->
+    <div id="modal-informacion-eliminacion" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-success tx-semibold mg-b-20" id="title-informacion-eliminacion"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-informacion-eliminacion"></p>
+                    <button type="button" id="btn-Proceso-Eliminado" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" data-dismiss="modal" aria-label="Close">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    <!-- MODAL ALERTA -->
+    <div id="modal-alerta" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta"></h4>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
+                    <div id="actions-alerta">
+
+                    </div>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
 </div>
 
 @section scripts{
@@ -41,7 +132,7 @@
     <script>
         $(document).ready(function ()
         {
-            obtenerProcesos();
+            obtenerTipoProceso();
         });
     </script>
 

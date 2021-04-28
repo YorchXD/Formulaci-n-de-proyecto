@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Renci.SshNet.Messages;
 using SimRend.DbSimRend;
@@ -13,6 +14,13 @@ namespace SimRend.Controllers
 {
     public class ProcesoController : Controller
     {
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public ProcesoController(IWebHostEnvironment webHostEnvironment)
+        {
+            _webHostEnvironment = webHostEnvironment;
+        }
+
         public IActionResult Procesos()
         {
             CrearCarpetaOrganizacion();
@@ -52,11 +60,12 @@ namespace SimRend.Controllers
         /// <param name="IdDeclaracionGastos"></param>
         /// <param name="Estado"></param>
         [HttpPost]
-        public void GuardarId(int IdSolicitud, int IdResolucion, int IdDeclaracionGastos, int IdResponsable, int Estado)
+        public void GuardarId(int IdSolicitud, int IdResolucion, int IdDeclaracionGastos, int IdResponsable, int Estado, String EstadoFinal)
         {
             //HttpContext.Session.SetComplexData("idSolicitud", IdSolicitud);
             Proceso proceso = new Proceso();
             proceso.Estado = Estado;
+            proceso.EstadoFinal = EstadoFinal;
             proceso.Solicitud = ConsultaSolicitud.LeerSolicitud(IdSolicitud);
             proceso.Responsable = ConsultaSolicitud.LeerResponsable(IdResponsable);
             proceso.Direccion = ConsultaSolicitud.LeerDireccion(IdSolicitud);
@@ -76,7 +85,7 @@ namespace SimRend.Controllers
             {
                 proceso.Solicitud.Participantes = new List<Persona>();
             }
-
+            
             proceso.Solicitud.Participantes.Add(new Persona()
             {
                 Nombre = "Documentos en conjunto",
@@ -96,15 +105,22 @@ namespace SimRend.Controllers
         }
 
         [HttpPost]
-        public JsonResult LeerProcesos()
+        public JsonResult LeerProcesos(int Anio, String TipoProceso)
         {
             Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
-            List<Proceso> procesos = ConsultasGenerales.LeerProcesosOrganizacion(usuario.IdOrganizacionEstudiantil);
+            List<Proceso> procesos = ConsultasGenerales.LeerProcesosOrganizacion(usuario.IdOrganizacionEstudiantil, Anio, TipoProceso);
             if (procesos != null)
             {
                 return Json(procesos);
             }
             return Json(new Object());
+        }
+
+        [HttpPost]
+        public JsonResult LeerAniosProceso()
+        {
+            Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+            return Json(ConsultasGenerales.LeerAniosProcesos(usuario.IdOrganizacionEstudiantil));
         }
 
         /// <summary>
@@ -118,7 +134,8 @@ namespace SimRend.Controllers
             var datos = new
             {
                 solicitud = proceso.Solicitud,
-                estado = proceso.Estado
+                estado = proceso.Estado,
+                estadoFinal = proceso.EstadoFinal
             };
 
             return Json(datos);
@@ -146,5 +163,78 @@ namespace SimRend.Controllers
             }
         }
 
+        [HttpPost]
+        public JsonResult EliminarPoceso(int IdSolicitud, int IdResolucion, int IdDeclaracionGastos, int fechaTerminoEvento, String EstadoFinal)
+        {
+            Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+            string webRootPath = _webHostEnvironment.WebRootPath, msj, titulo;
+            int eliminarSolicitud = -1, eliminarResolucion = -1, eliminarDG = -1;
+            Boolean eliminarCarpeta = false, validar = false;
+
+            if(IdDeclaracionGastos!=-1)
+            {
+                eliminarDG = ConsultaDeclaracionGastos.EliminarDocumentosDG(IdDeclaracionGastos);
+                if (eliminarDG == 1)
+                {
+                    eliminarResolucion = ConsultaResolucion.EliminarResolucion(IdResolucion);
+                    if (eliminarResolucion == 1)
+                    {
+                        eliminarSolicitud = ConsultaSolicitud.EliminarSolicitud(IdSolicitud);
+                        eliminarCarpeta = true;
+                    }
+                }
+            }
+            else if(IdResolucion!=-1)
+            {
+                eliminarResolucion = ConsultaResolucion.EliminarResolucion(IdResolucion);
+                if (eliminarResolucion == 1)
+                {
+                    eliminarSolicitud = ConsultaSolicitud.EliminarSolicitud(IdSolicitud);
+                    eliminarCarpeta = true;
+                }
+            }
+            else
+            {
+                eliminarSolicitud = ConsultaSolicitud.EliminarSolicitud(IdSolicitud);
+                eliminarCarpeta = true;
+            }
+
+            try
+            {
+                if (eliminarCarpeta)
+                {
+                    string rutaCarpetaProceso = Path.Combine(webRootPath, "Procesos", usuario.NombreOrganizacionEstudiantil, fechaTerminoEvento.ToString(), IdSolicitud.ToString());
+                    if (Directory.Exists(rutaCarpetaProceso))
+                    {
+                        Directory.Delete(rutaCarpetaProceso, true);
+                    }
+                    titulo = "Eliminación exitosa";
+                    msj = "El proceso se ha eliminado correctamente";
+                    validar = true;
+                }
+                else
+                {
+                    titulo = "Se ha producido un problema";
+                    msj = "El proceso no se ha podido eliminar. Verifique que tenga conexión a internet e intentelo nuevamente. Si el problema persiste favor de contactarse con soporte.";
+                    validar = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                titulo = "Error";
+                msj = "Es probable que no se pueda eliminar el proceso debido a que exista algun problema de conexión o no exista la carpeta del proceso. Favor de contactarse con soporte";
+                validar = false;
+            }
+
+            var datos = new
+            {
+                validar,
+                titulo,
+                msj
+            };
+
+            return Json(datos);
+        }
     }
 }

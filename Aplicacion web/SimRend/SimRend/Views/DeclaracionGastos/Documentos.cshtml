@@ -107,7 +107,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content tx-size-sm">
                 <div class="modal-body tx-center pd-y-20 pd-x-20">
-                    <i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    <i class="ionicons ion-ios-help-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
                     <h4 class="tx-danger  tx-semibold mg-b-20" id="title-alerta-eliminar-documento"></h4>
                     <p class="mg-b-20 mg-x-20" id="body-alerta-eliminar-documento"></p>
 
@@ -118,6 +118,7 @@
             </div><!-- modal-content -->
         </div><!-- modal-dialog -->
     </div><!-- modal -->
+
     <!-- MODAL INFORMACION ELIMINACION -->
     <div id="modal-informacion-eliminacion" class="modal fade" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -248,7 +249,7 @@
                     render: function (data, type, row)
                     {
                         var disabled = 'disabled=""';;
-                        if (estadoProceso == 4 && estadoFinalProceso == "Abierta")
+                        if (estadoProceso == 4 && estadoFinalProceso == "Abierto")
                         {
                             disabled = '';
                         }
@@ -296,7 +297,7 @@
                         {
                             var id = data.id;
                             var estado = data.estado;
-                            if (estadoProceso == 4 && estadoFinalProceso=="Abierta")
+                            if (estadoProceso == 4 && estadoFinalProceso=="Abierto")
                             {
                                 return '<button class="btn btn-success btn-icon rounded-circle mg-r-5 mg-b-10" onclick="verDocumento(' + id + ')"><div><i class="fas fa-eye"></i></div></button>' +
                                     '<button class="btn btn-warning btn-icon rounded-circle mg-r-5 mg-b-10" onclick="modificarDocumento(' + id + ')"><div><i class="fas fa-edit"></i></div></button>' +
@@ -604,7 +605,7 @@
 
         function insertarAcciones(estado, estadoFinal)
         {
-            if (estado == 4 && estadoFinal == "Abierta")
+            if (estado == 4 && estadoFinal == "Abierto")
             {
                 var volver = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"> <button class="btn btn-secondary"  style="width:100%" onclick="volver()"><i class="fas fa-arrow-circle-left"></i> Volver</button></div>';
                 var eliminar = '<div class="form-group  col-lg-6 col-md-6 col-sm-12"><button class="modal-effect btn btn-danger tx-transform-none"  data-effect="effect-just-me" style="width:100%" onclick="eliminarDocumentos()"><i class="fas fa-trash"></i> Eliminar documentación</button></div>';

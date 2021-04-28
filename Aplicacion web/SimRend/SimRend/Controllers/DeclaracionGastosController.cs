@@ -364,6 +364,19 @@ namespace SimRend.DbSimRend
 
             return Json(datos);
         }
+
+        public JsonResult ActualizarEstadoProceso(int Estado)
+        {
+            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+            Boolean validar = ConsultasGenerales.ActualizarEstadoProceso(Estado, proceso.DeclaracionGastos.Id, "Declaracion de gastos");
+            if (validar)
+            {
+                proceso.Estado = Estado;
+                HttpContext.Session.SetComplexData("Proceso", proceso);
+            }
+
+            return Json(validar);
+        }
         /*###################################Fin Proceso de Actualizacion##############################################*/
 
         /*#######################################Proceso de Eliminar###################################################*/
@@ -656,6 +669,112 @@ namespace SimRend.DbSimRend
                 Console.WriteLine(ex);
             }
             return Json("-1");
+        }
+
+
+        /*################################### SELECCION DE DOCUMENTOS ###############################################*/
+        public JsonResult GenerarDG()
+        {
+            try
+            {
+                Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+
+                proceso.Solicitud.Participantes = ConsultaDeclaracionGastos.LeerDocumentos(proceso.DeclaracionGastos.Id, proceso.Solicitud.Participantes, proceso.Solicitud.Categorias);
+                List<Persona> participantes = proceso.Solicitud.Participantes.FindAll(participante => participante.RUN != "-1");
+                /*Documentos en conjuntos se encuentra en el participante "-1" el cual estara en la variable participanteAux*/
+                Persona participanteAux = proceso.Solicitud.Participantes.Find(participante => participante.RUN == "-1");
+                int cantParticipantes = participantes.Count();
+                int totalRendido = proceso.DeclaracionGastos.TotalRendido;
+                int montoMaxParticipante = 0, totalRendidoParticipante = 0, faltanteRendir = 0, totalGrupalRendido=0;
+                
+                /*Calcula el monto total a rendir por persona. En caso de existir documento seleccionados dentro del usuario "-1" (documentos realizados en conjunto), se debe restar al monto 
+                 * solicitado y luego se debe dividir ese resultado se debe dividir por la cantidad de participantes del evento */
+                if (cantParticipantes > 0)
+                {
+                    totalGrupalRendido = participanteAux.Documentos.Where(doc => doc.Estado == 1).Sum(doc => doc.Monto);
+                    montoMaxParticipante = (proceso.Solicitud.Monto - totalGrupalRendido)/ cantParticipantes;
+                }
+
+                for (int i = 0; i < cantParticipantes && totalRendido < proceso.Solicitud.Monto; i++)
+                {
+                    totalRendidoParticipante = participantes[i].Documentos.Where(doc => doc.Estado == 1).Sum(doc => doc.Monto);
+                    faltanteRendir = montoMaxParticipante - totalRendidoParticipante;
+                    List<Documento> documentos = participantes[i].Documentos.FindAll(documento => documento.Estado == 0);
+                    List<Documento> documentosAux = SeleccionDocumentos(documentos, faltanteRendir);
+                    totalRendido += documentosAux.Where(documento => documento.Estado == 1).Sum(documento => documento.Monto);
+                }
+
+                if (totalRendido < proceso.Solicitud.Monto)
+                {
+                    totalRendidoParticipante = participanteAux.Documentos.Where(doc => doc.Estado == 1).Sum(doc => doc.Monto);
+                    faltanteRendir = proceso.Solicitud.Monto - totalRendido;
+                    List<Documento> documentos = participanteAux.Documentos.FindAll(doc => doc.Estado == 0);
+                    List<Documento> documentosAux = SeleccionDocumentos(documentos, faltanteRendir);
+                    totalRendido += documentosAux.Where(documento => documento.Estado == 1).Sum(documento => documento.Monto);
+                }
+                return Json(true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            return Json(false);
+        }
+
+        public List<Documento> SeleccionDocumentos(List<Documento> documentos, int monto)
+        {
+            int t = monto;
+            List<Documento> docsOrdenados = documentos.OrderBy(documento => documento.Monto).ToList();
+            int n = docsOrdenados.Count(), i, w;
+            int[,] p = new int[n + 1, t + 1];
+
+            /*Algoritmo de internet modificado*/
+            for (i = 0; i <= t; i++)
+            {
+                p[0, i] = 0;
+            }
+
+            for (i = 0; i <= n; i++)
+            {
+                p[i, 0] = 0;
+            }
+
+            for (i = 1; i <= n; i++)
+            {
+                for (w = 0; w <= t; w++)
+                {
+                    if (docsOrdenados[i - 1].Monto <= w)
+                    {
+                        if ((docsOrdenados[i - 1].Monto + p[i - 1, w - docsOrdenados[i - 1].Monto]) > p[i - 1, w])
+                        {
+                            p[i, w] = docsOrdenados[i - 1].Monto + p[i - 1, w - docsOrdenados[i - 1].Monto];
+                        }
+                        else
+                        {
+                            p[i, w] = p[i - 1, w];
+                        }
+                    }
+                    else
+                    {
+                        p[i, w] = p[i - 1, w];
+                    }
+                }
+            }
+
+            i = n;
+            int k = t;
+            while (i > 0 && k > 0)
+            {
+                if (p[i, k] != p[i - 1, k])
+                {
+                    docsOrdenados[i - 1].Estado = 1;
+                    ConsultaDeclaracionGastos.DocumentoSeleccionado(1, docsOrdenados[i - 1].Id);
+                    k = k - docsOrdenados[i - 1].Monto;
+                }
+                i = i - 1;
+            }
+
+            return docsOrdenados;
         }
     }
 }
