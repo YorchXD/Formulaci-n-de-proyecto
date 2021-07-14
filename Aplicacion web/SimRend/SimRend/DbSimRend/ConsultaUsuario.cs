@@ -32,7 +32,8 @@ namespace SimRend.DbSimRend
                         Estado = aux["estado"].ToString(),
                         IdRol = Convert.ToInt32(aux["idRol"]),
                         IdOrganizacionEstudiantil = Convert.ToInt32(aux["idOrganizacionEstudiantil"]),
-                        NombreOrganizacionEstudiantil = aux["nombreOrganizacion"].ToString()
+                        NombreOrganizacionEstudiantil = aux["nombreOrganizacion"].ToString(),
+                        NombreRol = aux["nombreRol"].ToString()
                     };
 
                     return usuario;

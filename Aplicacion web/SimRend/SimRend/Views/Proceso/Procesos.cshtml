@@ -2,16 +2,17 @@
     ViewData["Title"] = "Procesos";
 }
 
-<div class="br-pagetitle row">
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <div class="input-group-text wd-auto" style="border:none;">
-                <i class="icon fa fa-clipboard-list"></i>
-                <h4 style="padding-left:5%">Lista de procesos realizados</h4>
-            </div>
-        </div>
+<div class="d-lg-flex justify-content-lg-between align-items-lg-center mg-l-30 mg-r-30">
+    <div style="border:none;" class="row input-group-text">
+        <i class="icon fa fa-clipboard-list tx-60"></i>
+        <h4 class="mg-t-15 mg-l-10">Lista de procesos realizados</h4>
     </div>
-</div><!-- d-flex -->
+    <div class="mg-r-30 mg-md-r-0">
+        <a asp-controller="Solicitud" asp-action="CrearSolicitud" class="btn btn-info pd-x-25 tx-11 tx-mont tx-semibold pd-y-12">
+            <i class="icon fas fa-plus-square tx-11"></i> Crear solicitud
+        </a>
+    </div>
+</div>
 
 
 <div class="br-pagebody">

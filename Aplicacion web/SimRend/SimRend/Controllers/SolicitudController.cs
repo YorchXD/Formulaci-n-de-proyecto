@@ -539,9 +539,9 @@ namespace SimRend.Controllers
         [HttpGet]
         public FileResult DescargarSolicitud()
         {
-            //Proceso procesoAux = HttpContext.Session.GetComplexData<Proceso>("Proceso");
             Proceso proceso = obtenerProceso();
-            var convertidor = new BasicConverter(new PdfTools());
+            var convertidor = new SynchronizedConverter(new PdfTools());
+            //var convertidor = new BasicConverter(new PdfTools());
             var globalSettings = new GlobalSettings
             {
                 ColorMode = ColorMode.Color,
@@ -582,13 +582,10 @@ namespace SimRend.Controllers
             proceso.Solicitud.Categorias = ConsultaSolicitud.LeerCategoriasSeleccionadas(procesoAux.Solicitud.Id);
             proceso.Solicitud.Participantes = ConsultaSolicitud.LeerParticipantes(procesoAux.Solicitud.Id);
             
-            
             proceso.Responsable = ConsultaSolicitud.LeerResponsableSolicitud(procesoAux.Responsable.Id);
-            
             
             proceso.Organizacion = ConsultaSolicitud.LeerOrganizacion(procesoAux.Solicitud.Id);
             proceso.Direccion = ConsultaSolicitud.LeerDireccion(procesoAux.Solicitud.Id);
-
 
             if (proceso.Solicitud.Participantes != null)
             {
@@ -599,15 +596,12 @@ namespace SimRend.Controllers
             {
                 proceso.Solicitud.FechaEvento = "Desde el " + proceso.Solicitud.FechaInicioEvento.ToString("dddd", new System.Globalization.CultureInfo("es-ES")) + ", " + proceso.Solicitud.FechaInicioEvento.ToString("M", new System.Globalization.CultureInfo("es-ES")) +
                 " hasta el " + proceso.Solicitud.FechaTerminoEvento.ToString("D", new System.Globalization.CultureInfo("es-ES"));
-
             }
             else
             {
                 proceso.Solicitud.FechaEvento = proceso.Solicitud.FechaInicioEvento.ToString("D", new System.Globalization.CultureInfo("es-ES"));
             }
-
             return proceso;
         }
-
     }
 }

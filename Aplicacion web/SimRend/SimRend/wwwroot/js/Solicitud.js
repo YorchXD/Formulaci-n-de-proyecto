@@ -119,7 +119,7 @@ $('#wizard6').steps({
                         data: datos,
                         async: false,
                         success: function (respuesta) {
-                            console.log(respuesta);
+                            //console.log(respuesta);
                             if (respuesta.validacion == true)
                             {
                                 toastr.success(respuesta.mensaje, 'Éxito');

@@ -260,7 +260,6 @@ namespace SimRend.DbSimRend
                 Console.WriteLine(ex.ToString());
             }
             return null;
-
         }
 
         public static List<Categoria> LeerCategoriasSeleccionadas(int refSolicitud)

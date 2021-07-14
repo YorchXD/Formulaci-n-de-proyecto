@@ -32,12 +32,13 @@ namespace SimRend
             services.AddMvc();
             services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
             services.AddSession(options => {
-                options.IdleTimeout = TimeSpan.FromMinutes(10); // Tiempo de expiraci�n   
+                options.IdleTimeout = TimeSpan.FromMinutes(10); // Tiempo de expiracion   
             });
 
 
             services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
-           
+
+            services.AddHttpContextAccessor();
 
             services.AddControllersWithViews();
             services.AddRazorPages().AddMvcOptions(options =>

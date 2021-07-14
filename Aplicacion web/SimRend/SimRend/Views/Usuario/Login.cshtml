@@ -18,15 +18,20 @@
 
     <title>SimRend</title>
 
+
+
+
     <!-- vendor css -->
     <link href="~/lib/_fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="~/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/lib/highlightjs/styles/github.css" rel="stylesheet">
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet">
+
+
 
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="~/css/bracket.css">
     <link rel="stylesheet" href="~/css/login.css" />
-    <script src="~/lib/jquery/jquery.min.js"></script>
-    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script-->
 </head>
 
 <body>
@@ -50,19 +55,27 @@
                         <div class="arm arm-r"></div>
                     </div>
                 </div>
-                
+
                 <div class="signin-logo tx-center tx-28 tx-bold tx-white" style="background: rgba(255, 255, 255, 0.2); border-radius: 25px;"><span class="tx-normal">[</span> Sim<span class="tx-info">Rend</span> <span class="tx-normal">]</span></div>
 
                 <div class="tx-white-5 tx-center mg-b-60"> </div>
-                
+
                 <form action="@Url.Content("~/Usuario/Login")" method="post">
-                    <div class="form-group">
-                        <select class="form-control select2-dropdown fc-outline-dark" name="tipoUsuario" required>
-                            <option value="null" selected disabled="disabled" style="color:lightslategray">Seleccione el tipo de usuario</option>
-                            <option value="Estudiante dirigente" style="color:black">Estudiante dirigente</option>
-                            <option value="Director" style="color:black">Director</option>
-                        </select>
+                    <div class="form-group ">
+                        <div class="select2-wrapper select2-dark select2-outline-dark">
+                            <!--select id="select2" class="form-control select2-dropdown fc-outline-dark" name="tipoUsuario" required-->
+                            <select id="select2" class="form-control" name="tipoUsuario" required>
+                                <option label="Seleccione el tipo de usuario"></option>
+                                <option value="null" disabled="disabled">Seleccione el tipo de usuario</option>
+                                <option value="Estudiante dirigente">Estudiante dirigente</option>
+                                <option value="Director">Director</option>
+                            </select>
+                        </div>
                     </div><!-- form-group -->
+
+
+
+
                     <div class="form-group">
                         <input type="email" class="form-control fc-outline-dark" name="email" placeholder="Ingrese su correo" autocomplete="off" required>
                     </div><!-- form-group -->
@@ -75,23 +88,33 @@
                     </div><!-- form-group -->
                     <button type="submit" class="btn btn-info btn-block">Entrar</button>
                 </form>
-                
+
                 <div><a href="" class="tx-info tx-center tx-12 d-block mg-t-10">¿Olvidó su clave?</a></div>
                 <!--div class="mg-t-60 tx-center">Not yet a member? <a href="" class="tx-info">Sign Up</a></div-->
             </div><!-- login-wrapper -->
         </div><!-- overlay-body -->
     </div><!-- d-flex -->
 
+
+
     <script src="~/lib/jquery/jquery.min.js"></script>
-    <!--script src="~/lib/jquery-ui/ui/widgets/datepicker.js"></script-->
+    <script src="~/lib/jquery-ui/ui/widgets/datepicker.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="~/lib/moment/min/moment.min.js"></script>
+    <script src="~/lib/highlightjs/highlight.pack.min.js"></script>
+    <script src="~/lib/peity/jquery.peity.min.js"></script>
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script src="~/js/bracket.js"></script>
     <script>
-        $(function () {
+        $(function ()
+        {
             'use strict';
 
             // Check if video can play, and play it
             var video = document.getElementById('headVideo');
-            video.addEventListener('canplay', function () {
+            video.addEventListener('canplay', function ()
+            {
                 video.play();
             });
 
@@ -104,6 +127,14 @@
         {
             $('*').removeClass('password');
         });
+
+        $('#select2').select2({
+            containerCssClass: 'select2-outline-white',
+            dropdownCssClass: 'bd-info hover-info',
+            minimumResultsForSearch: Infinity, // disabling search
+            placeholder: 'Seleccione el tipo de usuario'
+        });
+
     </script>
 </body>
 </html>

@@ -149,17 +149,17 @@ function obtenerDatosDocumento()
         data: "",
         success: function (respuesta)
         {
-            //console.log(respuesta);
+            console.log(respuesta);
             procedimiento = "actualización";
             id = respuesta.id;
-            $('#codigoDocumento').val(respuesta.codigoDocumento);
-            $('#proveedor').val(respuesta.proveedor);
-            $('#fechaDocumento').val(respuesta.fechaDocumento.split("T")[0]);
-            $('#monto').val(formatoNumero(respuesta.monto));
-            $('#descripcionDocumento').val(respuesta.descripcionDocumento);
-            $('#categoria').val(respuesta.categoria.id);
-            $('#tipoDocumento').val(respuesta.tipoDocumento);
-            var rutaDoc = respuesta.copiaDoc.split("\\");
+            $('#codigoDocumento').val(respuesta.documento.codigoDocumento);
+            $('#proveedor').val(respuesta.documento.proveedor);
+            $('#fechaDocumento').val(respuesta.documento.fechaDocumento.split("T")[0]);
+            $('#monto').val(formatoNumero(respuesta.documento.monto));
+            $('#descripcionDocumento').val(respuesta.documento.descripcionDocumento);
+            $('#categoria').val(respuesta.documento.categoria.id);
+            $('#tipoDocumento').val(respuesta.documento.tipoDocumento);
+            var rutaDoc = respuesta.documento.copiaDoc.split("\\");
             $('#nombreArchivo').text(rutaDoc[rutaDoc.length - 1]);
             nombreOriginalArchivo = rutaDoc[rutaDoc.length - 1];
         }

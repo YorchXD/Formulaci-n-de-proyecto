@@ -69,3 +69,9 @@ D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debu
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\DeclaracionGastos\CrearDocumento.cshtml.g.cs
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\DeclaracionGastos\VerDocumento.cshtml.g.cs
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\DeclaracionGastos\ActualizarDocumento.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Categoria.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\OrganizacionEstudiantil\OrganizacionesEstudiantiles.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\OrganizacionEstudiantil\CrearOE.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Campus\Campus.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\TipoOE\TipoOE.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Institucion\Institucion.cshtml.g.cs

@@ -681,6 +681,7 @@ namespace SimRend.DbSimRend
 
                 proceso.Solicitud.Participantes = ConsultaDeclaracionGastos.LeerDocumentos(proceso.DeclaracionGastos.Id, proceso.Solicitud.Participantes, proceso.Solicitud.Categorias);
                 List<Persona> participantes = proceso.Solicitud.Participantes.FindAll(participante => participante.RUN != "-1");
+                
                 /*Documentos en conjuntos se encuentra en el participante "-1" el cual estara en la variable participanteAux*/
                 Persona participanteAux = proceso.Solicitud.Participantes.Find(participante => participante.RUN == "-1");
                 int cantParticipantes = participantes.Count();
@@ -697,20 +698,28 @@ namespace SimRend.DbSimRend
 
                 for (int i = 0; i < cantParticipantes && totalRendido < proceso.Solicitud.Monto; i++)
                 {
-                    totalRendidoParticipante = participantes[i].Documentos.Where(doc => doc.Estado == 1).Sum(doc => doc.Monto);
-                    faltanteRendir = montoMaxParticipante - totalRendidoParticipante;
-                    List<Documento> documentos = participantes[i].Documentos.FindAll(documento => documento.Estado == 0);
-                    List<Documento> documentosAux = SeleccionDocumentos(documentos, faltanteRendir);
-                    totalRendido += documentosAux.Where(documento => documento.Estado == 1).Sum(documento => documento.Monto);
+                    if(participantes[i].Documentos!=null && participantes[i].Documentos.Count()!=0)
+                    {
+                        totalRendidoParticipante = participantes[i].Documentos.Where(doc => doc.Estado == 1).Sum(doc => doc.Monto);
+                        faltanteRendir = montoMaxParticipante - totalRendidoParticipante;
+                        List<Documento> documentos = participantes[i].Documentos.FindAll(documento => documento.Estado == 0);
+                        List<Documento> documentosAux = SeleccionDocumentos(documentos, faltanteRendir);
+                        totalRendido += documentosAux.Where(documento => documento.Estado == 1).Sum(documento => documento.Monto);
+                    }
+                    
                 }
 
                 if (totalRendido < proceso.Solicitud.Monto)
                 {
-                    totalRendidoParticipante = participanteAux.Documentos.Where(doc => doc.Estado == 1).Sum(doc => doc.Monto);
-                    faltanteRendir = proceso.Solicitud.Monto - totalRendido;
-                    List<Documento> documentos = participanteAux.Documentos.FindAll(doc => doc.Estado == 0);
-                    List<Documento> documentosAux = SeleccionDocumentos(documentos, faltanteRendir);
-                    totalRendido += documentosAux.Where(documento => documento.Estado == 1).Sum(documento => documento.Monto);
+                    if (participanteAux.Documentos != null && participanteAux.Documentos.Count() != 0)
+                    {
+                        totalRendidoParticipante = participanteAux.Documentos.Where(doc => doc.Estado == 1).Sum(doc => doc.Monto);
+                        faltanteRendir = proceso.Solicitud.Monto - totalRendido;
+                        List<Documento> documentos = participanteAux.Documentos.FindAll(doc => doc.Estado == 0);
+                        List<Documento> documentosAux = SeleccionDocumentos(documentos, faltanteRendir);
+                        totalRendido += documentosAux.Where(documento => documento.Estado == 1).Sum(documento => documento.Monto);
+                    }
+                    
                 }
                 return Json(true);
             }

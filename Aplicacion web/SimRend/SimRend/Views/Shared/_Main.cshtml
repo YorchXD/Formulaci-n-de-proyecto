@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <!-- Required meta tags -->
@@ -40,23 +43,59 @@
         <label class="sidebar-label pd-x-10 mg-t-20 op-3">Navigation</label>
         <ul class="br-sideleft-menu">
             <li class="br-menu-item">
-                <a id="resumen" class="br-menu-link" asp-controller="Resolucion" asp-action="Resolucion">
+                <a id="resumenMenu" class="br-menu-link" asp-controller="Resumen" asp-action="Resumen">
                     <i class="menu-item-icon icon ion-ios-home-outline tx-24"></i>
                     <span class="menu-item-label">Resumen</span>
                 </a><!-- br-menu-link -->
             </li><!-- br-menu-item -->
             <li class="br-menu-item">
-                <a id="solicitudes" class="br-menu-link" asp-controller="Proceso" asp-action="Procesos">
+                <a id="procesoMenu" class="br-menu-link" asp-controller="Proceso" asp-action="Procesos">
                     <i class="menu-item-icon icon fas fa-clipboard-list tx-24"></i>
                     <!--i class="menu-item-icon icon ion-ios-book-outline tx-24"></i-->
                     <span class="menu-item-label">Procesos</span>
                 </a><!-- br-menu-link -->
             </li><!-- br-menu-item -->
             <li class="br-menu-item">
-                <a id="crearSolicitud" class="br-menu-link" asp-controller="Solicitud" asp-action="CrearSolicitud">
-                    <i class="menu-item-icon icon fas fa-plus-square tx-24"></i>
-                    <!--i class="menu-item-icon icon ion-ios-plus-outline tx-24"></i-->
-                    <span class="menu-item-label">Crear Solicitud</span>
+                <a id="ayudaMenu" class="br-menu-link" asp-controller="Ayuda" asp-action="Ayuda">
+                    <i class="menu-item-icon icon ion-help-buoy tx-24"></i>
+                    <span class="menu-item-label">Ayuda</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+            <li class="br-menu-item">
+                <a id="categoriasMenu" class="br-menu-link" asp-controller="Categoria" asp-action="Categoria">
+                    <i class="menu-item-icon icon fas fa-tag tx-20"></i>
+                    <span class="menu-item-label">Categorias</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+
+            <li class="br-menu-item">
+                <a id="usuarioMenu" class="br-menu-link" asp-controller="Usuario" asp-action="Categoria">
+                    <i class="menu-item-icon icon ion-person-stalker tx-24"></i>
+                    <span class="menu-item-label">Usuarios</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+            <li class="br-menu-item">
+                <a id="campusMenu" class="br-menu-link" asp-controller="Campus" asp-action="Campus" title="Campus">
+                    <i class="menu-item-icon icon fas fa-users-cog tx-20"></i>
+                    <span class="menu-item-label">Campus</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+            <li class="br-menu-item">
+                <a id="tipoOEMenu" class="br-menu-link" asp-controller="TipoOE" asp-action="TipoOE" title="Tipos de organización estudiantil">
+                    <i class="menu-item-icon icon fas fa-users-cog tx-20"></i>
+                    <span class="menu-item-label">Tipo O.E.</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+            <li class="br-menu-item">
+                <a id="institucionMenu" class="br-menu-link" asp-controller="Institucion" asp-action="Institucion" title="Instituciones">
+                    <i class="menu-item-icon icon fas fa-users-cog tx-20"></i>
+                    <span class="menu-item-label">Instituciones</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+            <li class="br-menu-item">
+                <a id="organizacionEstudiantilMenu" class="br-menu-link" asp-controller="OrganizacionEstudiantil" asp-action="OrganizacionesEstudiantiles" title="Organizaciones estudiantiles">
+                    <i class="menu-item-icon icon fas fa-users-cog tx-20"></i>
+                    <span class="menu-item-label">O.E.</span>
                 </a><!-- br-menu-link -->
             </li><!-- br-menu-item -->
 
@@ -73,159 +112,26 @@
         <div class="br-header-right">
             <nav class="nav">
                 <div class="dropdown">
-                    <a href="" class="nav-link pd-x-7 pos-relative" data-toggle="dropdown">
-                        <i class="icon ion-ios-email-outline tx-24"></i>
-                        <!-- start: if statement -->
-                        <span class="square-8 bg-danger pos-absolute t-15 r-0 rounded-circle"></span>
-                        <!-- end: if statement -->
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-header">
-                        <div class="dropdown-menu-label">
-                            <label>Messages</label>
-                            <a href="">+ Add New Message</a>
-                        </div><!-- d-flex -->
-
-                        <div class="media-list">
-                            <!-- loop starts here -->
-                            <a href="" class="media-list-link">
-                                <div class="media">
-                                    <img src="https://via.placeholder.com/500" alt="">
-                                    <div class="media-body">
-                                        <div>
-                                            <p>Donna Seay</p>
-                                            <span>2 minutes ago</span>
-                                        </div><!-- d-flex -->
-                                        <p>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring.</p>
-                                    </div>
-                                </div><!-- media -->
-                            </a>
-                            <!-- loop ends here -->
-                            <a href="" class="media-list-link read">
-                                <div class="media">
-                                    <img src="https://via.placeholder.com/500" alt="">
-                                    <div class="media-body">
-                                        <div>
-                                            <p>Samantha Francis</p>
-                                            <span>3 hours ago</span>
-                                        </div><!-- d-flex -->
-                                        <p>My entire soul, like these sweet mornings of spring.</p>
-                                    </div>
-                                </div><!-- media -->
-                            </a>
-                            <a href="" class="media-list-link read">
-                                <div class="media">
-                                    <img src="https://via.placeholder.com/500" alt="">
-                                    <div class="media-body">
-                                        <div>
-                                            <p>Robert Walker</p>
-                                            <span>5 hours ago</span>
-                                        </div><!-- d-flex -->
-                                        <p>I should be incapable of drawing a single stroke at the present moment...</p>
-                                    </div>
-                                </div><!-- media -->
-                            </a>
-                            <a href="" class="media-list-link read">
-                                <div class="media">
-                                    <img src="https://via.placeholder.com/500" alt="">
-                                    <div class="media-body">
-                                        <div>
-                                            <p>Larry Smith</p>
-                                            <span>Yesterday</span>
-                                        </div><!-- d-flex -->
-                                        <p>When, while the lovely valley teems with vapour around me, and the meridian sun strikes...</p>
-                                    </div>
-                                </div><!-- media -->
-                            </a>
-                            <div class="dropdown-footer">
-                                <a href=""><i class="fas fa-angle-down"></i> Show All Messages</a>
-                            </div>
-                        </div><!-- media-list -->
-                    </div><!-- dropdown-menu -->
-                </div><!-- dropdown -->
-                <div class="dropdown">
-                    <a href="" class="nav-link pd-x-7 pos-relative" data-toggle="dropdown">
-                        <i class="icon ion-ios-bell-outline tx-24"></i>
-                        <!-- start: if statement -->
-                        <span class="square-8 bg-danger pos-absolute t-15 r-5 rounded-circle"></span>
-                        <!-- end: if statement -->
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-header">
-                        <div class="dropdown-menu-label">
-                            <label>Notifications</label>
-                            <a href="">Mark All as Read</a>
-                        </div><!-- d-flex -->
-
-                        <div class="media-list">
-                            <!-- loop starts here -->
-                            <a href="" class="media-list-link read">
-                                <div class="media">
-                                    <img src="https://via.placeholder.com/500" alt="">
-                                    <div class="media-body">
-                                        <p class="noti-text"><strong>Suzzeth Bungaos</strong> tagged you and 18 others in a post.</p>
-                                        <span>October 03, 2017 8:45am</span>
-                                    </div>
-                                </div><!-- media -->
-                            </a>
-                            <!-- loop ends here -->
-                            <a href="" class="media-list-link read">
-                                <div class="media">
-                                    <img src="https://via.placeholder.com/500" alt="">
-                                    <div class="media-body">
-                                        <p class="noti-text"><strong>Mellisa Brown</strong> appreciated your work <strong>The Social Network</strong></p>
-                                        <span>October 02, 2017 12:44am</span>
-                                    </div>
-                                </div><!-- media -->
-                            </a>
-                            <a href="" class="media-list-link read">
-                                <div class="media">
-                                    <img src="https://via.placeholder.com/500" alt="">
-                                    <div class="media-body">
-                                        <p class="noti-text">20+ new items added are for sale in your <strong>Sale Group</strong></p>
-                                        <span>October 01, 2017 10:20pm</span>
-                                    </div>
-                                </div><!-- media -->
-                            </a>
-                            <a href="" class="media-list-link read">
-                                <div class="media">
-                                    <img src="https://via.placeholder.com/500" alt="">
-                                    <div class="media-body">
-                                        <p class="noti-text"><strong>Julius Erving</strong> wants to connect with you on your conversation with <strong>Ronnie Mara</strong></p>
-                                        <span>October 01, 2017 6:08pm</span>
-                                    </div>
-                                </div><!-- media -->
-                            </a>
-                            <div class="dropdown-footer">
-                                <a href=""><i class="fas fa-angle-down"></i> Show All Notifications</a>
-                            </div>
-                        </div><!-- media-list -->
-                    </div><!-- dropdown-menu -->
-                </div><!-- dropdown -->
-                <div class="dropdown">
                     <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-                        <span class="logged-name hidden-md-down">Katherine</span>
+                        <span class="logged-name hidden-md-down">@HttpContextAccessor.HttpContext.Session.GetString("Nombre")</span>
                         <img src="https://via.placeholder.com/500" class="wd-32 rounded-circle" alt="">
                         <span class="square-10 bg-success"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-header wd-250">
                         <div class="tx-center">
                             <a href=""><img src="https://via.placeholder.com/500" class="wd-80 rounded-circle" alt=""></a>
-                            <h6 class="logged-fullname">Katherine P. Lumaad</h6>
-                            <p>youremail@domain.com</p>
+                            <h6 class="logged-fullname">@HttpContextAccessor.HttpContext.Session.GetString("NombreUsuario")</h6>
+                            <p>
+                                @HttpContextAccessor.HttpContext.Session.GetString("Cargo") - @HttpContextAccessor.HttpContext.Session.GetString("OE")
+                                <br />
+                                @HttpContextAccessor.HttpContext.Session.GetString("Email")
+                            </p>
                         </div>
-                        <hr>
-                        <div class="tx-center">
-                            <span class="profile-earning-label">Earnings After Taxes</span>
-                            <h3 class="profile-earning-amount">$13,230 <i class="icon ion-ios-arrow-thin-up tx-success"></i></h3>
-                            <span class="profile-earning-text">Based on list price.</span>
-                        </div>
+
                         <hr>
                         <ul class="list-unstyled user-profile-nav">
-                            <li><a href=""><i class="icon ion-ios-person"></i> Edit Profile</a></li>
-                            <li><a href=""><i class="icon ion-ios-gear"></i> Settings</a></li>
-                            <li><a href=""><i class="icon ion-ios-download"></i> Downloads</a></li>
-                            <li><a href=""><i class="icon ion-ios-star"></i> Favorites</a></li>
-                            <li><a href=""><i class="icon ion-ios-folder"></i> Collections</a></li>
-                            <li><a href=""><i class="icon ion-power"></i> Sign Out</a></li>
+                            <li><a href=""><i class="icon ion-ios-person"></i> Editar perfil</a></li>
+                            <li><a asp-controller="Usuario" asp-action="Logout"><i class="icon ion-power"></i> Cerrar sesión</a></li>
                         </ul>
                     </div><!-- dropdown-menu -->
                 </div><!-- dropdown -->
@@ -339,22 +245,45 @@
         {
             //$('a').removeClass('active');
             var botonMenuActivo;
-            if (window.location.pathname === '/Resolucion/Resolucion')
+            var controlador = window.location.pathname.split("/")[1];
+            if (controlador === 'Resumen')
             {
-                botonMenuActivo = '#resumen';
+                botonMenuActivo = '#resumenMenu';
             }
-            else if (window.location.pathname === '/Proceso/Procesos')
+            else if (controlador === 'Proceso' || controlador === 'Solicitud' || controlador === 'Resolucion' || controlador === 'DeclaracionGastos')
             {
-                botonMenuActivo = '#solicitudes';
+                botonMenuActivo = '#procesoMenu';
             }
-            else if (window.location.pathname === '/Solicitud/CrearSolicitud')
+            else if (controlador === 'Ayuda')
             {
-                botonMenuActivo = '#crearSolicitud';
+                botonMenuActivo = '#ayudaMenu';
+            }
+            else if (controlador === 'Categoria')
+            {
+                botonMenuActivo = '#categoriasMenu';
+            }
+            else if (controlador === 'Usuario')
+            {
+                botonMenuActivo = '#usuarioMenu';
+            }
+            else if (controlador === 'Campus')
+            {
+                botonMenuActivo = '#campusMenu';
+            }
+            else if (controlador === 'TipoOE')
+            {
+                botonMenuActivo = '#tipoOEMenu';
+            }
+            else if (controlador === 'Institucion')
+            {
+                botonMenuActivo = '#institucionMenu';
+            }
+            else if (controlador === 'OrganizacionEstudiantil')
+            {
+                botonMenuActivo = '#organizacionEstudiantilMenu';
             }
             $(botonMenuActivo).addClass('active');
         });
     </script>
-
-
 </body>
 </html>

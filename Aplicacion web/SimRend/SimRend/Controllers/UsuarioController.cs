@@ -32,7 +32,34 @@ namespace SimRend.Controllers
                 }
 
                 HttpContext.Session.SetComplexData("DatosUsuario", usuario);
+                HttpContext.Session.SetString("Nombre", usuario.Nombre.Split(" ")[0]);
+                HttpContext.Session.SetString("NombreUsuario", usuario.Nombre);
+                HttpContext.Session.SetString("Email", usuario.Email);
+                HttpContext.Session.SetString("Cargo", usuario.NombreRol);
+                HttpContext.Session.SetString("OE", usuario.NombreOrganizacionEstudiantil);
                 return RedirectToAction("Procesos", "Proceso");
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return View();
+        }
+
+        public IActionResult Logout()
+        {
+            try
+            {
+                HttpContext.Session.SetComplexData("DatosUsuario", null);
+                HttpContext.Session.SetString("Nombre", "");
+                HttpContext.Session.SetString("NombreUsuario", "");
+                HttpContext.Session.SetString("Email", "");
+                HttpContext.Session.SetString("Cargo", "");
+                HttpContext.Session.SetString("OE", "");
+
+                return RedirectToAction("Login", "Usuario");
 
             }
             catch (Exception ex)

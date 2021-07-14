@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Categorias";
+}
+
+
+<div class="d-lg-flex justify-content-lg-between align-items-lg-center mg-l-30 mg-r-30">
+    <div style="border:none;" class="row input-group-text">
+        <i class="icon fa fa-clipboard-list tx-60"></i>
+        <h4 class="mg-t-15 mg-l-10">Lista de categorías registradas</h4>
+    </div>
+    <div class="mg-r-30 mg-md-r-0">
+        <button class="btn btn-info pd-x-25 tx-11 tx-mont tx-semibold pd-y-12" onclick="crearCategoria()">
+            <i class="icon fas fa-plus-square tx-11"></i> Agregar categoría
+        </button>
+    </div>
+</div>
+
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+        <div class="dataTables_wrapper">
+            <table id="tablaCategoria" class="table display responsive nowrap" style="width:100%">
+                <thead class="thead-colored thead-info">
+                    <tr>
+                        <th data-priority="1">Id</th>
+                        <th>Nombre categoría</th>
+                        <th data-priority="1">Acciones</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <!-- MODAL ELIMINAR PROCESO -->
+    <div id="modal-alert" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <div id="icon-delete">
+                        <i class="ionicons ion-ios-help-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    </div>
+                    <div id="icon-delete-confirm">
+                        <i class="ionicons ion-ios-help-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    </div>
+                    <div id="icon-delete-success">
+                        <i class="icon ion-ios-checkmark-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    </div>
+
+                    <div id="icon-set">
+                        <i class="icon ion-compose tx-100 tx-warning lh-1 mg-t-20 d-inline-block"></i>
+                        <!--i class="far fa-edit tx-90 tx-warning lh-1 mg-t-20 d-inline-block"></i-->
+                    </div>
+                    <div id="icon-set-confirm">
+                        <i class="ionicons ion-ios-help-outline tx-100 tx-warning lh-1 mg-t-20 d-inline-block"></i>
+                    </div>
+                    <div id="icon-set-success">
+                        <i class="ionicons ion-ios-checkmark-outline tx-100 tx-warning lh-1 mg-t-20 d-inline-block"></i>
+                    </div>
+
+                    <div id="icon-problema">
+                        <i class="icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    </div>
+
+                    <div id="icon-create">
+                        <i class="icon ion-ios-plus-outline tx-100 tx-info lh-1 mg-t-20 d-inline-block"></i>
+                    </div>
+                    <div id="icon-create-success">
+                        <i class="ionicons ion-ios-checkmark-outline tx-100 tx-info lh-1 mg-t-20 d-inline-block"></i>
+                    </div>
+
+                    <div>
+                        <h4 class="tx-danger" tx-semibold mg-b-20" id="title-alerta-eliminar">Eliminar categoria</h4>
+                        <h4 class="tx-warning" tx-semibold mg-b-20" id="title-alerta-editar">Modificar categoría</h4>
+                        <h4 class="tx-info" tx-semibold mg-b-20" id="title-alerta-crear">Crear categoria</h4>
+                        <h4 class="tx-danger" tx-semibold mg-b-20" id="title-alerta-problemas"></h4>
+                    </div>
+
+                    <div>
+                        <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
+                    </div>
+
+                    <div>
+                        <input id="idCategoria" name="idCategoria" value="" />
+                        <form id="formCategoria" data-parsley-validate>
+                            <div class="form-group wd-auto col-lg-12">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text wd-xs-45">
+                                            <i class="fas fa-tag tx-16 lh-0 op-6 fa-fw"></i>
+                                        </div>
+                                    </div>
+                                    <input name="nombreCategoria" class="form-control" id="nombreCategoria" required="required" type="text" placeholder="Ingrese el nombre la categoria" data-parsley-errors-container="#errorNombreCategoria">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="actions-alerta">
+
+                    </div>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+</div>
+
+@section scripts{
+    <script src="~/js/Categoria.js"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            obtenerCategorias()
+        });
+    </script>
+
+}
