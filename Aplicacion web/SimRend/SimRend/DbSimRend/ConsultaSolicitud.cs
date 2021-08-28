@@ -117,21 +117,63 @@ namespace SimRend.DbSimRend
         /*#############################################Leer Solicitud########################################################*/
 
         /*Consultas de la organizacion (caa o federacion)*/
-        public static List<Usuario> LeerRepresetantes(int refOrganizacionEstudiantil)
+        /*public static List<UsuarioRepresentante> LeerRepresetantes(int refOrganizacionEstudiantil)
         {
             try
             {
                 var command = new MySqlCommand() { CommandText = "Leer_Representantes", CommandType = System.Data.CommandType.StoredProcedure };
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idOrganizacion", Direction = System.Data.ParameterDirection.Input, Value = refOrganizacionEstudiantil });
                 var datos = ContexDb.GetDataSet(command);
-                List<Usuario> representantes = new List<Usuario>();
+                List<UsuarioRepresentante> representantes = new List<UsuarioRepresentante>();
 
                 if (datos.Tables[0].Rows.Count > 0)
                 {
                     foreach (System.Data.DataRow row in datos.Tables[0].Rows)
                     {
                         var prodData = row;
-                        var responsable = new Usuario()
+                        var responsable = new UsuarioRepresentante()
+                        {
+                            Id = Convert.ToInt32(prodData["id"]),
+                            Nombre = prodData["nombre"].ToString(),
+                            RUN = prodData["run"].ToString(),
+                            Sexo = prodData["sexo"].ToString(),
+                            Matricula = Convert.ToInt32(prodData["matricula"]),
+                            Carrera = prodData["carrera"].ToString(),
+                            Rol = new Rol
+                            {
+                                Id = Convert.ToInt32(prodData["idRol"]),
+                                Nombre = prodData["nombreRol"].ToString(),
+                            },
+                            CrearSolicitud = prodData["crearProceso"].ToString(),
+                        };
+                        representantes.Add(responsable);
+                    }
+                    return representantes;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return null;
+        }*/
+
+        /*public static List<UsuarioRepresentante> LeerRepresetantesHabilitados(int refOrganizacionEstudiantil)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "Leer_Representantes", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idOrganizacion", Direction = System.Data.ParameterDirection.Input, Value = refOrganizacionEstudiantil });
+                var datos = ContexDb.GetDataSet(command);
+                List<UsuarioRepresentante> representantes = new List<UsuarioRepresentante>();
+
+                if (datos.Tables[0].Rows.Count > 0)
+                {
+                    foreach (System.Data.DataRow row in datos.Tables[0].Rows)
+                    {
+                        var prodData = row;
+                        var responsable = new UsuarioRepresentante()
                         {
                             Id = Convert.ToInt32(prodData["id"]),
                             Nombre = prodData["nombre"].ToString(),
@@ -154,46 +196,7 @@ namespace SimRend.DbSimRend
             }
 
             return null;
-        }
-
-        public static List<Usuario> LeerRepresetantesHabilitados(int refOrganizacionEstudiantil)
-        {
-            try
-            {
-                var command = new MySqlCommand() { CommandText = "Leer_Representantes", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idOrganizacion", Direction = System.Data.ParameterDirection.Input, Value = refOrganizacionEstudiantil });
-                var datos = ContexDb.GetDataSet(command);
-                List<Usuario> representantes = new List<Usuario>();
-
-                if (datos.Tables[0].Rows.Count > 0)
-                {
-                    foreach (System.Data.DataRow row in datos.Tables[0].Rows)
-                    {
-                        var prodData = row;
-                        var responsable = new Usuario()
-                        {
-                            Id = Convert.ToInt32(prodData["id"]),
-                            Nombre = prodData["nombre"].ToString(),
-                            RUN = prodData["run"].ToString(),
-                            Sexo = prodData["sexo"].ToString(),
-                            Matricula = Convert.ToInt32(prodData["matricula"]),
-                            Carrera = prodData["carrera"].ToString(),
-                            IdRol = Convert.ToInt32(prodData["idRol"]),
-                            NombreRol = prodData["nombreRol"].ToString(),
-                            CrearSolicitud = prodData["crearProceso"].ToString(),
-                        };
-                        representantes.Add(responsable);
-                    }
-                    return representantes;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-
-            return null;
-        }
+        }*/
 
         public static Solicitud LeerSolicitud(int idSolicitud)
         {
@@ -341,7 +344,7 @@ namespace SimRend.DbSimRend
                     Organizacion organizacion = new Organizacion()
                     {
                         Nombre = prodData["nombre"].ToString(),
-                        Tipo = prodData["tipo"].ToString(),
+                        TipoOE = new TipoOE { Nombre = prodData["tipo"].ToString() },
                     };
 
                     return organizacion;
@@ -355,7 +358,7 @@ namespace SimRend.DbSimRend
             return null;
         }
 
-        public static Direccion LeerDireccion(int refSolicitud)
+        public static UsuarioDirector LeerDireccion(int refSolicitud)
         {
             try
             {
@@ -365,13 +368,40 @@ namespace SimRend.DbSimRend
                 if (datos.Tables[0].Rows.Count == 1)
                 {
                     var prodData = datos.Tables[0].Rows[0];
-                    Direccion direccion = new Direccion()
+                    UsuarioDirector direccion = new UsuarioDirector()
                     {
+                        Id = Convert.ToInt32(prodData["id"]),
                         Nombre = prodData["nombre"].ToString(),
-                        Cargo = prodData["cargo"].ToString(),
-                        NombreInstitucion = prodData["nombreInstitucion"].ToString(),
                         Sexo = prodData["sexo"].ToString(),
-                        FonoAnexo = Convert.ToInt32(prodData["fonoAnexo"])
+                        Email = prodData["email"].ToString(),
+                        Cargo = prodData["cargo"].ToString(),
+                        Estado = prodData["estado"].ToString(),
+                        EstadoEliminacion = prodData["estadoEliminacion"].ToString(),
+                        FonoAnexo = Convert.ToInt32(prodData["fonoAnexo"]),
+
+                        Rol = new Rol
+                        {
+                            Id = Convert.ToInt32(prodData["idRol"]),
+                            Nombre = prodData["nombreRol"].ToString(),
+                        },
+
+                        Organizacion = new Organizacion
+                        {
+                            Id = Convert.ToInt32(prodData["idOrganizacionEstudiantil"]),
+                            Nombre = prodData["nombreOE"].ToString(),
+                            Campus = new Campus
+                            {
+                                Id = Convert.ToInt32(prodData["idCampus"]),
+                                Nombre = prodData["nombreCampus"].ToString()
+                            },
+
+                            Institucion = new Institucion
+                            {
+                                Id = Convert.ToInt32(prodData["refInstitucion"]),
+                                Nombre = prodData["nombreInstitucion"].ToString(),
+                                Abreviacion = prodData["abreviacionInstitucion"].ToString(),
+                            },
+                        },
                     };
 
                     return direccion;
@@ -412,7 +442,7 @@ namespace SimRend.DbSimRend
             return null;
         }
 
-        public static Usuario LeerResponsable(int refResponsable)
+        /*public static UsuarioRepresentante LeerResponsable(int refResponsable)
         {
             try
             {
@@ -421,18 +451,44 @@ namespace SimRend.DbSimRend
                 var datos = ContexDb.GetDataSet(command);
                 if (datos.Tables[0].Rows.Count == 1)
                 {
-                    Usuario responsable;
+                    UsuarioRepresentante responsable;
                     var prodData = datos.Tables[0].Rows[0];
-                    responsable = new Usuario()
+                    responsable = new UsuarioRepresentante()
                     {
                         Id = Convert.ToInt32(prodData["id"]),
                         Nombre = prodData["nombre"].ToString(),
                         RUN = prodData["run"].ToString(),
-                        NombreRol = prodData["cargo"].ToString(),
-                        Carrera = prodData["carrera"].ToString(),
                         Matricula = Convert.ToInt32(prodData["matricula"]),
-                        Email = prodData["email"].ToString()
+                        Email = prodData["email"].ToString(),
+
+                        Rol = new Rol
+                        {
+                            Id = Convert.ToInt32(prodData["idRol"]),
+                            Nombre = prodData["nombreRol"].ToString(),
+                        },
+
+                        Organizacion = new Organizacion
+                        {
+                            Id = Convert.ToInt32(prodData["idOrganizacionEstudiantil"]),
+                            Nombre = prodData["nombreOE"].ToString(),
+                            Campus = new Campus
+                            {
+                                Id = Convert.ToInt32(prodData["idCampus"]),
+                                Nombre = prodData["nombreCampus"].ToString()
+                            },
+
+                            Institucion = new Institucion
+                            {
+                                Id = Convert.ToInt32(prodData["refInstitucion"]),
+                                Nombre = prodData["nombreInstitucion"].ToString(),
+                                Abreviacion = prodData["abreviacionInstitucion"].ToString(),
+                            },
+                        },
+
+                        Estado = prodData["estado"].ToString(),
+                        EstadoEliminacion = prodData["estadoEliminacion"].ToString(),
                     };
+
                     return responsable;
                 }
             }
@@ -441,9 +497,9 @@ namespace SimRend.DbSimRend
                 Console.WriteLine(ex.ToString());
             }
             return null;
-        }
+        }*/
 
-        public static Usuario LeerResponsableSolicitud(int refResponsable)
+        /*public static UsuarioRepresentante LeerResponsableSolicitud(int refResponsable)
         {
             try
             {
@@ -452,9 +508,9 @@ namespace SimRend.DbSimRend
                 var datos = ContexDb.GetDataSet(command);
                 if (datos.Tables[0].Rows.Count == 1)
                 {
-                    Usuario responsable;
+                    UsuarioRepresentante responsable;
                     var prodData = datos.Tables[0].Rows[0];
-                    responsable = new Usuario()
+                    responsable = new UsuarioRepresentante()
                     {
                         Nombre = prodData["nombre"].ToString(),
                         RUN = prodData["run"].ToString(),
@@ -470,7 +526,7 @@ namespace SimRend.DbSimRend
                 Console.WriteLine(ex.ToString());
             }
             return null;
-        }
+        }*/
 
         /*###########################################Fin leer Solicitud######################################################*/
 

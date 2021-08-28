@@ -132,35 +132,43 @@ namespace SimRend.DbSimRend
 
         public String GuardarArchivoDeclaracionGastos(IFormFile archivo, int idSolicitud, int idDocumento, String IdParticipante)
         {
-            Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
-            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
-            string webRootPath = _webHostEnvironment.WebRootPath;
-            string carpeta = Path.Combine(webRootPath, "Procesos", usuario.NombreOrganizacionEstudiantil, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), idSolicitud.ToString(), "DeclaracionGastos", IdParticipante);
-            //string carpeta = "wwwroot/Procesos/" + usuario.NombreOrganizacionEstudiantil + "/" + DateTime.Today.Year + "/" + idSolicitud + "/Resolucion";
-            try
+            //Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+            String tipoUsuario = HttpContext.Session.GetString("TipoUsuario");
+            if (tipoUsuario.Equals("Estudiante dirigente"))
             {
-                if (!Directory.Exists(carpeta))
+                Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+                List<Organizacion> organizaciones = ConsultaUsuario.LeerOrganizacion(usuario.Id, tipoUsuario);
+                Organizacion organizacion = organizaciones[0];
+                Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+                string webRootPath = _webHostEnvironment.WebRootPath;
+                string carpeta = Path.Combine(webRootPath, "Procesos", organizacion.Nombre, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), idSolicitud.ToString(), "DeclaracionGastos", IdParticipante);
+                //string carpeta = "wwwroot/Procesos/" + usuario.NombreOrganizacionEstudiantil + "/" + DateTime.Today.Year + "/" + idSolicitud + "/Resolucion";
+                try
                 {
-                    Directory.CreateDirectory(carpeta);
+                    if (!Directory.Exists(carpeta))
+                    {
+                        Directory.CreateDirectory(carpeta);
+                    }
+
+                    /*string nombreArchivoAux = Path.GetFileName(archivo.FileName);
+                    String [] datosArchivo =  nombreArchivoAux.Split(".");
+                    string nombreArchivo = idDocumento.ToString()+"."+ datosArchivo[datosArchivo.Length - 1];*/
+
+                    String extension = Path.GetExtension(archivo.FileName);
+                    string nombreArchivo = idDocumento.ToString() + extension;
+                    string rutaArchivo = Path.Combine(carpeta, nombreArchivo);
+                    using (FileStream stream = new FileStream(rutaArchivo, FileMode.Create))
+                    {
+                        archivo.CopyTo(stream);
+                    }
+                    return rutaArchivo;
                 }
-
-                /*string nombreArchivoAux = Path.GetFileName(archivo.FileName);
-                String [] datosArchivo =  nombreArchivoAux.Split(".");
-                string nombreArchivo = idDocumento.ToString()+"."+ datosArchivo[datosArchivo.Length - 1];*/
-
-                String extension = Path.GetExtension(archivo.FileName);
-                string nombreArchivo = idDocumento.ToString() + extension;
-                string rutaArchivo = Path.Combine(carpeta, nombreArchivo);
-                using (FileStream stream = new FileStream(rutaArchivo, FileMode.Create))
+                catch (Exception ex)
                 {
-                    archivo.CopyTo(stream);
+                    Console.WriteLine(ex);
                 }
-                return rutaArchivo;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
+
             return null;
         }
         /*###################################Fin Proceso de creacion###################################################*/
@@ -577,57 +585,62 @@ namespace SimRend.DbSimRend
         [HttpPost]
         public JsonResult EliminarDocumentosPaticipante(String IdParticipante)
         {
-
-            Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
-            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
-            proceso.Solicitud.Participantes = ConsultaDeclaracionGastos.LeerDocumentos(proceso.DeclaracionGastos.Id, proceso.Solicitud.Participantes, proceso.Solicitud.Categorias);
-            if (IdParticipante==null)
+            //Usuario usuario = HttpContext.Session.GetComplexData<UsuarioRepresentante>("DatosUsuario");
+            String tipoUsuario = HttpContext.Session.GetString("TipoUsuario");
+            if (tipoUsuario.Equals("Estudiante dirigente"))
             {
-                IdParticipante = HttpContext.Session.GetComplexData<String>("IdParticipante");
-            }
-            
+                Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+                List<Organizacion> organizaciones = ConsultaUsuario.LeerOrganizacion(usuario.Id, tipoUsuario);
+                Organizacion organizacion = organizaciones[0];
 
-            string webRootPath = _webHostEnvironment.WebRootPath;
-            
-            try
-            {
-                int cantParticipantes = proceso.Solicitud.Participantes.Count();
-                bool existenDocumentosParticipantes = false;
-                for (int i = 0; i < cantParticipantes; i++)
+                Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+                proceso.Solicitud.Participantes = ConsultaDeclaracionGastos.LeerDocumentos(proceso.DeclaracionGastos.Id, proceso.Solicitud.Participantes, proceso.Solicitud.Categorias);
+                if (IdParticipante == null)
                 {
-                    if (!proceso.Solicitud.Participantes[i].RUN.Equals(IdParticipante) && proceso.Solicitud.Participantes[i].Documentos!=null && proceso.Solicitud.Participantes[i].Documentos.Count()>0)
-                    {
-                        existenDocumentosParticipantes = true;
-                    }
+                    IdParticipante = HttpContext.Session.GetComplexData<String>("IdParticipante");
                 }
 
-                int validar = ConsultaDeclaracionGastos.EliminarDocumentosParticipante(proceso.DeclaracionGastos.Id, IdParticipante);
+                string webRootPath = _webHostEnvironment.WebRootPath;
 
-                if(validar==1)
+                try
                 {
-                    string rutaCarpetaParticiapnte = Path.Combine(webRootPath, "Procesos", usuario.NombreOrganizacionEstudiantil, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), proceso.Solicitud.Id.ToString(), "DeclaracionGastos", IdParticipante);
-                    string rutaCarpetaDG = Path.Combine(webRootPath, "Procesos", usuario.NombreOrganizacionEstudiantil, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), proceso.Solicitud.Id.ToString(), "DeclaracionGastos");
-                    
-                    if (existenDocumentosParticipantes && Directory.Exists(rutaCarpetaParticiapnte))
+                    int cantParticipantes = proceso.Solicitud.Participantes.Count();
+                    bool existenDocumentosParticipantes = false;
+                    for (int i = 0; i < cantParticipantes; i++)
                     {
-                        Directory.Delete(rutaCarpetaParticiapnte, true);
-                        return Json("1");
+                        if (!proceso.Solicitud.Participantes[i].RUN.Equals(IdParticipante) && proceso.Solicitud.Participantes[i].Documentos != null && proceso.Solicitud.Participantes[i].Documentos.Count() > 0)
+                        {
+                            existenDocumentosParticipantes = true;
+                        }
                     }
-                    else if(!existenDocumentosParticipantes && Directory.Exists(rutaCarpetaDG))
+
+                    int validar = ConsultaDeclaracionGastos.EliminarDocumentosParticipante(proceso.DeclaracionGastos.Id, IdParticipante);
+
+                    if (validar == 1)
                     {
-                        Directory.Delete(rutaCarpetaDG, true);
-                        return Json("1");
-                    }
-                    else
-                    {
-                        return Json("0");
+                        string rutaCarpetaParticiapnte = Path.Combine(webRootPath, "Procesos", organizacion.Nombre, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), proceso.Solicitud.Id.ToString(), "DeclaracionGastos", IdParticipante);
+                        string rutaCarpetaDG = Path.Combine(webRootPath, "Procesos", organizacion.Nombre, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), proceso.Solicitud.Id.ToString(), "DeclaracionGastos");
+
+                        if (existenDocumentosParticipantes && Directory.Exists(rutaCarpetaParticiapnte))
+                        {
+                            Directory.Delete(rutaCarpetaParticiapnte, true);
+                            return Json("1");
+                        }
+                        else if (!existenDocumentosParticipantes && Directory.Exists(rutaCarpetaDG))
+                        {
+                            Directory.Delete(rutaCarpetaDG, true);
+                            return Json("1");
+                        }
+                        else
+                        {
+                            return Json("0");
+                        }
                     }
                 }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
             }
             return Json("-1");
         }
@@ -639,35 +652,40 @@ namespace SimRend.DbSimRend
         [HttpPost]
         public JsonResult EliminarDocumentosDG()
         {
-
-            Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
-            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
-            string webRootPath = _webHostEnvironment.WebRootPath;
-
-            try
+            String tipoUsuario = HttpContext.Session.GetString("TipoUsuario");
+            if (tipoUsuario.Equals("Estudiante dirigente"))
             {
-                int validar = ConsultaDeclaracionGastos.EliminarDocumentosDG(proceso.DeclaracionGastos.Id);
+                Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+                List<Organizacion> organizaciones = ConsultaUsuario.LeerOrganizacion(usuario.Id, tipoUsuario);
+                Organizacion organizacion = organizaciones[0];
+                Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+                string webRootPath = _webHostEnvironment.WebRootPath;
 
-                if (validar == 1)
+                try
                 {
-                    string rutaCarpetaDG = Path.Combine(webRootPath, "Procesos", usuario.NombreOrganizacionEstudiantil, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), proceso.Solicitud.Id.ToString(), "DeclaracionGastos");
+                    int validar = ConsultaDeclaracionGastos.EliminarDocumentosDG(proceso.DeclaracionGastos.Id);
 
-                    if (Directory.Exists(rutaCarpetaDG))
+                    if (validar == 1)
                     {
-                        Directory.Delete(rutaCarpetaDG, true);
-                        return Json("1");
+                        string rutaCarpetaDG = Path.Combine(webRootPath, "Procesos", organizacion.Nombre, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), proceso.Solicitud.Id.ToString(), "DeclaracionGastos");
+
+                        if (Directory.Exists(rutaCarpetaDG))
+                        {
+                            Directory.Delete(rutaCarpetaDG, true);
+                            return Json("1");
+                        }
+                        else
+                        {
+                            return Json("0");
+                        }
                     }
-                    else
-                    {
-                        return Json("0");
-                    }
+
                 }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }            
             return Json("-1");
         }
 

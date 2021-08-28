@@ -10,8 +10,9 @@ namespace SimRend.Models
         public int Id { get; set; }
         public String Nombre { get; set; }
         public String Email { get; set; }
-        public String Campus { get; set; }
-        public String Tipo { get; set; }
+        public Campus Campus { get; set; }
+        public TipoOE TipoOE { get; set; }
+        public Institucion Institucion { get; set; }
         public String Estado { get; set; }
         public String EstadoEliminacion { get; set; }
     }

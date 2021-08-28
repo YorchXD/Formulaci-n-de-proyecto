@@ -75,3 +75,16 @@ D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debu
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Campus\Campus.cshtml.g.cs
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\TipoOE\TipoOE.cshtml.g.cs
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Institucion\Institucion.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\OrganizacionEstudiantil\ActualizarOE.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\UsuariosDirectores.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\CrearUsuarioDirector.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ActualizarUsuarioDirector.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\UsuariosRepresentantes.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\CrearUsuarioRepresentante.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ActualizarUsuarioRepresentante.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\CrearUsuarioVicerector.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\UsuariosVicerectores.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ActualizarUsuarioVicerector.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\UsuariosAdministradores.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\CrearUsuarioAdministrador.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ActualizarUsuarioAdministrador.cshtml.g.cs

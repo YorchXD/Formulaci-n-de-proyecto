@@ -13,8 +13,6 @@ namespace SimRend.DbSimRend
 
         /*#############################################Crear######################################################*/
         
-
-
         /*###########################################Fin crear####################################################*/
 
         /*#############################################Leer########################################################*/
@@ -110,7 +108,7 @@ namespace SimRend.DbSimRend
                         if (solicitud.NombreResponsable == null)
                         {
                             //solicitud.NombreResponsable = ConsultaSolicitud.LeerResponsable(solicitud.IdResponsable).Nombre;
-                            solicitud.NombreResponsable = ConsultaSolicitud.LeerResponsable(idResponsable).Nombre;
+                            solicitud.NombreResponsable = ConsultaUsuario.LeerRepresentante(idResponsable).Nombre;
                         }
 
                         Proceso proceso = new Proceso()
@@ -118,7 +116,7 @@ namespace SimRend.DbSimRend
                             Id = Convert.ToInt32(prodData["idFondo"]),
                             Estado = Convert.ToInt32(prodData["estado"]),
                             EstadoFinal = prodData["estadoFinal"].ToString(),
-                            Responsable = new Usuario() { Id = idResponsable },
+                            Responsable = new UsuarioRepresentante() { Id = idResponsable },
                             Solicitud = solicitud,
                             Resolucion = new Resolucion() { Id = idResolucion },
                             DeclaracionGastos = new DeclaracionGastos() { Id = idDeclaracionGastos }
@@ -193,7 +191,7 @@ namespace SimRend.DbSimRend
         /*###########################################Fin leer######################################################*/
 
         /*#############################################Actualizar##################################################*/
-        public static void ActualizarEstadoUsurioRepresentate(int refRepresentante, string estado)
+        public static void ActualizarEstadoUsuarioRepresentate(int refRepresentante, string estado)
         {
             try
             {

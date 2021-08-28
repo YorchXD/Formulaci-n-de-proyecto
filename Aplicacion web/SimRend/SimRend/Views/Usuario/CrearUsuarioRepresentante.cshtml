@@ -1,0 +1,255 @@
+﻿@{
+    ViewData["Title"] = "Crear usuario representante";
+}
+
+<div class="br-pagetitle row">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text wd-auto" style="border:none;">
+                <i class="icon ion-person-stalker"></i>
+                <h4 style="padding-left:5%">Crear usuario representante</h4>
+            </div>
+        </div>
+    </div>
+</div><!-- d-flex -->
+
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+        <div class="form-layout">
+
+
+            <div class="row mg-b-25">
+                <div class="form-group wd-auto col-sm-12 col-lg-6">
+                    <label class="form-control-label">Nombre:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-map-marked-alt tx-20 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="nombre" required="required" class="form-control" id="nombre" type="text" placeholder="Ingrese el nombre del usuario representante" onkeypress="" data-parsley-errors-container="#errorNombre">
+                    </div>
+                    <div id="errorNombre"></div>
+                </div>
+
+                <div class="form-group wd-auto col-sm-12 col-lg-6">
+                    <label class="form-control-label">RUN:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fa fa-id-card tx-20 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="run" required="required" class="form-control" id="run" type="text" placeholder="Ingrese el RUN del usuario representante" onkeypress="" data-parsley-errors-container="#errorRUN" oninput="checkRun(this)">
+                    </div>
+                    <div id="errorRUN"></div>
+                </div>
+
+                <div class="form-group wd-auto col-sm-12 col-lg-6">
+                    <label class="form-control-label">Matrícula:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fa fa-id-card tx-20 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input name="matricula" required="required" class="form-control" id="matricula" type="text" placeholder="Ingrese la matricula del usuario representante" onkeypress="" data-parsley-errors-container="#errorMatricula">
+                    </div>
+                    <div id="errorMatricula"></div>
+                </div>
+
+                <div class="form-group wd-auto col-sm-12 col-lg-6">
+                    <label class="form-control-label">Email: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-at tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input autocomplete="off" name="email" required="required" class="form-control" id="email" type="email" placeholder="Ingrese el email del usuario representante" onkeypress="" data-parsley-errors-container="#errorEmail">
+                    </div>
+                    <div id="errorEmail"></div>
+                </div>
+
+                <div class="form-group wd-auto col-sm-12 col-lg-6">
+                    <label class="form-control-label">Clave: </label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-key tx-16 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <input autocomplete="new-password" name="clave" required="required" class="form-control" id="clave" type="password" placeholder="Ingrese la clave del usuario representante" onkeypress="" data-parsley-errors-container="#errorClave">
+                        <div class="input-group-append">
+                            <button type="button" id="verClave" class="btn btn-info btn-flat" onclick="mostrarClave()"><span id="iconoClave" class="fa fa-eye-slash icon"></span></button>
+                        </div>
+                    </div>
+                    <div id="errorClave"></div>
+                </div>
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Sexo: </label>
+                    <div class="input-group parsley-select" id="sexoMarco">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-venus-mars tx-22 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <select name="sexo" class="form-control required" data-placeholder="Seleccione el sexo del usuario representante" id="sexo"
+                                data-parsley-class-handler="#campusMarco" data-parsley-errors-container="#errorSexo" required>
+                            <option selected disabled>Seleccione el sexo del usuario representante</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Masculino">Masculino</option>
+                        </select>
+                    </div>
+                    <div id="errorSexo"></div>
+                </div>
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Rol: </label>
+                    <div class="input-group parsley-select" id="rolMarco">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-user-tag tx-22 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <select name="rol" class="form-control required" data-placeholder="Seleccione el rol del usuario representante" id="rol"
+                                data-parsley-class-handler="#rolMarco" data-parsley-errors-container="#errorRol" required>
+                            <option selected disabled>Seleccione el rol del usuario representante</option>
+                        </select>
+                    </div>
+                    <div id="errorRol"></div>
+                </div>
+
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Campus: </label>
+                    <div class="input-group parsley-select" id="campusMarco">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-map-marked-alt tx-22 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <select name="campus" class="form-control required" data-placeholder="Seleccione el campus al que pertenece el usuario representate" id="campus"
+                                onchange="obtenerOEs()" data-parsley-class-handler="#campusMarco" data-parsley-errors-container="#errorCampus" required>
+                            <option selected disabled>Seleccione el campus al que pertenece el usuario representante</option>
+                        </select>
+                    </div>
+                    <div id="errorCampus"></div>
+                </div>
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Organización estudiantil: </label>
+                    <div class="input-group parsley-select" id="oeMarco">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fab fa-hubspot tx-22 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <select name="oe" class="form-control required" data-placeholder="Seleccione la O.E. a la que pertenece el usuario representante" id="oe"
+                                data-parsley-class-handler="#oeMarco" onchange="obtenerInstitucion()" data-parsley-errors-container="#errorOE" required disabled>
+                            <option selected disabled>Seleccione la O.E. a la que pertenece el usuario representante</option>
+
+                        </select>
+                    </div>
+                    <div id="errorOE"></div>
+                </div>
+
+                <div class="form-group wd-auto col-lg-6 col-md-12">
+                    <label class="form-control-label">Institución: </label>
+                    <div class="input-group parsley-select" id="institucionMarco">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-university tx-22 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <select name="institucion" class="form-control required" data-placeholder="Seleccione la institución a la que pertenece el usuario representante" id="institucion"
+                                data-parsley-class-handler="#institucionMarco" data-parsley-errors-container="#errorInstitucion" required disabled>
+                            <option selected disabled>Seleccione la institución a la que pertenece el usuario representante</option>
+                        </select>
+                    </div>
+                    <div id="errorInstitucion"></div>
+                </div>
+            </div>
+            <div class="form-layout-footer">
+                <div class="row" id="acciones">
+                    <div class="form-group  col-lg-6 col-md-6 col-sm-12">
+                        <button class="btn btn-secondary" id="guardar" style="width:100%" onclick="volverRepresentantes()">
+                            <i class="fas fa-window-close"></i> Cancelar
+                        </button>
+                    </div>
+                    <div class="form-group  col-lg-6 col-md-6 col-sm-12">
+                        <button class="modal-effect btn btn-info tx-transform-none" id="guardar" data-effect="effect-just-me" style="width:100%" onclick="crearUsuarioRepresentante()">
+                            <i class="fas fa-save"></i> Guardar
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- br-section-wrapper -->
+</div><!-- br-pagebody -->
+
+<!-- MODAL ELIMINAR PROCESO -->
+<div id="modal-alert" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+            <div class="modal-body tx-center pd-y-20 pd-x-20">
+
+                <div id="icon-problema">
+                    <i class="icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                </div>
+
+                <div id="icon-create">
+                    <i class="icon ion-ios-plus-outline tx-100 tx-info lh-1 mg-t-20 d-inline-block"></i>
+                </div>
+                <div id="icon-create-success">
+                    <i class="ionicons ion-ios-checkmark-outline tx-100 tx-info lh-1 mg-t-20 d-inline-block"></i>
+                </div>
+
+                <div>
+                    <h4 class="tx-info" tx-semibold mg-b-20" id="title-alerta-crear">Crear organización estudiantil</h4>
+                    <h4 class="tx-danger" tx-semibold mg-b-20" id="title-alerta-problemas"></h4>
+                </div>
+
+                <div>
+                    <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
+                </div>
+
+                <div id="actions-alerta">
+
+                </div>
+            </div><!-- modal-body -->
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
+    
+
+@section scripts
+{
+    <script src="~/lib/parsleyjs/parsley.min.js"></script>
+    <script src="~/lib/parsleyjs/i18n/es.js"></script>
+    <script src="~/js/jquery.numeric.js"></script>
+    <script src="~/js/Usuario.js"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            obtenerCampus();
+            obtenerRoles();
+        });
+        function mostrarClave()
+        {
+            var cambio = document.getElementById("clave");
+            if (cambio.type == "password")
+            {
+                cambio.type = "text";
+                $('#iconoClave').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            } else
+            {
+                cambio.type = "password";
+                $('#iconoClave').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+            }
+        }
+    </script>
+}

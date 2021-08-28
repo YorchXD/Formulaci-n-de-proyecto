@@ -32,7 +32,6 @@ namespace SimRend.DbSimRend
          */
         public static MySqlCommand ExecuteProcedure(MySqlCommand command)
         {
-            int result;
             using (var conn = new MySqlConnection(connStr))
             {
                 conn.Open();
@@ -42,7 +41,7 @@ namespace SimRend.DbSimRend
                     command.Connection = conn;
                     command.Transaction = sqlTran;
                     command.CommandType = CommandType.StoredProcedure;
-                    result = command.ExecuteNonQuery();
+                    command.ExecuteNonQuery();
                     sqlTran.Commit();
                 }
                 catch (Exception ex)

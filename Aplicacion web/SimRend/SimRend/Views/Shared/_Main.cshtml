@@ -15,7 +15,7 @@
     <title>SimRend</title>
 
     <!-- vendor css -->
-
+    <link rel="shortcut icon" href="~/img/favIcon1.png">
     <link href="~/lib/_fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
     <link href="~/lib/ionicons/css/ionicons.min.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -69,32 +69,41 @@
             </li><!-- br-menu-item -->
 
             <li class="br-menu-item">
-                <a id="usuarioMenu" class="br-menu-link" asp-controller="Usuario" asp-action="Categoria">
+                <a href="#" id="usuarioMenu" class="br-menu-link with-sub">
                     <i class="menu-item-icon icon ion-person-stalker tx-24"></i>
                     <span class="menu-item-label">Usuarios</span>
                 </a><!-- br-menu-link -->
+                <ul class="br-menu-sub">
+                    <li class="sub-item"><a id="administradoresMenu" asp-controller="Usuario" asp-action="UsuariosAdministradores" class="sub-link">Administradores</a></li>
+                    <li class="sub-item"><a id="representantesMenu" asp-controller="Usuario" asp-action="UsuariosRepresentantes" class="sub-link">Representantes</a></li>
+                    <li class="sub-item"><a id="directoresMenu" asp-controller="Usuario" asp-action="UsuariosDirectores" class="sub-link">Directores</a></li>
+                    <li class="sub-item"><a id="vicerectoresMenu" asp-controller="Usuario" asp-action="UsuariosVicerectores" class="sub-link">Vicerectores</a></li>
+                </ul>
             </li><!-- br-menu-item -->
+
             <li class="br-menu-item">
                 <a id="campusMenu" class="br-menu-link" asp-controller="Campus" asp-action="Campus" title="Campus">
-                    <i class="menu-item-icon icon fas fa-users-cog tx-20"></i>
+                    <i class="menu-item-icon icon fas fa-map-marked-alt tx-20"></i>
                     <span class="menu-item-label">Campus</span>
                 </a><!-- br-menu-link -->
             </li><!-- br-menu-item -->
+
+            <li class="br-menu-item">
+                <a id="institucionMenu" class="br-menu-link" asp-controller="Institucion" asp-action="Institucion" title="Instituciones">
+                    <i class="menu-item-icon icon fas fa-university tx-20"></i>
+                    <span class="menu-item-label">Instituciones</span>
+                </a><!-- br-menu-link -->
+            </li><!-- br-menu-item -->
+
             <li class="br-menu-item">
                 <a id="tipoOEMenu" class="br-menu-link" asp-controller="TipoOE" asp-action="TipoOE" title="Tipos de organización estudiantil">
-                    <i class="menu-item-icon icon fas fa-users-cog tx-20"></i>
+                    <i class="menu-item-icon icon fab fa-hubspot tx-20"></i>
                     <span class="menu-item-label">Tipo O.E.</span>
                 </a><!-- br-menu-link -->
             </li><!-- br-menu-item -->
             <li class="br-menu-item">
-                <a id="institucionMenu" class="br-menu-link" asp-controller="Institucion" asp-action="Institucion" title="Instituciones">
-                    <i class="menu-item-icon icon fas fa-users-cog tx-20"></i>
-                    <span class="menu-item-label">Instituciones</span>
-                </a><!-- br-menu-link -->
-            </li><!-- br-menu-item -->
-            <li class="br-menu-item">
                 <a id="organizacionEstudiantilMenu" class="br-menu-link" asp-controller="OrganizacionEstudiantil" asp-action="OrganizacionesEstudiantiles" title="Organizaciones estudiantiles">
-                    <i class="menu-item-icon icon fas fa-users-cog tx-20"></i>
+                    <i class="menu-item-icon icon fas fa-sitemap tx-20"></i>
                     <span class="menu-item-label">O.E.</span>
                 </a><!-- br-menu-link -->
             </li><!-- br-menu-item -->
@@ -144,7 +153,7 @@
     <div class="br-mainpanel">
         @RenderBody()
         <footer class="br-footer">
-            <div class="footer-left">
+            <!--div class="footer-left">
                 <div class="mg-b-2">Copyright &copy; 2017. Bracket Plus. All Rights Reserved.</div>
                 <div>Attentively and carefully made by ThemePixels.</div>
             </div>
@@ -152,7 +161,7 @@
                 <span class="tx-uppercase mg-r-10">Share:</span>
                 <a target="_blank" class="pd-x-5" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//themepixels.me/bracketplus/intro"><i class="fab fa-facebook tx-20"></i></a>
                 <a target="_blank" class="pd-x-5" href="https://twitter.com/home?status=Bracket%20Plus,%20your%20best%20choice%20for%20premium%20quality%20admin%20template%20from%20Bootstrap.%20Get%20it%20now%20at%20http%3A//themepixels.me/bracketplus/intro"><i class="fab fa-twitter tx-20"></i></a>
-            </div>
+            </div-->
         </footer>
     </div>
     <!-- ########## END: MAIN PANEL ########## -->
@@ -165,13 +174,11 @@
     <script src="~/lib/moment/min/moment.min.js"></script>
     <script src="~/lib/peity/jquery.peity.min.js"></script>
 
-
     <script src="~/lib/jquery.flot/jquery.flot.js"></script>
     <script src="~/lib/jquery.flot/jquery.flot.resize.js"></script>
     <script src="~/lib/flot-spline/js/jquery.flot.spline.min.js"></script>
     <script src="~/lib/jquery-sparkline/jquery.sparkline.min.js"></script>
     <script src="~/lib/echarts/echarts.min.js"></script>
-
 
     <script src="~/lib/select2/js/select2.full.min.js"></script>
     <script src="~/lib/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -179,13 +186,12 @@
     <script src="~/lib/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <!--script src="../lib/datatables.net-responsive-dt/js/responsive.dataTables.min.js"></script-->
 
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
     <script src="~/lib/jquery-ui/ui/widgets/datepicker.js"></script>
     <script src="~/lib/jquery-ui/ui/i18n/datepicker-es.js"></script>
 
-
     @RenderSection("Scripts", required: false)
-
-
 
     <script src="~/js/bracket.js"></script>
     <script src="~/js/ResizeSensor.js"></script>
@@ -222,11 +228,11 @@
             }
         });
 
-        $(".br-sideleft-menu a").click(function ()
-        {
-            $('a').removeClass('active');
-            $(this).addClass("active");
-        });
+        $/*(".br-sideleft-menu a").click(function ()
+            {
+                $('a').removeClass('active');
+                $(this).addClass("active");
+            });*/
 
         $(function ()
         {
@@ -244,7 +250,7 @@
         $(document).ready(function ()
         {
             //$('a').removeClass('active');
-            var botonMenuActivo;
+            var botonMenuActivo, botonSubMenuActivo;
             var controlador = window.location.pathname.split("/")[1];
             if (controlador === 'Resumen')
             {
@@ -265,6 +271,24 @@
             else if (controlador === 'Usuario')
             {
                 botonMenuActivo = '#usuarioMenu';
+                var accion = window.location.pathname.split("/")[2];
+                if (accion === 'UsuariosAdministradores' || accion === 'CrearUsuarioAdministrador' || accion === 'ActualizarUsuarioAdministrador')
+                {
+                    botonSubMenuActivo = '#administradoresMenu';
+                }
+                else if (accion === 'UsuariosRepresentantes' || accion === 'CrearUsuarioRepresentante' || accion === 'ActualizarUsuarioRepresentante')
+                {
+                    botonSubMenuActivo = '#representantesMenu';
+                }
+                else if (accion === 'UsuariosDirectores' || accion === 'CrearUsuarioDirector' || accion === 'ActualizarUsuarioDirector')
+                {
+                    botonSubMenuActivo = '#directoresMenu';
+                }
+                else
+                {
+                    botonSubMenuActivo = '#vicerectoresMenu';
+                }
+                $(botonSubMenuActivo).addClass('active');
             }
             else if (controlador === 'Campus')
             {

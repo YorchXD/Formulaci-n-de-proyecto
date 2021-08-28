@@ -182,29 +182,46 @@ namespace SimRend.Controllers
         [HttpPost]
         public JsonResult LeerRepresentantesHabilitados()
         {
-            //Usuario usuario = (Usuario)this.session.GetComplexData<Usuario>("DatosUsuario");
-            Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
-            List<Usuario> representantes = ConsultaSolicitud.LeerRepresetantesHabilitados(usuario.IdOrganizacionEstudiantil);
-            if(representantes!=null)
+            //Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+            String tipoUsuario = HttpContext.Session.GetString("TipoUsuario");
+            if (tipoUsuario.Equals("Estudiante dirigente"))
             {
-                representantes = representantes.Where(responsable => !responsable.CrearSolicitud.Equals("Desabilitado")).ToList();
-                return Json(representantes);
+                Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+                List<Organizacion> organizaciones = ConsultaUsuario.LeerOrganizacion(usuario.Id, tipoUsuario);
+                Organizacion organizacion = organizaciones[0];
+                List<UsuarioRepresentante> representantes = ConsultaUsuario.LeerRepresentantes(0, organizacion.Id, 0);
+                //List<UsuarioRepresentante> representantes = ConsultaSolicitud.LeerRepresetantesHabilitados(usuario.Organizacion.Id);
+                if (representantes != null)
+                {
+                    representantes = representantes.Where(responsable => !responsable.CrearSolicitud.Equals("Deshabilitado")).ToList();
+                    return Json(representantes);
+                }
             }
+            
             return Json(new object());
         }
 
         [HttpPost]
         public JsonResult LeerRepresentantesHabilitadosActualizar(int IdResponsable)
         {
-            Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
-            List<Usuario> representantes = ConsultaSolicitud.LeerRepresetantesHabilitados(usuario.IdOrganizacionEstudiantil);
-            if (representantes != null)
+            //Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+            String tipoUsuario = HttpContext.Session.GetString("TipoUsuario");
+            if (tipoUsuario.Equals("Representante"))
             {
-                Usuario representanteSelec = representantes.Find(responsable => responsable.Id == IdResponsable);
-                representantes = representantes.Where(responsable => !responsable.CrearSolicitud.Equals("Desabilitado")).ToList();
-                representantes.Add(representanteSelec);
-                return Json(representantes);
+                Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+                List<Organizacion> organizaciones = ConsultaUsuario.LeerOrganizacion(usuario.Id, tipoUsuario);
+                Organizacion organizacion = organizaciones[0];
+                List<UsuarioRepresentante> representantes = ConsultaUsuario.LeerRepresentantes(0, organizacion.Id, 0);
+                //List<UsuarioRepresentante> representantes = ConsultaSolicitud.LeerRepresetantesHabilitados(usuario.Organizacion.Id);
+                if (representantes != null)
+                {
+                    UsuarioRepresentante representanteSelec = representantes.Find(responsable => responsable.Id == IdResponsable);
+                    representantes = representantes.Where(responsable => !responsable.CrearSolicitud.Equals("Desabilitado")).ToList();
+                    representantes.Add(representanteSelec);
+                    return Json(representantes);
+                }
             }
+            
             return Json(new object());
         }
 
@@ -357,16 +374,24 @@ namespace SimRend.Controllers
               
                 if (solExistente == null)
                 {
-                    solicitud.Id = ConsultaSolicitud.CrearSolicitud(solicitud); //Creacion de la solicitud
+                    //Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+                    String tipoUsuario = HttpContext.Session.GetString("TipoUsuario");
+
+                    /*Se asume que el usuario es un representante*/
                     Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
-                    int idOrganizacion = usuario.IdOrganizacionEstudiantil;
+                    List<Organizacion> organizaciones = ConsultaUsuario.LeerOrganizacion(usuario.Id, tipoUsuario);
+                    Organizacion organizacion = organizaciones[0];
+
+                    solicitud.Id = ConsultaSolicitud.CrearSolicitud(solicitud); //Creacion de la solicitud
+                    
+                    int idOrganizacion = organizacion.Id;
                     int estado = 1; /*Representa que la solicitud esta en estado de edicion*/
                     solicitud.RefProceso = ConsultaSolicitud.CrearProcesoFondo(idOrganizacion, solicitud.Id, estado, IdResponsable); //Agrega el estado en que se encuentra la solicitud
-                    ConsultasGenerales.ActualizarEstadoUsurioRepresentate(IdResponsable, "Desabilitado");
+                    ConsultasGenerales.ActualizarEstadoUsuarioRepresentate(IdResponsable, "Deshabilitado");
 
                     proceso = new Proceso()
                     {
-                        Responsable = ConsultaSolicitud.LeerResponsable(IdResponsable),
+                        Responsable = ConsultaUsuario.LeerRepresentante(IdResponsable),
                         Solicitud = solicitud
                     };
 
@@ -390,9 +415,9 @@ namespace SimRend.Controllers
 
                         if (proceso.Responsable.Id != IdResponsable)
                         {
-                            ConsultasGenerales.ActualizarEstadoUsurioRepresentate(proceso.Responsable.Id, "Habilitado");
-                            ConsultasGenerales.ActualizarEstadoUsurioRepresentate(IdResponsable, "Desabilitado");
-                            proceso.Responsable = ConsultaSolicitud.LeerResponsable(IdResponsable);
+                            ConsultasGenerales.ActualizarEstadoUsuarioRepresentate(proceso.Responsable.Id, "Habilitado");
+                            ConsultasGenerales.ActualizarEstadoUsuarioRepresentate(IdResponsable, "Desabilitado");
+                            proceso.Responsable = ConsultaUsuario.LeerRepresentante(IdResponsable);
                         }
                         
                         proceso.Solicitud = solicitud;
@@ -582,7 +607,7 @@ namespace SimRend.Controllers
             proceso.Solicitud.Categorias = ConsultaSolicitud.LeerCategoriasSeleccionadas(procesoAux.Solicitud.Id);
             proceso.Solicitud.Participantes = ConsultaSolicitud.LeerParticipantes(procesoAux.Solicitud.Id);
             
-            proceso.Responsable = ConsultaSolicitud.LeerResponsableSolicitud(procesoAux.Responsable.Id);
+            proceso.Responsable = ConsultaUsuario.LeerRepresentante(procesoAux.Responsable.Id);
             
             proceso.Organizacion = ConsultaSolicitud.LeerOrganizacion(procesoAux.Solicitud.Id);
             proceso.Direccion = ConsultaSolicitud.LeerDireccion(procesoAux.Solicitud.Id);

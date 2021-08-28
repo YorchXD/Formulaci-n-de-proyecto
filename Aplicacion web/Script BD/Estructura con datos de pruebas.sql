@@ -11,7 +11,7 @@
  Target Server Version : 100136
  File Encoding         : 65001
 
- Date: 14/07/2021 15:13:09
+ Date: 28/08/2021 06:35:56
 */
 
 SET NAMES utf8mb4;
@@ -22,7 +22,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `campus`;
 CREATE TABLE `campus`  (
-  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `estado` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'HABILITADO',
   `estadoEliminacion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT 'HABILITADO',
@@ -79,7 +79,7 @@ INSERT INTO `declaraciondegastos` VALUES (3, '2021-01-19', 345345, 0);
 INSERT INTO `declaraciondegastos` VALUES (4, '2020-10-13', 0, 0);
 INSERT INTO `declaraciondegastos` VALUES (5, '2020-09-30', 0, 0);
 INSERT INTO `declaraciondegastos` VALUES (6, '2020-10-15', 0, 0);
-INSERT INTO `declaraciondegastos` VALUES (11, '2021-03-10', 1352308, 1062152);
+INSERT INTO `declaraciondegastos` VALUES (11, '2021-03-10', 1352308, 1352308);
 INSERT INTO `declaraciondegastos` VALUES (12, '2020-09-17', 24180, 22790);
 
 -- ----------------------------
@@ -123,8 +123,8 @@ INSERT INTO `documento` VALUES (55, 'dsfghu6', 'Restaurant', '2020-08-27', 1720,
 INSERT INTO `documento` VALUES (56, 'ddzvfg', 'Yorch', '2021-02-18', 234332, 'SDFASDDFSAGFD', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\17820883-7\\1.pdf', 2, '17820883-7', 11, 1);
 INSERT INTO `documento` VALUES (57, '74y4mdkgi', 'Daniela', '2021-02-17', 34254, 'asgafdgdf', 'Factura', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\17820883-7\\2.pdf', 1, '17820883-7', 11, 1);
 INSERT INTO `documento` VALUES (58, 'adfsdfg67654rgh', 'Yorch', '2021-02-17', 43566, 'zxcvdgadf', 'Factura', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\17820883-7\\3.pdf', 5, '17820883-7', 11, 1);
-INSERT INTO `documento` VALUES (59, 'adfggnbrrt456789plkj', 'Yorch', '2021-02-17', 35632, 'afgadfg', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\-1\\1.pdf', 2, NULL, 11, 0);
-INSERT INTO `documento` VALUES (60, 'sfdshgjklk6rfgbnmm', 'Utalca', '2021-02-17', 254524, 'fadgdafg', 'Factura', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\-1\\2.pdf', 4, NULL, 11, 0);
+INSERT INTO `documento` VALUES (59, 'adfggnbrrt456789plkj', 'Yorch', '2021-02-17', 35632, 'afgadfg', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\-1\\1.pdf', 2, NULL, 11, 1);
+INSERT INTO `documento` VALUES (60, 'sfdshgjklk6rfgbnmm', 'Utalca', '2021-02-17', 254524, 'fadgdafg', 'Factura', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\-1\\2.pdf', 4, NULL, 11, 1);
 INSERT INTO `documento` VALUES (61, 'adfghgj324246', 'Yorch', '2021-02-18', 750000, 'asdasd', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\19043138-K\\1.pdf', 2, '19043138-K', 11, 1);
 
 -- ----------------------------
@@ -164,6 +164,26 @@ CREATE TABLE `modulo`  (
 INSERT INTO `modulo` VALUES (1, 'Solicitud');
 INSERT INTO `modulo` VALUES (2, 'Resolución');
 INSERT INTO `modulo` VALUES (3, 'Declaración de gastos');
+
+-- ----------------------------
+-- Table structure for oe_vicerector
+-- ----------------------------
+DROP TABLE IF EXISTS `oe_vicerector`;
+CREATE TABLE `oe_vicerector`  (
+  `refOE` int NOT NULL,
+  `refUsuarioVicerector` int NOT NULL,
+  INDEX `oe_vicerrector_ibfk_1`(`refOE`) USING BTREE,
+  INDEX `oe_vicerrector_ibfk_2`(`refUsuarioVicerector`) USING BTREE,
+  CONSTRAINT `oe_vicerector_ibfk_1` FOREIGN KEY (`refOE`) REFERENCES `organizacion_estudiantil` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `oe_vicerector_ibfk_2` FOREIGN KEY (`refUsuarioVicerector`) REFERENCES `usuario_vicerector` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of oe_vicerector
+-- ----------------------------
+INSERT INTO `oe_vicerector` VALUES (2, 4);
+INSERT INTO `oe_vicerector` VALUES (2, 6);
+INSERT INTO `oe_vicerector` VALUES (4, 6);
 
 -- ----------------------------
 -- Table structure for operaciones
@@ -206,19 +226,23 @@ CREATE TABLE `organizacion_estudiantil`  (
   `estado` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'Habilitado',
   `refTipoOE` int NOT NULL,
   `estadoEliminacion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'HABILITADO',
+  `refInstitucion` int NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `organizacion_estudiantil_ibfk_1`(`refTipoOE`) USING BTREE,
+  INDEX `organizacion_estudiantil_ibfk_3`(`refInstitucion`) USING BTREE,
   INDEX `organizacion_estudiantil_ibfk_2`(`refCampus`) USING BTREE,
   CONSTRAINT `organizacion_estudiantil_ibfk_1` FOREIGN KEY (`refTipoOE`) REFERENCES `tipooe` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `organizacion_estudiantil_ibfk_2` FOREIGN KEY (`refCampus`) REFERENCES `categoria` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+  CONSTRAINT `organizacion_estudiantil_ibfk_2` FOREIGN KEY (`refCampus`) REFERENCES `campus` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `organizacion_estudiantil_ibfk_3` FOREIGN KEY (`refInstitucion`) REFERENCES `institucion` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of organizacion_estudiantil
 -- ----------------------------
-INSERT INTO `organizacion_estudiantil` VALUES (1, 'CAAICC', 'caaicc2016@gmail.com', 1, 'Habilitado', 1, 'DESHABILITADO');
-INSERT INTO `organizacion_estudiantil` VALUES (2, 'FEDEUT', 'fedeutcuricó@gmail.com', 1, 'Habilitado', 2, 'HABILITADO');
-INSERT INTO `organizacion_estudiantil` VALUES (12, 'CAAICC', 'caaicc2017@gmail.com', 2, 'Habilitado', 1, 'HABILITADO');
+INSERT INTO `organizacion_estudiantil` VALUES (1, 'CAAICC', 'caaicc2016@gmail.com', 1, 'Habilitado', 1, 'DESHABILITADO', 1);
+INSERT INTO `organizacion_estudiantil` VALUES (2, 'FEDEUT', 'fedeutcuricó@gmail.com', 1, 'Habilitado', 2, 'DESHABILITADO', 4);
+INSERT INTO `organizacion_estudiantil` VALUES (3, 'CAAICC', 'caaicctalca@gamil.com', 2, 'Habilitado', 1, 'HABILITADO', 1);
+INSERT INTO `organizacion_estudiantil` VALUES (4, 'FEUTAL', 'feutaltalca@gmail.com', 2, 'Habilitado', 2, 'DESHABILITADO', 4);
 
 -- ----------------------------
 -- Table structure for parsol
@@ -245,6 +269,7 @@ INSERT INTO `parsol` VALUES ('17824523-6', 22);
 INSERT INTO `parsol` VALUES ('17824523-6', 23);
 INSERT INTO `parsol` VALUES ('17824523-6', 24);
 INSERT INTO `parsol` VALUES ('17824523-6', 25);
+INSERT INTO `parsol` VALUES ('17824523-6', 26);
 INSERT INTO `parsol` VALUES ('17824523-6', 29);
 INSERT INTO `parsol` VALUES ('17824523-6', 54);
 INSERT INTO `parsol` VALUES ('19043138-K', 15);
@@ -287,7 +312,8 @@ CREATE TABLE `procesofondo`  (
   `refOrganizacion` int NOT NULL,
   `estadoFinal` varchar(7) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'Abierto',
   `refUsuarioRepresentante` int NOT NULL,
-  `refUsuarioDirector` int NOT NULL,
+  `refUsuarioDirector` int NULL DEFAULT NULL,
+  `refUsuarioVicerector` int NULL DEFAULT NULL,
   PRIMARY KEY (`idFondo`) USING BTREE,
   INDEX `ref_resolucion`(`refResolucion`) USING BTREE,
   INDEX `refOrganizacion`(`refOrganizacion`) USING BTREE,
@@ -295,55 +321,57 @@ CREATE TABLE `procesofondo`  (
   INDEX `refSolicitud`(`refSolicitud`) USING BTREE,
   INDEX `procesofondo_ibfk_5`(`refUsuarioRepresentante`) USING BTREE,
   INDEX `procesofondo_ibfk_6`(`refUsuarioDirector`) USING BTREE,
+  INDEX `procesofondo_ibk_7`(`refUsuarioVicerector`) USING BTREE,
   CONSTRAINT `procesofondo_ibfk_1` FOREIGN KEY (`refDeclaracionGastos`) REFERENCES `declaraciondegastos` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibfk_2` FOREIGN KEY (`refOrganizacion`) REFERENCES `organizacion_estudiantil` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibfk_3` FOREIGN KEY (`refResolucion`) REFERENCES `resolucion` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT,
-  CONSTRAINT `procesofondo_ibfk_4` FOREIGN KEY (`refSolicitud`) REFERENCES `solicitud` (`id`) ON DELETE CASCADE ON UPDATE RESTRICT,
+  CONSTRAINT `procesofondo_ibfk_4` FOREIGN KEY (`refSolicitud`) REFERENCES `solicitud` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibfk_5` FOREIGN KEY (`refUsuarioRepresentante`) REFERENCES `usuario_representante` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `procesofondo_ibfk_6` FOREIGN KEY (`refUsuarioDirector`) REFERENCES `usuario_director` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+  CONSTRAINT `procesofondo_ibfk_6` FOREIGN KEY (`refUsuarioDirector`) REFERENCES `usuario_director` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `procesofondo_ibk_7` FOREIGN KEY (`refUsuarioVicerector`) REFERENCES `usuario_vicerector` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 69 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of procesofondo
 -- ----------------------------
-INSERT INTO `procesofondo` VALUES (15, 15, 46, 12, 6, 1, 'Cerrado', 2, 1);
-INSERT INTO `procesofondo` VALUES (16, 16, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (18, 18, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (19, 19, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (20, 20, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (21, 21, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (22, 22, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (23, 23, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (24, 24, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (25, 25, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (26, 26, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (27, 27, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (28, 28, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (29, 29, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (30, 30, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (31, 31, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (32, 32, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (33, 33, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (34, 34, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (35, 35, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (36, 36, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (37, 37, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (38, 38, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (39, 39, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (40, 40, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (41, 41, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (42, 42, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (43, 43, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (46, 46, 40, 6, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (47, 47, NULL, NULL, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (48, 48, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (49, 49, 39, 5, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (50, 50, NULL, NULL, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (51, 51, 38, 4, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (53, 53, 31, 1, 2, 1, 'Abierto', 1, 1);
-INSERT INTO `procesofondo` VALUES (54, 54, 37, 3, 2, 1, 'Abierto', 2, 1);
-INSERT INTO `procesofondo` VALUES (57, 57, NULL, NULL, 2, 1, 'Cerrado', 1, 1);
-INSERT INTO `procesofondo` VALUES (60, 58, 45, 11, 4, 1, 'Abierto', 1, 1);
+INSERT INTO `procesofondo` VALUES (15, 15, 46, 12, 6, 1, 'Cerrado', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (16, 16, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (18, 18, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (19, 19, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (20, 20, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (21, 21, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (22, 22, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (23, 23, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (24, 24, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (25, 25, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (26, 26, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (27, 27, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (28, 28, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (29, 29, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (30, 30, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (31, 31, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (32, 32, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (33, 33, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (34, 34, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (35, 35, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (36, 36, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (37, 37, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (38, 38, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (39, 39, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (40, 40, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (41, 41, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (42, 42, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (43, 43, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (46, 46, 40, 6, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (47, 47, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (48, 48, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (49, 49, 39, 5, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (50, 50, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (51, 51, 38, 4, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (53, 53, 31, 1, 2, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (54, 54, 37, 3, 2, 1, 'Abierto', 2, 1, NULL);
+INSERT INTO `procesofondo` VALUES (57, 57, NULL, NULL, 2, 1, 'Cerrado', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (60, 58, 45, 11, 4, 1, 'Abierto', 1, 1, NULL);
 
 -- ----------------------------
 -- Table structure for resolucion
@@ -378,7 +406,7 @@ CREATE TABLE `rol`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of rol
@@ -387,6 +415,7 @@ INSERT INTO `rol` VALUES (1, 'Administrador');
 INSERT INTO `rol` VALUES (2, 'Director(a)');
 INSERT INTO `rol` VALUES (3, 'Presidente');
 INSERT INTO `rol` VALUES (4, 'Secretario(a) de finanzas');
+INSERT INTO `rol` VALUES (5, 'Vicerrector(a)');
 
 -- ----------------------------
 -- Table structure for rol_operacion
@@ -509,7 +538,7 @@ CREATE TABLE `solicitud`  (
   `fechaCreacionPDF` date NOT NULL,
   `fechaModificacion` date NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 59 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 68 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of solicitud
@@ -524,7 +553,7 @@ INSERT INTO `solicitud` VALUES (22, '2020-08-13', 21354315, 'Prueba 9', '2020-08
 INSERT INTO `solicitud` VALUES (23, '2020-08-13', 1351315, 'Prueba 11', '2020-08-21', '2020-08-21', 'Utalca', 'Grupal', '2020-08-13', '2020-08-13');
 INSERT INTO `solicitud` VALUES (24, '2020-08-13', 161515, 'Prueba 15', '2020-08-20', '2020-08-20', 'Utalca', 'Grupal', '2020-08-13', '2020-08-13');
 INSERT INTO `solicitud` VALUES (25, '2020-08-13', 3181135, 'Prueba eliminar participante 1', '2020-08-27', '2020-08-27', 'Utalca', 'Grupal', '2020-08-13', '2020-08-13');
-INSERT INTO `solicitud` VALUES (26, '2020-08-13', 1321456, 'Prueba eliminar participante 2', '2020-08-27', '2020-08-27', 'Utalca', 'Grupal', '2020-08-13', '2020-08-13');
+INSERT INTO `solicitud` VALUES (26, '2020-08-13', 1321456, 'Prueba eliminar participante 2', '2020-08-27', '2020-08-27', 'Utalca', 'Grupal', '2021-07-25', '2021-07-25');
 INSERT INTO `solicitud` VALUES (27, '2020-08-16', 215216654, 'Prueba domingo', '2020-08-26', '2020-08-27', 'Casa', 'Grupal', '2020-08-16', '2020-08-16');
 INSERT INTO `solicitud` VALUES (28, '2020-08-16', 1235465, 'Prueba 2 Domingo', '2020-08-27', '2020-08-27', 'Casa', 'Grupal', '2020-08-16', '2020-08-16');
 INSERT INTO `solicitud` VALUES (29, '2020-08-16', 125456, 'Prueba 4', '2020-08-20', '2020-08-20', 'casa', 'Grupal', '2020-08-16', '2020-08-16');
@@ -569,9 +598,35 @@ CREATE TABLE `tipooe`  (
 -- ----------------------------
 -- Records of tipooe
 -- ----------------------------
-INSERT INTO `tipooe` VALUES (1, 'CAA', 'Centro de alumnos', 'HABILITADO', 'DESHABILITADO');
+INSERT INTO `tipooe` VALUES (1, 'CAA', 'Centro de alumnos', 'HABILITADO', 'HABILITADO');
 INSERT INTO `tipooe` VALUES (2, 'FEDERACIÓN', 'Federación de estudiantes', 'HABILITADO', 'DESHABILITADO');
-INSERT INTO `tipooe` VALUES (3, 'GI', 'Grupo intermedio', 'HABILITADO', 'HABILITADO');
+INSERT INTO `tipooe` VALUES (3, 'GI', 'Grupo intermedio', 'HABILITADO', 'DESHABILITADO');
+
+-- ----------------------------
+-- Table structure for usuario_administrador
+-- ----------------------------
+DROP TABLE IF EXISTS `usuario_administrador`;
+CREATE TABLE `usuario_administrador`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sexo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `clave` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `estadoEliminacion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'HABILITADO',
+  `refCampus` int NOT NULL,
+  `refRol` int NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `email`(`email`) USING BTREE,
+  INDEX `refCampus`(`refCampus`) USING BTREE,
+  INDEX `refRol`(`refRol`) USING BTREE,
+  CONSTRAINT `usuario_administrador_ibfk_1` FOREIGN KEY (`refCampus`) REFERENCES `campus` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `usuario_administrador_ibfk_2` FOREIGN KEY (`refRol`) REFERENCES `rol` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of usuario_administrador
+-- ----------------------------
+INSERT INTO `usuario_administrador` VALUES (1, 'admin', 'Masculino', 'admin@utalca.cl', '12345', 'DESHABILITADO', 1, 1);
 
 -- ----------------------------
 -- Table structure for usuario_director
@@ -585,24 +640,25 @@ CREATE TABLE `usuario_director`  (
   `sexo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `refInstitucion` int NOT NULL,
   `cargo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `estado` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `estado` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT 'Habilitado',
   `idRol` int NOT NULL,
   `idOrganizacionEstudiantil` int NULL DEFAULT NULL,
   `fonoAnexo` int NOT NULL DEFAULT 0,
+  `estadoEliminacion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'HABILITADO',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `refRol_UD`(`idRol`) USING BTREE,
-  INDEX `refIdOrganizacionEstudiantil_UD`(`idOrganizacionEstudiantil`) USING BTREE,
-  INDEX `refInstitucion_UD`(`refInstitucion`) USING BTREE,
-  CONSTRAINT `refIdOrganizacionEstudiantil_UD` FOREIGN KEY (`idOrganizacionEstudiantil`) REFERENCES `organizacion_estudiantil` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  CONSTRAINT `refInstitucion_UD` FOREIGN KEY (`refInstitucion`) REFERENCES `institucion` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `refRol_UD` FOREIGN KEY (`idRol`) REFERENCES `rol` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+  INDEX `usuario_director_ibfk_1`(`idOrganizacionEstudiantil`) USING BTREE,
+  INDEX `usuario_director_ibfk_2`(`refInstitucion`) USING BTREE,
+  CONSTRAINT `usuario_director_ibfk_1` FOREIGN KEY (`idOrganizacionEstudiantil`) REFERENCES `organizacion_estudiantil` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `usuario_director_ibfk_2` FOREIGN KEY (`refInstitucion`) REFERENCES `institucion` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `usuario_director_ibfk_3` FOREIGN KEY (`idRol`) REFERENCES `rol` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of usuario_director
 -- ----------------------------
-INSERT INTO `usuario_director` VALUES (1, 'rgarrido@utalca.cl', 'Ruth', 'Ruth Garrido', 'Femenino', 1, 'Directora de escuela', 'Habilitado', 2, 1, 0);
-INSERT INTO `usuario_director` VALUES (2, 'jperez@utalca.cl', 'Juanita', 'Juanita Perez', 'Femenino', 4, 'Directora del DAAE', 'Habilitado', 2, 2, 0);
+INSERT INTO `usuario_director` VALUES (1, 'rgarrido@utalca.cl', 'Ruth', 'Ruth Garrido', 'Femenino', 1, 'Directora de escuela', 'Deshabilitado', 2, 1, 0, 'DESHABILITADO');
+INSERT INTO `usuario_director` VALUES (2, 'yosepulveda@utalca.cl', '12345', 'Yorch Sepúlveda', 'Masculino', 1, 'Director de escuela', 'Habilitado', 2, 1, 12345, 'HABILITADO');
 
 -- ----------------------------
 -- Table structure for usuario_representante
@@ -621,22 +677,51 @@ CREATE TABLE `usuario_representante`  (
   `idRol` int NOT NULL,
   `idOrganizacionEstudiantil` int NOT NULL,
   `crearProceso` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'Habilitado',
+  `estadoEliminacion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'HABILITADO',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `refRol_UR`(`idRol`) USING BTREE,
   INDEX `refOrganizacionEstudiantil_UR`(`idOrganizacionEstudiantil`) USING BTREE,
-  INDEX `refInstitucion_UR`(`refInstitucion`) USING BTREE,
-  CONSTRAINT `refInstitucion_UR` FOREIGN KEY (`refInstitucion`) REFERENCES `institucion` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `refOrganizacionEstudiantil_UR` FOREIGN KEY (`idOrganizacionEstudiantil`) REFERENCES `organizacion_estudiantil` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `refRol_UR` FOREIGN KEY (`idRol`) REFERENCES `rol` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+  INDEX `usuario_representante_ibfk_1`(`refInstitucion`) USING BTREE,
+  CONSTRAINT `usuario_representante_ibfk_1` FOREIGN KEY (`refInstitucion`) REFERENCES `institucion` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `usuario_representante_ibfk_2` FOREIGN KEY (`idOrganizacionEstudiantil`) REFERENCES `organizacion_estudiantil` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `usuario_representante_ibfk_3` FOREIGN KEY (`idRol`) REFERENCES `rol` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of usuario_representante
 -- ----------------------------
-INSERT INTO `usuario_representante` VALUES (1, 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'Yorch Sepúlveda', '17824523-6', 'Masculino', 2011407070, 1, 'Habilitado', 3, 1, 'Desabilitado');
-INSERT INTO `usuario_representante` VALUES (2, 'dparedes09@alumnos.utalca.cl', 'Daniela', 'Daniela Paredes', '17820883-7', 'Femenino', 2009407826, 1, 'Habilitado', 4, 1, 'Desabilitado');
-INSERT INTO `usuario_representante` VALUES (3, 'mgonzales13@alumnos.utalca.cl', 'Maria', 'Maria Soledad Gonzalez', '18801120-9', 'Femenino', 2013437888, 3, 'Habilitado', 3, 2, 'Habilitado');
-INSERT INTO `usuario_representante` VALUES (4, 'jcarrasco@alumnos.utalca.cl', 'Jorge', 'Jorge Carrasco', '19552307-7', 'Masculino', 2016468073, 2, 'Habilitado', 4, 2, 'Habilitado');
+INSERT INTO `usuario_representante` VALUES (1, 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'Yorch Sepúlveda', '17824523-6', 'Masculino', 2011407070, 1, 'Habilitado', 3, 1, 'Deshabilitado', 'DESHABILITADO');
+INSERT INTO `usuario_representante` VALUES (2, 'dparedes09@alumnos.utalca.cl', 'Daniela', 'Daniela Paredes', '17820883-7', 'Femenino', 2009407826, 1, 'Habilitado', 4, 1, 'Deshabilitado', 'DESHABILITADO');
+INSERT INTO `usuario_representante` VALUES (7, 'mgonzales13@alumnos.utalca.cl', '123', 'Maria Soledad Gonzalez', '18801120-9', 'Femenino', 2013437888, 3, 'Habilitado', 3, 2, 'Habilitado', 'HABILITADO');
+
+-- ----------------------------
+-- Table structure for usuario_vicerector
+-- ----------------------------
+DROP TABLE IF EXISTS `usuario_vicerector`;
+CREATE TABLE `usuario_vicerector`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `clave` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sexo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `refInstitucion` int NOT NULL,
+  `cargo` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `estado` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'Habilitado',
+  `fonoAnexo` int NOT NULL,
+  `estadoEliminacion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'HABILITADO',
+  `refRol` int NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `usuario_vicerrector_ibfk_1`(`refInstitucion`) USING BTREE,
+  INDEX `usuario_vicerector_ibfk_2`(`refRol`) USING BTREE,
+  CONSTRAINT `usuario_vicerector_ibfk_1` FOREIGN KEY (`refInstitucion`) REFERENCES `institucion` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `usuario_vicerector_ibfk_2` FOREIGN KEY (`refRol`) REFERENCES `rol` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of usuario_vicerector
+-- ----------------------------
+INSERT INTO `usuario_vicerector` VALUES (4, 'pcaballero@utalca.cl', '12345', 'Paula Caballero', 'Femenino', 4, 'Vicerrectora de desarrollo estudiantil', 'Deshabilitado', 12345, 'HABILITADO', 5);
+INSERT INTO `usuario_vicerector` VALUES (6, 'yosepulveda@utalca.cl', '123', 'Yorch Sepúlveda Manríquez', 'Masculino', 4, 'Vicerector de actividades académicas', 'Habilitado', 12345, 'HABILITADO', 5);
 
 -- ----------------------------
 -- Procedure structure for Actualizar_Campus
@@ -742,6 +827,24 @@ END
 delimiter ;
 
 -- ----------------------------
+-- Procedure structure for Actualizar_OE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Actualizar_OE`;
+delimiter ;;
+CREATE PROCEDURE `Actualizar_OE`(`in_nombre` VARCHAR(256), `in_email` VARCHAR(256), `in_campus` INTEGER, `in_tipoOE` INTEGER, `in_id` INTEGER, `in_idInstitucion` INTEGER)
+BEGIN
+	UPDATE organizacion_estudiantil
+	SET nombre = in_nombre,
+			email = in_email,
+			refCampus = in_campus,
+			refTipoOE = in_tipoOE,
+			refInstitucion = in_idInstitucion
+	WHERE id = in_id;
+END
+;;
+delimiter ;
+
+-- ----------------------------
 -- Procedure structure for Actualizar_Participante
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `Actualizar_Participante`;
@@ -806,6 +909,127 @@ END
 delimiter ;
 
 -- ----------------------------
+-- Procedure structure for Actualizar_UsuarioAdministrador
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Actualizar_UsuarioAdministrador`;
+delimiter ;;
+CREATE PROCEDURE `Actualizar_UsuarioAdministrador`(`in_nombre` VARCHAR(256), `in_email` VARCHAR(256), `in_clave` VARCHAR(256), `in_sexo` VARCHAR(256), `in_refCampus` INTEGER,`in_id` INTEGER)
+BEGIN
+
+	UPDATE usuario_administrador
+	SET nombre = in_nombre,
+			email = in_email,
+			sexo = in_sexo,
+			refCampus = in_refCampus
+	WHERE id = in_id;
+
+	IF !ISNULL(in_clave) THEN
+		BEGIN
+			UPDATE usuario_administrador
+			SET clave = in_clave
+			WHERE id = in_id;
+		END;
+	END IF;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Actualizar_UsuarioDirector
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Actualizar_UsuarioDirector`;
+delimiter ;;
+CREATE PROCEDURE `Actualizar_UsuarioDirector`(`in_nombre` VARCHAR(256), `in_email` VARCHAR(256), `in_clave` VARCHAR(256), `in_sexo` VARCHAR(256), `in_cargo` VARCHAR(256),`in_fonoAnexo` INTEGER, `in_id` INTEGER)
+BEGIN
+
+	UPDATE usuario_director
+	SET nombre = in_nombre,
+			email = in_email,
+			sexo = in_sexo,
+			cargo = in_cargo,
+			fonoAnexo = in_fonoAnexo
+	WHERE id = in_id;
+
+	IF !ISNULL(in_clave) THEN
+		BEGIN
+			UPDATE usuario_director
+			SET clave = in_clave
+			WHERE id = in_id;
+		END;
+	END IF;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Actualizar_UsuarioRepresentante
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Actualizar_UsuarioRepresentante`;
+delimiter ;;
+CREATE PROCEDURE `Actualizar_UsuarioRepresentante`(`in_id` INTEGER, `in_nombre` VARCHAR(256), `in_run` VARCHAR(256), `in_matricula` INTEGER,`in_email` VARCHAR(256), `in_clave` VARCHAR(256), `in_sexo` VARCHAR(256), `in_idInstitucion` INTEGER)
+BEGIN
+
+	UPDATE usuario_representante
+	SET nombre = in_nombre,
+			run = in_run,
+			matricula = in_matricula,
+			email = in_email,
+			sexo = in_sexo
+	WHERE id = in_id;
+
+	IF !ISNULL(in_clave) THEN
+		BEGIN
+			UPDATE usuario_representante
+			SET clave = in_clave
+			WHERE id = in_id;
+		END;
+	END IF;
+	
+	SET @nombreTipoOE = (SELECT tipooe.nombre
+	FROM usuario_representante
+	JOIN organizacion_estudiantil ON organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
+	JOIN tipooe ON tipooe.id = organizacion_estudiantil.refTipoOE
+	WHERE usuario_representante.id = in_id);
+	
+	IF(@nombreTipoOE!='CAA') THEN
+		BEGIN
+			UPDATE usuario_representante
+			SET refInstitucion = in_idInstitucion
+			WHERE id = in_id;
+		END;
+	END IF;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Actualizar_UsuarioVicerector
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Actualizar_UsuarioVicerector`;
+delimiter ;;
+CREATE PROCEDURE `Actualizar_UsuarioVicerector`(`in_nombre` VARCHAR(256), `in_email` VARCHAR(256), `in_clave` VARCHAR(256), `in_sexo` VARCHAR(256), `in_cargo` VARCHAR(256),`in_fonoAnexo` INTEGER, `in_id` INTEGER)
+BEGIN
+
+	UPDATE usuario_vicerector
+	SET nombre = in_nombre,
+			email = in_email,
+			sexo = in_sexo,
+			cargo = in_cargo,
+			fonoAnexo = in_fonoAnexo
+	WHERE id = in_id;
+
+	IF !ISNULL(in_clave) THEN
+		BEGIN
+			UPDATE usuario_vicerector
+			SET clave = in_clave
+			WHERE id = in_id;
+		END;
+	END IF;
+END
+;;
+delimiter ;
+
+-- ----------------------------
 -- Procedure structure for Agregar_categoria
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `Agregar_categoria`;
@@ -850,6 +1074,67 @@ CREATE PROCEDURE `Agregar_Participante`(`in_nombre` VARCHAR(256), `in_run` VARCH
 BEGIN
 	INSERT INTO Participante(nombre, run)
 	VALUES (in_nombre, in_run);
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for CambiarEstado_Director
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `CambiarEstado_Director`;
+delimiter ;;
+CREATE PROCEDURE `CambiarEstado_Director`(IN `in_id` INTEGER,IN `in_estado` VARCHAR(255))
+BEGIN
+	SET @idOE = (SELECT idOrganizacionEstudiantil FROM usuario_director WHERE id = in_id);
+	
+	UPDATE usuario_director
+	SET estado = 'Deshabilitado'
+	WHERE estado = 'Habilitado' AND idOrganizacionEstudiantil = @idOE;
+	
+	UPDATE usuario_director
+	SET estado = in_estado
+	WHERE id = in_id;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for CambiarEstado_Representante
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `CambiarEstado_Representante`;
+delimiter ;;
+CREATE PROCEDURE `CambiarEstado_Representante`(IN `in_id` INTEGER,IN `in_estado` VARCHAR(255))
+BEGIN
+	/*Desabilita al representante al representante actual que tiene el mismo rol que el usuario que se quiere habilitar*/
+	SET @idOE = (SELECT idOrganizacionEstudiantil FROM usuario_representante WHERE id = in_id);
+	SET @idRol = (SELECT idRol FROM usuario_representante WHERE id = in_id);
+	
+	UPDATE usuario_representante
+	SET estado = 'Deshabilitado'
+	WHERE estado = 'Habilitado' AND idRol = @idRol AND idOrganizacionEstudiantil = @idOE;
+	
+	/*Se habilita al nuevo representante*/
+	UPDATE usuario_representante
+	SET estado = in_estado
+	WHERE id = in_id;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for CambiarEstado_Vicerector
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `CambiarEstado_Vicerector`;
+delimiter ;;
+CREATE PROCEDURE `CambiarEstado_Vicerector`(IN `in_id` INTEGER,IN `in_estado` VARCHAR(255))
+BEGIN
+	Update usuario_vicerector
+	SET estado = 'Deshabilitado'
+	WHERE estado = 'Habilitado';
+
+	UPDATE usuario_vicerector
+	SET estado = in_estado
+	WHERE id = in_id;
 END
 ;;
 delimiter ;
@@ -948,11 +1233,11 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `Crear_OE`;
 delimiter ;;
-CREATE PROCEDURE `Crear_OE`(`in_nombre` VARCHAR(256), `in_email` VARCHAR(256), `in_campus` INTEGER, `in_tipoOE` INTEGER)
+CREATE PROCEDURE `Crear_OE`(`in_nombre` VARCHAR(256), `in_email` VARCHAR(256), `in_campus` INTEGER, `in_tipoOE` INTEGER, `in_idInstitucion` INTEGER)
 BEGIN
 
-	INSERT INTO organizacion_estudiantil(nombre, email, refCampus, refTipoOE)
-	VALUES (in_nombre ,in_email, in_campus, in_tipoOE);
+	INSERT INTO organizacion_estudiantil(nombre, email, refCampus, refTipoOE, refInstitucion)
+	VALUES (in_nombre ,in_email, in_campus, in_tipoOE, in_idInstitucion);
 END
 ;;
 delimiter ;
@@ -965,7 +1250,7 @@ delimiter ;;
 CREATE PROCEDURE `Crear_proceso_fondo`(`in_refSolicitud` INTEGER, `in_refOrganizacion` INTEGER, `in_estado` INTEGER, `in_refResponsable` INTEGER, OUT `out_id` INTEGER)
 BEGIN
 
-	SET @idDirector = (select usuario_director.id
+	/*SET @idDirector = (select usuario_director.id
 												from usuario_representante
 												join organizacion_estudiantil on organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
 												join usuario_director on usuario_director.idOrganizacionEstudiantil = organizacion_estudiantil.id and usuario_director.estado='Habilitado'
@@ -975,7 +1260,44 @@ BEGIN
 												
 	INSERT INTO procesoFondo(refOrganizacion, refSolicitud, estado, refUsuarioRepresentante, refUsuarioDirector)
 	VALUES (in_refOrganizacion, in_refSolicitud, in_estado, in_refResponsable, @idDirector);
+	SET out_id = LAST_INSERT_ID();*/
+	
+	
+	SET @tipoOE = (SELECT tipooe.nombre
+								FROM usuario_representante
+								JOIN organizacion_estudiantil ON organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
+								JOIN tipooe ON tipooe.id = organizacion_estudiantil.refTipoOE
+								WHERE usuario_representante.id = @refRepresentante);
+
+
+	IF @tipoOE = 'CAA' THEN
+		SET @idDirector = (select usuario_director.id
+												from usuario_representante
+												join organizacion_estudiantil on organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
+												join usuario_director on usuario_director.idOrganizacionEstudiantil = organizacion_estudiantil.id and usuario_director.estado='Habilitado'
+												where usuario_representante.id = in_refResponsable
+												ORDER BY usuario_director.id DESC
+												limit 1);
+												
+		INSERT INTO procesoFondo(refOrganizacion, refSolicitud, estado, refUsuarioRepresentante, refUsuarioDirector)
+	VALUES (in_refOrganizacion, in_refSolicitud, in_estado, in_refResponsable, @idDirector);
 	SET out_id = LAST_INSERT_ID();
+		
+	ELSE
+		SET @idVicerector = (	select usuario_vicerector.id
+													from usuario_representante
+													join oe_vicerector ON oe_vicerector.refOE = usuario_representante.idOrganizacionEstudiantil
+													join usuario_vicerector on usuario_vicerector.id = oe_vicerector.refUsuarioVicerector and usuario_vicerector.estado='Habilitado'
+													where usuario_representante.id = in_refResponsable
+													ORDER BY usuario_vicerector.id DESC
+													limit 1);
+	
+		
+		INSERT INTO procesoFondo(refOrganizacion, refSolicitud, estado, refUsuarioRepresentante, refUsuarioVicerector)
+		VALUES (in_refOrganizacion, in_refSolicitud, in_estado, in_refResponsable, @idVicerector);
+		SET out_id = LAST_INSERT_ID();
+		
+	END IF;
 END
 ;;
 delimiter ;
@@ -1056,6 +1378,99 @@ END
 delimiter ;
 
 -- ----------------------------
+-- Procedure structure for Crear_UsuarioAdministrador
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Crear_UsuarioAdministrador`;
+delimiter ;;
+CREATE PROCEDURE `Crear_UsuarioAdministrador`(`in_nombre` VARCHAR(256), `in_email` VARCHAR(256), `in_clave` VARCHAR(256), `in_sexo` VARCHAR(256), `in_campus` INTEGER)
+BEGIN
+
+	SET @idRol = (SELECT id FROM rol WHERE nombre = 'Administrador');
+
+	INSERT INTO usuario_administrador(nombre, email, clave, sexo, refCampus, refRol)
+	VALUES (in_nombre ,in_email, in_clave, in_sexo, in_campus, @idRol);
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Crear_UsuarioDirector
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Crear_UsuarioDirector`;
+delimiter ;;
+CREATE PROCEDURE `Crear_UsuarioDirector`(`in_nombre` VARCHAR(256), `in_email` VARCHAR(256), `in_clave` VARCHAR(256), `in_sexo` VARCHAR(256), `in_cargo` VARCHAR(256),`in_fonoAnexo` INTEGER, `in_idOE` INTEGER)
+BEGIN
+
+	/*Se busca a un usuario director que se encuentre con estado habilitado y se deshabilita*/
+	UPDATE usuario_director
+	SET estado = 'Deshabilitado'
+	WHERE idOrganizacionEstudiantil = in_idOE AND estado = 'Habilitado';
+
+	SET @idInstitucion = (SELECT refInstitucion FROM organizacion_estudiantil WHERE id = in_idOE);
+	SET @idRol = (SELECT id FROM rol WHERE nombre = 'Director(a)');
+
+	INSERT INTO usuario_director(nombre, email, clave, sexo, refInstitucion, cargo, idRol, idOrganizacionEstudiantil, fonoAnexo)
+	VALUES (in_nombre ,in_email, in_clave, in_sexo, @idInstitucion, in_cargo, @idRol, in_idOE, in_fonoAnexo);
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Crear_UsuarioRepresentante
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Crear_UsuarioRepresentante`;
+delimiter ;;
+CREATE PROCEDURE `Crear_UsuarioRepresentante`(`in_nombre` VARCHAR(256), `in_run` VARCHAR(256), `in_matricula` INTEGER,`in_email` VARCHAR(256), `in_clave` VARCHAR(256), `in_sexo` VARCHAR(256), `in_idRol` INTEGER, `in_idOE` INTEGER, `in_idInstitucion` INTEGER)
+BEGIN
+
+	/*Se busca a un usuario director que se encuentre con estado habilitado y se deshabilita*/
+	UPDATE usuario_representante
+	SET estado = 'Deshabilitado'
+	WHERE idOrganizacionEstudiantil = in_idOE AND estado = 'Habilitado' AND idRol = in_idRol;
+
+	INSERT INTO usuario_representante(nombre, run, matricula, email, clave, sexo, refInstitucion, idRol, idOrganizacionEstudiantil)
+	VALUES (in_nombre, in_run, in_matricula ,in_email, in_clave, in_sexo, in_idInstitucion, in_idRol, in_idOE);
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Crear_UsuarioVicerector
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Crear_UsuarioVicerector`;
+delimiter ;;
+CREATE PROCEDURE `Crear_UsuarioVicerector`(`in_nombre` VARCHAR(256), `in_email` VARCHAR(256), `in_clave` VARCHAR(256), `in_sexo` VARCHAR(256), `in_cargo` VARCHAR(256),`in_fonoAnexo` INTEGER)
+BEGIN
+
+	/*Se busca a un usuario vicerector que se encuentre con estado habilitado y se deshabilita*/
+	UPDATE usuario_vicerector
+	SET estado = 'Deshabilitado'
+	WHERE estado = 'Habilitado';
+
+	SET @idInstitucion = (SELECT id FROM institucion WHERE abreviacion = 'DAAE');
+	SET @idRol = (SELECT id FROM rol WHERE nombre = 'Vicerrector(a)');
+
+	INSERT INTO usuario_vicerector(nombre, email, clave, sexo, refInstitucion, cargo, refRol, fonoAnexo)
+	VALUES (in_nombre ,in_email, in_clave, in_sexo, @idInstitucion, in_cargo, @idRol, in_fonoAnexo);
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Eliminar_Administrador
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Eliminar_Administrador`;
+delimiter ;;
+CREATE PROCEDURE `Eliminar_Administrador`(`in_id` INTEGER)
+BEGIN
+	DELETE 
+	FROM usuario_administrador
+	WHERE usuario_administrador.id = in_id AND usuario_administrador.estadoEliminacion='HABILITADO';
+END
+;;
+delimiter ;
+
+-- ----------------------------
 -- Procedure structure for Eliminar_Campus
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `Eliminar_Campus`;
@@ -1098,6 +1513,20 @@ BEGIN
 	SET fechaModificacion = in_fechaModificacion,
 			fechaCreacionPDF = in_fechaModificacion
 	WHERE id = in_refSolicitud;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Eliminar_Director
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Eliminar_Director`;
+delimiter ;;
+CREATE PROCEDURE `Eliminar_Director`(`in_id` INTEGER)
+BEGIN
+	DELETE 
+	FROM usuario_director
+	WHERE usuario_director.id = in_id AND usuario_director.estadoEliminacion='HABILITADO';
 END
 ;;
 delimiter ;
@@ -1216,6 +1645,20 @@ END
 delimiter ;
 
 -- ----------------------------
+-- Procedure structure for Eliminar_Representante
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Eliminar_Representante`;
+delimiter ;;
+CREATE PROCEDURE `Eliminar_Representante`(`in_id` INTEGER)
+BEGIN
+	DELETE 
+	FROM usuario_representante
+	WHERE usuario_representante.id = in_id AND usuario_representanteestadoEliminacion='HABILITADO';
+END
+;;
+delimiter ;
+
+-- ----------------------------
 -- Procedure structure for Eliminar_resolucion
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `Eliminar_resolucion`;
@@ -1243,6 +1686,25 @@ DROP PROCEDURE IF EXISTS `Eliminar_solicitud`;
 delimiter ;;
 CREATE PROCEDURE `Eliminar_solicitud`(`in_id` INTEGER, OUT `out_validacion` INTEGER)
 BEGIN
+	
+
+	SET @idRepresentante = (SELECT procesofondo.refUsuarioRepresentante
+	FROM procesofondo
+	WHERE procesofondo.refSolicitud = in_id);
+
+	DELETE FROM procesofondo
+	WHERE procesofondo.refSolicitud = in_id;
+	
+	SET @cantProcesosAbiertos = (SELECT COUNT(*)
+	FROM procesofondo
+	WHERE procesofondo.refUsuarioRepresentante = @idRepresentante AND procesofondo.estadoFinal = 'Abierto');
+	
+	IF @cantProcesosAbiertos = 0 THEN
+		UPDATE usuario_representante
+		SET crearProceso = 'Habilitado'
+		WHERE id = @idRepresentante;
+	END IF;
+
 	DELETE FROM solicitud
 	WHERE solicitud.id = in_id;
 	
@@ -1272,6 +1734,20 @@ END
 delimiter ;
 
 -- ----------------------------
+-- Procedure structure for Eliminar_Vicerector
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Eliminar_Vicerector`;
+delimiter ;;
+CREATE PROCEDURE `Eliminar_Vicerector`(`in_id` INTEGER)
+BEGIN
+	DELETE 
+	FROM usuario_vicerector
+	WHERE usuario_vicerector.id = in_id AND usuario_vicerector.estadoEliminacion='HABILITADO' AND usuario_vicerector.estado = 'Deshabilitado';
+END
+;;
+delimiter ;
+
+-- ----------------------------
 -- Procedure structure for iniciar_sesion
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `iniciar_sesion`;
@@ -1279,15 +1755,18 @@ delimiter ;;
 CREATE PROCEDURE `iniciar_sesion`(IN `in_email` VARCHAR(256), IN `in_clave` VARCHAR(256), in_tipoUsuario VARCHAR(256))
 BEGIN
 	IF in_tipoUsuario='Director' THEN
-     SELECT usuario_director.*, organizacion_estudiantil.nombre AS 'nombreOrganizacion', rol.nombre AS 'nombreRol'
+     SELECT usuario_director.*,rol.nombre AS 'nombreRol'
 	   FROM usuario_director
-		 JOIN organizacion_estudiantil on idOrganizacionEstudiantil = organizacion_estudiantil.id
 		 JOIN rol on rol.id = usuario_director.idRol
 	   WHERE usuario_director.email = in_email AND usuario_director.clave = in_clave AND usuario_director.estado = 'Habilitado';
+	ELSEIF in_tipoUsuario = 'Vicerrector' THEN
+		 SELECT usuario_vicerrector.*,rol.nombre AS 'nombreRol'
+	   FROM usuario_vicerrector
+		 JOIN rol on rol.id = usuario_vicerrector.refRol
+	   WHERE usuario_vicerrector.email = in_email AND usuario_vicerrector.clave = in_clave AND usuario_vicerrector.estado = 'Habilitado';
   ELSE
-	   SELECT usuario_representante.*, organizacion_estudiantil.nombre AS 'nombreOrganizacion', rol.nombre AS 'nombreRol'
+	   SELECT usuario_representante.*, rol.nombre AS 'nombreRol'
 	   FROM usuario_representante
-		 JOIN organizacion_estudiantil on idOrganizacionEstudiantil = organizacion_estudiantil.id
 		 JOIN rol on rol.id = usuario_representante.idRol
 	   WHERE usuario_representante.email = in_email AND usuario_representante.clave = in_clave AND usuario_representante.estado = 'Habilitado';
 END IF;
@@ -1321,6 +1800,21 @@ CREATE PROCEDURE `Leer_Campus`()
 BEGIN
 	SELECT *
 	FROM campus;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Leer_CampusRepresentantes
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_CampusRepresentantes`;
+delimiter ;;
+CREATE PROCEDURE `Leer_CampusRepresentantes`()
+BEGIN
+	SELECT DISTINCT(campus.id), campus.nombre
+	FROM campus
+	JOIN organizacion_estudiantil on organizacion_estudiantil.refCampus = campus.id
+	JOIN usuario_representante on usuario_representante.idOrganizacionEstudiantil = organizacion_estudiantil.id;
 END
 ;;
 delimiter ;
@@ -1374,11 +1868,25 @@ DROP PROCEDURE IF EXISTS `Leer_Direccion`;
 delimiter ;;
 CREATE PROCEDURE `Leer_Direccion`(`in_refSolicitud` INTEGER)
 BEGIN
-	SELECT usuario_director.nombre, usuario_director.cargo, usuario_director.sexo, institucion.nombre as 'nombreInstitucion', usuario_director.fonoAnexo
+	SELECT usuario_director.id, usuario_director.nombre, sexo, usuario_director.email, usuario_director.refInstitucion, institucion.nombre AS 'nombreInstitucion', institucion.abreviacion AS 'abreviacionInstitucion', cargo, usuario_director.estado, idOrganizacionEstudiantil, organizacion_estudiantil.nombre AS 'nombreOE', fonoAnexo, usuario_director.estadoEliminacion, campus.id AS 'idCampus', campus.nombre AS 'nombreCampus',
+	usuario_director.idRol, rol.nombre AS 'nombreRol'
+	FROM usuario_director
+	JOIN procesofondo ON procesofondo.refUsuarioDirector = usuario_director.id
+	JOIN institucion ON institucion.id = refInstitucion
+	JOIN organizacion_estudiantil ON organizacion_estudiantil.id = idOrganizacionEstudiantil
+	JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+	JOIN rol ON rol.id = usuario_director.idRol
+	WHERE procesofondo.refSolicitud = in_refSolicitud;
+
+
+
+
+
+	/*SELECT usuario_director.nombre, usuario_director.cargo, usuario_director.sexo, institucion.nombre as 'nombreInstitucion', usuario_director.fonoAnexo
 	FROM usuario_director
 	JOIN procesofondo ON procesofondo.refUsuarioDirector = usuario_director.id
 	JOIN institucion ON institucion.id = usuario_director.refInstitucion
-	JOIN solicitud ON solicitud.id = procesofondo.refSolicitud AND solicitud.id = in_refSolicitud;
+	JOIN solicitud ON solicitud.id = procesofondo.refSolicitud AND solicitud.id = in_refSolicitud;*/
 END
 ;;
 delimiter ;
@@ -1439,6 +1947,20 @@ END
 delimiter ;
 
 -- ----------------------------
+-- Procedure structure for Leer_OE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_OE`;
+delimiter ;;
+CREATE PROCEDURE `Leer_OE`(in_id INTEGER)
+BEGIN
+	SELECT *
+	FROM organizacion_estudiantil
+	WHERE organizacion_estudiantil.id = in_id;
+END
+;;
+delimiter ;
+
+-- ----------------------------
 -- Procedure structure for Leer_Operacion
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `Leer_Operacion`;
@@ -1476,10 +1998,57 @@ DROP PROCEDURE IF EXISTS `Leer_Organizaciones`;
 delimiter ;;
 CREATE PROCEDURE `Leer_Organizaciones`()
 BEGIN
-	SELECT organizacion_estudiantil.id, organizacion_estudiantil.nombre, campus.nombre as 'campus', organizacion_estudiantil.email, organizacion_estudiantil.estado, tipooe.nombre as 'tipo', organizacion_estudiantil.estadoEliminacion
+	SELECT organizacion_estudiantil.*, campus.nombre as 'campus', tipooe.nombre as 'tipo', institucion.abreviacion, institucion.nombre as 'nombreInstitucion'
 	FROM organizacion_estudiantil
 	JOIN tipooe on tipooe.id = organizacion_estudiantil.refTipoOE
-	JOIN campus on campus.id = organizacion_estudiantil.refCampus;
+	JOIN campus on campus.id = organizacion_estudiantil.refCampus
+	JOIN institucion on institucion.id = organizacion_estudiantil.refInstitucion;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Leer_OrganizacionesCampus
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_OrganizacionesCampus`;
+delimiter ;;
+CREATE PROCEDURE `Leer_OrganizacionesCampus`(in_idCampus INTEGER)
+BEGIN
+	SELECT organizacion_estudiantil.*, campus.nombre as 'campus', tipooe.nombre as 'tipo', institucion.abreviacion, institucion.nombre as 'nombreInstitucion'
+	FROM organizacion_estudiantil
+	JOIN tipooe on tipooe.id = organizacion_estudiantil.refTipoOE
+	JOIN campus on campus.id = organizacion_estudiantil.refCampus
+	JOIN institucion on institucion.id = organizacion_estudiantil.refInstitucion
+	WHERE organizacion_estudiantil.refCampus = in_idCampus;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Leer_Organizacion_Usuario
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_Organizacion_Usuario`;
+delimiter ;;
+CREATE PROCEDURE `Leer_Organizacion_Usuario`(IN `in_refUsuario` INTEGER, in_tipoUsuario VARCHAR(256))
+BEGIN
+	IF in_tipoUsuario='Director' THEN
+     SELECT usuario_director.idOrganizacionEstudiantil, organizacion_estudiantil.nombre AS 'nombreOrganizacion'
+	   FROM usuario_director
+		 JOIN organizacion_estudiantil on idOrganizacionEstudiantil = organizacion_estudiantil.id
+	   WHERE usuario_director.id=in_refUsuario;
+	ELSEIF in_tipoUsuario='Vicerrector' THEN
+		SELECT organizacion_estudiantil.id AS 'idOrganizacionEstudiantil', organizacion_estudiantil.nombre AS 'nombreOrganizacion'
+		FROM organizacion_estudiantil
+		JOIN oe_vicerrector ON oe_vicerrector.refOE = organizacion_estudiantil.id
+		JOIN usuario_vicerrector ON usuario_vicerrector.id = oe_vicerrector.refUsuarioVicerrector
+		WHERE usuario_vicerrector.id = in_refUsuario;
+  ELSE
+	   SELECT usuario_representante.idOrganizacionEstudiantil, organizacion_estudiantil.nombre AS 'nombreOrganizacion'
+	   FROM usuario_representante
+		 JOIN organizacion_estudiantil on idOrganizacionEstudiantil = organizacion_estudiantil.id
+	   WHERE usuario_representante.id=in_refUsuario;
+END IF;
+
 END
 ;;
 delimiter ;
@@ -1549,37 +2118,6 @@ END
 delimiter ;
 
 -- ----------------------------
--- Procedure structure for Leer_Representantes
--- ----------------------------
-DROP PROCEDURE IF EXISTS `Leer_Representantes`;
-delimiter ;;
-CREATE PROCEDURE `Leer_Representantes`(IN `in_idOrganizacion` Integer)
-BEGIN
-select representante.id, representante.nombre, representante.run, representante.sexo, representante.matricula, institucion.nombre as 'carrera', representante.idRol, rol.nombre as 'nombreRol', representante.crearProceso
-from usuario_representante as representante
-join rol on rol.id = representante.idRol
-join institucion on institucion.id = representante.refInstitucion
-where idOrganizacionEstudiantil= in_idOrganizacion;
-END
-;;
-delimiter ;
-
--- ----------------------------
--- Procedure structure for Leer_Representantes_Habilitados
--- ----------------------------
-DROP PROCEDURE IF EXISTS `Leer_Representantes_Habilitados`;
-delimiter ;;
-CREATE PROCEDURE `Leer_Representantes_Habilitados`(IN `in_idOrganizacion` Integer)
-BEGIN
-select representante.id, representante.nombre, representante.run, representante.sexo, representante.matricula, representante.carrera, representante.idRol, rol.nombre as 'nombreRol', representante.crearProceso
-from usuario_representante as representante
-join rol on rol.id = representante.idRol
-where idOrganizacionEstudiantil= in_idOrganizacion and estado='Habilitado';
-END
-;;
-delimiter ;
-
--- ----------------------------
 -- Procedure structure for Leer_Resolucion
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `Leer_Resolucion`;
@@ -1595,17 +2133,15 @@ END
 delimiter ;
 
 -- ----------------------------
--- Procedure structure for Leer_Responsable
+-- Procedure structure for Leer_RolesRepresentantes
 -- ----------------------------
-DROP PROCEDURE IF EXISTS `Leer_Responsable`;
+DROP PROCEDURE IF EXISTS `Leer_RolesRepresentantes`;
 delimiter ;;
-CREATE PROCEDURE `Leer_Responsable`(`in_refResponsable` INTEGER)
+CREATE PROCEDURE `Leer_RolesRepresentantes`()
 BEGIN
-	SELECT usuario_representante.id, usuario_representante.nombre, run, rol.nombre as "cargo", institucion.nombre as 'carrera', matricula, email
-	FROM usuario_representante
-	JOIN rol  on rol.id = usuario_representante.idRol
-	JOIN institucion on institucion.id = usuario_representante.refInstitucion
-	WHERE usuario_representante.id = in_refResponsable;
+	SELECT *
+	FROM rol
+	WHERE ROL.nombre<>'Administrador' AND  rol.nombre<>'Director(a)';
 END
 ;;
 delimiter ;
@@ -1648,6 +2184,220 @@ CREATE PROCEDURE `Leer_TipoOE`()
 BEGIN
 	SELECT *
 	FROM tipooe;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Leer_UsuarioAdministrador
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_UsuarioAdministrador`;
+delimiter ;;
+CREATE PROCEDURE `Leer_UsuarioAdministrador`(`in_id` INTEGER)
+BEGIN
+	SELECT usuario_administrador.id, usuario_administrador.nombre, usuario_administrador.sexo, usuario_administrador.email, usuario_administrador.estadoEliminacion, usuario_administrador.refCampus, campus.nombre AS 'nombreCampus', usuario_administrador.refRol, rol.nombre AS 'nombreRol'
+	FROM usuario_administrador
+	JOIN campus ON campus.id = usuario_administrador.refCampus
+	JOIN rol ON rol.id = usuario_administrador.refRol
+	WHERE usuario_administrador.id = in_id;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Leer_UsuarioDirector
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_UsuarioDirector`;
+delimiter ;;
+CREATE PROCEDURE `Leer_UsuarioDirector`(`in_id` INTEGER)
+BEGIN
+	SELECT usuario_director.id, usuario_director.nombre, sexo, usuario_director.email, usuario_director.refInstitucion, institucion.nombre AS 'nombreInstitucion', institucion.abreviacion AS 'abreviacionInstitucion', cargo, usuario_director.estado, idOrganizacionEstudiantil, organizacion_estudiantil.nombre AS 'nombreOE', fonoAnexo, usuario_director.estadoEliminacion, campus.id AS 'idCampus', campus.nombre AS 'nombreCampus', usuario_director.idRol, rol.nombre AS 'nombreRol'
+	FROM usuario_director
+	JOIN institucion ON institucion.id = refInstitucion
+	JOIN organizacion_estudiantil ON organizacion_estudiantil.id = idOrganizacionEstudiantil
+	JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+	JOIN rol ON rol.id = usuario_director.idRol
+	WHERE usuario_director.id = in_id;
+
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Leer_UsuarioRepresentante
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_UsuarioRepresentante`;
+delimiter ;;
+CREATE PROCEDURE `Leer_UsuarioRepresentante`(`in_idRepresentante` INTEGER)
+BEGIN
+		SELECT usuario_representante.*, institucion.nombre as 'nombreInstitucion', institucion.abreviacion  AS 'abreviacionInstitucion', organizacion_estudiantil.nombre AS 'nombreOE', rol.nombre AS 'nombreRol', campus.id AS 'idCampus', campus.nombre AS 'nombreCampus', organizacion_estudiantil.refInstitucion as 'idInstitucionOE', institucionOE.nombre AS 'nombreInstitucionOE', institucionOE.abreviacion as 'abreviacionInstitucionOE'
+		FROM usuario_representante
+		JOIN institucion ON institucion.id = usuario_representante.refInstitucion
+		JOIN organizacion_estudiantil ON organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
+		JOIN institucion AS institucionOE ON institucionOE.id = organizacion_estudiantil.refInstitucion
+		JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+		JOIN rol ON rol.id = usuario_representante.idRol
+		WHERE usuario_representante.id = in_idRepresentante;
+
+	/*SELECT usuario_representante.id, usuario_representante.nombre, run, rol.nombre as "cargo", institucion.nombre as 'carrera', matricula, email
+	FROM usuario_representante
+	JOIN rol  on rol.id = usuario_representante.idRol
+	JOIN institucion on institucion.id = usuario_representante.refInstitucion
+	WHERE usuario_representante.id = in_refResponsable;*/
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Leer_UsuariosAdministradores
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_UsuariosAdministradores`;
+delimiter ;;
+CREATE PROCEDURE `Leer_UsuariosAdministradores`()
+BEGIN
+	SELECT usuario_administrador.id, usuario_administrador.nombre, usuario_administrador.sexo,usuario_administrador.email, usuario_administrador.estadoEliminacion, usuario_administrador.refCampus, campus.nombre AS 'nombreCampus', usuario_administrador.refRol, rol.nombre AS 'nombreRol'
+	FROM usuario_administrador
+	JOIN campus ON campus.id = usuario_administrador.refCampus
+	JOIN rol ON rol.id = usuario_administrador.refRol;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Leer_UsuariosDirectores
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_UsuariosDirectores`;
+delimiter ;;
+CREATE PROCEDURE `Leer_UsuariosDirectores`()
+BEGIN
+	SELECT usuario_director.id, usuario_director.nombre, sexo, usuario_director.email, usuario_director.refInstitucion, institucion.nombre AS 'nombreInstitucion', institucion.abreviacion AS 'abreviacionInstitucion', cargo, usuario_director.estado, idOrganizacionEstudiantil, organizacion_estudiantil.nombre AS 'nombreOE', fonoAnexo, usuario_director.estadoEliminacion, campus.id AS 'idCampus', campus.nombre AS 'nombreCampus', usuario_director.idRol, rol.nombre AS 'nombreRol'
+	FROM usuario_director
+	JOIN institucion ON institucion.id = refInstitucion
+	JOIN organizacion_estudiantil ON organizacion_estudiantil.id = idOrganizacionEstudiantil
+	JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+	JOIN rol ON rol.id = usuario_director.idRol;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Leer_UsuariosRepresentantes
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_UsuariosRepresentantes`;
+delimiter ;;
+CREATE PROCEDURE `Leer_UsuariosRepresentantes`(`in_idCampus` INTEGER, `in_idOE` INTEGER, `in_idRol` INTEGER)
+BEGIN
+		
+	IF in_idOE = 0 && in_idCampus = 0 && in_idRol = 0 THEN 
+		SELECT usuario_representante.*, institucion.nombre as 'nombreInstitucion', institucion.abreviacion  AS 'abreviacionInstitucion', organizacion_estudiantil.nombre AS 'nombreOE', rol.nombre AS 'nombreRol', campus.id AS 'idCampus', campus.nombre AS 'nombreCampus', organizacion_estudiantil.refInstitucion as 'idInstitucionOE', institucionOE.nombre AS 'nombreInstitucionOE', institucionOE.abreviacion as 'abreviacionInstitucionOE'
+		FROM usuario_representante
+		JOIN institucion ON institucion.id = usuario_representante.refInstitucion
+		JOIN organizacion_estudiantil ON organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
+		JOIN institucion AS institucionOE ON institucionOE.id = organizacion_estudiantil.refInstitucion
+		JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+		JOIN rol ON rol.id = usuario_representante.idRol;
+	
+	ELSEIF in_idOE>0 && in_idCampus=0 && in_idRol=0 THEN
+		SELECT usuario_representante.*, institucion.nombre as 'nombreInstitucion', institucion.abreviacion  AS 'abreviacionInstitucion', organizacion_estudiantil.nombre AS 'nombreOE', rol.nombre AS 'nombreRol', campus.id AS 'idCampus', campus.nombre AS 'nombreCampus', organizacion_estudiantil.refInstitucion as 'idInstitucionOE', institucionOE.nombre AS 'nombreInstitucionOE', institucionOE.abreviacion as 'abreviacionInstitucionOE'
+		FROM usuario_representante
+		JOIN institucion ON institucion.id = usuario_representante.refInstitucion
+		JOIN organizacion_estudiantil ON organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
+		JOIN institucion AS institucionOE ON institucionOE.id = organizacion_estudiantil.refInstitucion
+		JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+		JOIN rol ON rol.id = usuario_representante.idRol
+		WHERE organizacion_estudiantil.id = in_idOE;
+	
+	ELSEIF in_idOE=0 && in_idCampus>0 && in_idRol=0 THEN
+		SELECT usuario_representante.*, institucion.nombre as 'nombreInstitucion', institucion.abreviacion  AS 'abreviacionInstitucion', organizacion_estudiantil.nombre AS 'nombreOE', rol.nombre AS 'nombreRol', campus.id AS 'idCampus', campus.nombre AS 'nombreCampus', organizacion_estudiantil.refInstitucion as 'idInstitucionOE', institucionOE.nombre AS 'nombreInstitucionOE', institucionOE.abreviacion as 'abreviacionInstitucionOE'
+		FROM usuario_representante
+		JOIN institucion ON institucion.id = usuario_representante.refInstitucion
+		JOIN organizacion_estudiantil ON organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
+		JOIN institucion AS institucionOE ON institucionOE.id = organizacion_estudiantil.refInstitucion
+		JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+		JOIN rol ON rol.id = usuario_representante.idRol
+		WHERE campus.id = in_idCampus;
+	
+	ELSEIF in_idOE=0 && in_idCampus=0 && in_idRol>0 THEN
+		SELECT usuario_representante.*, institucion.nombre as 'nombreInstitucion', institucion.abreviacion  AS 'abreviacionInstitucion', organizacion_estudiantil.nombre AS 'nombreOE', rol.nombre AS 'nombreRol', campus.id AS 'idCampus', campus.nombre AS 'nombreCampus', organizacion_estudiantil.refInstitucion as 'idInstitucionOE', institucionOE.nombre AS 'nombreInstitucionOE', institucionOE.abreviacion as 'abreviacionInstitucionOE'
+		FROM usuario_representante
+		JOIN institucion ON institucion.id = usuario_representante.refInstitucion
+		JOIN organizacion_estudiantil ON organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
+		JOIN institucion AS institucionOE ON institucionOE.id = organizacion_estudiantil.refInstitucion
+		JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+		JOIN rol ON rol.id = usuario_representante.idRol
+		WHERE rol.id = in_idRol;
+	
+	ELSEIF in_idOE>0 && in_idCampus>0 && in_idRol=0 THEN
+		SELECT usuario_representante.*, institucion.nombre as 'nombreInstitucion', institucion.abreviacion  AS 'abreviacionInstitucion', organizacion_estudiantil.nombre AS 'nombreOE', rol.nombre AS 'nombreRol', campus.id AS 'idCampus', campus.nombre AS 'nombreCampus', organizacion_estudiantil.refInstitucion as 'idInstitucionOE', institucionOE.nombre AS 'nombreInstitucionOE', institucionOE.abreviacion as 'abreviacionInstitucionOE'
+		FROM usuario_representante
+		JOIN institucion ON institucion.id = usuario_representante.refInstitucion
+		JOIN organizacion_estudiantil ON organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
+		JOIN institucion AS institucionOE ON institucionOE.id = organizacion_estudiantil.refInstitucion
+		JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+		JOIN rol ON rol.id = usuario_representante.idRol
+		WHERE organizacion_estudiantil.id = in_idOE AND campus.id = in_idCampus;
+	
+	ELSEIF in_idOE>0 && in_idCampus=0 && in_idRol>0 THEN
+		SELECT usuario_representante.*, institucion.nombre as 'nombreInstitucion', institucion.abreviacion  AS 'abreviacionInstitucion', organizacion_estudiantil.nombre AS 'nombreOE', rol.nombre AS 'nombreRol', campus.id AS 'idCampus', campus.nombre AS 'nombreCampus', organizacion_estudiantil.refInstitucion as 'idInstitucionOE', institucionOE.nombre AS 'nombreInstitucionOE', institucionOE.abreviacion as 'abreviacionInstitucionOE'
+		FROM usuario_representante
+		JOIN institucion ON institucion.id = usuario_representante.refInstitucion
+		JOIN organizacion_estudiantil ON organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
+		JOIN institucion AS institucionOE ON institucionOE.id = organizacion_estudiantil.refInstitucion
+		JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+		JOIN rol ON rol.id = usuario_representante.idRol
+		WHERE organizacion_estudiantil.id = in_idOE AND rol.id = in_idRol;
+	
+	ELSEIF in_idOE=0 && in_idCampus>0 && in_idRol>0 THEN
+		SELECT usuario_representante.*, institucion.nombre as 'nombreInstitucion', institucion.abreviacion  AS 'abreviacionInstitucion', organizacion_estudiantil.nombre AS 'nombreOE', rol.nombre AS 'nombreRol', campus.id AS 'idCampus', campus.nombre AS 'nombreCampus', organizacion_estudiantil.refInstitucion as 'idInstitucionOE', institucionOE.nombre AS 'nombreInstitucionOE', institucionOE.abreviacion as 'abreviacionInstitucionOE'
+		FROM usuario_representante
+		JOIN institucion ON institucion.id = usuario_representante.refInstitucion
+		JOIN organizacion_estudiantil ON organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
+		JOIN institucion AS institucionOE ON institucionOE.id = organizacion_estudiantil.refInstitucion
+		JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+		JOIN rol ON rol.id = usuario_representante.idRol
+		WHERE campus.id = in_idCampus AND rol.id = in_idRol;
+		 
+	ELSE
+		SELECT usuario_representante.*, institucion.nombre as 'nombreInstitucion', institucion.abreviacion  AS 'abreviacionInstitucion', organizacion_estudiantil.nombre AS 'nombreOE', rol.nombre AS 'nombreRol', campus.id AS 'idCampus', campus.nombre AS 'nombreCampus', organizacion_estudiantil.refInstitucion as 'idInstitucionOE', institucionOE.nombre AS 'nombreInstitucionOE', institucionOE.abreviacion as 'abreviacionInstitucionOE'
+		FROM usuario_representante
+		JOIN institucion ON institucion.id = usuario_representante.refInstitucion
+		JOIN organizacion_estudiantil ON organizacion_estudiantil.id = usuario_representante.idOrganizacionEstudiantil
+		JOIN institucion AS institucionOE ON institucionOE.id = organizacion_estudiantil.refInstitucion
+		JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+		JOIN rol ON rol.id = usuario_representante.idRol
+		WHERE organizacion_estudiantil.id = in_idOE AND campus.id = in_idCampus AND rol.id = in_idRol;
+	END IF;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Leer_UsuariosVicerectores
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_UsuariosVicerectores`;
+delimiter ;;
+CREATE PROCEDURE `Leer_UsuariosVicerectores`()
+BEGIN
+	SELECT usuario_vicerector.id, usuario_vicerector.nombre, sexo, usuario_vicerector.email, usuario_vicerector.refInstitucion, institucion.nombre AS 'nombreInstitucion', institucion.abreviacion AS 'abreviacionInstitucion', cargo, usuario_vicerector.estado, usuario_vicerector.estadoEliminacion, usuario_vicerector.refRol AS 'idRol', rol.nombre AS 'nombreRol', usuario_vicerector.fonoAnexo
+	FROM usuario_vicerector
+	JOIN institucion ON institucion.id = usuario_vicerector.refInstitucion
+	JOIN rol ON rol.id = usuario_vicerector.refRol;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Leer_UsuarioVicerector
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_UsuarioVicerector`;
+delimiter ;;
+CREATE PROCEDURE `Leer_UsuarioVicerector`(`in_id` INTEGER)
+BEGIN
+	SELECT usuario_vicerector.id, usuario_vicerector.nombre, sexo, usuario_vicerector.email, usuario_vicerector.refInstitucion, institucion.nombre AS 'nombreInstitucion', institucion.abreviacion AS 'abreviacionInstitucion', cargo, usuario_vicerector.estado, fonoAnexo, usuario_vicerector.estadoEliminacion, usuario_vicerector.refRol, rol.nombre AS 'nombreRol'
+	FROM usuario_vicerector
+	JOIN institucion ON institucion.id = refInstitucion
+	JOIN rol ON rol.id = usuario_vicerector.refRol
+	WHERE usuario_vicerector.id = in_id;
 END
 ;;
 delimiter ;
@@ -1842,6 +2592,17 @@ CREATE TRIGGER `TR_organizacion_estudiantil_after_insert` AFTER INSERT ON `organ
 		UPDATE tipooe
 		SET estadoEliminacion = 'DESHABILITADO'
 		WHERE id = @idTipoOE AND @cantTipoOEAsociados1=1 AND estadoEliminacion = 'HABILITADO';
+		
+		/*Obtiene la referencia de la institucion a la que pertenece organizacion estudiantil*/
+		SET @idInstitucion = NEW.refInstitucion;
+		/*Obtiene la cantidad de O.E. que tienen asociada la institucion*/
+		SET @cantTipoOEAsociados2 = (SELECT COUNT(*)
+																FROM  organizacion_estudiantil
+																WHERE refInstitucion = @idInstitucion);
+		/*Tras agregar a una O.E., se procede a verificar si es el primero que se agrego con la institucion y el atributo estadoEliminacion de la tabla INSTITUCION se encuentra en HABILITADO, se procede a colocar en DESHABILITADO*/															
+		UPDATE institucion
+		SET estadoEliminacion = 'DESHABILITADO'
+		WHERE id = @idInstitucion AND @cantTipoOEAsociados2 = 1 AND estadoEliminacion = 'HABILITADO';
 
 END
 ;;
@@ -1875,6 +2636,17 @@ CREATE TRIGGER `TR_organizacion_estudiantil_after_update` AFTER UPDATE ON `organ
 		SET estadoEliminacion = 'DESHABILITADO'
 		WHERE id = @idTipoOE AND @cantTipoOEAsociados1=1 AND estadoEliminacion = 'HABILITADO';
 		
+		/*Obtiene el id de la institucion  para saber si se deshabilita la eliminacion del tipoOE*/
+		SET @idInstitucion = NEW.refInstitucion;
+		/*Obtiene la cantidad de tipos de OE asociados a las organizaciones estudiantiles*/
+		SET @cantInstitucionAsociados = (	SELECT COUNT(*)
+																		FROM organizacion_estudiantil
+																		WHERE refInstitucion=@idInstitucion);
+		/*Actualiza el estadoEliminacion de la institucion que pertenece la organizacion estudiantil*/
+		UPDATE institucion
+		SET estadoEliminacion = 'DESHABILITADO'
+		WHERE id = @idInstitucion AND @cantInstitucionAsociados=1 AND estadoEliminacion = 'HABILITADO';
+		
 		
 		
 		
@@ -1892,7 +2664,7 @@ CREATE TRIGGER `TR_organizacion_estudiantil_after_update` AFTER UPDATE ON `organ
 		
 		/*Obtiene el id del tipo de OE para saber si se deshabilita la eliminacion el tipo de OE*/
     SET @idTipoOE = OLD.refTipoOE;
-		/*Obtiene la cantidad de campus asociados a las organizaciones estudiantiles*/
+		/*Obtiene la cantidad del tipo de OE asociados a las organizaciones estudiantiles*/
 		SET @cantTipoOEAsociados = (	SELECT COUNT(*)
 																		FROM organizacion_estudiantil
 																		WHERE refTipoOE=@idTipoOE);
@@ -1900,6 +2672,17 @@ CREATE TRIGGER `TR_organizacion_estudiantil_after_update` AFTER UPDATE ON `organ
 		UPDATE tipooe
 		SET estadoEliminacion = 'HABILITADO'
 		WHERE id = @idCampus AND @cantTipoOEAsociados=0 AND estadoEliminacion = 'DESHABILITADO';
+		
+		/*Obtiene el id de la institucion para saber si se deshabilita la eliminacion*/
+    SET @idInstitucion = OLD.refInstitucion;
+		/*Obtiene la cantidad de institucion asociados a las organizaciones estudiantiles*/
+		SET @cantInstitucionAsociados = (	SELECT COUNT(*)
+																		FROM organizacion_estudiantil
+																		WHERE refInstitucion=@idInstitucion);
+		/*Actualiza el estadoEliminacion de la institucion a la que pertenece la organizacion estudiantil*/
+		UPDATE institucion
+		SET estadoEliminacion = 'HABILITADO'
+		WHERE id = @idInstitucion AND @cantInstitucionAsociados=0 AND estadoEliminacion = 'DESHABILITADO';
 END
 ;;
 delimiter ;
@@ -1931,6 +2714,17 @@ CREATE TRIGGER `TR_organizacion_estudiantil_after_delete` AFTER DELETE ON `organ
 		UPDATE tipooe
 		SET estadoEliminacion = 'HABILITADO'
 		WHERE id = @idCampus AND @cantTipoOEAsociados=0 AND estadoEliminacion = 'DESHABILITADO'; 
+		
+		/*Obtiene el id de la institucion para saber si se deshabilita la eliminacion*/
+    SET @idInstitucion = OLD.refInstitucion;
+		/*Obtiene la cantidad de institucion asociados a las organizaciones estudiantiles*/
+		SET @cantInstitucionesAsociados = (	SELECT COUNT(*)
+																		FROM organizacion_estudiantil
+																		WHERE refInstitucion=@idInstitucion);
+		/*Actualiza el estadoEliminacion del tipo de OE que pertenece la organizacion estudiantil*/
+		UPDATE institucion
+		SET estadoEliminacion = 'HABILITADO'
+		WHERE id = @idInstitucion AND @cantInstitucionesAsociados=0 AND estadoEliminacion = 'DESHABILITADO'; 
 END
 ;;
 delimiter ;
@@ -1993,28 +2787,46 @@ delimiter ;
 -- ----------------------------
 -- Triggers structure for table procesofondo
 -- ----------------------------
-DROP TRIGGER IF EXISTS `TR_procesoFondo_before_insert`;
+DROP TRIGGER IF EXISTS `TR_procesoFondo_after_insert`;
 delimiter ;;
-CREATE TRIGGER `TR_procesoFondo_before_insert` BEFORE INSERT ON `procesofondo` FOR EACH ROW BEGIN
+CREATE TRIGGER `TR_procesoFondo_after_insert` AFTER INSERT ON `procesofondo` FOR EACH ROW BEGIN
 		/*Obtiene el id de la organizacion para saber si se deshabilita la eliminacion de la organizacion estudiantil*/
     SET @idUsuarioDirector = NEW.refUsuarioDirector;
+		SET @idUsuarioVicerector = NEW.refUsuarioVicerector;
 		SET @idUsuarioRepresentante = NEW.refUsuarioRepresentante;
 		
-		/*Obtiene la cantidad de procesos asociados*/
-		SET @cantProscesosAsociadosDirector = (	SELECT COUNT(*)
-																		FROM procesoFondo
-																		WHERE refUsuarioDirector=@idUsuarioDirector);
+		IF @idUsuarioDirector IS NOT NULL THEN
+			/*Obtiene la cantidad de procesos asociados el director*/
+			SET @cantProscesosAsociadosDirector = (	SELECT COUNT(*)
+																			FROM procesoFondo
+																			WHERE refUsuarioDirector=@idUsuarioDirector);
+
+			/*Actualiza el estadoEliminacion del proceso del fondo que pertenece el proceso*/
+			UPDATE usuario_director 
+			SET estadoEliminacion = 'DESHABILITADO'
+			WHERE id = @idUsuarioDirector AND @cantProscesosAsociadosDirector=1 AND estadoEliminacion = 'HABILITADO'; 
+		
+		ELSE
+			/*Obtiene la cantidad de procesos asociados el vicerector*/
+			SET @cantProscesosAsociadosVicerector = (	SELECT COUNT(*)
+																			FROM procesoFondo
+																			WHERE refUsuarioVicerector=@idUsuarioVicerector);
+
+			/*Actualiza el estadoEliminacion del proceso del fondo que pertenece el proceso*/
+			UPDATE usuario_vicerector 
+			SET estadoEliminacion = 'DESHABILITADO'
+			WHERE id = @idUsuarioVicerector AND @cantProscesosAsociadosVicerector=1 AND estadoEliminacion = 'HABILITADO'; 
+		
+		END IF;
+		
+		/*Obtiene la cantidad de procesos asociados el representante*/
 		SET @cantProscesosAsociadosRepresentante = (	SELECT COUNT(*)
-																		FROM procesoFondo
-																		WHERE refUsuarioRepresentante=@idUsuarioRepresentante);
-		/*Actualiza el estadoEliminacion del proceso del fondo que pertenece el proceso*/
-		UPDATE usuario_director 
-		SET estadoEliminacion = 'DESHABILITADO'
-		WHERE id = @idUsuarioDirector AND @cantProscesosAsociadosDirector=1 AND estadoEliminacion = 'HABILITADO'; 
+																									FROM procesoFondo
+																									WHERE refUsuarioRepresentante=@idUsuarioRepresentante);
 		
 		UPDATE usuario_representante 
 		SET estadoEliminacion = 'DESHABILITADO'
-		WHERE id = @idUsuarioRepresentante AND @cantProscesosAsociadosRepresentante=1 AND estadoEliminacion = 'HABILITADO'; 
+		WHERE id = @idUsuarioRepresentante AND @cantProscesosAsociadosRepresentante=1 AND estadoEliminacion = 'Habilitado'; 
 END
 ;;
 delimiter ;
@@ -2022,9 +2834,9 @@ delimiter ;
 -- ----------------------------
 -- Triggers structure for table procesofondo
 -- ----------------------------
-DROP TRIGGER IF EXISTS `TR_procesoFondo_before_update`;
+DROP TRIGGER IF EXISTS `TR_procesoFondo_after_update`;
 delimiter ;;
-CREATE TRIGGER `TR_procesoFondo_before_update` BEFORE UPDATE ON `procesofondo` FOR EACH ROW BEGIN
+CREATE TRIGGER `TR_procesoFondo_after_update` AFTER UPDATE ON `procesofondo` FOR EACH ROW BEGIN
 		/*Obtiene el id deL usuario representante para saber si se habilita la eliminacion*/
 		SET @idUsuarioRepresentante = OLD.refUsuarioRepresentante;
 		/*Obtiene la cantidad de procesos asociados*/
@@ -2033,8 +2845,8 @@ CREATE TRIGGER `TR_procesoFondo_before_update` BEFORE UPDATE ON `procesofondo` F
 																		WHERE refUsuarioRepresentante=@idUsuarioRepresentante);
 		/*Actualiza el estadoEliminacion del usuario representante*/		
 		UPDATE usuario_representante 
-		SET estadoEliminacion = 'HABILITADO'
-		WHERE id = @idUsuarioRepresentante AND @cantProscesosAsociadosRepresentante=0 AND estadoEliminacion = 'DESHABILITADO'; 
+		SET estadoEliminacion = 'Habilitado'
+		WHERE id = @idUsuarioRepresentante AND @cantProscesosAsociadosRepresentante=0 AND estadoEliminacion = 'Deshabilitado'; 
 		
 		/*Obtiene el id deL usuario representante para saber si se deshabilita la eliminacion*/
 		SET @idUsuarioRepresentante = NEW.refUsuarioRepresentante;
@@ -2044,8 +2856,8 @@ CREATE TRIGGER `TR_procesoFondo_before_update` BEFORE UPDATE ON `procesofondo` F
 																		WHERE refUsuarioRepresentante=@idUsuarioRepresentante);
 		/*Actualiza el estadoEliminacion del proceso del fondo que pertenece el proceso*/
 		UPDATE usuario_representante 
-		SET estadoEliminacion = 'DESHABILITADO'
-		WHERE id = @idUsuarioRepresentante AND @cantProscesosAsociadosRepresentante=1 AND estadoEliminacion = 'HABILITADO';
+		SET estadoEliminacion = 'Deshabilitado'
+		WHERE id = @idUsuarioRepresentante AND @cantProscesosAsociadosRepresentante=1 AND estadoEliminacion = 'Habilitado';
 END
 ;;
 delimiter ;
@@ -2053,27 +2865,52 @@ delimiter ;
 -- ----------------------------
 -- Triggers structure for table procesofondo
 -- ----------------------------
-DROP TRIGGER IF EXISTS `TR_procesoFondo_before_delete`;
+DROP TRIGGER IF EXISTS `TR_procesoFondo_after_delete`;
 delimiter ;;
-CREATE TRIGGER `TR_procesoFondo_before_delete` BEFORE DELETE ON `procesofondo` FOR EACH ROW BEGIN
-		/*Obtiene el id deL usuario director y representante para saber si se habilita la eliminacion*/
-    SET @idUsuarioDirector = OLD.refUsuarioDirector;
+CREATE TRIGGER `TR_procesoFondo_after_delete` AFTER DELETE ON `procesofondo` FOR EACH ROW BEGIN
+		/*Obtiene el id deL usuario director o vicerector y representante para saber si se habilita la eliminacion*/
+		/*Obtiene la cantidad de procesos asociados del representante*/
+		
 		SET @idUsuarioRepresentante = OLD.refUsuarioRepresentante;
-		/*Obtiene la cantidad de procesos asociados*/
-		SET @cantProscesosAsociadosDirector = (	SELECT COUNT(*)
-																		FROM procesoFondo
-																		WHERE refUsuarioDirector=@idUsuarioDirector);
 		SET @cantProscesosAsociadosRepresentante = (	SELECT COUNT(*)
 																		FROM procesoFondo
 																		WHERE refUsuarioRepresentante=@idUsuarioRepresentante);
-		/*Actualiza el estadoEliminacion del usuario representante y director*/
-		UPDATE usuario_director 
-		SET estadoEliminacion = 'HABILITADO'
-		WHERE id = @idUsuarioDirector AND @cantProscesosAsociadosDirector=0 AND estadoEliminacion = 'DESHABILITADO'; 
-		
 		UPDATE usuario_representante 
 		SET estadoEliminacion = 'HABILITADO'
 		WHERE id = @idUsuarioRepresentante AND @cantProscesosAsociadosRepresentante=0 AND estadoEliminacion = 'DESHABILITADO'; 
+		
+		
+    SET @idUsuarioDirector = OLD.refUsuarioDirector;
+		SET @idUsuarioVicerector = OLD.refUsuarioVicerector;
+		
+		
+		IF !ISNULL(@idUsuarioDirector) THEN
+			/*Obtiene la cantidad de procesos asociados del director*/
+			SET @cantProscesosAsociadosDirector = (	SELECT COUNT(*)
+																			FROM procesoFondo
+																			WHERE refUsuarioDirector=@idUsuarioDirector);
+			
+			/*Actualiza el estadoEliminacion del usuario director*/
+			UPDATE usuario_director 
+			SET estadoEliminacion = 'HABILITADO'
+			WHERE id = @idUsuarioDirector AND @cantProscesosAsociadosDirector=0 AND estadoEliminacion = 'DESHABILITADO'; 
+			
+		ELSE
+			/*Obtiene la cantidad de procesos asociados del vicerector*/
+			SET @cantProscesosAsociadosVicerector = (	SELECT COUNT(*)
+																			FROM procesoFondo
+																			WHERE refUsuarioVicerector=@idUsuarioVicerector);
+			
+			/*Actualiza el estadoEliminacion del usuario vicerector*/
+			UPDATE usuario_vicerector 
+			SET estadoEliminacion = 'HABILITADO'
+			WHERE id = @idUsuarioVicerector AND @cantProscesosAsociadosVicerector=0 AND estadoEliminacion = 'DESHABILITADO'; 
+		
+			/*SELECT 'Salio trigger eliminar proceso fondo';*/
+		END IF;
+		
+		
+		
 END
 ;;
 delimiter ;
@@ -2167,31 +3004,102 @@ END
 delimiter ;
 
 -- ----------------------------
+-- Triggers structure for table usuario_administrador
+-- ----------------------------
+DROP TRIGGER IF EXISTS `TR_usuario_administrador_after_insert`;
+delimiter ;;
+CREATE TRIGGER `TR_usuario_administrador_after_insert` AFTER INSERT ON `usuario_administrador` FOR EACH ROW BEGIN
+	/*Obtiene el id del campus para saber si se deshabilita la eliminacion el campus*/
+	SET @idCampus = NEW.refCampus;
+	/*Obtiene la cantidad de campus asociados a las organizaciones estudiantiles*/
+	SET @cantCampusAsociados = (	SELECT COUNT(*)
+																	FROM usuario_administrador
+																	WHERE refCampus=@idCampus);
+	/*Actualiza el estadoEliminacion del campus que pertenece la organizacion estudiantil*/
+	UPDATE campus
+	SET estadoEliminacion = 'DESHABILITADO'
+	WHERE id = @idCampus AND @cantCampusAsociados = 1 AND estadoEliminacion = 'HABILITADO';
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table usuario_administrador
+-- ----------------------------
+DROP TRIGGER IF EXISTS `TR_usuario_administrador_after_update`;
+delimiter ;;
+CREATE TRIGGER `TR_usuario_administrador_after_update` AFTER UPDATE ON `usuario_administrador` FOR EACH ROW BEGIN
+	/*Obtiene el id del campus para saber si se deshabilita la eliminacion el campus*/
+	SET @idCampus = NEW.refCampus;
+	/*Obtiene la cantidad de campus asociados a las organizaciones estudiantiles*/
+	SET @cantCampusAsociados = (	SELECT COUNT(*)
+																	FROM usuario_administrador
+																	WHERE refCampus=@idCampus);
+	/*Actualiza el estadoEliminacion del campus que pertenece la organizacion estudiantil*/
+	UPDATE campus
+	SET estadoEliminacion = 'DESHABILITADO'
+	WHERE id = @idCampus AND @cantCampusAsociados = 1 AND estadoEliminacion = 'HABILITADO';
+	
+	
+	
+	/*Obtiene el id del campus para saber si se deshabilita la eliminacion el campus*/
+	SET @idCampus = OLD.refCampus;
+	/*Obtiene la cantidad de campus asociados a las organizaciones estudiantiles*/
+	SET @cantCampusAsociadosOE = (	SELECT COUNT(*)
+																	FROM organizacion_estudiantil
+																	WHERE refCampus=@idCampus);		
+																	
+	/*Obtiene la cantidad de campus asociados a los usuarios administrador*/
+	SET @cantCampusAsociadosUA = (	SELECT COUNT(*)
+																	FROM usuario_administrador
+																	WHERE refCampus=@idCampus);														
+	/*Actualiza el estadoEliminacion del campus al que pertenece la organizacion estudiantil*/
+	UPDATE campus
+	SET estadoEliminacion = 'HABILITADO'
+	WHERE id = @idCampus AND @cantCampusAsociadosOE=0 AND @cantCampusAsociadosUA = 0 AND estadoEliminacion = 'DESHABILITADO'; 
+
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table usuario_administrador
+-- ----------------------------
+DROP TRIGGER IF EXISTS `TR_usuario_administrador_after_delete`;
+delimiter ;;
+CREATE TRIGGER `TR_usuario_administrador_after_delete` AFTER DELETE ON `usuario_administrador` FOR EACH ROW BEGIN
+		/*Obtiene el id del campus para saber si se deshabilita la eliminacion el campus*/
+    SET @idCampus = OLD.refCampus;
+		/*Obtiene la cantidad de campus asociados a las organizaciones estudiantiles*/
+		SET @cantCampusAsociadosOE = (	SELECT COUNT(*)
+																		FROM organizacion_estudiantil
+																		WHERE refCampus=@idCampus);		
+																		
+		/*Obtiene la cantidad de campus asociados a los usuarios administrador*/
+		SET @cantCampusAsociadosUA = (	SELECT COUNT(*)
+																		FROM usuario_administrador
+																		WHERE refCampus=@idCampus);														
+		/*Actualiza el estadoEliminacion del campus al que pertenece la organizacion estudiantil*/
+		UPDATE campus
+		SET estadoEliminacion = 'HABILITADO'
+		WHERE id = @idCampus AND @cantCampusAsociadosOE=0 AND @cantCampusAsociadosUA = 0 AND estadoEliminacion = 'DESHABILITADO'; 
+END
+;;
+delimiter ;
+
+-- ----------------------------
 -- Triggers structure for table usuario_director
 -- ----------------------------
 DROP TRIGGER IF EXISTS `TR_usuario_director_after_insert`;
 delimiter ;;
 CREATE TRIGGER `TR_usuario_director_after_insert` AFTER INSERT ON `usuario_director` FOR EACH ROW BEGIN
-		/*Obtiene la referencia de la institucion a la que pertenece el usuario directo*/
-		SET @idInstitucion = NEW.refInstitucion;
-		/*Obtiene la cantidad de directores que tienen asociada la institucion*/
-		SET @cantUsuarioDirector = (SELECT COUNT(*)
-																FROM  usuario_director
-																WHERE refInstitucion = @idInstitucion);
-		/*Tras agregar a un representante, se procede a verificar si es el primero que se agrego con la institucion y el atributo estadoEliminacion de la tabla INSTITUCION se encuentra en HABILITADO, se procede a colocar en DESHABILITADO*/															
-		UPDATE institucion
-		SET estadoEliminacion = 'DESHABILITADO'
-		WHERE id = @idInstitucion AND @cantUsuarioDirector = 1 AND estadoEliminacion = 'HABILITADO';
-		
-		
-		
-		/*Obtiene la referencia de la organizacion estudiantil a la que pertenece el usuario directo*/
+	/*Obtiene la referencia de la organizacion estudiantil a la que pertenece el usuario director*/
 		SET @idOrganizacionEstudiantil = NEW.idOrganizacionEstudiantil;
 		/*Obtiene la cantidad de representantes que tienen asociada la organizacion estudiantil*/
 		SET @cantUsuarioDirector = (SELECT COUNT(*)
 																FROM  usuario_director
 																WHERE idOrganizacionEstudiantil = @idOrganizacionEstudiantil);
-		/*Tras agregar a un representante, se procede a verificar si es el primero que se agrego con la organizacion estudiantil y el atributo estadoEliminacion de la tabla ORGANIZACION_ESTUDIANTIL se encuentra en HABILITADO, se procede a colocar en DESHABILITADO*/	
+		/*Tras agregar a un usuario director, se procede a verificar si es el primero que se agrego con la organizacion estudiantil y el atributo estadoEliminacion de la tabla ORGANIZACION_ESTUDIANTIL se encuentra en HABILITADO, se procede a colocar en DESHABILITADO*/	
 		UPDATE organizacion_estudiantil
 		SET estadoEliminacion = 'DESHABILITADO'
 		WHERE id = @idOrganizacionEstudiantil AND @cantUsuarioDirector = 1 AND estadoEliminacion = 'HABILITADO';
@@ -2205,24 +3113,6 @@ delimiter ;
 DROP TRIGGER IF EXISTS `TR_usuario_director_after_delete`;
 delimiter ;;
 CREATE TRIGGER `TR_usuario_director_after_delete` AFTER DELETE ON `usuario_director` FOR EACH ROW BEGIN
-		/*Obtiene la referencia de la institucion a la que pertenecia el usuario director*/
-		SET @idInstitucion = OLD.refInstitucion;
-		/*Obtiene la cantidad de directores que tienen asociada la institucion*/
-		SET @cantUsuarioDirector = (SELECT COUNT(*)
-																FROM  usuario_director
-																WHERE refInstitucion = @idInstitucion);
-		/*Obtiene la cantidad de representantes que tienen asociada la institucion*/
-		SET @cantUsuarioRepresentante = (SELECT COUNT(*)
-																		FROM  usuario_representante
-																		WHERE refInstitucion = @idInstitucion);
-		/*Se tras la eliminacion de un director, se procede a verificar existen usuarios directores y respresntantes que tengan asociada la institucion a la que pertenecia el usuario director recien eliminado. En caso de que no existan usuarios asociados a la institucion se procede a habilitar la posibilidad de eliminar la institucion*/															
-		UPDATE institucion
-		SET estadoEliminacion = 'HABILITADO'
-		WHERE id = @idInstitucion AND @cantUsuarioDirector = 0 AND @cantUsuarioRepresentante = 0 AND estadoEliminacion = 'DESHABILITADO';
-		
-		
-		
-		
 		/*Obtiene la referencia de la organizacion estudiantil a la que pertenecia el usuario director*/
 		SET @idOrganizacionEstudiantil = OLD.idOrganizacionEstudiantil;
 		/*Obtiene la cantidad de directores que tienen asociada la organizacion estudiantil*/
@@ -2236,7 +3126,7 @@ CREATE TRIGGER `TR_usuario_director_after_delete` AFTER DELETE ON `usuario_direc
 		/*Se tras la eliminacion de un director, se procede a verificar existen usuarios directores y respresntantes que tengan asociada la organizacion estudiantil a la que pertenecia el usuario director recien eliminado. En caso de que no existan usuarios asociados a la organizacion estudiantil se procede a habilitar la posibilidad de eliminar la organizacion estudiantil*/															
 		UPDATE organizacion_estudiantil
 		SET estadoEliminacion = 'HABILITADO'
-		WHERE id = @idInstitucion AND @cantUsuarioDirector = 0 AND @cantUsuarioRepresentante = 0 AND estadoEliminacion = 'DESHABILITADO';
+		WHERE id = @idOrganizacionEstudiantil AND @cantUsuarioDirector = 0 AND @cantUsuarioRepresentante = 0 AND estadoEliminacion = 'DESHABILITADO';
 END
 ;;
 delimiter ;
@@ -2244,22 +3134,9 @@ delimiter ;
 -- ----------------------------
 -- Triggers structure for table usuario_representante
 -- ----------------------------
-DROP TRIGGER IF EXISTS `TR_usuarioRepresentante_before_insert`;
+DROP TRIGGER IF EXISTS `TR_usuarioRepresentante_after_insert`;
 delimiter ;;
-CREATE TRIGGER `TR_usuarioRepresentante_before_insert` BEFORE INSERT ON `usuario_representante` FOR EACH ROW BEGIN
-		/*Obtiene la referencia de la institucion a la que pertenece el usuario representante*/
-		SET @idInstitucion = NEW.refInstitucion;
-		/*Obtiene la cantidad de representantes que tienen asociada la institucion*/
-		SET @cantUsuarioRepresentante = (SELECT COUNT(*)
-																FROM  usuario_representante
-																WHERE refInstitucion = @idInstitucion);
-		/*Tras agregar a un representante, se procede a verificar si es el primero que se agrego con la institucion y el atributo estadoEliminacion de la tabla INSTITUCION se encuentra en HABILITADO, se procede a colocar en DESHABILITADO*/		
-		UPDATE institucion
-		SET estadoEliminacion = 'DESHABILITADO'
-		WHERE id = @idInstitucion AND @cantUsuarioRepresentante = 1 AND estadoEliminacion = 'HABILITADO';
-		
-		
-		
+CREATE TRIGGER `TR_usuarioRepresentante_after_insert` AFTER INSERT ON `usuario_representante` FOR EACH ROW BEGIN
 		/*Obtiene la referencia de la organizacion estudiantil a la que pertenece el usuario representante*/
 		SET @idOrganizacionEstudiantil = NEW.idOrganizacionEstudiantil;
 		/*Obtiene la cantidad de representantes que tienen asociada la organizacion estudiantil*/
@@ -2278,27 +3155,9 @@ delimiter ;
 -- ----------------------------
 -- Triggers structure for table usuario_representante
 -- ----------------------------
-DROP TRIGGER IF EXISTS `TR_usuarioRepresentante_before_delete`;
+DROP TRIGGER IF EXISTS `TR_usuarioRepresentante_after_delete`;
 delimiter ;;
-CREATE TRIGGER `TR_usuarioRepresentante_before_delete` BEFORE DELETE ON `usuario_representante` FOR EACH ROW BEGIN
-		/*Obtiene la referencia de la institucion a la que pertenecia el usuario director*/
-		SET @idInstitucion = OLD.refInstitucion;
-		/*Obtiene la cantidad de directores que tienen asociada la institucion*/
-		SET @cantUsuarioDirector = (SELECT COUNT(*)
-																FROM  usuario_director
-																WHERE refInstitucion = @idInstitucion);
-		/*Obtiene la cantidad de representantes que tienen asociada la institucion*/
-		SET @cantUsuarioRepresentante = (SELECT COUNT(*)
-																		FROM  usuario_representante
-																		WHERE refInstitucion = @idInstitucion);
-		/*Se tras la eliminacion de un director, se procede a verificar existen usuarios directores y respresntantes que tengan asociada la institucion a la que pertenecia el usuario director recien eliminado. En caso de que no existan usuarios asociados a la institucion se procede a habilitar la posibilidad de eliminar la institucion*/															
-		UPDATE institucion
-		SET estadoEliminacion = 'HABILITADO'
-		WHERE id = @idInstitucion AND @cantUsuarioDirector = 0 AND @cantUsuarioRepresentante = 0 AND estadoEliminacion = 'DESHABILITADO';
-		
-		
-		
-		
+CREATE TRIGGER `TR_usuarioRepresentante_after_delete` AFTER DELETE ON `usuario_representante` FOR EACH ROW BEGIN
 		/*Obtiene la referencia de la organizacion estudiantil a la que pertenecia el usuario director*/
 		SET @idOrganizacionEstudiantil = OLD.idOrganizacionEstudiantil;
 		/*Obtiene la cantidad de directores que tienen asociada la organizacion estudiantil*/
@@ -2312,7 +3171,55 @@ CREATE TRIGGER `TR_usuarioRepresentante_before_delete` BEFORE DELETE ON `usuario
 		/*Se tras la eliminacion de un director, se procede a verificar existen usuarios directores y respresntantes que tengan asociada la organizacion estudiantil a la que pertenecia el usuario director recien eliminado. En caso de que no existan usuarios asociados a la organizacion estudiantil se procede a habilitar la posibilidad de eliminar la organizacion estudiantil*/															
 		UPDATE organizacion_estudiantil
 		SET estadoEliminacion = 'HABILITADO'
-		WHERE id = @idInstitucion AND @cantUsuarioDirector = 0 AND @cantUsuarioRepresentante = 0 AND estadoEliminacion = 'DESHABILITADO';
+		WHERE id = @idOrganizacionEstudiantil AND @cantUsuarioDirector = 0 AND @cantUsuarioRepresentante = 0 AND estadoEliminacion = 'DESHABILITADO';
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table usuario_vicerector
+-- ----------------------------
+DROP TRIGGER IF EXISTS `TR_usuario_vicerector_after_insert`;
+delimiter ;;
+CREATE TRIGGER `TR_usuario_vicerector_after_insert` AFTER INSERT ON `usuario_vicerector` FOR EACH ROW BEGIN
+		INSERT INTO oe_vicerector
+		SELECT organizacion_estudiantil.id, NEW.id
+		FROM organizacion_estudiantil
+		JOIN tipooe ON tipooe.id = organizacion_estudiantil.refTipoOE AND tipooe.nombre!='CAA'
+		WHERE organizacion_estudiantil.estado='Habilitado';
+		
+		/*Despues de haber asociado al nuevo vicerrector con las organizaciones estudiantiles habilitadas, se procede a deshabilitar la posibilidad de que una organziacion estudiantil se elimine*/
+		UPDATE organizacion_estudiantil
+		JOIN (SELECT *, count(refOE) AS 'cantidad'
+					FROM oe_vicerector
+					GROUP BY oe_vicerector.refOE) AS oe ON oe.refOE = organizacion_estudiantil.id AND 
+																									oe.refUsuarioVicerector = NEW.id AND
+																									oe.cantidad = 1 AND 
+																									organizacion_estudiantil.estado = 'Habilitado' AND
+																									organizacion_estudiantil.estadoEliminacion = 'HABILITADO' 		SET organizacion_estudiantil.estadoEliminacion = 'DESHABILITADO';
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Triggers structure for table usuario_vicerector
+-- ----------------------------
+DROP TRIGGER IF EXISTS `TR_usuario_vicerector_before_delete`;
+delimiter ;;
+CREATE TRIGGER `TR_usuario_vicerector_before_delete` BEFORE DELETE ON `usuario_vicerector` FOR EACH ROW BEGIN
+	/*Antes de eliminar al usuario vicerrector, se debe habilitar la posibilidad de eliminacion de la oranizacion estudiantil siempre y cuando este solamente asociado al vicerrector a eliminar*/
+		UPDATE organizacion_estudiantil
+		JOIN (SELECT *, count(refOE) AS 'cantidad'
+					FROM oe_vicerector
+					GROUP BY oe_vicerector.refOE) AS oe ON oe.refOE = organizacion_estudiantil.id AND 
+																									oe.refUsuarioVicerector = OLD.id AND
+																									oe.cantidad = 1 AND 
+																									organizacion_estudiantil.estado = 'Habilitado' AND
+																									organizacion_estudiantil.estadoEliminacion = 'DESHABILITADO' 		SET organizacion_estudiantil.estadoEliminacion = 'HABILITADO';
+																								
+		/*Se procede a eliminar todas las asociaciones entre la organizacion estudiantil y el vicerrector*/
+		DELETE FROM oe_vicerector
+		WHERE oe_vicerector.refUsuarioVicerector = OLD.id;
 END
 ;;
 delimiter ;

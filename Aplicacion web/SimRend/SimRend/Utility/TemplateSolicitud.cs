@@ -46,18 +46,18 @@ namespace SimRend.Utility
                     pagina += "<P style='line-height:1px'><B>Sr. " + proceso.Direccion.Nombre + "/B></P>";
                 }
                 pagina += "<P style='line-height:3px'><I>" + proceso.Direccion.Cargo + "</I></P>";
-                pagina += "<P style='line-height:3px'><I>" + proceso.Direccion.NombreInstitucion + "</I></P>";
+                pagina += "<P style='line-height:3px'><I>" + proceso.Direccion.Organizacion.Institucion.Nombre + "</I></P>";
             }
 
             pagina += "<P style='line-height:1px'><I>Universidad de Talca</I></P><P style='line-height:1px'><B><U>Presente.</U></B></P></DIV><DIV style='text-align:justify'><P>De nuestra consideración:</P>";
 
-            if (proceso.Organizacion.Tipo.Equals("CAA"))
+            if (proceso.Organizacion.TipoOE.Nombre.Equals("CAA"))
             {
-                pagina += "<P>Junto con saludar cordialmente, me dirijo a usted como " + proceso.Responsable.NombreRol + " del centro de alumnos de  " + proceso.Responsable.Carrera + ", para solicitarle apoyo económico con el fin de realizar la actividad estudiantil que se indica a continuación:</P>";
+                pagina += "<P>Junto con saludar cordialmente, me dirijo a usted como " + proceso.Responsable.Rol.Nombre + " del centro de alumnos de  " + proceso.Responsable.Organizacion.Institucion.Nombre + ", para solicitarle apoyo económico con el fin de realizar la actividad estudiantil que se indica a continuación:</P>";
             }
             else
             {
-                pagina += "<P>Junto con saludar cordialmente, me dirijo a usted como " + proceso.Responsable.NombreRol + " de " + proceso.Organizacion.Nombre + ", para solicitarle apoyo económico con el fin de realizar la actividad estudiantil que se indica a continuación:</P>";
+                pagina += "<P>Junto con saludar cordialmente, me dirijo a usted como " + proceso.Responsable.Rol.Nombre + " de " + proceso.Organizacion.Nombre + ", para solicitarle apoyo económico con el fin de realizar la actividad estudiantil que se indica a continuación:</P>";
             }
 
             pagina += "<ul><li><B>Nombre de la actividad: </B>" + proceso.Solicitud.NombreEvento + ".</li>";
@@ -95,26 +95,26 @@ namespace SimRend.Utility
             }
 
 
-            if (proceso.Organizacion.Tipo.Equals("CAA"))
+            if (proceso.Organizacion.TipoOE.Nombre.Equals("CAA"))
             {
                 pagina += "<P>Dicho monto quedará bajo la responsabilidad de " + proceso.Responsable.Nombre + ", RUT " + FormatearRut(proceso.Responsable.RUN);
-                pagina += ", matrícula " + proceso.Responsable.Matricula + ", en su calidad de " + proceso.Responsable.NombreRol;
-                pagina += " del Centro de Alumnos de " + proceso.Responsable.Carrera + " de la Universidad de Talca. </P>";
+                pagina += ", matrícula " + proceso.Responsable.Matricula + ", en su calidad de " + proceso.Responsable.Rol.Nombre;
+                pagina += " del Centro de Alumnos de " + proceso.Responsable.Organizacion.Institucion.Nombre + " de la Universidad de Talca. </P>";
             }
             else
             {
                 pagina += "<P>Dicho monto quedará bajo la responsabilidad de " + proceso.Responsable.Nombre + ", RUT " + FormatearRut(proceso.Responsable.RUN);
-                pagina += ", matrícula " + proceso.Responsable.Matricula + ", en su calidad de  " + proceso.Responsable.NombreRol + " de ";
+                pagina += ", matrícula " + proceso.Responsable.Matricula + ", en su calidad de  " + proceso.Responsable.Rol.Nombre + " de ";
                 pagina += proceso.Organizacion.Nombre + " de la Universidad de Talca.</P>";
             }
 
             pagina += "<P>Esperando una buena acogida y una pronta respuesta de esta solicitud, se despide atentamente de usted.</P>";
             pagina += "<DIV ALIGN='center' style='padding-top:80px;'><P style='line-height:3px'><B>" + proceso.Responsable.Nombre + "</B></P>";
-            pagina += "<P style='line-height:3px'>" + proceso.Responsable.NombreRol + "</P>";
+            pagina += "<P style='line-height:3px'>" + proceso.Responsable.Rol.Nombre + "</P>";
 
-            if (proceso.Organizacion.Tipo.Equals("CAA"))
+            if (proceso.Organizacion.TipoOE.Nombre.Equals("CAA"))
             {
-                pagina += "<P style='line-height:3px'>CAA " + proceso.Responsable.Carrera + "</P>";
+                pagina += "<P style='line-height:3px'>CAA " + proceso.Responsable.Organizacion.Institucion.Nombre + "</P>";
             }
             else
             {

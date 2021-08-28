@@ -153,16 +153,18 @@
             <section class="step3">
                 <div class="row row-sm">
                     <div class="form-group wd-auto col-lg-5 col-md-12 mg-b-0">
-                        <label class="form-control-label">RUN del participante: </label>
+                        <label class="form-control-label">RUN del participante:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text wd-xs-45">
-                                    <i class="fa fa-id-card tx-16 lh-0 op-6 fa-fw"></i>
+                                    <i class="fa fa-id-card tx-20 lh-0 op-6 fa-fw"></i>
                                 </div>
                             </div>
-                            <input name="RUNParticipante" type="text" class="form-control" placeholder="RUN del participante" id="runParticipante" oninput="checkRun(this)" onblur="verificarExistenciaParticipante(this)">
+                            <input name="RUNParticipante" required="required" class="form-control" id="runParticipante" type="text" placeholder="RUN del participante" onkeypress="" data-parsley-errors-container="#errorRUN" oninput="checkRun(this)" onblur="verificarExistenciaParticipante(this)">
                         </div>
+                        <div id="errorRUN"></div>
                     </div>
+
                     <div class="form-group wd-auto col-lg-5 col-md-12">
                         <label class="form-control-label">Nombre participante: </label>
                         <div class="input-group">

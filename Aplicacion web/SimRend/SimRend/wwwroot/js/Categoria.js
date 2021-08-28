@@ -168,7 +168,7 @@ function modificarCategoria(id, nombreCategoria)
 
 function preguntarEditar()
 {
-    $('#body-alerta').text("¿Esta seguro que desea modificar la categoría?");
+    $('#body-alerta').text("¿Está seguro que desea modificar la categoría?");
 
     var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
     var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionEditar()">Aceptar</button>';
@@ -244,7 +244,7 @@ function eliminarCategoria(id, nombreCategoria)
 
     $('#icon-delete').show();
     $('#title-alerta-eliminar').show();
-    $('#body-alerta').text("¿Esta seguro que desea eliminar la categoría " + nombreCategoria + "?");
+    $('#body-alerta').text("¿Está seguro que desea eliminar la categoría " + nombreCategoria + "?");
     $('#body-alerta').show();
 
     var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';

@@ -37,8 +37,8 @@
             { "data": "id" },
             { "data": "nombre" },
             { "data": "email" },
-            { "data": "campus" },
-            { "data": "tipo" },
+            { "data": "campus.nombre" },
+            { "data": "tipoOE.nombre" },
             { "data": "estado" },
             {
                 "data": null,
@@ -64,12 +64,10 @@
     });
 }
 
-
-
-
 function obtenerDatos()
 {
     $.ajax({
+        async: false,
         url: "/OrganizacionEstudiantil/ObtenerDatosPrincipales",
         method: "GET",
         data: {},
@@ -77,6 +75,7 @@ function obtenerDatos()
         {
             listarCampus(respuesta.campus);
             listarTipoOE(respuesta.tiposOE);
+            listarInstituciones(respuesta.instituciones);
         }
     });
 }
@@ -99,7 +98,17 @@ function listarCampus(campus)
     }
 }
 
-function crearCategoria()
+function listarInstituciones(instituciones)
+{
+    console.log(instituciones);
+    $("#institucion").empty().append('<option selected disabled>Seleccione el campus al que pertenece la O.E.</option>');
+    for (var i = 0; instituciones != null && i < instituciones.length; i++)
+    {
+        $('#institucion').append("<option value='" + instituciones[i]["id"] + "'>" + instituciones[i]["nombre"] + "</option>");
+    }
+}
+
+function crearOE()
 {
     $('#icon-problema').hide();
     $('#icon-create').hide();
@@ -113,7 +122,7 @@ function crearCategoria()
     $('#icon-create').show();
     $('#title-alerta-crear').show();
 
-    $('#body-alerta').text('¿Esta seguro que desea guardar los datos?').show();
+    $('#body-alerta').text('¿Está seguro que desea guardar los datos?').show();
 
     var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
     var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-info tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionCrear()">Aceptar</button>';
@@ -130,14 +139,16 @@ function confirmacionCrear()
     var emailOE = $('#emailOE').parsley();
     var campus = $('#campus').parsley();
     var tiposOE = $('#tiposOE').parsley();
+    var institucion = $('#institucion').parsley();
 
-    if (nombreOE.isValid() && emailOE.isValid() && campus.isValid() && tiposOE.isValid())
+    if (nombreOE.isValid() && emailOE.isValid() && campus.isValid() && tiposOE.isValid() && institucion.isValid())
     {
         var datos = {
             'Nombre': $("#nombreOE").val(),
             'Email': $("#emailOE").val(),
             'IdCampus': $("#campus").val(),
             'IdTipoOE': $("#tiposOE").val(),
+            'IdInstitucion': $('#institucion').val()
         };
 
         $.ajax({
@@ -152,8 +163,7 @@ function confirmacionCrear()
                 {
                     $('#icon-create-success').show();
                     $('#body-alerta').text(respuesta.msj).show();
-                    //var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-info tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="redireccionar()">Aceptar</button>';
-                    var botonAceptar = '<button type="button" id="volverOES" data-dismiss="modal" class="btn btn-info tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+                    var botonAceptar = '<button type="button" id="volverOES" data-dismiss="modal" class="btn btn-info tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="volverOEs()">Aceptar</button >';
                 }
                 else
                 {
@@ -192,14 +202,7 @@ function confirmacionCrear()
         botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
         $('#actions-alerta').empty().append(botonAceptar);
     }
-
-    $('#volverOES').click(function (e)
-    {
-        e.preventDefault();
-        window.location.href = '/OrganizacionEstudiantil/OrganizacionesEstudiantiles';
-    });
 }
-
 
 
 function eliminarOE(id)
@@ -218,7 +221,7 @@ function eliminarOE(id)
 
     $('#icon-delete').show();
     $('#title-alerta-eliminar').show();
-    $('#body-alerta').text("¿Esta seguro que desea eliminar la organización estudiantil?");
+    $('#body-alerta').text("¿Está seguro que desea eliminar la organización estudiantil?");
     $('#body-alerta').show();
 
     var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
@@ -254,7 +257,7 @@ function confirmacionEliminar()
             {
                 $('#title-alerta-eliminar').hide();
                 $('#icon-problema').show();
-                $('#title-alerta-problemas').text('Problemas eliminar campus').show();
+                $('#title-alerta-problemas').text('Problemas eliminar la organizacioón estudiantil').show();
                 $('#body-alerta').text(respuesta.msj);
             }
             botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
@@ -263,7 +266,153 @@ function confirmacionEliminar()
     });
 }
 
-function modificarOE(id)
+function modificarOE(idOE)
 {
-    alert("Se modificará la OE con id " + id);
+    $.ajax({
+        async: false,
+        url: "/OrganizacionEstudiantil/GuardarIdOE",
+        method: "POST",
+        data: {
+            'IdOE': idOE,
+        },
+        success: function (respuesta)
+        {
+            window.location.href = '/OrganizacionEstudiantil/ActualizarOE';
+        }
+    });
+}
+
+function obtenerDatosOE()
+{
+    $.ajax({
+        async: false,
+        url: "/OrganizacionEstudiantil/LeerOE",
+        method: "GET",
+        data: {},
+        success: function (respuesta)
+        {
+            $('#idOE').val(respuesta.id).hide();
+            $('#nombreOE').val(respuesta.nombre);
+            $('#emailOE').val(respuesta.email);
+            $('#campus').val(respuesta.campus.id);
+            $('#tiposOE').val(respuesta.tipoOE.id);
+            $('#institucion').val(respuesta.institucion.id);
+        }
+    });
+}
+
+
+async function main()
+{
+    try
+    {
+        await obtenerDatos();
+        await obtenerDatosOE();
+    }
+    catch (e)
+    {
+        console.log(e);
+    }
+}
+
+
+function actualizarOE()
+{
+    $('#icon-problema').hide();
+    $('#icon-modificar').hide();
+    $('#icon-modificar-success').hide();
+
+    $('#title-alerta-problemas').hide();
+    $('#title-alerta-modificar').hide();
+
+    $('#body-alerta').hide();
+
+    $('#icon-modificar').show();
+    $('#title-alerta-modificar').show();
+
+    $('#body-alerta').text('¿Está seguro que desea modificar los datos?').show();
+
+    var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
+    var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionActualizar()">Aceptar</button>';
+    $('#actions-alerta').empty().append(botonCancelar);
+    $('#actions-alerta').append(botonAceptar);
+    $('#modal-alert').modal('show');
+}
+
+function confirmacionActualizar()
+{
+    $('#icon-modificar').hide();
+
+    var nombreOE = $('#nombreOE').parsley();
+    var emailOE = $('#emailOE').parsley();
+    var campus = $('#campus').parsley();
+    var tiposOE = $('#tiposOE').parsley();
+    var institucion = $('#institucion').parsley();
+
+    if (nombreOE.isValid() && emailOE.isValid() && campus.isValid() && tiposOE.isValid() && institucion.isValid())
+    {
+        var datos = {
+            'Nombre': $("#nombreOE").val(),
+            'Email': $("#emailOE").val(),
+            'IdCampus': $("#campus").val(),
+            'IdTipoOE': $("#tiposOE").val(),
+            'IdOE': $("#idOE").val(),
+            'IdInstitucion': $('#institucion').val()
+        };
+
+        $.ajax({
+            url: "/OrganizacionEstudiantil/ModificarOE",
+            method: "POST",
+            data: datos,
+            async: false,
+            success: function (respuesta)
+            {
+                var botonAceptar;
+                if (respuesta.validar)
+                {
+                    $('#icon-modificar-success').show();
+                    $('#body-alerta').text(respuesta.msj).show();
+                    var botonAceptar = '<button type="button" id="volverOES" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="volverOEs()">Aceptar</button >';
+                }
+                else
+                {
+                    $('#title-alerta-modificar').hide();
+                    $('#icon-problema').show();
+                    $('#title-alerta-problemas').text('Problemas para modificar la organización estudiantil').show();
+                    $('#body-alerta').text(respuesta.msj).show();
+                    botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+                }
+                $('#actions-alerta').empty().append(botonAceptar);
+            }
+        });
+    }
+    else
+    {
+        nombreOE.validate();
+        emailOE.validate();
+
+        campus.validate();
+        if (!campus.isValid())
+        {
+            $('#campus').addClass('is-invalid');
+        }
+
+        tiposOE.validate();
+        if (!tiposOE.isValid())
+        {
+            $('#tiposOE').addClass('is-invalid');
+        }
+
+        $('#title-alerta-modificar').hide();
+        $('#icon-problema').show();
+        $('#title-alerta-problemas').text('Problemas para modificar la organización estudiantil').show();
+        $('#body-alerta').text("Existen campos incompletos. Favor verificar que todos los campos esten con datos y vuelva a intentarlo.").show();
+        botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+        $('#actions-alerta').empty().append(botonAceptar);
+    }
+}
+
+function volverOEs()
+{
+    window.location.href = '/OrganizacionEstudiantil/OrganizacionesEstudiantiles';
 }

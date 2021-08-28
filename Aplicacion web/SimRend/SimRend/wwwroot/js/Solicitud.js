@@ -421,7 +421,7 @@ $('#agregarParticipante').click(function (e) {
     else
     {
         $('#title-alerta').text("Alerta");
-        $('#body-alerta').text('Exiten campos incompletos. Favor verificar que todos los campos esten completados y vuelva a intentarlo.');
+        $('#body-alerta').text('Exiten campos incompletos o que el RUN sea válidos. Favor verificar que todos los campos y vuelva a intentarlo.');
         var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
         $('#actions-alerta').empty().append(boton);
         $('#modal-alerta').modal('show');
@@ -446,7 +446,8 @@ function eliminarParticipante(run) {
     });
 }
 
-function checkRun(Run) {
+function checkRun(Run)
+{
     // Despejar Puntos
     var valor = Run.value.replaceAll('.', '');
     // Despejar Guión
@@ -458,7 +459,13 @@ function checkRun(Run) {
     Run.value = cuerpo + '-' + dv
 
     // Si no cumple con el mínimo ej. (n.nnn.nnn)
-    if (cuerpo.length < 7) { Run.setCustomValidity("RUN Incompleto"); return false; }
+    if (cuerpo.length < 7)
+    {
+        Run.setCustomValidity("RUN Incompleto");
+        $('#runParticipante').parsley().removeError("customValidationId");
+        $('#runParticipante').parsley().addError("customValidationId", { message: "Run incompleto" });
+        return false;
+    }
 
     // Calcular Dígito Verificador
     suma = 0;
@@ -473,10 +480,12 @@ function checkRun(Run) {
         suma = suma + index;
 
         // Consolidar Múltiplo dentro del rango [2,7]
-        if (multiplo < 7) {
+        if (multiplo < 7)
+        {
             multiplo = multiplo + 1;
         }
-        else {
+        else
+        {
             multiplo = 2;
         }
     }
@@ -487,12 +496,16 @@ function checkRun(Run) {
     dv = (dv == 'K') ? 10 : dv;
     dv = (dv == 0) ? 11 : dv;
     // Validar que el Cuerpo coincide con su Dígito Verificador
-    if (dvEsperado != dv) {
+    if (dvEsperado != dv)
+    {
         Run.setCustomValidity("RUN Inválido");
+        $('#runParticipante').parsley().removeError("customValidationId");
+        $('#runParticipante').parsley().addError("customValidationId", { message: "Run invalido" });
         return false;
     }
     // Si todo sale bien, eliminar errores (decretar que es válido)
     Run.setCustomValidity('');
+    $('#runParticipante').parsley().removeError("customValidationId");
 }
 
 

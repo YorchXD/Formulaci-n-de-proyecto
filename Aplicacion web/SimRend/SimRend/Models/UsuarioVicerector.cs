@@ -5,12 +5,11 @@ using System.Threading.Tasks;
 
 namespace SimRend.Models
 {
-    public class Direccion
+    public class UsuarioVicerector:Usuario
     {
-        public String Nombre { get; set; }
+        public string Estado { get; set; }
         public String Cargo { get; set; }
-        public String Sexo { get; set; }
-        public String NombreInstitucion { get; set; }
         public int FonoAnexo { get; set; }
+        public Institucion Institucion { get; set; }
     }
 }

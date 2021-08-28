@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Usuarios vicerectores";
+}
+
+
+<div class="d-lg-flex justify-content-lg-between align-items-lg-center mg-l-30 mg-r-30">
+    <div style="border:none;" class="row input-group-text">
+        <i class="icon fa fa-clipboard-list tx-60"></i>
+        <h4 class="mg-t-15 mg-l-10">Lista de vicerectores registrados</h4>
+    </div>
+    <div class="mg-r-30 mg-md-r-0">
+        <a class="btn btn-info pd-x-25 tx-11 tx-mont tx-semibold pd-y-12" asp-controller="Usuario" asp-action="CrearUsuarioVicerector">
+            <i class="icon fas fa-plus-square tx-11"></i> Agregar Vicerector
+        </a>
+    </div>
+</div>
+
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+        <div class="dataTables_wrapper">
+            <table id="tablaUsuarioVicerector" class="table display responsive nowrap" style="width:100%">
+                <thead class="thead-colored thead-info">
+                    <tr>
+                        <th data-priority="1">Id</th>
+                        <th>Nombre</th>
+                        <th>Sexo</th>
+                        <th>Email</th>
+                        <th>Institucion</th>
+                        <th>Cargo</th>
+                        <th>Fono anexo</th>
+                        <th>Estado</th>
+                        <th data-priority="1">Acciones</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <!-- MODAL ELIMINAR PROCESO -->
+    <div id="modal-alert" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <div id="icon-delete">
+                        <i class="ionicons ion-ios-help-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    </div>
+                    <div id="icon-delete-confirm">
+                        <i class="ionicons ion-ios-help-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    </div>
+                    <div id="icon-delete-success">
+                        <i class="icon ion-ios-checkmark-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    </div>
+
+
+                    <div id="icon-problema">
+                        <i class="icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>
+                    </div>
+
+                    <div>
+                        <h4 class="tx-danger" tx-semibold mg-b-20" id="title-alerta-eliminar">Eliminar vicerector</h4>
+                        <h4 class="tx-danger" tx-semibold mg-b-20" id="title-alerta-problemas"></h4>
+                    </div>
+
+                    <div>
+                        <p class="mg-b-20 mg-x-20" id="body-alerta"></p>
+                    </div>
+
+                    <div>
+                        <input id="idVicerector" name="idVicerector" value="" />
+                    </div>
+
+                    <div id="actions-alerta">
+
+                    </div>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
+</div>
+
+@section scripts{
+    <script src="~/js/Usuario.js"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            obtenerVicerectores()
+        });
+    </script>
+}

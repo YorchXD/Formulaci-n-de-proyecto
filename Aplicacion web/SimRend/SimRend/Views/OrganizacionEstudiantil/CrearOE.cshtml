@@ -6,7 +6,7 @@
     <div class="input-group">
         <div class="input-group-prepend">
             <div class="input-group-text wd-auto" style="border:none;">
-                <i class="icon fas fa-file-invoice-dollar"></i>
+                <i class="icon fas fa-sitemap"></i>
                 <h4 style="padding-left:5%">Crear organizacion estudiantil</h4>
             </div>
         </div>
@@ -50,7 +50,7 @@
                     <div class="input-group parsley-select" id="campusMarco">
                         <div class="input-group-prepend">
                             <div class="input-group-text wd-xs-45">
-                                <i class="fas fa-university tx-22 lh-0 op-6 fa-fw"></i>
+                                <i class="fas fa-map-marked-alt tx-22 lh-0 op-6 fa-fw"></i>
                             </div>
                         </div>
                         <select name="Campus" class="form-control required" data-placeholder="Seleccione el campus al que pertenece la O.E." id="campus"
@@ -70,23 +70,40 @@
                             </div>
                         </div>
                         <select name="TipoOE" class="form-control required" data-placeholder="Seleccione el tipo de O.E." id="tiposOE"
-                                data-parsley-class-handler="#campusMarco" data-parsley-errors-container="#errorTipoOE" required>
+                                data-parsley-class-handler="#tipoOEMarco" data-parsley-errors-container="#errorTipoOE" required>
                             <option selected disabled>Seleccione el tipo de organización estudiantil</option>
 
                         </select>
                     </div>
                     <div id="errorTipoOE"></div>
                 </div>
+
+                <div class="form-group wd-auto col-lg-12 col-md-12">
+                    <label class="form-control-label">Institucion: </label>
+                    <div class="input-group parsley-select" id="institucionMarco">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text wd-xs-45">
+                                <i class="fas fa-university tx-22 lh-0 op-6 fa-fw"></i>
+                            </div>
+                        </div>
+                        <select name="institucion" class="form-control required" data-placeholder="Seleccione la inStitucion" id="institucion"
+                                data-parsley-class-handler="#institucionMarco" data-parsley-errors-container="#errorInstitucion" required>
+                            <option selected disabled>Seleccione la institucion</option>
+
+                        </select>
+                    </div>
+                    <div id="errorInstitucion"></div>
+                </div>
             </div>
             <div class="form-layout-footer">
                 <div class="row" id="acciones">
                     <div class="form-group  col-lg-6 col-md-6 col-sm-12">
-                        <button class="btn btn-secondary" id="cancelarDocumento" style="width:100%">
+                        <button class="btn btn-secondary" id="guardar" style="width:100%" onclick="volverOEs()">
                             <i class="fas fa-window-close"></i> Cancelar
                         </button>
                     </div>
                     <div class="form-group  col-lg-6 col-md-6 col-sm-12">
-                        <button class="modal-effect btn btn-info tx-transform-none" id="guardar" data-effect="effect-just-me" style="width:100%" onclick="crearCategoria()">
+                        <button class="modal-effect btn btn-info tx-transform-none" id="guardar" data-effect="effect-just-me" style="width:100%" onclick="crearOE()">
                             <i class="fas fa-save"></i> Guardar
                         </button>
                     </div>

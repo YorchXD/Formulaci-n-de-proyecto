@@ -100,32 +100,40 @@ namespace SimRend.Controllers
 
         public String GuardarArchivoResolucion(IFormFile archivo, string idSolicitud)
         {
-            Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
-            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
-            string webRootPath = _webHostEnvironment.WebRootPath;
-            string carpeta = "";
-            carpeta = Path.Combine(webRootPath, "Procesos", usuario.NombreOrganizacionEstudiantil, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), idSolicitud, "Resolucion");
-            string rutaArchivo = "";
-            //string carpeta = "wwwroot/Procesos/" + usuario.NombreOrganizacionEstudiantil + "/" + DateTime.Today.Year + "/" + idSolicitud + "/Resolucion";
-            try
+            String tipoUsuario = HttpContext.Session.GetString("TipoUsuario");
+            if (tipoUsuario.Equals("Estudiante dirigente"))
             {
-                if (!Directory.Exists(carpeta))
-                {
-                    Directory.CreateDirectory(carpeta);
-                }
+                Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+                List<Organizacion> organizaciones = ConsultaUsuario.LeerOrganizacion(usuario.Id, tipoUsuario);
+                Organizacion organizacion = organizaciones[0];
 
-                //string nombreArchivo = Path.GetFileName(archivo.FileName);
-                string nombreArchivo = "Resolucion.pdf";
-                rutaArchivo = Path.Combine(carpeta, nombreArchivo);
-                using (FileStream stream = new FileStream(rutaArchivo, FileMode.Create))
+                //Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+                Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+                string webRootPath = _webHostEnvironment.WebRootPath;
+                string carpeta = "";
+                carpeta = Path.Combine(webRootPath, "Procesos", organizacion.Nombre, proceso.Solicitud.FechaTerminoEvento.Year.ToString(), idSolicitud, "Resolucion");
+                string rutaArchivo = "";
+                //string carpeta = "wwwroot/Procesos/" + usuario.NombreOrganizacionEstudiantil + "/" + DateTime.Today.Year + "/" + idSolicitud + "/Resolucion";
+                try
                 {
-                    archivo.CopyTo(stream);
+                    if (!Directory.Exists(carpeta))
+                    {
+                        Directory.CreateDirectory(carpeta);
+                    }
+
+                    //string nombreArchivo = Path.GetFileName(archivo.FileName);
+                    string nombreArchivo = "Resolucion.pdf";
+                    rutaArchivo = Path.Combine(carpeta, nombreArchivo);
+                    using (FileStream stream = new FileStream(rutaArchivo, FileMode.Create))
+                    {
+                        archivo.CopyTo(stream);
+                    }
+                    return rutaArchivo;
                 }
-                return rutaArchivo;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
             }
             return null;
         }

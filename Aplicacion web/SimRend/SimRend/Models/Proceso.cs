@@ -8,8 +8,8 @@ namespace SimRend.Models
     public class Proceso
     {
         public int Id { get; set; }
-        public Usuario Responsable { get; set; }
-        public Direccion Direccion { get; set; }
+        public UsuarioRepresentante Responsable { get; set; }
+        public UsuarioDirector Direccion { get; set; }
         public Organizacion Organizacion { get; set; }
         public int Estado { get; set; }
         public String EstadoFinal { get; set; }

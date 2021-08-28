@@ -32,7 +32,7 @@ namespace SimRend.Filters
             try 
             {
                 this.usuario = filterContext.HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
-                int cantOperaciones = ConsultaUsuario.Leer_Rol_Operacion(usuario.IdRol, idOperacion);
+                int cantOperaciones = ConsultaUsuario.Leer_Rol_Operacion(usuario.Rol.Id, idOperacion);
 
                 if(cantOperaciones < 1)
                 {

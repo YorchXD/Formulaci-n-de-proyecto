@@ -51,10 +51,6 @@ $('#anio').on('change', function ()
 
 function obtenerProcesos()
 {
-    /*var fecha = new Date();
-    var anio = fecha.getFullYear();
-    var mes = fecha.getMonth();*/
-
     var datos = {
         'Anio': $('#anio').val(),
         'TipoProceso': $('#estadoProceso').val()
@@ -181,7 +177,7 @@ function eliminar(idSolicitud, idResolucion, idDeclaracionGastos, fechaTerminoEv
 
 
     $('#title-alerta-eliminar-proceso').text("Eliminar proceso");
-    $('#body-alerta-eliminar-proceso').text("¿Esta seguro que desea eliminar el proceso?");
+    $('#body-alerta-eliminar-proceso').text("¿Está seguro que desea eliminar el proceso?");
 
     var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
     var botonAceptar = '<button type="button" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmarEliminarProceso()">Aceptar</button>';

@@ -406,7 +406,7 @@ $('#cancelarDocumento').click(function (e)
 {
     e.preventDefault();
     $('#title-alerta-cancelar').text("Cancelar documento");
-    $('#body-alerta-cancelar').text("¿Esta seguro que desea cancelar la " + procedimiento + " el documento? Si lo hace, toda la información ingresada se perderá");
+    $('#body-alerta-cancelar').text("¿Está seguro que desea cancelar la " + procedimiento + " el documento? Si lo hace, toda la información ingresada se perderá");
     $('#modal-alerta-cancelar').modal('show');
 })
 
