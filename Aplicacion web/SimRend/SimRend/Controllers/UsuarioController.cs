@@ -86,7 +86,7 @@ namespace SimRend.Controllers
             try
             {
                 var usuario = ConsultaUsuario.IniciarSesion(email, clave, tipoUsuario);
-                if(!tipoUsuario.Equals("Administrador"))
+                if(!tipoUsuario.Equals("Administrador") && usuario!=null)
                 {
                     var organizaciones = ConsultaUsuario.LeerOrganizacion(usuario.Id, tipoUsuario);
                     HttpContext.Session.SetComplexData("Organizaciones", usuario);
@@ -104,7 +104,20 @@ namespace SimRend.Controllers
                 HttpContext.Session.SetString("Email", usuario.Email);
                 HttpContext.Session.SetString("Cargo", usuario.Rol.Nombre);
                 //HttpContext.Session.SetString("OE", usuario.Organizacion.Nombre);
-                return RedirectToAction("Procesos", "Proceso");
+                //return RedirectToAction("Procesos", "Proceso");
+
+                if (tipoUsuario.Equals("Administrador"))
+                {
+                    return RedirectToAction("OrganizacionesEstudiantiles", "OrganizacionEstudiantil");
+                }
+                else if (tipoUsuario.Equals("Vicerector"))
+                {
+                    return RedirectToAction("OrganizacionesEstudiantiles", "Proceso");
+                }
+                else
+                {
+                    return RedirectToAction("Procesos", "Proceso");
+                }
 
             }
             catch (Exception ex)

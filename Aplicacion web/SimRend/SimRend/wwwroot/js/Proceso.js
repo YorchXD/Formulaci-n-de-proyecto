@@ -218,9 +218,81 @@ function confirmarEliminarProceso()
             }
         }
     });
-};
+}
 
 $('#btn-Proceso-Eliminado').click(function ()
 {
     window.location.href = '/Proceso/Procesos';
 });
+
+function obtenerOE()
+{
+    $('#tablaOrganizaciones').DataTable({
+        'destroy': true,
+        'bLengthChange': false,
+        'searching': false,
+        'dom': "Bfrtip",
+        'responsive': true,
+        'language': {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+            "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+            "infoPostFix": "",
+            "thousands": ".",
+            "lengthMenu": "Mostrar _MENU_ Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        },
+        'ajax': {
+            'url': "/Proceso/LeerOrganizacionesVicerector",
+            'method': "GET",
+            'data': "",
+            "dataSrc": "",
+        },
+        'order': [[0, 'desc']],
+        'columns': [
+            { "data": "id" },
+            { "data": "nombre" },
+            { "data": "email" },
+            { "data": "campus.nombre" },
+            { "data": "tipoOE.nombre" },
+            { "data": "estado" },
+            {
+                "data": null,
+                "className": "center",
+                "render": function (data, type, full, meta)
+                {
+                    var id = data.id;
+                    return '<button class="btn btn-warning btn-icon rounded-circle mg-r-5 mg-b-10" onclick="verOE(' + id + ')"><div><i class="fas fa-eye"></i></div></button>';
+                }
+            }
+        ]
+    });
+}
+
+
+function verOE(id)
+{
+    $.ajax({
+        url: "/Proceso/GuardarIDOrganizacion",
+        method: "POST",
+        async: "false",
+        data: {
+            'Id': id
+        },
+        success: function (respuesta)
+        {
+            window.location.href = '/Proceso/Procesos';
+        }
+    });
+}

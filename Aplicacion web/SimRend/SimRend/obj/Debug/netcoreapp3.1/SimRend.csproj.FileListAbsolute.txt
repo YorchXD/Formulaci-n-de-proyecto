@@ -88,3 +88,4 @@ D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debu
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\UsuariosAdministradores.cshtml.g.cs
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\CrearUsuarioAdministrador.cshtml.g.cs
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ActualizarUsuarioAdministrador.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Proceso\OrganizacionesEstudiantiles.cshtml.g.cs

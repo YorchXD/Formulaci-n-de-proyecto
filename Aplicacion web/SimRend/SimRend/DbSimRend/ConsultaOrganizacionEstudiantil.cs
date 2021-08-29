@@ -3,6 +3,7 @@ using Org.BouncyCastle.Utilities;
 using SimRend.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,47 +11,16 @@ namespace SimRend.DbSimRend
 {
     public class ConsultaOrganizacionEstudiantil
     {
-        public static List<Organizacion> LeerOrganizaciones()
+        public static List<Organizacion> LeerOrganizacionesVicerector()
         {
             try
             {
                 List<Organizacion> organizaciones = new List<Organizacion>();
-                var command = new MySqlCommand() { CommandText = "Leer_Organizaciones", CommandType = System.Data.CommandType.StoredProcedure };
+                var command = new MySqlCommand() { CommandText = "Leer_Organizaciones_Vicerector", CommandType = System.Data.CommandType.StoredProcedure };
                 var datos = ContexDb.GetDataSet(command);
                 if (datos.Tables[0].Rows.Count > 0)
                 {
-                    foreach (System.Data.DataRow row in datos.Tables[0].Rows)
-                    {
-                        var prodData = row;
-                        Organizacion organizacion = new Organizacion()
-                        {
-                            Id = Convert.ToInt32(prodData["id"]),
-                            Nombre = prodData["nombre"].ToString(),
-                            Email = prodData["email"].ToString(),
-                            TipoOE = new TipoOE
-                            {
-                                Id = Convert.ToInt32(prodData["refTipoOE"]),
-                                Nombre = prodData["tipo"].ToString()
-                            },
-
-                            Institucion = new Institucion
-                            {
-                                Id = Convert.ToInt32(prodData["refInstitucion"]),
-                                Nombre = prodData["nombreInstitucion"].ToString(),
-                                Abreviacion = prodData["abreviacion"].ToString()
-                            },
-
-                            Campus = new Campus
-                            {
-                                Id = Convert.ToInt32(prodData["refCampus"]),
-                                Nombre = prodData["campus"].ToString()
-                            },
-                            Estado = prodData["estado"].ToString(),
-                            EstadoEliminacion = prodData["estadoEliminacion"].ToString()
-                        };
-                        organizaciones.Add(organizacion);
-                    }
-                    return organizaciones;
+                    return obteniendoOrganizaciones(datos.Tables[0]);
                 }
             }
             catch (Exception ex)
@@ -58,6 +28,62 @@ namespace SimRend.DbSimRend
                 Console.WriteLine(ex.ToString());
             }
             return null;
+        }
+
+        public static List<Organizacion> LeerOrganizaciones()
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "Leer_Organizaciones", CommandType = System.Data.CommandType.StoredProcedure };
+                var datos = ContexDb.GetDataSet(command);
+                if (datos.Tables[0].Rows.Count > 0)
+                {
+                    return obteniendoOrganizaciones(datos.Tables[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return null;
+        }
+
+
+        private static List<Organizacion> obteniendoOrganizaciones(DataTable datos)
+        {
+            List<Organizacion> organizaciones = new List<Organizacion>();
+            foreach (System.Data.DataRow row in datos.Rows)
+            {
+                var prodData = row;
+                Organizacion organizacion = new Organizacion()
+                {
+                    Id = Convert.ToInt32(prodData["id"]),
+                    Nombre = prodData["nombre"].ToString(),
+                    Email = prodData["email"].ToString(),
+                    TipoOE = new TipoOE
+                    {
+                        Id = Convert.ToInt32(prodData["refTipoOE"]),
+                        Nombre = prodData["tipo"].ToString()
+                    },
+
+                    Institucion = new Institucion
+                    {
+                        Id = Convert.ToInt32(prodData["refInstitucion"]),
+                        Nombre = prodData["nombreInstitucion"].ToString(),
+                        Abreviacion = prodData["abreviacion"].ToString()
+                    },
+
+                    Campus = new Campus
+                    {
+                        Id = Convert.ToInt32(prodData["refCampus"]),
+                        Nombre = prodData["campus"].ToString()
+                    },
+                    Estado = prodData["estado"].ToString(),
+                    EstadoEliminacion = prodData["estadoEliminacion"].ToString()
+                };
+                organizaciones.Add(organizacion);
+            }
+            return organizaciones;
         }
 
         public static List<Organizacion> LeerOrganizaciones(int IdCampus)

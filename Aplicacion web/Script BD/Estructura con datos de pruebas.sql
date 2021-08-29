@@ -11,7 +11,7 @@
  Target Server Version : 100136
  File Encoding         : 65001
 
- Date: 28/08/2021 06:35:56
+ Date: 29/08/2021 01:14:53
 */
 
 SET NAMES utf8mb4;
@@ -721,7 +721,7 @@ CREATE TABLE `usuario_vicerector`  (
 -- Records of usuario_vicerector
 -- ----------------------------
 INSERT INTO `usuario_vicerector` VALUES (4, 'pcaballero@utalca.cl', '12345', 'Paula Caballero', 'Femenino', 4, 'Vicerrectora de desarrollo estudiantil', 'Deshabilitado', 12345, 'HABILITADO', 5);
-INSERT INTO `usuario_vicerector` VALUES (6, 'yosepulveda@utalca.cl', '123', 'Yorch Sepúlveda Manríquez', 'Masculino', 4, 'Vicerector de actividades académicas', 'Habilitado', 12345, 'HABILITADO', 5);
+INSERT INTO `usuario_vicerector` VALUES (6, 'yosepulveda@utalca.cl', '12345', 'Yorch Sepúlveda Manríquez', 'Masculino', 4, 'Vicerector de actividades académicas', 'Habilitado', 12345, 'HABILITADO', 5);
 
 -- ----------------------------
 -- Procedure structure for Actualizar_Campus
@@ -1759,11 +1759,16 @@ BEGIN
 	   FROM usuario_director
 		 JOIN rol on rol.id = usuario_director.idRol
 	   WHERE usuario_director.email = in_email AND usuario_director.clave = in_clave AND usuario_director.estado = 'Habilitado';
-	ELSEIF in_tipoUsuario = 'Vicerrector' THEN
-		 SELECT usuario_vicerrector.*,rol.nombre AS 'nombreRol'
-	   FROM usuario_vicerrector
-		 JOIN rol on rol.id = usuario_vicerrector.refRol
-	   WHERE usuario_vicerrector.email = in_email AND usuario_vicerrector.clave = in_clave AND usuario_vicerrector.estado = 'Habilitado';
+	ELSEIF in_tipoUsuario = 'Vicerector' THEN
+		 SELECT usuario_vicerector.id, usuario_vicerector.nombre, usuario_vicerector.email, usuario_vicerector.clave, usuario_vicerector.refRol as "idRol",rol.nombre AS 'nombreRol'
+	   FROM usuario_vicerector
+		 JOIN rol on rol.id = usuario_vicerector.refRol
+	   WHERE usuario_vicerector.email = in_email AND usuario_vicerector.clave = in_clave AND usuario_vicerector.estado = 'Habilitado';
+	ELSEIF in_tipoUsuario = 'Administrador' THEN
+		 SELECT usuario_administrador.id, usuario_administrador.nombre, usuario_administrador.email, usuario_administrador.clave, usuario_administrador.refRol as "idRol",rol.nombre AS 'nombreRol'
+	   FROM usuario_administrador
+		 JOIN rol on rol.id = usuario_administrador.refRol
+	   WHERE usuario_administrador.email = in_email AND usuario_administrador.clave = in_clave;
   ELSE
 	   SELECT usuario_representante.*, rol.nombre AS 'nombreRol'
 	   FROM usuario_representante
@@ -2025,6 +2030,22 @@ END
 delimiter ;
 
 -- ----------------------------
+-- Procedure structure for Leer_Organizaciones_Vicerector
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_Organizaciones_Vicerector`;
+delimiter ;;
+CREATE PROCEDURE `Leer_Organizaciones_Vicerector`()
+BEGIN
+	SELECT organizacion_estudiantil.*, campus.nombre AS 'campus', tipooe.nombre AS 'tipo', institucion.abreviacion, institucion.nombre AS 'nombreInstitucion'
+	FROM organizacion_estudiantil
+	JOIN tipooe ON tipooe.id = organizacion_estudiantil.refTipoOE AND tipooe.nombre!='CAA'
+	JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+	JOIN institucion ON institucion.id = organizacion_estudiantil.refInstitucion;
+END
+;;
+delimiter ;
+
+-- ----------------------------
 -- Procedure structure for Leer_Organizacion_Usuario
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `Leer_Organizacion_Usuario`;
@@ -2036,12 +2057,12 @@ BEGIN
 	   FROM usuario_director
 		 JOIN organizacion_estudiantil on idOrganizacionEstudiantil = organizacion_estudiantil.id
 	   WHERE usuario_director.id=in_refUsuario;
-	ELSEIF in_tipoUsuario='Vicerrector' THEN
+	ELSEIF in_tipoUsuario='Vicerector' THEN
 		SELECT organizacion_estudiantil.id AS 'idOrganizacionEstudiantil', organizacion_estudiantil.nombre AS 'nombreOrganizacion'
 		FROM organizacion_estudiantil
-		JOIN oe_vicerrector ON oe_vicerrector.refOE = organizacion_estudiantil.id
-		JOIN usuario_vicerrector ON usuario_vicerrector.id = oe_vicerrector.refUsuarioVicerrector
-		WHERE usuario_vicerrector.id = in_refUsuario;
+		JOIN oe_vicerector ON oe_vicerector.refOE = organizacion_estudiantil.id
+		JOIN usuario_vicerector ON usuario_vicerector.id = oe_vicerector.refUsuarioVicerector
+		WHERE usuario_vicerector.id = in_refUsuario;
   ELSE
 	   SELECT usuario_representante.idOrganizacionEstudiantil, organizacion_estudiantil.nombre AS 'nombreOrganizacion'
 	   FROM usuario_representante

@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Organización estudiantil";
+}
+
+
+<div class="d-lg-flex justify-content-lg-between align-items-lg-center mg-l-30 mg-r-30">
+    <div style="border:none;" class="row input-group-text">
+        <i class="icon fa fa-clipboard-list tx-60"></i>
+        <h4 class="mg-t-15 mg-l-10">Lista de OE</h4>
+    </div>
+</div>
+
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+        <div class="dataTables_wrapper">
+            <table id="tablaOrganizaciones" class="table display responsive nowrap" style="width:100%">
+                <thead class="thead-colored thead-info">
+                    <tr>
+                        <th data-priority="1">Id</th>
+                        <th>Nombre OE</th>
+                        <th>Email</th>
+                        <th>Campus</th>
+                        <th>Tipo de OE</th>
+                        <th>Estado</th>
+                        <th data-priority="1">Acciones</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/js/Proceso.js"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            obtenerOE()
+        });
+    </script>
+}

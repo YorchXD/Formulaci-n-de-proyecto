@@ -36,6 +36,11 @@ namespace SimRend.Controllers
             return View();
         }
 
+        public IActionResult OrganizacionesEstudiantiles()
+        {
+            return View();
+        }
+
         [AutorizacionUsuario(idOperacion: 2)]
         public IActionResult VerProceso()
         {
@@ -106,6 +111,21 @@ namespace SimRend.Controllers
         }
 
         [HttpPost]
+        public JsonResult GuardarIDOrganizacion(int Id)
+        {
+            HttpContext.Session.SetComplexData("IdOrganizacionSeleccionada", Id);
+            return Json(true);
+        }
+
+        [HttpGet]
+        public JsonResult LeerOrganizacionesVicerector()
+        {
+            List<Organizacion> Organizaciones = ConsultaOrganizacionEstudiantil.LeerOrganizacionesVicerector();
+            return Json(Organizaciones);
+        }
+
+
+        [HttpPost]
         public JsonResult LeerProcesos(int Anio, String TipoProceso)
         {
             
@@ -122,8 +142,8 @@ namespace SimRend.Controllers
             }
             else if(tipoUsuario.Equals("Vicerrector"))
             {
-                Organizacion organizacion = HttpContext.Session.GetComplexData<Organizacion>("Organizacion");
-                List<Proceso> procesos = ConsultasGenerales.LeerProcesosOrganizacion(organizacion.Id, Anio, TipoProceso);
+                int idOrganizacion = HttpContext.Session.GetComplexData<int>("IdOrganizacionSeleccionada");
+                List<Proceso> procesos = ConsultasGenerales.LeerProcesosOrganizacion(idOrganizacion, Anio, TipoProceso);
                 if (procesos != null)
                 {
                     return Json(procesos);
@@ -143,13 +163,18 @@ namespace SimRend.Controllers
                 List<Organizacion> organizaciones = ConsultaUsuario.LeerOrganizacion(usuario.Id, tipoUsuario);
                 return Json(ConsultasGenerales.LeerAniosProcesos(organizaciones[0].Id));
             }
-            else if (tipoUsuario.Equals("Vicerrector"))
+            else if (tipoUsuario.Equals("Vicerector"))
             {
-                Organizacion organizacion = HttpContext.Session.GetComplexData<Organizacion>("Organizacion");
-                return Json(ConsultasGenerales.LeerAniosProcesos(organizacion.Id));
+                int idOrganizacion = HttpContext.Session.GetComplexData<int>("IdOrganizacionSeleccionada");
+                return Json(ConsultasGenerales.LeerAniosProcesos(idOrganizacion));
             }
 
             return null;
+        }
+
+        public JsonResult mostrarVolver()
+        {
+            return Json(HttpContext.Session.GetString("TipoUsuario"));
         }
 
         /// <summary>

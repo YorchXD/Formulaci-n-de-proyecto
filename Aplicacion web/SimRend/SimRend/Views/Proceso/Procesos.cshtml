@@ -1,18 +1,39 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+
+@{
     ViewData["Title"] = "Procesos";
 }
 
-<div class="d-lg-flex justify-content-lg-between align-items-lg-center mg-l-30 mg-r-30">
-    <div style="border:none;" class="row input-group-text">
-        <i class="icon fa fa-clipboard-list tx-60"></i>
-        <h4 class="mg-t-15 mg-l-10">Lista de procesos realizados</h4>
+
+
+    <div class="d-lg-flex justify-content-lg-between align-items-lg-center mg-l-30 mg-r-30">
+        <div style="border:none;" class="row input-group-text">
+            <i class="icon fa fa-clipboard-list tx-60"></i>
+            <h4 class="mg-t-15 mg-l-10">Lista de procesos realizados</h4>
+        </div>
+
+        @if (HttpContextAccessor.HttpContext.Session.GetString("TipoUsuario").Equals("Estudiante dirigente"))
+        {
+            <div class="mg-r-30 mg-md-r-0">
+                <a asp-controller="Solicitud" asp-action="CrearSolicitud" class="btn btn-info pd-x-25 tx-11 tx-mont tx-semibold pd-y-12">
+                    <i class="icon fas fa-plus-square tx-11"></i> Crear solicitud
+                </a>
+            </div>
+        }
+
+
+
+        @if (HttpContextAccessor.HttpContext.Session.GetString("TipoUsuario").Equals("Vicerector"))
+        {
+            <div class="mg-r-30 mg-md-r-0" id="volver">
+                <a asp-controller="Proceso" asp-action="OrganizacionesEstudiantiles" class="btn btn-info pd-x-25 tx-11 tx-mont tx-semibold pd-y-12">
+                    <i class="icon fas  fa-arrow-circle-left tx-11"></i> Volver
+                </a>
+            </div>
+        }
+
     </div>
-    <div class="mg-r-30 mg-md-r-0">
-        <a asp-controller="Solicitud" asp-action="CrearSolicitud" class="btn btn-info pd-x-25 tx-11 tx-mont tx-semibold pd-y-12">
-            <i class="icon fas fa-plus-square tx-11"></i> Crear solicitud
-        </a>
-    </div>
-</div>
 
 
 <div class="br-pagebody">
