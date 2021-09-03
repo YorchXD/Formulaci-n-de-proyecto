@@ -11,7 +11,7 @@
  Target Server Version : 100136
  File Encoding         : 65001
 
- Date: 29/08/2021 01:14:53
+ Date: 03/09/2021 06:23:48
 */
 
 SET NAMES utf8mb4;
@@ -329,7 +329,7 @@ CREATE TABLE `procesofondo`  (
   CONSTRAINT `procesofondo_ibfk_5` FOREIGN KEY (`refUsuarioRepresentante`) REFERENCES `usuario_representante` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibfk_6` FOREIGN KEY (`refUsuarioDirector`) REFERENCES `usuario_director` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibk_7` FOREIGN KEY (`refUsuarioVicerector`) REFERENCES `usuario_vicerector` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 69 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of procesofondo
@@ -538,7 +538,7 @@ CREATE TABLE `solicitud`  (
   `fechaCreacionPDF` date NOT NULL,
   `fechaModificacion` date NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 68 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 59 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of solicitud
@@ -621,12 +621,12 @@ CREATE TABLE `usuario_administrador`  (
   INDEX `refRol`(`refRol`) USING BTREE,
   CONSTRAINT `usuario_administrador_ibfk_1` FOREIGN KEY (`refCampus`) REFERENCES `campus` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `usuario_administrador_ibfk_2` FOREIGN KEY (`refRol`) REFERENCES `rol` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of usuario_administrador
 -- ----------------------------
-INSERT INTO `usuario_administrador` VALUES (1, 'admin', 'Masculino', 'admin@utalca.cl', '12345', 'DESHABILITADO', 1, 1);
+INSERT INTO `usuario_administrador` VALUES (1, 'admin', 'Masculino', 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'DESHABILITADO', 1, 1);
 
 -- ----------------------------
 -- Table structure for usuario_director
@@ -658,7 +658,7 @@ CREATE TABLE `usuario_director`  (
 -- Records of usuario_director
 -- ----------------------------
 INSERT INTO `usuario_director` VALUES (1, 'rgarrido@utalca.cl', 'Ruth', 'Ruth Garrido', 'Femenino', 1, 'Directora de escuela', 'Deshabilitado', 2, 1, 0, 'DESHABILITADO');
-INSERT INTO `usuario_director` VALUES (2, 'yosepulveda@utalca.cl', '12345', 'Yorch Sepúlveda', 'Masculino', 1, 'Director de escuela', 'Habilitado', 2, 1, 12345, 'HABILITADO');
+INSERT INTO `usuario_director` VALUES (2, 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'Yorch Sepúlveda Manríquez', 'Masculino', 1, 'Director de escuela', 'Habilitado', 2, 1, 12345, 'HABILITADO');
 
 -- ----------------------------
 -- Table structure for usuario_representante
@@ -690,7 +690,7 @@ CREATE TABLE `usuario_representante`  (
 -- ----------------------------
 -- Records of usuario_representante
 -- ----------------------------
-INSERT INTO `usuario_representante` VALUES (1, 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'Yorch Sepúlveda', '17824523-6', 'Masculino', 2011407070, 1, 'Habilitado', 3, 1, 'Deshabilitado', 'DESHABILITADO');
+INSERT INTO `usuario_representante` VALUES (1, 'yosepulveda11@alumnos.utalca.cl', '123456', 'Yorch Sepúlveda', '17824523-6', 'Masculino', 2011407070, 1, 'Habilitado', 3, 1, 'Deshabilitado', 'DESHABILITADO');
 INSERT INTO `usuario_representante` VALUES (2, 'dparedes09@alumnos.utalca.cl', 'Daniela', 'Daniela Paredes', '17820883-7', 'Femenino', 2009407826, 1, 'Habilitado', 4, 1, 'Deshabilitado', 'DESHABILITADO');
 INSERT INTO `usuario_representante` VALUES (7, 'mgonzales13@alumnos.utalca.cl', '123', 'Maria Soledad Gonzalez', '18801120-9', 'Femenino', 2013437888, 3, 'Habilitado', 3, 2, 'Habilitado', 'HABILITADO');
 
@@ -721,7 +721,7 @@ CREATE TABLE `usuario_vicerector`  (
 -- Records of usuario_vicerector
 -- ----------------------------
 INSERT INTO `usuario_vicerector` VALUES (4, 'pcaballero@utalca.cl', '12345', 'Paula Caballero', 'Femenino', 4, 'Vicerrectora de desarrollo estudiantil', 'Deshabilitado', 12345, 'HABILITADO', 5);
-INSERT INTO `usuario_vicerector` VALUES (6, 'yosepulveda@utalca.cl', '12345', 'Yorch Sepúlveda Manríquez', 'Masculino', 4, 'Vicerector de actividades académicas', 'Habilitado', 12345, 'HABILITADO', 5);
+INSERT INTO `usuario_vicerector` VALUES (6, 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'Yorch Sepúlveda', 'Masculino', 4, 'Vicerector de actividades académicas', 'Habilitado', 12345, 'HABILITADO', 5);
 
 -- ----------------------------
 -- Procedure structure for Actualizar_Campus
@@ -1135,6 +1135,38 @@ BEGIN
 	UPDATE usuario_vicerector
 	SET estado = in_estado
 	WHERE id = in_id;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Cambiar_Clave
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Cambiar_Clave`;
+delimiter ;;
+CREATE PROCEDURE `Cambiar_Clave`(`in_tipoUsuario` VARCHAR(256), `in_email` VARCHAR(256), `in_clave` VARCHAR(256))
+BEGIN
+	IF in_tipoUsuario = 'Administrador' THEN
+		UPDATE usuario_administrador
+		SET clave=in_clave
+		WHERE email=in_email
+		ORDER BY id DESC LIMIT 1;
+	ELSEIF in_tipoUsuario = 'Vicerector' THEN
+		UPDATE usuario_vicerector
+		SET clave=in_clave
+		WHERE email=in_email
+		ORDER BY id DESC LIMIT 1;
+	ELSEIF in_tipoUsuario = 'Director' THEN
+		UPDATE usuario_director
+		SET clave=in_clave
+		WHERE email=in_email
+		ORDER BY id DESC LIMIT 1;
+	ELSE
+		UPDATE usuario_representante
+		SET clave=in_clave
+		WHERE email=in_email
+		ORDER BY id DESC LIMIT 1;
+	END IF;
 END
 ;;
 delimiter ;
@@ -1848,6 +1880,38 @@ BEGIN
 	FROM categoria
 	JOIN solcat ON solcat.refCategoria=categoria.id
 	WHERE refSolicitud=in_refSolicitud;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Leer_Correo
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Leer_Correo`;
+delimiter ;;
+CREATE PROCEDURE `Leer_Correo`(`in_tipoUsuario` VARCHAR(256), `in_email` VARCHAR(256))
+BEGIN
+	IF in_tipoUsuario = 'Administrador' THEN
+		SELECT usuario_administrador.*
+		FROM usuario_administrador
+		WHERE email=in_email
+		ORDER BY id DESC LIMIT 1;
+	ELSEIF in_tipoUsuario = 'Vicerector' THEN
+		SELECT  usuario_vicerector.*
+		FROM usuario_vicerector
+		WHERE email=in_email
+		ORDER BY id DESC LIMIT 1;
+	ELSEIF in_tipoUsuario = 'Director' THEN
+		SELECT usuario_director.*
+		FROM usuario_director
+		WHERE email=in_email
+		ORDER BY id DESC LIMIT 1;
+	ELSE
+		SELECT usuario_representante.*
+		FROM usuario_representante
+		WHERE email=in_email
+		ORDER BY id DESC LIMIT 1;
+	END IF;
 END
 ;;
 delimiter ;

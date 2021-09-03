@@ -139,7 +139,23 @@
 
                         <hr>
                         <ul class="list-unstyled user-profile-nav">
-                            <li><a href=""><i class="icon ion-ios-person"></i> Editar perfil</a></li>
+                            @if (HttpContextAccessor.HttpContext.Session.GetString("TipoUsuario").Equals("Administrador"))
+                            {
+                                <li><a asp-controller="Usuario" asp-action="ActualizarPerfilAdministrador"><i class="icon ion-ios-person"></i> Editar perfil</a></li>
+                            }
+                            else if (HttpContextAccessor.HttpContext.Session.GetString("TipoUsuario").Equals("Vicerector"))
+                            {
+                                <li><a asp-controller="Usuario" asp-action="ActualizarPerfilVicerector"><i class="icon ion-ios-person"></i> Editar perfil</a></li>
+                            }
+                            else if (HttpContextAccessor.HttpContext.Session.GetString("TipoUsuario").Equals("Director"))
+                            {
+                                <li><a asp-controller="Usuario" asp-action="ActualizarPerfilDirector"><i class="icon ion-ios-person"></i> Editar perfil</a></li>
+                            }
+                            else
+                            {
+                                <li><a asp-controller="Usuario" asp-action="ActualizarPerfilRepresentante"><i class="icon ion-ios-person"></i> Editar perfil</a></li>
+                            }
+                            <li><a asp-controller="Usuario" asp-action="ModificarClave"><i class="icon ion-key"></i> Cambiar clave</a></li>
                             <li><a asp-controller="Usuario" asp-action="Logout"><i class="icon ion-power"></i> Cerrar sesión</a></li>
                         </ul>
                     </div><!-- dropdown-menu -->
@@ -255,18 +271,22 @@
             if (controlador === 'Resumen')
             {
                 botonMenuActivo = '#resumenMenu';
+                $(botonMenuActivo).addClass('active');
             }
             else if (controlador === 'Proceso' || controlador === 'Solicitud' || controlador === 'Resolucion' || controlador === 'DeclaracionGastos')
             {
                 botonMenuActivo = '#procesoMenu';
+                $(botonMenuActivo).addClass('active');
             }
             else if (controlador === 'Ayuda')
             {
                 botonMenuActivo = '#ayudaMenu';
+                $(botonMenuActivo).addClass('active');
             }
             else if (controlador === 'Categoria')
             {
                 botonMenuActivo = '#categoriasMenu';
+                $(botonMenuActivo).addClass('active');
             }
             else if (controlador === 'Usuario')
             {
@@ -275,38 +295,49 @@
                 if (accion === 'UsuariosAdministradores' || accion === 'CrearUsuarioAdministrador' || accion === 'ActualizarUsuarioAdministrador')
                 {
                     botonSubMenuActivo = '#administradoresMenu';
+                    $(botonSubMenuActivo).addClass('active');
+                    $(botonMenuActivo).addClass('active');
                 }
                 else if (accion === 'UsuariosRepresentantes' || accion === 'CrearUsuarioRepresentante' || accion === 'ActualizarUsuarioRepresentante')
                 {
                     botonSubMenuActivo = '#representantesMenu';
+                    $(botonSubMenuActivo).addClass('active');
+                    $(botonMenuActivo).addClass('active');
                 }
                 else if (accion === 'UsuariosDirectores' || accion === 'CrearUsuarioDirector' || accion === 'ActualizarUsuarioDirector')
                 {
                     botonSubMenuActivo = '#directoresMenu';
+                    $(botonSubMenuActivo).addClass('active');
+                    $(botonMenuActivo).addClass('active');
                 }
-                else
+                else if(accion === 'UsuariosVicerector' || accion === 'CrearUsuarioVicerector' || accion === 'ActualizarUsuarioVicerector')
                 {
                     botonSubMenuActivo = '#vicerectoresMenu';
+                    $(botonSubMenuActivo).addClass('active');
+                    $(botonMenuActivo).addClass('active');
                 }
-                $(botonSubMenuActivo).addClass('active');
             }
             else if (controlador === 'Campus')
             {
                 botonMenuActivo = '#campusMenu';
+                $(botonMenuActivo).addClass('active');
             }
             else if (controlador === 'TipoOE')
             {
                 botonMenuActivo = '#tipoOEMenu';
+                $(botonMenuActivo).addClass('active');
             }
             else if (controlador === 'Institucion')
             {
                 botonMenuActivo = '#institucionMenu';
+                $(botonMenuActivo).addClass('active');
             }
             else if (controlador === 'OrganizacionEstudiantil')
             {
                 botonMenuActivo = '#organizacionEstudiantilMenu';
+                $(botonMenuActivo).addClass('active');
             }
-            $(botonMenuActivo).addClass('active');
+            
         });
     </script>
 </body>

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Actualizar usuario director";
+    ViewData["Title"] = "Editar perfil usuario administrador";
 }
 
 <div class="br-pagetitle row">
@@ -7,7 +7,7 @@
         <div class="input-group-prepend">
             <div class="input-group-text wd-auto" style="border:none;">
                 <i class="icon ion-person-stalker"></i>
-                <h4 style="padding-left:5%">Actualizar usuario director</h4>
+                <h4 style="padding-left:5%">Editar perfil usuario administrador</h4>
             </div>
         </div>
     </div>
@@ -19,7 +19,6 @@
         <div class="form-layout">
 
             <input name="id" class="form-control" id="id" type="hidden">
-            <input name="idOE" class="form-control" id="idOE" type="hidden">
             <div class="row mg-b-25">
                 <div class="form-group wd-auto col-sm-12 col-lg-6">
                     <label class="form-control-label">Nombre:</label>
@@ -29,7 +28,7 @@
                                 <i class="fas fa-map-marked-alt tx-20 lh-0 op-6 fa-fw"></i>
                             </div>
                         </div>
-                        <input name="nombre" required="required" class="form-control" id="nombre" type="text" placeholder="Ingrese el nombre del usuario director" onkeypress="" data-parsley-errors-container="#errorNombre">
+                        <input name="nombre" required="required" class="form-control" id="nombre" type="text" placeholder="Ingrese el nombre del usuario administrador" onkeypress="" data-parsley-errors-container="#errorNombre">
                     </div>
                     <div id="errorNombre"></div>
                 </div>
@@ -42,12 +41,12 @@
                                 <i class="fas fa-at tx-16 lh-0 op-6 fa-fw"></i>
                             </div>
                         </div>
-                        <input autocomplete="off" name="email" required="required" class="form-control" id="email" type="email" placeholder="Ingrese el email del usuario director" onkeypress="" data-parsley-errors-container="#errorEmail">
+                        <input autocomplete="off" name="email" required="required" class="form-control" id="email" type="email" placeholder="Ingrese el email del usuario administrador" onkeypress="" data-parsley-errors-container="#errorEmail" readonly>
                     </div>
                     <div id="errorEmail"></div>
                 </div>
 
-                <div class="form-group wd-auto col-sm-12 col-lg-6">
+                @*<div class="form-group wd-auto col-sm-12 col-lg-6">
                     <label class="form-control-label">Clave (Modifique este campo solo si reseteará): </label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -55,15 +54,15 @@
                                 <i class="fas fa-key tx-16 lh-0 op-6 fa-fw"></i>
                             </div>
                         </div>
-                        <input autocomplete="new-password" name="clave" required="required" class="form-control" id="clave" type="password" placeholder="Ingrese la clave del usuario director" onkeypress="" data-parsley-errors-container="#errorClave">
+                        <input autocomplete="new-password" name="clave" required="required" class="form-control" id="clave" type="password" placeholder="Ingrese la clave del usuario administrador" onkeypress="" data-parsley-errors-container="#errorClave">
                         <div class="input-group-append">
                             <button type="button" id="verClave" class="btn btn-warning btn-flat" onclick="mostrarClave()"><span id="iconoClave" class="fa fa-eye-slash icon"></span></button>
                         </div>
                     </div>
                     <div id="errorClave"></div>
-                </div>
+                </div>*@
 
-                <div class="form-group wd-auto col-lg-6 col-md-12">
+                <div class="form-group wd-auto col-lg-12 col-md-12">
                     <label class="form-control-label">Sexo: </label>
                     <div class="input-group parsley-select" id="sexoMarco">
                         <div class="input-group-prepend">
@@ -71,9 +70,9 @@
                                 <i class="fas fa-venus-mars tx-22 lh-0 op-6 fa-fw"></i>
                             </div>
                         </div>
-                        <select name="sexo" class="form-control required" data-placeholder="Seleccione el sexo del usuario director" id="sexo"
-                                data-parsley-class-handler="#sexoMarco" data-parsley-errors-container="#errorSexo" required>
-                            <option selected disabled>Seleccione el sexo del usuario director</option>
+                        <select name="sexo" class="form-control required" data-placeholder="Seleccione el sexo del usuario administrador" id="sexo"
+                                data-parsley-class-handler="#campusMarco" data-parsley-errors-container="#errorSexo" required>
+                            <option selected disabled>Seleccione el sexo del usuario administrador</option>
                             <option value="Femenino">Femenino</option>
                             <option value="Masculino">Masculino</option>
                         </select>
@@ -81,41 +80,31 @@
                     <div id="errorSexo"></div>
                 </div>
 
-                <div class="form-group wd-auto col-sm-12 col-lg-6">
-                    <label class="form-control-label">Cargo:</label>
-                    <div class="input-group">
+                <div class="form-group wd-auto col-lg-12 col-md-12">
+                    <label class="form-control-label">Campus: </label>
+                    <div class="input-group parsley-select" id="campusMarco">
                         <div class="input-group-prepend">
                             <div class="input-group-text wd-xs-45">
-                                <i class="fas fa-user-tag tx-20 lh-0 op-6 fa-fw"></i>
+                                <i class="fas fa-map-marked-alt tx-22 lh-0 op-6 fa-fw"></i>
                             </div>
                         </div>
-                        <input name="cargo" required="required" class="form-control" id="cargo" type="text" placeholder="Ingrese el cargo del usuario director" onkeypress="" data-parsley-errors-container="#errorCargo">
+                        <select name="campus" class="form-control required" data-placeholder="Seleccione el campus al que pertenece el usuario administrador" id="campus"
+                                data-parsley-class-handler="#campusMarco" data-parsley-errors-container="#errorCampus" required>
+                            <option selected disabled>Seleccione el campus al que pertenece el usuario administrador</option>
+                        </select>
                     </div>
-                    <div id="errorCargo"></div>
-                </div>
-
-                <div class="form-group wd-auto col-sm-12 col-lg-6">
-                    <label class="form-control-label">Fono anexo:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text wd-xs-45">
-                                <i class="fas fa-phone tx-20 lh-0 op-6 fa-fw"></i>
-                            </div>
-                        </div>
-                        <input name="fonoAnexo" required="required" class="form-control" id="fonoAnexo" type="text" placeholder="Ingrese el fono anexo del usuario director" onkeypress="" data-parsley-errors-container="#errorFonoAnexo">
-                    </div>
-                    <div id="errorFonoAnexo"></div>
+                    <div id="errorCampus"></div>
                 </div>
             </div>
             <div class="form-layout-footer">
                 <div class="row" id="acciones">
                     <div class="form-group  col-lg-6 col-md-6 col-sm-12">
-                        <button class="btn btn-secondary" id="guardar" style="width:100%" onclick="volverDirectores()">
+                        <button class="btn btn-secondary" id="guardar" style="width:100%" onclick="volverOEAdmin()">
                             <i class="fas fa-window-close"></i> Cancelar
                         </button>
                     </div>
                     <div class="form-group  col-lg-6 col-md-6 col-sm-12">
-                        <button class="modal-effect btn btn-warning tx-transform-none" id="modificar" data-effect="effect-just-me" style="width:100%" onclick="modificarUsuarioDirector()">
+                        <button class="modal-effect btn btn-warning tx-transform-none" id="modificar" data-effect="effect-just-me" style="width:100%" onclick="modificarUsuarioAdministrador()">
                             <i class="fas fa-pen-square"></i> Modificar
                         </button>
                     </div>
@@ -144,7 +133,7 @@
                 </div>
 
                 <div>
-                    <h4 class="tx-warning" tx-semibold mg-b-20" id="title-alerta-modificar">Modificar usuario director</h4>
+                    <h4 class="tx-warning" tx-semibold mg-b-20" id="title-alerta-modificar">Modificar usuario administrador</h4>
                     <h4 class="tx-danger" tx-semibold mg-b-20" id="title-alerta-problemas"></h4>
                 </div>
 
@@ -171,7 +160,7 @@
         
         $(document).ready(function ()
         {
-            obtenerDirector();
+            mainActualizarAdministrador()
         });
         function mostrarClave()
         {

@@ -74,9 +74,6 @@
                         </div>
                     </div><!-- form-group -->
 
-
-
-
                     <div class="form-group">
                         <input type="email" class="form-control fc-outline-dark" name="email" placeholder="Ingrese su correo" autocomplete="off" required>
                     </div><!-- form-group -->
@@ -89,9 +86,8 @@
                     </div><!-- form-group -->
                     <button type="submit" class="btn btn-info btn-block">Entrar</button>
                 </form>
-
-                <div><a href="" class="tx-info tx-center tx-12 d-block mg-t-10">¿Olvidó su clave?</a></div>
-                <!--div class="mg-t-60 tx-center">Not yet a member? <a href="" class="tx-info">Sign Up</a></div-->
+                <div><a asp-controller="Usuario" asp-action="CambiarClave" class="tx-info tx-center tx-12 d-block mg-t-10">¿Olvidó su clave?</a></div>
+                    <!--div class="mg-t-60 tx-center">Not yet a member? <a href="" class="tx-info">Sign Up</a></div-->
             </div><!-- login-wrapper -->
         </div><!-- overlay-body -->
     </div><!-- d-flex -->

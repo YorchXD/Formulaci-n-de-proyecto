@@ -885,31 +885,15 @@ namespace SimRend.DbSimRend
             return false;
         }
 
-        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /**
-         * Funciones aun sin ocupar
-         **/
-
-        public static String Leer_Correo(string Email)
+        public static String Leer_Correo(String Email, String TipoUsuario)
         {
             try
             {
-                var command = new MySqlCommand() { CommandText = "leer_Correo", CommandType = System.Data.CommandType.StoredProcedure };
+                var command = new MySqlCommand() { CommandText = "Leer_Correo", CommandType = System.Data.CommandType.StoredProcedure };
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_email", Direction = System.Data.ParameterDirection.Input, Value = Email });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_tipoUsuario", Direction = System.Data.ParameterDirection.Input, Value = TipoUsuario });
+
                 var datos = ContexDb.GetDataSet(command);
                 if (datos.Tables[0].Rows.Count == 1)
                 {
@@ -925,12 +909,13 @@ namespace SimRend.DbSimRend
             return null;
         }
 
-        public static void Cambiar_clave(string Email, string Clave)
+        public static void Cambiar_clave(string TipoUsuario, string Email, string Clave)
         {
             try
             {
-                var command = new MySqlCommand() { CommandText = "cambiar_clave", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_correo", Direction = System.Data.ParameterDirection.Input, Value = Email });
+                var command = new MySqlCommand() { CommandText = "Cambiar_Clave", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_tipoUsuario", Direction = System.Data.ParameterDirection.Input, Value = TipoUsuario });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_email", Direction = System.Data.ParameterDirection.Input, Value = Email });
                 command.Parameters.Add(new MySqlParameter() { ParameterName = "in_clave", Direction = System.Data.ParameterDirection.Input, Value = Clave });
                 var datos = ContexDb.ExecuteProcedure(command);
             }
@@ -939,7 +924,5 @@ namespace SimRend.DbSimRend
                 Console.WriteLine(ex.ToString());
             }
         }
-
-        /*Fin consultas de usuario*/
     }
 }

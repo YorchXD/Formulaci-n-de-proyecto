@@ -269,7 +269,7 @@ function obtenerOEs()
                 oes = respuesta;
             }
            
-            if (respuesta != null && respuesta.length > 0 && accion != 'ActualizarUsuarioRepresentante')
+            if (respuesta != null && respuesta.length > 0 && accion != 'ActualizarUsuarioRepresentante' && accion != 'ActualizarPerfilRepresentante')
             {
                 $('#oe').removeAttr('disabled');
             }
@@ -505,7 +505,16 @@ function confirmacionModificar()
                 {
                     $('#icon-modificar-success').show();
                     $('#body-alerta').text(respuesta.msj).show();
-                    var botonAceptar = '<button type="button" id="volverOES" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="volverDirectores()">Aceptar</button >';
+                    var accion = window.location.pathname.split("/")[2];
+
+                    if (accion === "ActualizarPerfilDirector")
+                    {
+                        var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="actualizarDatos()">Aceptar</button >';
+                    }
+                    else
+                    {
+                        var botonAceptar = '<button type="button" id="volverOES" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="volverDirectores()">Aceptar</button >';
+                    }                    
                 }
                 else
                 {
@@ -1290,7 +1299,16 @@ function confirmacionModificarRepresentante()
                 {
                     $('#icon-modificar-success').show();
                     $('#body-alerta').text(respuesta.msj).show();
-                    var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="volverRepresentantes()">Aceptar</button >';
+                    var accion = window.location.pathname.split("/")[2];
+
+                    if (accion === "ActualizarPerfilRepresentante")
+                    {
+                        var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="actualizarDatos()">Aceptar</button >';
+                    }
+                    else
+                    {
+                        var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="volverRepresentantes()">Aceptar</button >';
+                    }
                 }
                 else
                 {
@@ -1756,7 +1774,16 @@ function confirmacionModificarVicerector()
                 {
                     $('#icon-modificar-success').show();
                     $('#body-alerta').text(respuesta.msj).show();
-                    var botonAceptar = '<button type="button" id="volverVicerectores" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="volverVicerectores()">Aceptar</button >';
+                    var accion = window.location.pathname.split("/")[2];
+
+                    if (accion === "ActualizarPerfilVicerector")
+                    {
+                        var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="actualizarDatos()">Aceptar</button >';
+                    }
+                    else
+                    {
+                        var botonAceptar = '<button type="button" id="volverVicerectores" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="volverVicerectores()">Aceptar</button >';
+                    }
                 }
                 else
                 {
@@ -2073,13 +2100,6 @@ async function mainActualizarAdministrador()
 
 
 
-
-
-
-
-
-
-
 function modificarUsuarioAdministrador()
 {
     $('#icon-problema').hide();
@@ -2135,7 +2155,17 @@ function confirmacionModificarAdministrador()
                 {
                     $('#icon-modificar-success').show();
                     $('#body-alerta').text(respuesta.msj).show();
-                    var botonAceptar = '<button type="button" id="volverOES" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="volverAdministradores()">Aceptar</button >';
+
+                    var accion = window.location.pathname.split("/")[2];
+
+                    if (accion === "ActualizarPerfilAdministrador")
+                    {
+                        var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="actualizarDatos()">Aceptar</button >';
+                    }
+                    else
+                    {
+                        var botonAceptar = '<button type="button" id="volverOES" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="volverAdministradores()">Aceptar</button >';
+                    }                    
                 }
                 else
                 {
@@ -2169,6 +2199,113 @@ function confirmacionModificarAdministrador()
         $('#title-alerta-modificar').hide();
         $('#icon-problema').show();
         $('#title-alerta-problemas').text('Problemas para modificar al usuario administrador').show();
+        $('#body-alerta').text("Existen campos incompletos. Favor verificar que todos los campos esten con datos y vuelva a intentarlo.").show();
+        botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+        $('#actions-alerta').empty().append(botonAceptar);
+    }
+}
+
+function actualizarDatos()
+{
+    window.location.href = '/Usuario/ActualizarDatosTemporales';
+}
+
+function volverProcesos()
+{
+    window.location.href = '/Proceso/Procesos';
+}
+
+function volverProcesosVicerector()
+{
+    window.location.href = '/Proceso/OrganizacionesEstudiantiles';
+}
+
+function volverOEAdmin()
+{
+    window.location.href = '/OrganizacionEstudiantil/OrganizacionesEstudiantiles';
+}
+
+function volverLogin()
+{
+    window.location.href = '/Usuario/Login';
+}
+
+function modificarClave()
+{
+    $('#icon-problema').hide();
+    $('#icon-modificar').hide();
+    $('#icon-modificar-success').hide();
+
+    $('#title-alerta-problemas').hide();
+    $('#title-alerta-modificar').hide();
+
+    $('#body-alerta').hide();
+
+    $('#icon-modificar').show();
+    $('#title-alerta-modificar').show();
+
+    $('#body-alerta').text('¿Está seguro que desea modificar la clave?').show();
+
+    var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
+    var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionModificarClave()">Aceptar</button>';
+    $('#actions-alerta').empty().append(botonCancelar);
+    $('#actions-alerta').append(botonAceptar);
+    $('#modal-alert').modal('show');
+}
+
+function confirmacionModificarClave()
+{
+    $('#icon-modificar').hide();
+
+    var claveActual = $('#claveActual').parsley();
+    var nuevaClave = $('#nuevaClave').parsley();
+    var confirmacionNuevaClave = $('#confirmacionNuevaClave').parsley();
+
+
+    if (claveActual.isValid() && nuevaClave.isValid() && confirmacionNuevaClave.isValid())
+    {
+        var datos = {
+            'ClaveActual': $("#claveActual").val(),
+            'NuevaClave': $("#nuevaClave").val(),
+            'ConfirmacionNuevaClave': $("#confirmacionNuevaClave").val(),
+        };
+
+        $.ajax({
+            url: "/Usuario/ActualizarClave",
+            method: "POST",
+            data: datos,
+            async: false,
+            success: function (respuesta)
+            {
+                var botonAceptar;
+                if (respuesta.validar)
+                {
+                    $('#icon-modificar-success').show();
+                    $('#body-alerta').text(respuesta.msj).show();
+
+                    var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="volverLogin()">Aceptar</button >';
+                }
+                else
+                {
+                    $('#title-alerta-modificar').hide();
+                    $('#icon-problema').show();
+                    $('#title-alerta-problemas').text('Problemas para modificar la clave').show();
+                    $('#body-alerta').text(respuesta.msj).show();
+                    botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+                }
+                $('#actions-alerta').empty().append(botonAceptar);
+            }
+        });
+    }
+    else
+    {
+        claveActual.validate();
+        nuevaClave.validate();
+        confirmacionNuevaClave.validate();
+
+        $('#title-alerta-modificar').hide();
+        $('#icon-problema').show();
+        $('#title-alerta-problemas').text('Problemas para modificar la clave').show();
         $('#body-alerta').text("Existen campos incompletos. Favor verificar que todos los campos esten con datos y vuelva a intentarlo.").show();
         botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
         $('#actions-alerta').empty().append(botonAceptar);

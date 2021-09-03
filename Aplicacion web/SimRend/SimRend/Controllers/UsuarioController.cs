@@ -19,6 +19,11 @@ namespace SimRend.Controllers
             return View();
         }
 
+        public IActionResult CambiarClave()
+        {
+            return View();
+        }
+
         public IActionResult UsuariosRepresentantes()
         {
             return View();
@@ -59,9 +64,20 @@ namespace SimRend.Controllers
             return View();
         }
 
+        public IActionResult ModificarClave()
+        {
+            return View();
+        }
 
         public IActionResult ActualizarUsuarioDirector()
         {
+            return View();
+        }
+
+        public IActionResult ActualizarPerfilDirector()
+        {
+            int Id = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario").Id;
+            HttpContext.Session.SetComplexData("IdUsuarioDirector", Id);
             return View();
         }
 
@@ -70,13 +86,34 @@ namespace SimRend.Controllers
             return View();
         }
 
+        public IActionResult ActualizarPerfilRepresentante()
+        {
+            int Id = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario").Id;
+            HttpContext.Session.SetComplexData("IdUsuarioRepresentante", Id);
+            return View();
+        }
+
         public IActionResult ActualizarUsuarioVicerector()
         {
             return View();
         }
 
+        public IActionResult ActualizarPerfilVicerector()
+        {
+            int Id = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario").Id;
+            HttpContext.Session.SetComplexData("IdUsuarioVicerector", Id);
+            return View();
+        }
+
         public IActionResult ActualizarUsuarioAdministrador()
         {
+            return View();
+        }
+
+        public IActionResult ActualizarPerfilAdministrador()
+        {
+            int Id = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario").Id;
+            HttpContext.Session.SetComplexData("IdUsuarioAdministrador", Id);
             return View();
         }
 
@@ -738,6 +775,122 @@ namespace SimRend.Controllers
             };
 
             return Json(datos);
+        }
+        [HttpPost]
+        public JsonResult RecuperarClave(String email, String tipoUsuario)
+        {
+            string obtenerEmail = ConsultaUsuario.Leer_Correo(email, tipoUsuario);
+            String msj;
+            bool validar = false;
+            if (obtenerEmail != null && obtenerEmail.Equals(email))
+            {
+                string clave = RandomPassword.Generate(8);
+                ConsultaUsuario.Cambiar_clave(tipoUsuario, email, clave);
+                EmailSender.Send(email, "Cambio de clave", "Su nueva clave temporal es: " + clave);
+                validar = true;
+                msj = "Se ha enviado una clave temporal a su correo exitosamente. Recuerde modificar su clave.";
+            }
+            else
+            {
+                msj = "No se ha podido generar una clave temporal. Verifique que los datos ingresados sean correcto o que tenga conexión a internet e intentelo nuevamente. Si el problema persiste favor de contactarse con soporte.";
+            }
+
+            var datos = new
+            {
+                validar,
+                msj
+            };
+
+            return Json(datos);
+
+        }
+
+        [HttpGet]
+        public IActionResult ActualizarDatosTemporales()
+        {
+            try
+            {
+                String tipoUsuario = HttpContext.Session.GetString("TipoUsuario");
+                Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+
+                usuario = ConsultaUsuario.IniciarSesion(usuario.Email, usuario.Clave, tipoUsuario);
+
+                HttpContext.Session.SetComplexData("DatosUsuario", usuario);
+                HttpContext.Session.SetString("Nombre", usuario.Nombre.Split(" ")[0]);
+                HttpContext.Session.SetString("NombreUsuario", usuario.Nombre);
+                HttpContext.Session.SetString("Email", usuario.Email);
+                HttpContext.Session.SetString("Cargo", usuario.Rol.Nombre);
+
+
+                if (tipoUsuario.Equals("Administrador"))
+                {
+                    return RedirectToAction("OrganizacionesEstudiantiles", "OrganizacionEstudiantil");
+                }
+                else if (tipoUsuario.Equals("Vicerector"))
+                {
+                    return RedirectToAction("OrganizacionesEstudiantiles", "Proceso");
+                }
+                else
+                {
+                    return RedirectToAction("Procesos", "Proceso");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+            return RedirectToAction("Usuario", "Login");
+        }
+
+        [HttpPost]
+        public JsonResult ActualizarClave(String ClaveActual, String NuevaClave, String ConfirmacionNuevaClave)
+        {
+            String tipoUsuario = HttpContext.Session.GetString("TipoUsuario");
+            Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
+            bool validar = false;
+            String msj;
+
+            if (NuevaClave.Equals(ConfirmacionNuevaClave))
+            {
+                if(ClaveActual.Equals(usuario.Clave))
+                {
+                    if(!ClaveActual.Equals(NuevaClave))
+                    {
+                        ConsultaUsuario.Cambiar_clave(tipoUsuario, usuario.Email, NuevaClave);
+                        EmailSender.Send(usuario.Email, "Cambio de clave", "Su nueva clave es: " + NuevaClave);
+                        validar = true;
+                        msj = "Su clave se ha modificado y se envió un respaldo a su correo.";
+                    }
+                    else
+                    {
+                        msj = "No se ha podido modificar la clave debido a que la clave actual es la misma que la nueva clave. Favor de verificar los campos y vuelva a intentarlo";
+
+                    }
+
+                }
+                else
+                {
+                    msj = "No se ha podido modificar la clave debido a que la clave actual es incorrecta. Favor de verificar los campos y vuelva a intentarlo";
+
+                }
+
+            }
+            else
+            {
+                msj = "No se ha podido modificar la clave debido a que la nueva clave y su confirmación no son iguales. Favor de verificar los campos y vuelva a intentarlo";
+
+            }
+
+            var datos = new
+            {
+                validar,
+                msj
+            };
+
+            return Json(datos);
+
         }
     }
 }
