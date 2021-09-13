@@ -56,7 +56,13 @@ function obtenerSolicitud()
         success: function (respuesta)
         {
             datosPrincipalesSolicitud(respuesta.solicitud);
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            $('#modal-alerta').modal('show');
+        } 
     });
 }
 
@@ -70,7 +76,13 @@ function obtenerResolucion()
         success: function (respuesta)
         {
             datosResolucion(respuesta.resolucion);
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            $('#modal-alerta').modal('show');
+        } 
     });
 }
 
@@ -136,8 +148,6 @@ $("#resolucion").on("change",function ()
     } 
 });
 
-
-
 $('#btnConfirmarGuardar').click(function ()
 {
     var datos = new FormData();
@@ -171,6 +181,12 @@ $('#btnConfirmarGuardar').click(function ()
                 $('#body-alerta').text(respuesta.msj);
                 $('#modal-alerta').modal('show');
             }
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            $('#modal-alerta').modal('show');
+        } 
     });
 });

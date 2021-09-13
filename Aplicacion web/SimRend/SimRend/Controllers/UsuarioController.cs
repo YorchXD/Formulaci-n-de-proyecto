@@ -8,6 +8,7 @@ using SimRend.DbSimRend;
 using Microsoft.AspNetCore.Http;
 using System.Diagnostics;
 using MySqlX.XDevAPI;
+using SimRend.Filters;
 
 namespace SimRend.Controllers
 {
@@ -24,41 +25,49 @@ namespace SimRend.Controllers
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 14)]
         public IActionResult UsuariosRepresentantes()
         {
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 14)]
         public IActionResult UsuariosDirectores()
         {
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 14)]
         public IActionResult UsuariosVicerectores()
         {
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 14)]
         public IActionResult UsuariosAdministradores()
         {
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 13)]
         public IActionResult CrearUsuarioRepresentante()
         {
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 13)]
         public IActionResult CrearUsuarioDirector()
         {
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 13)]
         public IActionResult CrearUsuarioVicerector()
         {
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 13)]
         public IActionResult CrearUsuarioAdministrador()
         {
             return View();
@@ -69,6 +78,7 @@ namespace SimRend.Controllers
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 15)]
         public IActionResult ActualizarUsuarioDirector()
         {
             return View();
@@ -81,6 +91,7 @@ namespace SimRend.Controllers
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 15)]
         public IActionResult ActualizarUsuarioRepresentante()
         {
             return View();
@@ -93,6 +104,7 @@ namespace SimRend.Controllers
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 15)]
         public IActionResult ActualizarUsuarioVicerector()
         {
             return View();
@@ -105,6 +117,7 @@ namespace SimRend.Controllers
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 15)]
         public IActionResult ActualizarUsuarioAdministrador()
         {
             return View();
@@ -187,6 +200,7 @@ namespace SimRend.Controllers
             return View();
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 14)]
         [HttpGet]
         public JsonResult LeerDirectores()
         {
@@ -216,7 +230,7 @@ namespace SimRend.Controllers
             
             return Json(OEs);
         }
-
+        [AutorizacionUsuarioJS(idOperacion: 16)]
         [HttpDelete]
         public JsonResult EliminarDirector(int IdDirector)
         {
@@ -243,6 +257,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 13)]
         [HttpPost]
         public JsonResult RegistrarUsuarioDirector(String Nombre, String Email, String Clave, String Sexo, String Cargo, int FonoAnexo,  int IdOE)
         {
@@ -344,12 +359,14 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 15)]
         [HttpPost]
         public JsonResult HabilitarUsuarioDirector(int IdUsuarioDirector, String Estado)
         {
             return Json(ConsultaUsuario.HabilitarUsuarioDirector(IdUsuarioDirector, Estado));
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 14)]
         [HttpGet]
         public JsonResult LeerRepresentantes(int IdCampus, int IdOE, int IdRol)
         {
@@ -357,6 +374,7 @@ namespace SimRend.Controllers
             return Json(Representantes);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 15)]
         [HttpPost]
         public JsonResult HabilitarUsuarioRepresentante(int IdUsuarioRepresentante, String Estado)
         {
@@ -377,6 +395,7 @@ namespace SimRend.Controllers
             return Json(campus);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 16)]
         [HttpDelete]
         public JsonResult EliminarRepresentante(int IdRepresentante)
         {
@@ -403,7 +422,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
-
+        [AutorizacionUsuarioJS(idOperacion: 13)]
         [HttpPost]
         public JsonResult RegistrarUsuarioRepresentante(String Nombre, String Run, int Matricula, String Email, String Clave, String Sexo, int IdRol, int IdOE, int IdInstitucion)
         {
@@ -513,19 +532,21 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 14)]
         [HttpGet]
         public JsonResult LeerVicerectores()
         {
             List<UsuarioVicerector> Vicerrectores = ConsultaUsuario.LeerVicerectores();
             return Json(Vicerrectores);
         }
-
+        [AutorizacionUsuarioJS(idOperacion: 15)]
         [HttpPost]
         public JsonResult HabilitarUsuarioVicerector(int IdUsuarioVicerector, String Estado)
         {
             return Json(ConsultaUsuario.HabilitarUsuarioVicerector(IdUsuarioVicerector, Estado));
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 16)]
         [HttpDelete]
         public JsonResult EliminarVicerector(int IdVicerector)
         {
@@ -552,6 +573,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 13)]
         [HttpPost]
         public JsonResult RegistrarUsuarioVicerector(String Nombre, String Email, String Clave, String Sexo, String Cargo, int FonoAnexo)
         {
@@ -653,6 +675,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 14)]
         [HttpGet]
         public JsonResult LeerAdministradores()
         {
@@ -660,6 +683,7 @@ namespace SimRend.Controllers
             return Json(Administradores);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 16)]
         [HttpDelete]
         public JsonResult EliminarAdministrador(int IdAdministrador)
         {
@@ -686,6 +710,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 13)]
         [HttpPost]
         public JsonResult RegistrarUsuarioAdministrador(String Nombre, String Email, String Clave, String Sexo, int Campus)
         {
@@ -735,7 +760,7 @@ namespace SimRend.Controllers
         }
 
 
-
+        [AutorizacionUsuarioJS(idOperacion: 15)]
         [HttpPost]
         public JsonResult ActualizarUsuarioAdministrador(String Nombre, String Email, String Clave, String Sexo, int Campus,int Id)
         {

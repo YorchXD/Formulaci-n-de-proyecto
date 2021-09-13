@@ -241,7 +241,13 @@
                 success: function (respuesta)
                 {
                     datosPrincipalesSolicitud(respuesta.solicitud);
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         }
 
@@ -255,7 +261,13 @@
                 success: function (respuesta)
                 {
                     datosResolucion(respuesta.resolucion);
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         }
 
@@ -340,7 +352,13 @@
                         $('#body-alerta').text(respuesta.msj);
                         $('#modal-alerta').modal('show');
                     }
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         });
     </script>

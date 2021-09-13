@@ -125,7 +125,17 @@ function confirmacionCrear()
                 botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
             }
             $('#actions-alerta').empty().append(botonAceptar);
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta-crear').hide();
+            $('#icon-problema').show();
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+            $('#actions-alerta').empty().append(botonAceptar);
+            $('#modal-alerta').modal('show');
+        } 
     });
 }
 
@@ -213,7 +223,17 @@ function confirmacionEditar()
                 botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
             }
             $('#actions-alerta').empty().append(botonAceptar);
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta-editar').hide();
+            $('#icon-problema').show();
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+            $('#actions-alerta').empty().append(botonAceptar);
+            $('#modal-alerta').modal('show');
+        } 
     });
 }
 
@@ -285,6 +305,16 @@ function confirmacionEliminar()
             }
             botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
             $('#actions-alerta').empty().append(botonAceptar);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta-eliminar').hide();
+            $('#icon-problema').show();
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+            $('#actions-alerta').empty().append(botonAceptar);
+            $('#modal-alerta').modal('show');
         }
     });
 }

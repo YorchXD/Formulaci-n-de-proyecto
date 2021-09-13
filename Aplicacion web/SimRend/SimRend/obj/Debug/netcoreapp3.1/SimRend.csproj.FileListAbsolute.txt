@@ -95,3 +95,5 @@ D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debu
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ActualizarPerfilVicerector.cshtml.g.cs
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ActualizarPerfilRepresentante.cshtml.g.cs
 D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ModificarClave.cshtml.g.cs
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\bin\Debug\netcoreapp3.1\libwkhtmltox.dylib
+D:\Repositorios\Formulación de proyecto\Aplicacion web\SimRend\SimRend\bin\Debug\netcoreapp3.1\libwkhtmltox.so

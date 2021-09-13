@@ -71,6 +71,7 @@ namespace SimRend.Controllers
         
 
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 1)]
         public JsonResult AgregarCategoria(int IdCategoria, string NombreCategoria)
         {
             try
@@ -103,6 +104,7 @@ namespace SimRend.Controllers
         }
 
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 1)]
         public JsonResult AgregarParticipante(String Nombre, String RUN)
         {
             try
@@ -153,6 +155,7 @@ namespace SimRend.Controllers
 
         /*#######################################Proceso de Lecturas###################################################*/
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 2)]
         public JsonResult LeerParticipante(String RUN)
         {
             /*Buscar participante si es que existe en la solicitud*/
@@ -180,6 +183,7 @@ namespace SimRend.Controllers
         }
 
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 2)]
         public JsonResult LeerRepresentantesHabilitados()
         {
             //Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
@@ -202,6 +206,7 @@ namespace SimRend.Controllers
         }
 
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 2)]
         public JsonResult LeerRepresentantesHabilitadosActualizar(int IdResponsable)
         {
             //Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
@@ -227,6 +232,7 @@ namespace SimRend.Controllers
 
         /*Muestra las categorias que aun no han sido registradas en la solicitud*/
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 2)]
         public JsonResult LeerCategorias()
         {
             //Solicitud solicitud = HttpContext.Session.GetComplexData<Solicitud>("Solicitud");
@@ -259,6 +265,7 @@ namespace SimRend.Controllers
         }
 
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 2)]
         public JsonResult LeerCategoriasSeleccionadas()
         {
             //Solicitud solicitud = HttpContext.Session.GetComplexData<Solicitud>("Solicitud");
@@ -275,6 +282,7 @@ namespace SimRend.Controllers
         }
 
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 2)]
         public JsonResult LeerSolicitud()
         {
             //Solicitud solicitud = HttpContext.Session.GetComplexData<Solicitud>("Solicitud");
@@ -315,6 +323,7 @@ namespace SimRend.Controllers
         }
 
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 2)]
         public JsonResult LeerParticipantes()
         {
             //Solicitud solicitud = HttpContext.Session.GetComplexData<Solicitud>("Solicitud");
@@ -345,6 +354,7 @@ namespace SimRend.Controllers
         /// <param name="TipoEvento"></param>
         /// <returns></returns>
         [HttpPost]
+
         public JsonResult GuardarDatosPrincipales(String NombreEvento, String LugarEvento, int Monto, DateTime FechaInicio, DateTime FechaTermino, int IdResponsable, String TipoEvento)
         {
             try
@@ -468,6 +478,7 @@ namespace SimRend.Controllers
             return false;
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 3)]
         public JsonResult ActualizarEstadoProceso()
         {
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
@@ -481,6 +492,7 @@ namespace SimRend.Controllers
             return Json(validar);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 3)]
         public JsonResult ActualizarParticipante(String Run, String Nombre)
         {
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
@@ -495,6 +507,7 @@ namespace SimRend.Controllers
         /*#######################################Proceso de Eliminar###################################################*/
 
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 4)]
         public JsonResult EliminarCategoria(int IdCategoria)
         {
             //Solicitud solicitud = HttpContext.Session.GetComplexData<Solicitud>("Solicitud");
@@ -509,6 +522,7 @@ namespace SimRend.Controllers
         }
 
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 4)]
         public JsonResult EliminarParticipante(String IdParticipante)
         {
             //Solicitud solicitud = HttpContext.Session.GetComplexData<Solicitud>("Solicitud");
@@ -523,6 +537,7 @@ namespace SimRend.Controllers
         }
 
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 4)]
         public JsonResult EliminarSolicitud()
         {
             Boolean validar;
@@ -562,10 +577,11 @@ namespace SimRend.Controllers
         /*###################################Fin Proceso de Eliminar###################################################*/
 
         [HttpGet]
+        [AutorizacionUsuarioJS(idOperacion: 2)]
         public FileResult DescargarSolicitud()
         {
             Proceso proceso = obtenerProceso();
-            var convertidor = new SynchronizedConverter(new PdfTools());
+            //var convertidor = new SynchronizedConverter(new PdfTools());
             //var convertidor = new BasicConverter(new PdfTools());
             var globalSettings = new GlobalSettings
             {
@@ -594,7 +610,8 @@ namespace SimRend.Controllers
                 Objects = { objectSettings }
             };
             //var file = _converter.Convert(pdf);
-            byte[] file = convertidor.Convert(pdf);
+            byte[] file = _converter.Convert(pdf);
+            //byte[] file = convertidor.Convert(pdf);
             return File(file, "application/pdf", "Soliciud.pdf");
         }
 

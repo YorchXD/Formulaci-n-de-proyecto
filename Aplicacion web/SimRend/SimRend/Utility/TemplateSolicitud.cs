@@ -43,10 +43,10 @@ namespace SimRend.Utility
                 }
                 else
                 {
-                    pagina += "<P style='line-height:1px'><B>Sr. " + proceso.Direccion.Nombre + "/B></P>";
+                    pagina += "<P style='line-height:1px'><B>Sr. " + proceso.Direccion.Nombre + "</B></P>";
                 }
                 pagina += "<P style='line-height:3px'><I>" + proceso.Direccion.Cargo + "</I></P>";
-                pagina += "<P style='line-height:3px'><I>" + proceso.Direccion.Organizacion.Institucion.Nombre + "</I></P>";
+                pagina += "<P style='line-height:3px'><I>" + proceso.Direccion.Institucion.Nombre + "</I></P>";
             }
 
             pagina += "<P style='line-height:1px'><I>Universidad de Talca</I></P><P style='line-height:1px'><B><U>Presente.</U></B></P></DIV><DIV style='text-align:justify'><P>De nuestra consideración:</P>";

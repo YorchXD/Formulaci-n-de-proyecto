@@ -4,27 +4,32 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SimRend.DbSimRend;
+using SimRend.Filters;
 using SimRend.Models;
 
 namespace SimRend.Controllers
 {
     public class OrganizacionEstudiantilController : Controller
     {
+        [AutorizacionUsuario(idOperacion: 30)]
         public IActionResult OrganizacionesEstudiantiles()
         {
             return View();
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 29)]
         public IActionResult CrearOE()
         {
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 31)]
         public IActionResult ActualizarOE()
         {
             return View();
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 30)]
         [HttpPost]
         public JsonResult LeerOrganizaciones()
         {
@@ -32,6 +37,7 @@ namespace SimRend.Controllers
             return Json(Organizaciones);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 30)]
         [HttpGet]
         public JsonResult ObtenerDatosPrincipales()
         {
@@ -50,6 +56,7 @@ namespace SimRend.Controllers
             return Json(new object());
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 29)]
         [HttpPost]
         public JsonResult RegistrarOE(String Nombre, String Email, int IdCampus, int IdTipoOE, int IdInstitucion)
         {
@@ -90,6 +97,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 31)]
         [HttpPost]
         public JsonResult ModificarOE(String Nombre, String Email, int IdCampus, int IdTipoOE, int IdOE, int IdInstitucion)
         {
@@ -142,6 +150,7 @@ namespace SimRend.Controllers
             HttpContext.Session.SetComplexData("IdOE", IdOE);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 30)]
         [HttpGet]
         public JsonResult LeerOE()
         {
@@ -149,6 +158,7 @@ namespace SimRend.Controllers
             return Json(ConsultaOrganizacionEstudiantil.LeerOE(IdOE));
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 32)]
         [HttpDelete]
         public JsonResult EliminarOE(int IdOE)
         {

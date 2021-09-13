@@ -9,7 +9,7 @@ namespace SimRend.Models
     {
         public int Id { get; set; }
         public UsuarioRepresentante Responsable { get; set; }
-        public UsuarioDirector Direccion { get; set; }
+        public Direccion Direccion { get; set; }
         public Organizacion Organizacion { get; set; }
         public int Estado { get; set; }
         public String EstadoFinal { get; set; }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SimRend.Filters;
 using SimRend.Models;
 
 namespace SimRend.DbSimRend
@@ -18,34 +19,40 @@ namespace SimRend.DbSimRend
         {
             _webHostEnvironment = webHostEnvironment;
         }
+
+        [AutorizacionUsuario(idOperacion: 10)]
         public IActionResult VerDeclaracionGastos()
         {
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 10)]
         public IActionResult DocumentacionPersonas()
         {
             HttpContext.Session.SetComplexData("IdParticipante", null);
             HttpContext.Session.SetComplexData("IdDocumento", null);
             return View();
         }
-
+        [AutorizacionUsuario(idOperacion: 10)]
         public IActionResult Documentos()
         {
             HttpContext.Session.SetComplexData("IdDocumento", null);
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 9)]
         public IActionResult CrearDocumento()
         {
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 10)]
         public IActionResult VerDocumento()
         {
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 11)]
         public IActionResult ActualizarDocumento()
         {
             return View();
@@ -66,6 +73,7 @@ namespace SimRend.DbSimRend
             return Json(new object());
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 9)]
         [HttpPost]
         public JsonResult CrearDeclaracionDocumento(String CodigoDocumento, String Proveedor, DateTime FechaDocumento, int Monto,
             String DescripcionDocumento, int Categoria, String TipoDocumento, IFormFile Archivo)
@@ -178,6 +186,7 @@ namespace SimRend.DbSimRend
         /// Se encarga de leer el resumen de una declaracion de gastos en particular que se encuentra registrado en sesion
         /// </summary>
         /// <returns></returns>
+        [AutorizacionUsuarioJS(idOperacion: 10)]
         [HttpPost]
         public JsonResult LeerDeclaracionGastos()
         {
@@ -194,6 +203,7 @@ namespace SimRend.DbSimRend
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 10)]
         [HttpPost]
         public JsonResult LeerParticipantes()
         {
@@ -219,7 +229,7 @@ namespace SimRend.DbSimRend
             return Json(new object());
         }
 
-
+        [AutorizacionUsuarioJS(idOperacion: 10)]
         [HttpPost]
         public JsonResult LeerParticipante()
         {
@@ -258,6 +268,7 @@ namespace SimRend.DbSimRend
             return Json(new object());
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 10)]
         [HttpPost]
         public JsonResult ObtenerDatos()
         {
@@ -272,6 +283,7 @@ namespace SimRend.DbSimRend
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 10)]
         [HttpPost]
         public JsonResult DatosDocumento()
         {
@@ -295,6 +307,7 @@ namespace SimRend.DbSimRend
         /// Es para saber el tipo de evento ingresado en la solicitud
         /// </summary>
         /// <returns></returns>
+        [AutorizacionUsuarioJS(idOperacion: 10)]
         [HttpPost]
         public JsonResult TipoEvento()
         {
@@ -304,6 +317,7 @@ namespace SimRend.DbSimRend
         /*###################################Fin Proceso de Lecturas###################################################*/
 
         /*#######################################Proceso de Actualizacion##############################################*/
+        [AutorizacionUsuarioJS(idOperacion: 11)]
         [HttpPost]
         public JsonResult ModificarDocumento(String CodigoDocumento, String Proveedor, DateTime FechaDocumento, int Monto,
             String DescripcionDocumento, int Categoria, String TipoDocumento, IFormFile Archivo, Boolean CambioArchivo)
@@ -373,6 +387,7 @@ namespace SimRend.DbSimRend
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 11)]
         public JsonResult ActualizarEstadoProceso(int Estado)
         {
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
@@ -388,6 +403,7 @@ namespace SimRend.DbSimRend
         /*###################################Fin Proceso de Actualizacion##############################################*/
 
         /*#######################################Proceso de Eliminar###################################################*/
+        [AutorizacionUsuarioJS(idOperacion: 12)]
         [HttpPost]
         public JsonResult EliminarDocumento(int IdDocumento)
         {
@@ -491,7 +507,7 @@ namespace SimRend.DbSimRend
         /*###################################Fin Proceso de Eliminar###################################################*/
 
 
-
+        [AutorizacionUsuarioJS(idOperacion: 10)]
         [HttpGet]
         public FileResult DescargarDocumento()
         {
@@ -531,6 +547,7 @@ namespace SimRend.DbSimRend
         /// <param name="Estado"></param>
         /// <param name="IdDocumento"></param>
         /// <returns></returns>
+        [AutorizacionUsuarioJS(idOperacion: 11)]
         [HttpPost]
         public JsonResult DocumentoSeleccionado(int Estado, int IdDocumento)
         {
@@ -543,6 +560,7 @@ namespace SimRend.DbSimRend
         /// el monto total de los documentos declarados como gasto del evento
         /// </summary>
         /// <returns></returns>
+        [AutorizacionUsuarioJS(idOperacion: 10)]
         [HttpPost]
         public JsonResult DocumentosSeleccionados()
         {
@@ -582,6 +600,7 @@ namespace SimRend.DbSimRend
         /// </summary>
         /// <param name="IdParticipante"></param>
         /// <returns></returns>
+        [AutorizacionUsuarioJS(idOperacion: 12)]
         [HttpPost]
         public JsonResult EliminarDocumentosPaticipante(String IdParticipante)
         {
@@ -649,6 +668,7 @@ namespace SimRend.DbSimRend
         /// Elimina todos los documentos asociados a la declaracion de gastos.
         /// </summary>
         /// <returns></returns>
+        [AutorizacionUsuarioJS(idOperacion: 12)]
         [HttpPost]
         public JsonResult EliminarDocumentosDG()
         {
@@ -691,6 +711,7 @@ namespace SimRend.DbSimRend
 
 
         /*################################### SELECCION DE DOCUMENTOS ###############################################*/
+        [AutorizacionUsuarioJS(idOperacion: 11)]
         public JsonResult GenerarDG()
         {
             try

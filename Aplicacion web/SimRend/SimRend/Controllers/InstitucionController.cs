@@ -4,17 +4,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SimRend.DbSimRend;
+using SimRend.Filters;
 using SimRend.Models;
 
 namespace SimRend.Controllers
 {
     public class InstitucionController : Controller
     {
+        [AutorizacionUsuario(idOperacion: 22)]
         public IActionResult Institucion()
         {
             return View();
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 22)]
         [HttpPost]
         public JsonResult LeerInstituciones()
         {
@@ -22,6 +25,7 @@ namespace SimRend.Controllers
             return Json(listadoInstitucion);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 21)]
         [HttpPost]
         public JsonResult CrearInstitucion(String Abreviacion, String Nombre)
         {
@@ -58,6 +62,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 23)]
         [HttpPost]
         public JsonResult ActualizarInstitucion(int IdInstitucion, String Abreviacion, String Nombre)
         {
@@ -102,6 +107,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 24)]
         [HttpDelete]
         public JsonResult EliminarInstitucion(int IdInstitucion)
         {

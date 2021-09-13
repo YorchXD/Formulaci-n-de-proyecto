@@ -4,17 +4,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SimRend.DbSimRend;
+using SimRend.Filters;
 using SimRend.Models;
 
 namespace SimRend.Controllers
 {
     public class CampusController : Controller
     {
+        [AutorizacionUsuario(idOperacion: 18)]
         public IActionResult Campus()
         {
             return View();
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 18)]
         [HttpPost]
         public JsonResult LeerCampus()
         {
@@ -22,6 +25,7 @@ namespace SimRend.Controllers
             return Json(Campus);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 17)]
         [HttpPost]
         public JsonResult CrearCampus(String Nombre)
         {
@@ -58,6 +62,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 19)]
         [HttpPost]
         public JsonResult ActualizarCampus(int IdCampus, String Nombre)
         {
@@ -102,6 +107,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 20)]
         [HttpDelete]
         public JsonResult EliminarCampus(int IdCampus)
         {

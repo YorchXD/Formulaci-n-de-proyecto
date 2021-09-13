@@ -22,6 +22,7 @@ namespace SimRend.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+        [AutorizacionUsuario(idOperacion: 2)]
         public IActionResult Procesos()
         {
             CrearCarpetaOrganizacion();
@@ -36,6 +37,7 @@ namespace SimRend.Controllers
             return View();
         }
 
+        [AutorizacionUsuario(idOperacion: 2)]
         public IActionResult OrganizacionesEstudiantiles()
         {
             return View();
@@ -140,7 +142,7 @@ namespace SimRend.Controllers
                     return Json(procesos);
                 }
             }
-            else if(tipoUsuario.Equals("Vicerrector"))
+            else if(tipoUsuario.Equals("Vicerector"))
             {
                 int idOrganizacion = HttpContext.Session.GetComplexData<int>("IdOrganizacionSeleccionada");
                 List<Proceso> procesos = ConsultasGenerales.LeerProcesosOrganizacion(idOrganizacion, Anio, TipoProceso);
@@ -224,6 +226,7 @@ namespace SimRend.Controllers
         }
 
         [HttpPost]
+        [AutorizacionUsuarioJS(idOperacion: 4)]
         public JsonResult EliminarPoceso(int IdSolicitud, int IdResolucion, int IdDeclaracionGastos, int fechaTerminoEvento, String EstadoFinal)
         {
             String tipoUsuario = HttpContext.Session.GetString("TipoUsuario");

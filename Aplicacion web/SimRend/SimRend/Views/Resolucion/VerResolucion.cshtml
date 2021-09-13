@@ -152,7 +152,13 @@
                     $("#anioResolucion").val(respuesta.resolucion.anioResolucion);
                     $("#nombreArchivo").val(rutaDoc[rutaDoc.length - 1]);
                     verOpciones(respuesta.estado);
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         }
 
@@ -224,7 +230,13 @@
                         $('#body-alerta').text(respuesta.msj);
                         $('#modal-alerta').modal('show');
                     }
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         });
 

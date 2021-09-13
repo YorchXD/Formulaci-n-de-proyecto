@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SimRend.DbSimRend;
+using SimRend.Filters;
 using SimRend.Models;
 
 namespace SimRend.Controllers
@@ -24,6 +25,7 @@ namespace SimRend.Controllers
         /// En caso de existir la solicitud se procede a la vista Crear Resolución
         /// </summary>
         /// <returns></returns>
+        [AutorizacionUsuario(idOperacion: 5)]
         public IActionResult CrearResolucion()
         {
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
@@ -36,7 +38,7 @@ namespace SimRend.Controllers
                 return RedirectToAction("Procesos", "Proceso");
             }
         }
-        
+        [AutorizacionUsuario(idOperacion: 10)]
         public IActionResult VerResolucion()
         {
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
@@ -49,13 +51,14 @@ namespace SimRend.Controllers
                 return RedirectToAction("Procesos", "Proceso");
             }
         }
-
+        [AutorizacionUsuario(idOperacion: 7)]
         public IActionResult ActualizarResolucion()
         {
             return View();
         }
 
         /*#######################################Proceso de creacion###################################################*/
+        [AutorizacionUsuarioJS(idOperacion: 5)]
         [HttpPost]
         public JsonResult CrearResolucion(int NumResolucion, int AnioResolucion, IFormFile Archivo)
         {
@@ -145,6 +148,7 @@ namespace SimRend.Controllers
         /// la resolución y la copia del la resolucion en PDF
         /// </summary>
         /// <returns></returns>
+        [AutorizacionUsuarioJS(idOperacion: 6)]
         [HttpPost]
         public JsonResult LeerResolucion()
         {
@@ -159,6 +163,7 @@ namespace SimRend.Controllers
         /*###################################Fin Proceso de Lecturas###################################################*/
 
         /*#######################################Proceso de Actualizacion##############################################*/
+        [AutorizacionUsuarioJS(idOperacion: 7)]
         [HttpPost]
         public JsonResult ModificarResolucion(int NumResolucion, int AnioResolucion, IFormFile Archivo, Boolean CambioArchivo)
         {
@@ -212,6 +217,7 @@ namespace SimRend.Controllers
         /*###################################Fin Proceso de Actualizacion##############################################*/
 
         /*#######################################Proceso de Eliminar###################################################*/
+        [AutorizacionUsuarioJS(idOperacion: 8)]
         [HttpPost]
         public JsonResult EliminarResolucion()
         {
@@ -270,7 +276,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
         /*###################################Fin Proceso de Eliminar###################################################*/
-
+        [AutorizacionUsuarioJS(idOperacion: 6)]
         [HttpGet]
         public FileResult DescargarResolucion()
         {

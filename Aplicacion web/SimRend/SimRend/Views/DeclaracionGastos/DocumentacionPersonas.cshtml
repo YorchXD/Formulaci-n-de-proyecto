@@ -178,7 +178,15 @@
                         participantes(respuesta.participantes, respuesta.estado);
                         indicadores(respuesta);
                         insertarAcciones(respuesta.estado, respuesta.estadoFinal);
-                    }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown)
+                    {
+                        $('#title-alerta').text(textStatus);
+                        $('#body-alerta').text(errorThrown);
+                        var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                        $('#actions-alerta').empty().append(boton);
+                        $('#modal-alerta').modal('show');
+                    } 
                 });
             }
 
@@ -372,7 +380,15 @@
                             $('#actions-alerta').empty().append(boton);
                             $('#modal-alerta').modal('show');
                         }
-                    }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown)
+                    {
+                        var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                        $('#actions-alerta').empty().append(boton);
+                        $('#title-alerta').text(textStatus);
+                        $('#body-alerta').text(errorThrown);
+                        $('#modal-alerta').modal('show');
+                    } 
                 });
             }
 
@@ -421,7 +437,15 @@
                             $('#actions-alerta').empty().append(boton);
                             $('#modal-alerta').modal('show');
                         }
-                    }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown)
+                    {
+                        $('#title-alerta').text(textStatus);
+                        $('#body-alerta').text(errorThrown);
+                        var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                        $('#actions-alerta').empty().append(boton);
+                        $('#modal-alerta').modal('show');
+                    } 
                 });
             }
 

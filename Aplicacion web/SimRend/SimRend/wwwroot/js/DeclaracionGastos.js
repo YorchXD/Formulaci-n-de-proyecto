@@ -136,7 +136,13 @@ function ObtenerDatosPrincipales()
             monto = respuesta.monto;
             InsertarCategorias(respuesta.categorias);
             InsertarFechaMinMax(respuesta.fechaInicio, respuesta.fechaTermino);
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            $('#modal-alerta').modal('show');
+        } 
     });
 }
 
@@ -162,7 +168,13 @@ function obtenerDatosDocumento()
             var rutaDoc = respuesta.documento.copiaDoc.split("\\");
             $('#nombreArchivo').text(rutaDoc[rutaDoc.length - 1]);
             nombreOriginalArchivo = rutaDoc[rutaDoc.length - 1];
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            $('#modal-alerta').modal('show');
+        } 
     });
 }
 
@@ -370,7 +382,13 @@ $('#btnConfirmarGuardar').click(function ()
                 $('#body-alerta').text(respuesta.msj);
                 $('#modal-alerta').modal('show');
             }
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            $('#modal-alerta').modal('show');
+        } 
     });
 });
 

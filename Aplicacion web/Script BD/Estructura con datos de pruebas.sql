@@ -11,7 +11,7 @@
  Target Server Version : 100136
  File Encoding         : 65001
 
- Date: 03/09/2021 06:23:48
+ Date: 13/09/2021 01:34:52
 */
 
 SET NAMES utf8mb4;
@@ -156,7 +156,7 @@ CREATE TABLE `modulo`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of modulo
@@ -164,6 +164,12 @@ CREATE TABLE `modulo`  (
 INSERT INTO `modulo` VALUES (1, 'Solicitud');
 INSERT INTO `modulo` VALUES (2, 'Resolución');
 INSERT INTO `modulo` VALUES (3, 'Declaración de gastos');
+INSERT INTO `modulo` VALUES (4, 'Usuario');
+INSERT INTO `modulo` VALUES (5, 'Campus');
+INSERT INTO `modulo` VALUES (6, 'Instituciones');
+INSERT INTO `modulo` VALUES (7, 'Tipo O.E.');
+INSERT INTO `modulo` VALUES (8, 'O.E.');
+INSERT INTO `modulo` VALUES (9, 'Categoía');
 
 -- ----------------------------
 -- Table structure for oe_vicerector
@@ -196,7 +202,7 @@ CREATE TABLE `operaciones`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `refModulo_O`(`idModulo`) USING BTREE,
   CONSTRAINT `refModulo_O` FOREIGN KEY (`idModulo`) REFERENCES `modulo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of operaciones
@@ -213,6 +219,30 @@ INSERT INTO `operaciones` VALUES (9, 'Agregar', 3);
 INSERT INTO `operaciones` VALUES (10, 'Leer', 3);
 INSERT INTO `operaciones` VALUES (11, 'Acualizar', 3);
 INSERT INTO `operaciones` VALUES (12, 'Eliminar', 3);
+INSERT INTO `operaciones` VALUES (13, 'Agregar', 4);
+INSERT INTO `operaciones` VALUES (14, 'Leer', 4);
+INSERT INTO `operaciones` VALUES (15, 'Actualizar', 4);
+INSERT INTO `operaciones` VALUES (16, 'Eliminar', 4);
+INSERT INTO `operaciones` VALUES (17, 'Agregar', 5);
+INSERT INTO `operaciones` VALUES (18, 'Leer', 5);
+INSERT INTO `operaciones` VALUES (19, 'Actualizar', 5);
+INSERT INTO `operaciones` VALUES (20, 'Eliminar', 5);
+INSERT INTO `operaciones` VALUES (21, 'Agregar', 6);
+INSERT INTO `operaciones` VALUES (22, 'Leer', 6);
+INSERT INTO `operaciones` VALUES (23, 'Actualizar', 6);
+INSERT INTO `operaciones` VALUES (24, 'Eliminar', 6);
+INSERT INTO `operaciones` VALUES (25, 'Agregar', 7);
+INSERT INTO `operaciones` VALUES (26, 'Leer', 7);
+INSERT INTO `operaciones` VALUES (27, 'Actualizar', 7);
+INSERT INTO `operaciones` VALUES (28, 'Eliminar', 7);
+INSERT INTO `operaciones` VALUES (29, 'Agregar', 8);
+INSERT INTO `operaciones` VALUES (30, 'Leer', 8);
+INSERT INTO `operaciones` VALUES (31, 'Actualizar', 8);
+INSERT INTO `operaciones` VALUES (32, 'Eliminar', 8);
+INSERT INTO `operaciones` VALUES (33, 'Agregar', 9);
+INSERT INTO `operaciones` VALUES (34, 'Leer', 9);
+INSERT INTO `operaciones` VALUES (35, 'Actualizar', 9);
+INSERT INTO `operaciones` VALUES (36, 'Eliminar', 9);
 
 -- ----------------------------
 -- Table structure for organizacion_estudiantil
@@ -329,7 +359,7 @@ CREATE TABLE `procesofondo`  (
   CONSTRAINT `procesofondo_ibfk_5` FOREIGN KEY (`refUsuarioRepresentante`) REFERENCES `usuario_representante` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibfk_6` FOREIGN KEY (`refUsuarioDirector`) REFERENCES `usuario_director` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibk_7` FOREIGN KEY (`refUsuarioVicerector`) REFERENCES `usuario_vicerector` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 63 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of procesofondo
@@ -372,6 +402,7 @@ INSERT INTO `procesofondo` VALUES (53, 53, 31, 1, 2, 1, 'Abierto', 1, 1, NULL);
 INSERT INTO `procesofondo` VALUES (54, 54, 37, 3, 2, 1, 'Abierto', 2, 1, NULL);
 INSERT INTO `procesofondo` VALUES (57, 57, NULL, NULL, 2, 1, 'Cerrado', 1, 1, NULL);
 INSERT INTO `procesofondo` VALUES (60, 58, 45, 11, 4, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (62, 60, NULL, NULL, 2, 2, 'Abierto', 7, NULL, 6);
 
 -- ----------------------------
 -- Table structure for resolucion
@@ -415,7 +446,7 @@ INSERT INTO `rol` VALUES (1, 'Administrador');
 INSERT INTO `rol` VALUES (2, 'Director(a)');
 INSERT INTO `rol` VALUES (3, 'Presidente');
 INSERT INTO `rol` VALUES (4, 'Secretario(a) de finanzas');
-INSERT INTO `rol` VALUES (5, 'Vicerrector(a)');
+INSERT INTO `rol` VALUES (5, 'Vicerector(a)');
 
 -- ----------------------------
 -- Table structure for rol_operacion
@@ -430,38 +461,61 @@ CREATE TABLE `rol_operacion`  (
   INDEX `refOperacion_RO`(`idOperacion`) USING BTREE,
   CONSTRAINT `refOperacion_RO` FOREIGN KEY (`idOperacion`) REFERENCES `operaciones` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `refRol_RO` FOREIGN KEY (`idRol`) REFERENCES `rol` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of rol_operacion
 -- ----------------------------
-INSERT INTO `rol_operacion` VALUES (1, 2, 2);
-INSERT INTO `rol_operacion` VALUES (2, 2, 6);
-INSERT INTO `rol_operacion` VALUES (3, 2, 10);
-INSERT INTO `rol_operacion` VALUES (4, 3, 1);
-INSERT INTO `rol_operacion` VALUES (5, 3, 2);
-INSERT INTO `rol_operacion` VALUES (6, 3, 3);
-INSERT INTO `rol_operacion` VALUES (7, 3, 4);
-INSERT INTO `rol_operacion` VALUES (8, 3, 5);
-INSERT INTO `rol_operacion` VALUES (9, 3, 6);
-INSERT INTO `rol_operacion` VALUES (10, 3, 7);
-INSERT INTO `rol_operacion` VALUES (11, 3, 8);
-INSERT INTO `rol_operacion` VALUES (12, 3, 9);
-INSERT INTO `rol_operacion` VALUES (13, 3, 10);
-INSERT INTO `rol_operacion` VALUES (14, 3, 11);
-INSERT INTO `rol_operacion` VALUES (15, 3, 12);
-INSERT INTO `rol_operacion` VALUES (16, 4, 1);
-INSERT INTO `rol_operacion` VALUES (17, 4, 2);
-INSERT INTO `rol_operacion` VALUES (18, 4, 3);
-INSERT INTO `rol_operacion` VALUES (19, 4, 4);
-INSERT INTO `rol_operacion` VALUES (20, 4, 5);
-INSERT INTO `rol_operacion` VALUES (21, 4, 6);
-INSERT INTO `rol_operacion` VALUES (22, 4, 7);
-INSERT INTO `rol_operacion` VALUES (23, 4, 8);
-INSERT INTO `rol_operacion` VALUES (24, 4, 9);
-INSERT INTO `rol_operacion` VALUES (25, 4, 10);
-INSERT INTO `rol_operacion` VALUES (26, 4, 11);
-INSERT INTO `rol_operacion` VALUES (27, 4, 12);
+INSERT INTO `rol_operacion` VALUES (1, 1, 13);
+INSERT INTO `rol_operacion` VALUES (2, 1, 14);
+INSERT INTO `rol_operacion` VALUES (3, 1, 15);
+INSERT INTO `rol_operacion` VALUES (4, 1, 16);
+INSERT INTO `rol_operacion` VALUES (5, 1, 17);
+INSERT INTO `rol_operacion` VALUES (6, 1, 18);
+INSERT INTO `rol_operacion` VALUES (7, 1, 19);
+INSERT INTO `rol_operacion` VALUES (8, 1, 20);
+INSERT INTO `rol_operacion` VALUES (9, 1, 21);
+INSERT INTO `rol_operacion` VALUES (10, 1, 22);
+INSERT INTO `rol_operacion` VALUES (11, 1, 23);
+INSERT INTO `rol_operacion` VALUES (12, 1, 24);
+INSERT INTO `rol_operacion` VALUES (13, 1, 25);
+INSERT INTO `rol_operacion` VALUES (14, 1, 26);
+INSERT INTO `rol_operacion` VALUES (15, 1, 27);
+INSERT INTO `rol_operacion` VALUES (16, 1, 28);
+INSERT INTO `rol_operacion` VALUES (17, 1, 29);
+INSERT INTO `rol_operacion` VALUES (18, 1, 30);
+INSERT INTO `rol_operacion` VALUES (19, 1, 31);
+INSERT INTO `rol_operacion` VALUES (20, 1, 32);
+INSERT INTO `rol_operacion` VALUES (21, 2, 2);
+INSERT INTO `rol_operacion` VALUES (22, 2, 6);
+INSERT INTO `rol_operacion` VALUES (23, 2, 10);
+INSERT INTO `rol_operacion` VALUES (24, 3, 1);
+INSERT INTO `rol_operacion` VALUES (25, 3, 2);
+INSERT INTO `rol_operacion` VALUES (26, 3, 3);
+INSERT INTO `rol_operacion` VALUES (27, 3, 4);
+INSERT INTO `rol_operacion` VALUES (28, 3, 5);
+INSERT INTO `rol_operacion` VALUES (29, 3, 6);
+INSERT INTO `rol_operacion` VALUES (30, 3, 7);
+INSERT INTO `rol_operacion` VALUES (31, 3, 8);
+INSERT INTO `rol_operacion` VALUES (32, 3, 9);
+INSERT INTO `rol_operacion` VALUES (33, 3, 10);
+INSERT INTO `rol_operacion` VALUES (34, 3, 11);
+INSERT INTO `rol_operacion` VALUES (35, 3, 12);
+INSERT INTO `rol_operacion` VALUES (36, 4, 1);
+INSERT INTO `rol_operacion` VALUES (37, 4, 2);
+INSERT INTO `rol_operacion` VALUES (38, 4, 3);
+INSERT INTO `rol_operacion` VALUES (39, 4, 4);
+INSERT INTO `rol_operacion` VALUES (40, 4, 5);
+INSERT INTO `rol_operacion` VALUES (41, 4, 6);
+INSERT INTO `rol_operacion` VALUES (42, 4, 7);
+INSERT INTO `rol_operacion` VALUES (43, 4, 8);
+INSERT INTO `rol_operacion` VALUES (44, 4, 9);
+INSERT INTO `rol_operacion` VALUES (45, 4, 10);
+INSERT INTO `rol_operacion` VALUES (46, 4, 11);
+INSERT INTO `rol_operacion` VALUES (47, 4, 12);
+INSERT INTO `rol_operacion` VALUES (48, 5, 2);
+INSERT INTO `rol_operacion` VALUES (49, 5, 6);
+INSERT INTO `rol_operacion` VALUES (50, 5, 10);
 
 -- ----------------------------
 -- Table structure for solcat
@@ -521,6 +575,7 @@ INSERT INTO `solcat` VALUES (58, 4);
 INSERT INTO `solcat` VALUES (58, 1);
 INSERT INTO `solcat` VALUES (58, 2);
 INSERT INTO `solcat` VALUES (58, 5);
+INSERT INTO `solcat` VALUES (60, 1);
 
 -- ----------------------------
 -- Table structure for solicitud
@@ -538,7 +593,7 @@ CREATE TABLE `solicitud`  (
   `fechaCreacionPDF` date NOT NULL,
   `fechaModificacion` date NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 59 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of solicitud
@@ -581,6 +636,7 @@ INSERT INTO `solicitud` VALUES (53, '2020-09-09', 150000, 'Holi', '2020-11-26', 
 INSERT INTO `solicitud` VALUES (54, '2020-12-22', 316543513, 'evento navidad', '2020-12-24', '2020-12-30', 'casa 2', 'Grupal', '2020-12-27', '2020-12-27');
 INSERT INTO `solicitud` VALUES (57, '2021-01-13', 130000, 'cumpleaños', '2021-01-15', '2021-01-13', 'Mi casa', 'Grupal', '2021-03-22', '2021-03-22');
 INSERT INTO `solicitud` VALUES (58, '2021-02-14', 1324565, '2021 verano', '2021-02-17', '2021-02-18', 'mi casa', 'Grupal', '2021-04-09', '2021-04-09');
+INSERT INTO `solicitud` VALUES (60, '2021-09-10', 500000, 'Fiesta 18 de septiembre', '2021-09-15', '2021-09-15', 'Universidad de Talca Campus Curó', 'Masiva', '2021-09-10', '2021-09-10');
 
 -- ----------------------------
 -- Table structure for tipooe
@@ -690,9 +746,9 @@ CREATE TABLE `usuario_representante`  (
 -- ----------------------------
 -- Records of usuario_representante
 -- ----------------------------
-INSERT INTO `usuario_representante` VALUES (1, 'yosepulveda11@alumnos.utalca.cl', '123456', 'Yorch Sepúlveda', '17824523-6', 'Masculino', 2011407070, 1, 'Habilitado', 3, 1, 'Deshabilitado', 'DESHABILITADO');
+INSERT INTO `usuario_representante` VALUES (1, 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'Yorch Sepúlveda Manríquez', '17824523-6', 'Masculino', 2011407070, 1, 'Habilitado', 3, 1, 'Deshabilitado', 'DESHABILITADO');
 INSERT INTO `usuario_representante` VALUES (2, 'dparedes09@alumnos.utalca.cl', 'Daniela', 'Daniela Paredes', '17820883-7', 'Femenino', 2009407826, 1, 'Habilitado', 4, 1, 'Deshabilitado', 'DESHABILITADO');
-INSERT INTO `usuario_representante` VALUES (7, 'mgonzales13@alumnos.utalca.cl', '123', 'Maria Soledad Gonzalez', '18801120-9', 'Femenino', 2013437888, 3, 'Habilitado', 3, 2, 'Habilitado', 'HABILITADO');
+INSERT INTO `usuario_representante` VALUES (7, 'mgonzales13@alumnos.utalca.cl', '123', 'Maria Soledad Gonzalez', '18801120-9', 'Femenino', 2013437888, 3, 'Habilitado', 3, 2, 'Deshabilitado', 'DESHABILITADO');
 
 -- ----------------------------
 -- Table structure for usuario_vicerector
@@ -721,7 +777,7 @@ CREATE TABLE `usuario_vicerector`  (
 -- Records of usuario_vicerector
 -- ----------------------------
 INSERT INTO `usuario_vicerector` VALUES (4, 'pcaballero@utalca.cl', '12345', 'Paula Caballero', 'Femenino', 4, 'Vicerrectora de desarrollo estudiantil', 'Deshabilitado', 12345, 'HABILITADO', 5);
-INSERT INTO `usuario_vicerector` VALUES (6, 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'Yorch Sepúlveda', 'Masculino', 4, 'Vicerector de actividades académicas', 'Habilitado', 12345, 'HABILITADO', 5);
+INSERT INTO `usuario_vicerector` VALUES (6, 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'Yorch Sepúlveda M.', 'Masculino', 4, 'Vicerector de actividades académicas', 'Habilitado', 12345, 'DESHABILITADO', 5);
 
 -- ----------------------------
 -- Procedure structure for Actualizar_Campus
@@ -1937,16 +1993,29 @@ DROP PROCEDURE IF EXISTS `Leer_Direccion`;
 delimiter ;;
 CREATE PROCEDURE `Leer_Direccion`(`in_refSolicitud` INTEGER)
 BEGIN
-	SELECT usuario_director.id, usuario_director.nombre, sexo, usuario_director.email, usuario_director.refInstitucion, institucion.nombre AS 'nombreInstitucion', institucion.abreviacion AS 'abreviacionInstitucion', cargo, usuario_director.estado, idOrganizacionEstudiantil, organizacion_estudiantil.nombre AS 'nombreOE', fonoAnexo, usuario_director.estadoEliminacion, campus.id AS 'idCampus', campus.nombre AS 'nombreCampus',
-	usuario_director.idRol, rol.nombre AS 'nombreRol'
-	FROM usuario_director
-	JOIN procesofondo ON procesofondo.refUsuarioDirector = usuario_director.id
-	JOIN institucion ON institucion.id = refInstitucion
-	JOIN organizacion_estudiantil ON organizacion_estudiantil.id = idOrganizacionEstudiantil
-	JOIN campus ON campus.id = organizacion_estudiantil.refCampus
-	JOIN rol ON rol.id = usuario_director.idRol
-	WHERE procesofondo.refSolicitud = in_refSolicitud;
 
+	SET @refUsuarioDirector = (	SELECT refUsuarioDirector
+															FROM procesofondo
+															WHERE refSolicitud = in_refSolicitud);
+
+	IF @refUsuarioDirector IS NOT NULL THEN
+		SELECT usuario_director.id, usuario_director.nombre, sexo, usuario_director.email, usuario_director.refInstitucion, institucion.nombre AS 'nombreInstitucion', institucion.abreviacion AS 'abreviacionInstitucion', cargo, usuario_director.estado, idOrganizacionEstudiantil, organizacion_estudiantil.nombre AS 'nombreOE', fonoAnexo, usuario_director.estadoEliminacion, campus.id AS 'idCampus', campus.nombre AS 'nombreCampus',
+		usuario_director.idRol, rol.nombre AS 'nombreRol'
+		FROM usuario_director
+		JOIN procesofondo ON procesofondo.refUsuarioDirector = usuario_director.id
+		JOIN institucion ON institucion.id = refInstitucion
+		JOIN organizacion_estudiantil ON organizacion_estudiantil.id = idOrganizacionEstudiantil
+		JOIN campus ON campus.id = organizacion_estudiantil.refCampus
+		JOIN rol ON rol.id = usuario_director.idRol
+		WHERE procesofondo.refSolicitud = in_refSolicitud;
+	ELSE
+		SELECT usuario_vicerector.id, usuario_vicerector.nombre, sexo, usuario_vicerector.email, usuario_vicerector.refInstitucion, institucion.nombre AS 'nombreInstitucion', institucion.abreviacion AS 'abreviacionInstitucion', cargo, usuario_vicerector.estado, fonoAnexo, usuario_vicerector.estadoEliminacion, usuario_vicerector.refRol as 'idRol', rol.nombre AS 'nombreRol'
+			FROM usuario_vicerector
+			JOIN procesofondo ON procesofondo.refUsuarioVicerector = usuario_vicerector.id
+			JOIN institucion ON institucion.id = refInstitucion
+			JOIN rol ON rol.id = usuario_vicerector.refRol
+			WHERE procesofondo.refSolicitud = in_refSolicitud;
+	END IF;
 
 
 

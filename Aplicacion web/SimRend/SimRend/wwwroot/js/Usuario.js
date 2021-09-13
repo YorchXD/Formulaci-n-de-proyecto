@@ -141,6 +141,23 @@ $(document).on("change", "#toggleDirector", function ()
                 botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
                 $('#actions-alerta').empty().append(botonAceptar);
             }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#icon-delete').hide();
+            $('#icon-delete-confirm').hide();
+            $('#icon-delete-success').hide();
+            $('#icon-problema').hide();
+
+            $('#title-alerta-eliminar').hide();
+            $('#title-alerta-problemas').hide();
+
+            $('#icon-problema').show();
+            $('#title-alerta-problemas').text(textStatus).show();
+            $('#body-alerta').text(errorThrown).show();
+            botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+            $('#actions-alerta').empty().append(botonAceptar);
+            $('#modal-alerta').modal('show');
         }
     });
 });
@@ -170,7 +187,7 @@ function eliminarDirector(id)
     $('#idDirector').val(id);
     $('#actions-alerta').empty().append(botonCancelar);
     $('#actions-alerta').append(botonAceptar);
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionEliminarDirector()
@@ -202,6 +219,23 @@ function confirmacionEliminarDirector()
             }
             botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
             $('#actions-alerta').empty().append(botonAceptar);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#icon-delete').hide();
+            $('#icon-delete-confirm').hide();
+            $('#icon-delete-success').hide();
+            $('#icon-problema').hide();
+
+            $('#title-alerta-eliminar').hide();
+            $('#title-alerta-problemas').hide();
+
+            $('#icon-problema').show();
+            $('#title-alerta-problemas').text(textStatus).show();
+            $('#body-alerta').text(errorThrown).show();
+            botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+            $('#actions-alerta').empty().append(botonAceptar);
+            $('#modal-alerta').modal('show');
         }
     });
 }
@@ -249,7 +283,7 @@ function obtenerOEs()
         },
         success: function (respuesta)
         {
-            console.log(respuesta);
+            //console.log(respuesta);
             var accion = window.location.pathname.split("/")[2];
 
             if (accion === 'CrearUsuarioRepresentante')
@@ -264,8 +298,6 @@ function obtenerOEs()
             }
             else
             {
-                /*Aun no esta creado*/
-                console.log("Vicerector");
                 oes = respuesta;
             }
            
@@ -311,7 +343,7 @@ function crearUsuarioDirector()
     var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-info tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionCrear()">Aceptar</button>';
     $('#actions-alerta').empty().append(botonCancelar);
     $('#actions-alerta').append(botonAceptar);
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionCrear()
@@ -362,6 +394,24 @@ function confirmacionCrear()
                     botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
                 }
                 $('#actions-alerta').empty().append(botonAceptar);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                $('#icon-problema').hide();
+                $('#icon-create').hide();
+                $('#icon-create-success').hide();
+
+                $('#title-alerta-problemas').hide();
+                $('#title-alerta-crear').hide();
+
+                $('#body-alerta').hide();
+
+                $('#icon-problema').show();
+                $('#title-alerta-problemas').text(textStatus).show();
+                $('#body-alerta').text(errorThrown).show();
+                botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+                $('#actions-alerta').empty().append(botonAceptar);
+                $('#modal-alerta').modal('show');
             }
         });
         //return true;
@@ -467,7 +517,7 @@ function modificarUsuarioDirector()
     var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionModificar()">Aceptar</button>';
     $('#actions-alerta').empty().append(botonCancelar);
     $('#actions-alerta').append(botonAceptar);
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionModificar()
@@ -525,6 +575,24 @@ function confirmacionModificar()
                     botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
                 }
                 $('#actions-alerta').empty().append(botonAceptar);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                $('#icon-problema').hide();
+                $('#icon-modificar').hide();
+                $('#icon-modificar-success').hide();
+
+                $('#title-alerta-problemas').hide();
+                $('#title-alerta-modificar').hide();
+
+                $('#body-alerta').hide();
+
+                $('#icon-problema').show();
+                $('#title-alerta-problemas').text(textStatus).show();
+                $('#body-alerta').text(errorThrown).show();
+                botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+                $('#actions-alerta').empty().append(botonAceptar);
+                $('#modal-alerta').modal('show');
             }
         });
         //return true;
@@ -693,6 +761,23 @@ $(document).on("change", "#toggleRepresentante", function ()
                 botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
                 $('#actions-alerta').empty().append(botonAceptar);
             }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#icon-delete').hide();
+            $('#icon-delete-confirm').hide();
+            $('#icon-delete-success').hide();
+            $('#icon-problema').hide();
+
+            $('#title-alerta-eliminar').hide();
+            $('#title-alerta-problemas').hide();
+
+            $('#icon-problema').show();
+            $('#title-alerta-problemas').text(textStatus).show();
+            $('#body-alerta').text(errorThrown).show();
+            botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+            $('#actions-alerta').empty().append(botonAceptar);
+            $('#modal-alerta').modal('show');
         }
     });
 });
@@ -962,7 +1047,7 @@ function eliminarRepresentante(id)
     $('#idDirector').val(id);
     $('#actions-alerta').empty().append(botonCancelar);
     $('#actions-alerta').append(botonAceptar);
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionEliminarRepresentante()
@@ -994,6 +1079,27 @@ function confirmacionEliminarRepresentante()
             }
             botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
             $('#actions-alerta').empty().append(botonAceptar);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#icon-delete').hide();
+            $('#icon-delete-confirm').hide();
+            $('#icon-delete-success').hide();
+            $('#icon-problema').hide();
+
+            $('#title-alerta-eliminar').hide();
+            $('#title-alerta-problemas').hide();
+
+            $('#body-alerta').hide();
+
+            $('#idDirector').hide();
+
+            $('#icon-problema').show();
+            $('#title-alerta-problemas').text(textStatus).show();
+            $('#body-alerta').text(errorThrown).show();
+            botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+            $('#actions-alerta').empty().append(botonAceptar);
+            $('#modal-alerta').modal('show');
         }
     });
 }
@@ -1018,7 +1124,7 @@ function crearUsuarioRepresentante()
     var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-info tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionCrearRepresentante()">Aceptar</button>';
     $('#actions-alerta').empty().append(botonCancelar);
     $('#actions-alerta').append(botonAceptar);
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionCrearRepresentante()
@@ -1073,6 +1179,24 @@ function confirmacionCrearRepresentante()
                     botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
                 }
                 $('#actions-alerta').empty().append(botonAceptar);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                $('#icon-problema').hide();
+                $('#icon-create').hide();
+                $('#icon-create-success').hide();
+
+                $('#title-alerta-problemas').hide();
+                $('#title-alerta-crear').hide();
+
+                $('#body-alerta').hide();
+
+                $('#icon-problema').show();
+                $('#title-alerta-problemas').text(textStatus).show();
+                $('#body-alerta').text(errorThrown).show();
+                botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+                $('#actions-alerta').empty().append(botonAceptar);
+                $('#modal-alerta').modal('show');
             }
         });
         //return true;
@@ -1254,7 +1378,7 @@ function modificarUsuarioRepresentante()
     var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionModificarRepresentante()">Aceptar</button>';
     $('#actions-alerta').empty().append(botonCancelar);
     $('#actions-alerta').append(botonAceptar);
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionModificarRepresentante()
@@ -1319,6 +1443,24 @@ function confirmacionModificarRepresentante()
                     botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
                 }
                 $('#actions-alerta').empty().append(botonAceptar);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                $('#icon-problema').hide();
+                $('#icon-modificar').hide();
+                $('#icon-modificar-success').hide();
+
+                $('#title-alerta-problemas').hide();
+                $('#title-alerta-modificar').hide();
+
+                $('#body-alerta').hide();
+
+                $('#icon-problema').show();
+                $('#title-alerta-problemas').text(textStatus).show();
+                $('#body-alerta').text(errorThrown).show();
+                botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+                $('#actions-alerta').empty().append(botonAceptar);
+                $('#modal-alerta').modal('show');
             }
         });
         //return true;
@@ -1503,6 +1645,25 @@ $(document).on("change", "#toggleVicerector", function ()
                 botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
                 $('#actions-alerta').empty().append(botonAceptar);
             }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#icon-delete').hide();
+            $('#icon-delete-confirm').hide();
+            $('#icon-delete-success').hide();
+            $('#icon-problema').hide();
+
+            $('#title-alerta-eliminar').hide();
+            $('#title-alerta-problemas').hide();
+
+            $('#body-alerta').hide();
+
+            $('#icon-problema').show();
+            $('#title-alerta-problemas').text(textStatus).show();
+            $('#body-alerta').text(errorThrown).show();
+            botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+            $('#actions-alerta').empty().append(botonAceptar);
+            $('#modal-alerta').modal('show');
         }
     });
 });
@@ -1544,7 +1705,7 @@ function eliminarVicerector(id, estado)
         
     }
     $('#body-alerta').show();
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionEliminarVicerector()
@@ -1576,6 +1737,27 @@ function confirmacionEliminarVicerector()
             }
             botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
             $('#actions-alerta').empty().append(botonAceptar);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#icon-delete').hide();
+            $('#icon-delete-confirm').hide();
+            $('#icon-delete-success').hide();
+            $('#icon-problema').hide();
+
+            $('#title-alerta-eliminar').hide();
+            $('#title-alerta-problemas').hide();
+
+            $('#body-alerta').hide();
+
+            $('#idVicerector').hide();
+
+            $('#icon-problema').show();
+            $('#title-alerta-problemas').text(textStatus).show();
+            $('#body-alerta').text(errorThrown).show();
+            botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+            $('#actions-alerta').empty().append(botonAceptar);
+            $('#modal-alerta').modal('show');
         }
     });
 }
@@ -1605,7 +1787,7 @@ function crearUsuarioVicerector()
     var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-info tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionCrearVicerector()">Aceptar</button>';
     $('#actions-alerta').empty().append(botonCancelar);
     $('#actions-alerta').append(botonAceptar);
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionCrearVicerector()
@@ -1653,6 +1835,24 @@ function confirmacionCrearVicerector()
                     botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
                 }
                 $('#actions-alerta').empty().append(botonAceptar);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                $('#icon-problema').hide();
+                $('#icon-create').hide();
+                $('#icon-create-success').hide();
+
+                $('#title-alerta-problemas').hide();
+                $('#title-alerta-crear').hide();
+
+                $('#body-alerta').hide();
+
+                $('#icon-problema').show();
+                $('#title-alerta-problemas').text(textStatus).show();
+                $('#body-alerta').text(errorThrown).show();
+                botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+                $('#actions-alerta').empty().append(botonAceptar);
+                $('#modal-alerta').modal('show');
             }
         });
         //return true;
@@ -1736,7 +1936,7 @@ function modificarUsuarioVicerector()
     var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionModificarVicerector()">Aceptar</button>';
     $('#actions-alerta').empty().append(botonCancelar);
     $('#actions-alerta').append(botonAceptar);
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionModificarVicerector()
@@ -1794,6 +1994,24 @@ function confirmacionModificarVicerector()
                     botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
                 }
                 $('#actions-alerta').empty().append(botonAceptar);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                $('#icon-problema').hide();
+                $('#icon-modificar').hide();
+                $('#icon-modificar-success').hide();
+
+                $('#title-alerta-problemas').hide();
+                $('#title-alerta-modificar').hide();
+
+                $('#body-alerta').hide();
+
+                $('#icon-problema').show();
+                $('#title-alerta-problemas').text(textStatus).show();
+                $('#body-alerta').text(errorThrown).show();
+                botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+                $('#actions-alerta').empty().append(botonAceptar);
+                $('#modal-alerta').modal('show');
             }
         });
         //return true;
@@ -1907,7 +2125,7 @@ function eliminarAdministrador(id)
     $('#actions-alerta').append(botonAceptar);
 
     $('#body-alerta').show();
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionEliminarAdministrador()
@@ -1939,6 +2157,24 @@ function confirmacionEliminarAdministrador()
             }
             botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
             $('#actions-alerta').empty().append(botonAceptar);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#icon-delete').hide();
+            $('#icon-delete-confirm').hide();
+            $('#icon-delete-success').hide();
+            $('#icon-problema').hide();
+            $('#title-alerta-eliminar').hide();
+            $('#title-alerta-problemas').hide();
+            $('#body-alerta').hide();
+            $('#idAdministrador').hide();
+
+            $('#icon-problema').show();
+            $('#title-alerta-problemas').text(textStatus).show();
+            $('#body-alerta').text(errorThrown).show();
+            botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+            $('#actions-alerta').empty().append(botonAceptar);
+            $('#modal-alerta').modal('show');
         }
     });
 }
@@ -1968,7 +2204,7 @@ function crearUsuarioAdministrador()
     var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-info tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionCrearAdministrador()">Aceptar</button>';
     $('#actions-alerta').empty().append(botonCancelar);
     $('#actions-alerta').append(botonAceptar);
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionCrearAdministrador()
@@ -2015,6 +2251,24 @@ function confirmacionCrearAdministrador()
                     botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
                 }
                 $('#actions-alerta').empty().append(botonAceptar);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                $('#icon-problema').hide();
+                $('#icon-create').hide();
+                $('#icon-create-success').hide();
+
+                $('#title-alerta-problemas').hide();
+                $('#title-alerta-crear').hide();
+
+                $('#body-alerta').hide();
+
+                $('#icon-problema').show();
+                $('#title-alerta-problemas').text(textStatus).show();
+                $('#body-alerta').text(errorThrown).show();
+                botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+                $('#actions-alerta').empty().append(botonAceptar);
+                $('#modal-alerta').modal('show');
             }
         });
     }
@@ -2098,8 +2352,6 @@ async function mainActualizarAdministrador()
     }
 }
 
-
-
 function modificarUsuarioAdministrador()
 {
     $('#icon-problema').hide();
@@ -2120,7 +2372,7 @@ function modificarUsuarioAdministrador()
     var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionModificarAdministrador()">Aceptar</button>';
     $('#actions-alerta').empty().append(botonCancelar);
     $('#actions-alerta').append(botonAceptar);
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionModificarAdministrador()
@@ -2176,6 +2428,24 @@ function confirmacionModificarAdministrador()
                     botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
                 }
                 $('#actions-alerta').empty().append(botonAceptar);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                $('#icon-problema').hide();
+                $('#icon-modificar').hide();
+                $('#icon-modificar-success').hide();
+
+                $('#title-alerta-problemas').hide();
+                $('#title-alerta-modificar').hide();
+
+                $('#body-alerta').hide();
+
+                $('#icon-problema').show();
+                $('#title-alerta-problemas').text(textStatus).show();
+                $('#body-alerta').text(errorThrown).show();
+                botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+                $('#actions-alerta').empty().append(botonAceptar);
+                $('#modal-alerta').modal('show');
             }
         });
         //return true;
@@ -2250,7 +2520,7 @@ function modificarClave()
     var botonAceptar = '<button type="button" id="btnConfirmar" class="btn btn-warning tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmacionModificarClave()">Aceptar</button>';
     $('#actions-alerta').empty().append(botonCancelar);
     $('#actions-alerta').append(botonAceptar);
-    $('#modal-alert').modal('show');
+    $('#modal-alerta').modal('show');
 }
 
 function confirmacionModificarClave()
@@ -2294,6 +2564,24 @@ function confirmacionModificarClave()
                     botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
                 }
                 $('#actions-alerta').empty().append(botonAceptar);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                $('#icon-problema').hide();
+                $('#icon-modificar').hide();
+                $('#icon-modificar-success').hide();
+
+                $('#title-alerta-problemas').hide();
+                $('#title-alerta-modificar').hide();
+
+                $('#body-alerta').hide();
+
+                $('#icon-problema').show();
+                $('#title-alerta-problemas').text(textStatus).show();
+                $('#body-alerta').text(errorThrown).show();
+                botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Aceptar</button >';
+                $('#actions-alerta').empty().append(botonAceptar);
+                $('#modal-alerta').modal('show');
             }
         });
     }

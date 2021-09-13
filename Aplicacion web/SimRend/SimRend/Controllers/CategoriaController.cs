@@ -4,17 +4,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SimRend.DbSimRend;
+using SimRend.Filters;
 using SimRend.Models;
 
 namespace SimRend.Controllers
 {
     public class CategoriaController : Controller
     {
+        [AutorizacionUsuario(idOperacion: 34)]
         public IActionResult Categoria()
         {
             return View();
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 34)]
         [HttpPost]
         public JsonResult LeerCategorias()
         {
@@ -22,6 +25,7 @@ namespace SimRend.Controllers
             return Json(Categorias);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 33)]
         [HttpPost]
         public JsonResult CrearCategoria(String Nombre)
         {
@@ -58,6 +62,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 35)]
         [HttpPost]
         public JsonResult ActualizarCategoria(int IdCategoria, String Nombre)
         {
@@ -102,6 +107,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 36)]
         [HttpDelete]
         public JsonResult EliminarCategoria(int IdCategoria)
         {

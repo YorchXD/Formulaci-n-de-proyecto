@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using DinkToPdf;
@@ -9,8 +10,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using SimRend.Filters;
+using Microsoft.Extensions.Hosting;
 
 namespace SimRend
 {
@@ -26,6 +27,7 @@ namespace SimRend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
             //services.AddMvc().AddSessionStateTempDataProvider();
             //services.AddSession();
             services.AddScoped<VerificarSesion>();
@@ -36,11 +38,12 @@ namespace SimRend
             });
 
 
-            services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+            
 
             services.AddHttpContextAccessor();
 
             services.AddControllersWithViews();
+
             services.AddRazorPages().AddMvcOptions(options =>
             {
                 options.Filters.Add(new Filters.VerificarSesion());

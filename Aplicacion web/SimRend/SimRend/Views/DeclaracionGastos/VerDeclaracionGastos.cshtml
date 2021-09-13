@@ -280,7 +280,15 @@
                     $('#runResponsable').val(formatearRut(respuesta.proceso.responsable.run));
                     $('#emailResponsable').val(respuesta.proceso.responsable.email);
                     verOpciones(respuesta.proceso.estado, respuesta.proceso.estadoFinal);
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                    $('#actions-alerta').empty().append(boton);
+                    $('#modal-alerta').modal('show');
+                } 
             });
 
         }
@@ -460,7 +468,15 @@
                         $('#actions-alerta').empty().append(boton);
                         $('#modal-alerta').modal('show');
                     }
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                    $('#actions-alerta').empty().append(boton);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         }
 
@@ -494,7 +510,15 @@
                         $('#actions-alerta').empty().append(boton);
                         $('#modal-alerta').modal('show');
                     }
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                    $('#actions-alerta').empty().append(boton);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         }
 
@@ -528,7 +552,15 @@
                         $('#actions-alerta').empty().append(boton);
                         $('#modal-alerta').modal('show');
                     }
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                    $('#actions-alerta').empty().append(boton);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         }
 
@@ -562,7 +594,15 @@
                         $('#actions-alerta').empty().append(boton);
                         $('#modal-alerta').modal('show');
                     }
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                    $('#actions-alerta').empty().append(boton);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         }
 
@@ -597,7 +637,15 @@
                         success: function (respuesta)
                         {
                             window.location.href = '/DeclaracionGastos/Documentos';
-                        }
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown)
+                        {
+                            $('#title-alerta').text(textStatus);
+                            $('#body-alerta').text(errorThrown);
+                            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                            $('#actions-alerta').empty().append(boton);
+                            $('#modal-alerta').modal('show');
+                        } 
                     });
                     break;
             }
@@ -650,7 +698,15 @@
                         $('#actions-alerta').empty().append(boton);
                         $('#modal-alerta').modal('show');
                     }
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                    $('#actions-alerta').empty().append(boton);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         }
 

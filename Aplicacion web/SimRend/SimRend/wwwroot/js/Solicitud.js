@@ -130,18 +130,25 @@ $('#wizard6').steps({
                                 else {
                                     $("#wizard6").steps('unskip', 2);
                                 }
-                                /*if ($("#tipoEvento").val() == "Masiva") {
-                                    $(".step3").parent().attr("style", "display: block;");
-                                }*/
+                                return true;
                                 
                             }
                             else
                             {
                                 toastr.error(respuesta.mensaje, 'Error Critico!');
                             }
-                        }
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown)
+                        {
+                            //toastr.error(errorThrown, textStatus);
+                            $('#title-alerta').text(textStatus);
+                            $('#body-alerta').text(errorThrown);
+                            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                            $('#actions-alerta').empty().append(boton);
+                            $('#modal-alerta').modal('show');
+                        } 
                     });
-                    return true;
+                    return false;
                 }
                 else {
                     nombreEvento.validate();
@@ -260,7 +267,16 @@ function obtenerResponsables()
             {
                 $('#responsable').append("<option value='" + respuesta[i]["id"] + "'>" + respuesta[i]["nombre"] + "</option>");
             }
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            //toastr.error(errorThrown, textStatus);
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+            $('#actions-alerta').empty().append(boton);
+            $('#modal-alerta').modal('show');
+        } 
     }); 
 }
 
@@ -276,7 +292,16 @@ function obtenerCategorias()
             {
                 $('#categorias').append("<option value='" + respuesta[i]["id"] + "'>" + respuesta[i]["nombre"] + "</option>");
             }
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            //toastr.error(errorThrown, textStatus);
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+            $('#actions-alerta').empty().append(boton);
+            $('#modal-alerta').modal('show');
+        } 
     });
 }
 
@@ -324,7 +349,16 @@ $('#agregarCategoria').click( function (e) {
                 else {
                     toastr.error('No se ha agregado la categoría. Intentelo nuevamente.', 'Error Critico!');
                 }
-            }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                //toastr.error(errorThrown, textStatus);
+                $('#title-alerta').text(textStatus);
+                $('#body-alerta').text(errorThrown);
+                var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                $('#actions-alerta').empty().append(boton);
+                $('#modal-alerta').modal('show');
+            } 
         });
     }
 });
@@ -343,7 +377,16 @@ function eliminarCategoria(id) {
             else {
                 toastr.error('No se ha eliminado la categoría. Intentelo nuevamente.', 'Error Critico!');
             }
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            //toastr.error(errorThrown, textStatus);
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+            $('#actions-alerta').empty().append(boton);
+            $('#modal-alerta').modal('show');
+        }  
     });
 }
 
@@ -415,7 +458,16 @@ $('#agregarParticipante').click(function (e) {
                 {
                     toastr.error(respuesta.mensaje, 'Error Critico!');
                 }
-            }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                //toastr.error(errorThrown, textStatus);
+                $('#title-alerta').text(textStatus);
+                $('#body-alerta').text(errorThrown);
+                var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                $('#actions-alerta').empty().append(boton);
+                $('#modal-alerta').modal('show');
+            } 
         });
     }
     else
@@ -442,7 +494,15 @@ function eliminarParticipante(run) {
             else {
                 toastr.error('No se ha eliminado al participante. Intentelo nuevamente.', 'Error Critico!');
             }
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+            $('#actions-alerta').empty().append(boton);
+            $('#modal-alerta').modal('show');
+        } 
     });
 }
 
@@ -593,7 +653,15 @@ function verificarExistenciaParticipante(run)
                 {
                     $('#nombreParticipante').prop('readonly', false).val('');
                 }
-            }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                $('#title-alerta').text(textStatus);
+                $('#body-alerta').text(errorThrown);
+                var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                $('#actions-alerta').empty().append(boton);
+                $('#modal-alerta').modal('show');
+            } 
         });
     }
 }
@@ -662,7 +730,15 @@ function obtenerSolicitud()
             {
                 $("#cardParticipantes").css("display", "none"); 
             }
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+            $('#actions-alerta').empty().append(boton);
+            $('#modal-alerta').modal('show');
+        } 
     });
 }
 
@@ -778,7 +854,15 @@ function ingresarDatos() {
                 $("#wizard6").steps('unskip', 2);
             }
 
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+            $('#actions-alerta').empty().append(boton);
+            $('#modal-alerta').modal('show');
+        } 
     });
     //$("#tipoEvento").val();
 }
@@ -817,7 +901,15 @@ function obtenerResponsablesActualizar(idResponsable) {
                 }
                 
             }
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+            $('#actions-alerta').empty().append(boton);
+            $('#modal-alerta').modal('show');
+        } 
     });
 }
 
@@ -829,7 +921,15 @@ function actualizarEstadoProceso() {
         success: function (respuesta) {
             window.location.href = "/Solicitud/VerSolicitud";
             //window.location.href = "/Proceso/Procesos";
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+            $('#actions-alerta').empty().append(boton);
+            $('#modal-alerta').modal('show');
+        } 
     });
 }
 
@@ -1020,7 +1120,15 @@ function confirmacionModificarParticipante()
                     $('#modal-alerta').modal('show');
                     
                 }
-            }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown)
+            {
+                $('#title-alerta').text(textStatus);
+                $('#body-alerta').text(errorThrown);
+                var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                $('#actions-alerta').empty().append(boton);
+                $('#modal-alerta').modal('show');
+            } 
         });
     }
     else if (cambioNombreParticipante && nombre.replaceAll(' ', '') == '')

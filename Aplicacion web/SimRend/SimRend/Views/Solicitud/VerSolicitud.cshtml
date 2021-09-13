@@ -308,7 +308,13 @@
                         $("#cardParticipantes").css("display", "none");
                     }
                     verOpciones(respuesta.estado, respuesta.estadoFinal);
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         }
 
@@ -436,11 +442,19 @@
                     }
                     else
                     {
+                        //console.log(respuesta);
                         $('#title-alerta').text(respuesta.titulo);
                         $('#body-alerta').text(respuesta.msj);
                         $('#modal-alerta').modal('show');
                     }
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#modal-confirmar-eliminar').modal('hide');
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         }); 
 

@@ -358,7 +358,7 @@ namespace SimRend.DbSimRend
             return null;
         }
 
-        public static UsuarioDirector LeerDireccion(int refSolicitud)
+        public static Direccion LeerDireccion(int refSolicitud)
         {
             try
             {
@@ -368,40 +368,18 @@ namespace SimRend.DbSimRend
                 if (datos.Tables[0].Rows.Count == 1)
                 {
                     var prodData = datos.Tables[0].Rows[0];
-                    UsuarioDirector direccion = new UsuarioDirector()
+                    Direccion direccion = new Direccion()
                     {
                         Id = Convert.ToInt32(prodData["id"]),
                         Nombre = prodData["nombre"].ToString(),
                         Sexo = prodData["sexo"].ToString(),
-                        Email = prodData["email"].ToString(),
                         Cargo = prodData["cargo"].ToString(),
-                        Estado = prodData["estado"].ToString(),
-                        EstadoEliminacion = prodData["estadoEliminacion"].ToString(),
-                        FonoAnexo = Convert.ToInt32(prodData["fonoAnexo"]),
-
-                        Rol = new Rol
+                        Institucion = new Institucion
                         {
-                            Id = Convert.ToInt32(prodData["idRol"]),
-                            Nombre = prodData["nombreRol"].ToString(),
-                        },
-
-                        Organizacion = new Organizacion
-                        {
-                            Id = Convert.ToInt32(prodData["idOrganizacionEstudiantil"]),
-                            Nombre = prodData["nombreOE"].ToString(),
-                            Campus = new Campus
-                            {
-                                Id = Convert.ToInt32(prodData["idCampus"]),
-                                Nombre = prodData["nombreCampus"].ToString()
-                            },
-
-                            Institucion = new Institucion
-                            {
-                                Id = Convert.ToInt32(prodData["refInstitucion"]),
-                                Nombre = prodData["nombreInstitucion"].ToString(),
-                                Abreviacion = prodData["abreviacionInstitucion"].ToString(),
-                            },
-                        },
+                            Id = Convert.ToInt32(prodData["refInstitucion"]),
+                            Nombre = prodData["nombreInstitucion"].ToString(),
+                            Abreviacion = prodData["abreviacionInstitucion"].ToString(),
+                        }
                     };
 
                     return direccion;

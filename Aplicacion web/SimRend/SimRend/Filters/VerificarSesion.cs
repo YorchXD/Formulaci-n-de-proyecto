@@ -14,7 +14,6 @@ namespace SimRend.Filters
             try
             {
                 base.OnActionExecuting(filterContext);
-                
                 Usuario usuario = (Usuario)filterContext.HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
                 if(usuario == null)
                 {

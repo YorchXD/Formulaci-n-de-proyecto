@@ -2,31 +2,38 @@
     ViewData["Title"] = "Operacion no autorizada";
 }
 
-<!-- Content Header (Page header) -->
-<section class="content-header">
-    <h1>
-        Error, no tienes permiso
-    </h1>
-</section>
-<!-- Main content -->
-<section class="content">
-    <div class="error-page">
-        <h2 class="headline text-red">Error</h2>
-        <div class="error-content">
-            <h3><i class="fa fa-warning text-red"></i>Sin autorización</h3>
-            @if (ViewBag.operacion != "")
-            {
-                <p>Operación @ViewBag.operacion </p>
-            }
-            @if (ViewBag.modulo != "")
-            {
-                <p>Modulo @ViewBag.modulo</p>
-            }
-            @if (ViewBag.msjeErrorExcepcion != "")
-            {
-                <p>@ViewBag.msjeErrorExcepcion</p>
-            }
+<div class="br-pagetitle row">
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text wd-auto" style="border:none;">
+                <i class="icon fas fa-exclamation-triangle"></i>
+                <h4 style="padding-left:5%">Error, no tienes permiso</h4>
+            </div>
         </div>
     </div>
-    <!-- /.error-page -->
-</section>
+</div><!-- d-flex -->
+
+
+<div class="br-pagebody">
+    <div class="br-section-wrapper">
+        <div class="card bd-0">
+            <div class="card-header tx-medium bd-0 tx-white bg-danger">
+                Sin autorización
+            </div><!-- card-header -->
+            <div class="card-body bd bd-t-0 rounded-bottom">
+                @if (ViewBag.operacion != "")
+                {
+                    <p class="mg-b-0"><b>Operación:</b> @ViewBag.operacion </p>
+                }
+                @if (ViewBag.modulo != "")
+                {
+                    <p class="mg-b-0"><b>Módulo:</b> @ViewBag.modulo</p>
+                }
+                @if (ViewBag.msjeErrorExcepcion != "")
+                {
+                    <p class="mg-b-0">@ViewBag.msjeErrorExcepcion</p>
+                }
+            </div><!-- card-body -->
+        </div>
+    </div><!-- br-section-wrapper -->
+</div><!-- br-pagebody -->

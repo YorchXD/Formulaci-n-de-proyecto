@@ -4,17 +4,20 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SimRend.DbSimRend;
+using SimRend.Filters;
 using SimRend.Models;
 
 namespace SimRend.Controllers
 {
     public class TipoOEController : Controller
     {
+        [AutorizacionUsuario(idOperacion: 26)]
         public IActionResult TipoOE()
         {
             return View();
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 26)]
         [HttpPost]
         public JsonResult LeerTipoOE()
         {
@@ -22,6 +25,7 @@ namespace SimRend.Controllers
             return Json(listadoTipoOE);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 25)]
         [HttpPost]
         public JsonResult CrearTipoOE(String Nombre, String NombreExtendido)
         {
@@ -58,6 +62,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 27)]
         [HttpPost]
         public JsonResult ActualizarTipoOE(int IdTipoOE, String Nombre, String NombreExtendido)
         {
@@ -102,6 +107,7 @@ namespace SimRend.Controllers
             return Json(datos);
         }
 
+        [AutorizacionUsuarioJS(idOperacion: 28)]
         [HttpDelete]
         public JsonResult EliminarTipoOE(int IdTipoOE)
         {

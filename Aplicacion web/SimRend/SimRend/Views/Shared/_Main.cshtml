@@ -42,71 +42,101 @@
     <div class="br-sideleft sideleft-scrollbar">
         <label class="sidebar-label pd-x-10 mg-t-20 op-3">Navigation</label>
         <ul class="br-sideleft-menu">
-            <li class="br-menu-item">
-                <a id="resumenMenu" class="br-menu-link" asp-controller="Resumen" asp-action="Resumen">
-                    <i class="menu-item-icon icon ion-ios-home-outline tx-24"></i>
-                    <span class="menu-item-label">Resumen</span>
-                </a><!-- br-menu-link -->
-            </li><!-- br-menu-item -->
-            <li class="br-menu-item">
-                <a id="procesoMenu" class="br-menu-link" asp-controller="Proceso" asp-action="Procesos">
-                    <i class="menu-item-icon icon fas fa-clipboard-list tx-24"></i>
-                    <!--i class="menu-item-icon icon ion-ios-book-outline tx-24"></i-->
-                    <span class="menu-item-label">Procesos</span>
-                </a><!-- br-menu-link -->
-            </li><!-- br-menu-item -->
+            @if (SimRend.DbSimRend.ConsultaUsuario.Leer_Rol_Operacion(@HttpContextAccessor.HttpContext.Session.GetComplexData<Usuario>("DatosUsuario").Rol.Id, 2) == 1)
+            {
+                <li class="br-menu-item">
+                    <a id="resumenMenu" class="br-menu-link" asp-controller="Resumen" asp-action="Resumen">
+                        <i class="menu-item-icon icon ion-ios-home-outline tx-24"></i>
+                        <span class="menu-item-label">Resumen</span>
+                    </a><!-- br-menu-link -->
+                </li><!-- br-menu-item -->
+            }
+
+            @if (SimRend.DbSimRend.ConsultaUsuario.Leer_Rol_Operacion(@HttpContextAccessor.HttpContext.Session.GetComplexData<Usuario>("DatosUsuario").Rol.Id, 2) == 1)
+            {
+                <li class="br-menu-item">
+                    <a id="procesoMenu" class="br-menu-link" asp-controller="Proceso" asp-action="Procesos">
+                        <i class="menu-item-icon icon fas fa-clipboard-list tx-24"></i>
+                        <span class="menu-item-label">Procesos</span>
+                    </a><!-- br-menu-link -->
+                </li><!-- br-menu-item -->
+            }
+
+
             <li class="br-menu-item">
                 <a id="ayudaMenu" class="br-menu-link" asp-controller="Ayuda" asp-action="Ayuda">
                     <i class="menu-item-icon icon ion-help-buoy tx-24"></i>
                     <span class="menu-item-label">Ayuda</span>
                 </a><!-- br-menu-link -->
             </li><!-- br-menu-item -->
-            <li class="br-menu-item">
-                <a id="categoriasMenu" class="br-menu-link" asp-controller="Categoria" asp-action="Categoria">
-                    <i class="menu-item-icon icon fas fa-tag tx-20"></i>
-                    <span class="menu-item-label">Categorias</span>
-                </a><!-- br-menu-link -->
-            </li><!-- br-menu-item -->
 
-            <li class="br-menu-item">
-                <a href="#" id="usuarioMenu" class="br-menu-link with-sub">
-                    <i class="menu-item-icon icon ion-person-stalker tx-24"></i>
-                    <span class="menu-item-label">Usuarios</span>
-                </a><!-- br-menu-link -->
-                <ul class="br-menu-sub">
-                    <li class="sub-item"><a id="administradoresMenu" asp-controller="Usuario" asp-action="UsuariosAdministradores" class="sub-link">Administradores</a></li>
-                    <li class="sub-item"><a id="representantesMenu" asp-controller="Usuario" asp-action="UsuariosRepresentantes" class="sub-link">Representantes</a></li>
-                    <li class="sub-item"><a id="directoresMenu" asp-controller="Usuario" asp-action="UsuariosDirectores" class="sub-link">Directores</a></li>
-                    <li class="sub-item"><a id="vicerectoresMenu" asp-controller="Usuario" asp-action="UsuariosVicerectores" class="sub-link">Vicerectores</a></li>
-                </ul>
-            </li><!-- br-menu-item -->
+            @if (SimRend.DbSimRend.ConsultaUsuario.Leer_Rol_Operacion(@HttpContextAccessor.HttpContext.Session.GetComplexData<Usuario>("DatosUsuario").Rol.Id, 34) == 1)
+            {
+                <li class="br-menu-item">
+                    <a id="categoriasMenu" class="br-menu-link" asp-controller="Categoria" asp-action="Categoria">
+                        <i class="menu-item-icon icon fas fa-tag tx-20"></i>
+                        <span class="menu-item-label">Categorias</span>
+                    </a><!-- br-menu-link -->
+                </li><!-- br-menu-item -->
+            }
 
-            <li class="br-menu-item">
-                <a id="campusMenu" class="br-menu-link" asp-controller="Campus" asp-action="Campus" title="Campus">
-                    <i class="menu-item-icon icon fas fa-map-marked-alt tx-20"></i>
-                    <span class="menu-item-label">Campus</span>
-                </a><!-- br-menu-link -->
-            </li><!-- br-menu-item -->
 
-            <li class="br-menu-item">
-                <a id="institucionMenu" class="br-menu-link" asp-controller="Institucion" asp-action="Institucion" title="Instituciones">
-                    <i class="menu-item-icon icon fas fa-university tx-20"></i>
-                    <span class="menu-item-label">Instituciones</span>
-                </a><!-- br-menu-link -->
-            </li><!-- br-menu-item -->
 
-            <li class="br-menu-item">
-                <a id="tipoOEMenu" class="br-menu-link" asp-controller="TipoOE" asp-action="TipoOE" title="Tipos de organización estudiantil">
-                    <i class="menu-item-icon icon fab fa-hubspot tx-20"></i>
-                    <span class="menu-item-label">Tipo O.E.</span>
-                </a><!-- br-menu-link -->
-            </li><!-- br-menu-item -->
-            <li class="br-menu-item">
-                <a id="organizacionEstudiantilMenu" class="br-menu-link" asp-controller="OrganizacionEstudiantil" asp-action="OrganizacionesEstudiantiles" title="Organizaciones estudiantiles">
-                    <i class="menu-item-icon icon fas fa-sitemap tx-20"></i>
-                    <span class="menu-item-label">O.E.</span>
-                </a><!-- br-menu-link -->
-            </li><!-- br-menu-item -->
+            @if (SimRend.DbSimRend.ConsultaUsuario.Leer_Rol_Operacion(@HttpContextAccessor.HttpContext.Session.GetComplexData<Usuario>("DatosUsuario").Rol.Id, 14) == 1)
+            {
+                <li class="br-menu-item">
+                    <a href="#" id="usuarioMenu" class="br-menu-link with-sub">
+                        <i class="menu-item-icon icon ion-person-stalker tx-24"></i>
+                        <span class="menu-item-label">Usuarios</span>
+                    </a><!-- br-menu-link -->
+                    <ul class="br-menu-sub">
+                        <li class="sub-item"><a id="administradoresMenu" asp-controller="Usuario" asp-action="UsuariosAdministradores" class="sub-link">Administradores</a></li>
+                        <li class="sub-item"><a id="representantesMenu" asp-controller="Usuario" asp-action="UsuariosRepresentantes" class="sub-link">Representantes</a></li>
+                        <li class="sub-item"><a id="directoresMenu" asp-controller="Usuario" asp-action="UsuariosDirectores" class="sub-link">Directores</a></li>
+                        <li class="sub-item"><a id="vicerectoresMenu" asp-controller="Usuario" asp-action="UsuariosVicerectores" class="sub-link">Vicerectores</a></li>
+                    </ul>
+                </li><!-- br-menu-item -->
+            }
+
+            @if (SimRend.DbSimRend.ConsultaUsuario.Leer_Rol_Operacion(@HttpContextAccessor.HttpContext.Session.GetComplexData<Usuario>("DatosUsuario").Rol.Id, 18) == 1)
+            {
+                <li class="br-menu-item">
+                    <a id="campusMenu" class="br-menu-link" asp-controller="Campus" asp-action="Campus" title="Campus">
+                        <i class="menu-item-icon icon fas fa-map-marked-alt tx-20"></i>
+                        <span class="menu-item-label">Campus</span>
+                    </a><!-- br-menu-link -->
+                </li><!-- br-menu-item -->
+            }
+
+            @if (SimRend.DbSimRend.ConsultaUsuario.Leer_Rol_Operacion(@HttpContextAccessor.HttpContext.Session.GetComplexData<Usuario>("DatosUsuario").Rol.Id, 22) == 1)
+            {
+                <li class="br-menu-item">
+                    <a id="institucionMenu" class="br-menu-link" asp-controller="Institucion" asp-action="Institucion" title="Instituciones">
+                        <i class="menu-item-icon icon fas fa-university tx-20"></i>
+                        <span class="menu-item-label">Instituciones</span>
+                    </a><!-- br-menu-link -->
+                </li><!-- br-menu-item -->
+            }
+
+            @if (SimRend.DbSimRend.ConsultaUsuario.Leer_Rol_Operacion(@HttpContextAccessor.HttpContext.Session.GetComplexData<Usuario>("DatosUsuario").Rol.Id, 26) == 1)
+            {
+                <li class="br-menu-item">
+                    <a id="tipoOEMenu" class="br-menu-link" asp-controller="TipoOE" asp-action="TipoOE" title="Tipos de organización estudiantil">
+                        <i class="menu-item-icon icon fab fa-hubspot tx-20"></i>
+                        <span class="menu-item-label">Tipo O.E.</span>
+                    </a><!-- br-menu-link -->
+                </li><!-- br-menu-item -->
+            }
+
+            @if (SimRend.DbSimRend.ConsultaUsuario.Leer_Rol_Operacion(@HttpContextAccessor.HttpContext.Session.GetComplexData<Usuario>("DatosUsuario").Rol.Id, 30) == 1)
+            {
+                <li class="br-menu-item">
+                    <a id="organizacionEstudiantilMenu" class="br-menu-link" asp-controller="OrganizacionEstudiantil" asp-action="OrganizacionesEstudiantiles" title="Organizaciones estudiantiles">
+                        <i class="menu-item-icon icon fas fa-sitemap tx-20"></i>
+                        <span class="menu-item-label">O.E.</span>
+                    </a><!-- br-menu-link -->
+                </li><!-- br-menu-item -->
+            }
 
         </ul><!-- br-sideleft-menu -->
         <br>
@@ -310,7 +340,7 @@
                     $(botonSubMenuActivo).addClass('active');
                     $(botonMenuActivo).addClass('active');
                 }
-                else if(accion === 'UsuariosVicerector' || accion === 'CrearUsuarioVicerector' || accion === 'ActualizarUsuarioVicerector')
+                else if(accion === 'UsuariosVicerectores' || accion === 'CrearUsuarioVicerector' || accion === 'ActualizarUsuarioVicerector')
                 {
                     botonSubMenuActivo = '#vicerectoresMenu';
                     $(botonSubMenuActivo).addClass('active');

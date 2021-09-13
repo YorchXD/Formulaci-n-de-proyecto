@@ -215,7 +215,13 @@
                     var rutaDoc = respuesta.documento.copiaDoc.split("\\");
                     $('#nombreArchivo').val(rutaDoc[rutaDoc.length - 1]);
                     insertarAcciones(respuesta.estadoProceso, respuesta.estadoFinalProceso);
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         }
 
@@ -258,7 +264,6 @@
             return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
         }
 
-
         function eliminarDocumento()
         {
             if (estado == 0)
@@ -291,7 +296,13 @@
                     $('#title-informacion-eliminacion').text(respuesta.titulo);
                     $('#body-informacion-eliminacion').text(respuesta.msj);
                     $('#modal-informacion-eliminacion').modal('show');
-                }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown)
+                {
+                    $('#title-alerta').text(textStatus);
+                    $('#body-alerta').text(errorThrown);
+                    $('#modal-alerta').modal('show');
+                } 
             });
         });
 
