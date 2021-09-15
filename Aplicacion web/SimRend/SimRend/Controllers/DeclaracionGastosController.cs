@@ -387,8 +387,7 @@ namespace SimRend.DbSimRend
             return Json(datos);
         }
 
-        [AutorizacionUsuarioJS(idOperacion: 11)]
-        public JsonResult ActualizarEstadoProceso(int Estado)
+        private Boolean ActualizarEstadoProceso(int Estado)
         {
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
             Boolean validar = ConsultasGenerales.ActualizarEstadoProceso(Estado, proceso.DeclaracionGastos.Id, "Declaracion de gastos");
@@ -398,8 +397,42 @@ namespace SimRend.DbSimRend
                 HttpContext.Session.SetComplexData("Proceso", proceso);
             }
 
+            return validar;
+        }
+
+        [AutorizacionUsuarioJS(idOperacion: 11)]
+        [HttpPost]
+        public JsonResult FinalizarDG()
+        {
+            int Estado = 5;
+            return Json(ActualizarEstadoProceso(Estado));
+        }
+
+        [AutorizacionUsuarioJS(idOperacion: 11)]
+        [HttpPost]
+        public JsonResult AceptarDG()
+        {
+            int Estado = 6;
+            return Json(ActualizarEstadoProceso(Estado));
+        }
+
+        [AutorizacionUsuarioJS(idOperacion: 11)]
+        [HttpPost]
+        public JsonResult RechazarDG()
+        {
+            int Estado = 4;            
+            Boolean validar = ActualizarEstadoProceso(Estado);
+            if (validar)
+            {
+                Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+                HttpContext.Session.SetComplexData("Proceso", proceso);
+                validar = ConsultaDeclaracionGastos.ActualizarFechaLimiteDG(proceso.DeclaracionGastos.Id);
+            }
             return Json(validar);
         }
+
+
+
         /*###################################Fin Proceso de Actualizacion##############################################*/
 
         /*#######################################Proceso de Eliminar###################################################*/

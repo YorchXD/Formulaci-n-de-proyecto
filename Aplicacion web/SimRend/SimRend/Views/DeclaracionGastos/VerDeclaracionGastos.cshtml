@@ -264,16 +264,17 @@
                 success: function (respuesta)
                 {
                     //console.log(respuesta); //se debe eliminar
-                    procesoAux = respuesta;
-                    var fecha1 = moment();
-                    var fecha2 = moment(respuesta.proceso.declaracionGastos.fechaLimite.split('T')[0]);
+                    procesoAux = respuesta;;
+                    console.log(procesoAux)
+                    var fechaActual = moment().format('YYYY-MM-DD');
+                    var fechaLimite = respuesta.proceso.declaracionGastos.fechaLimite.split('T')[0];
                     $('#numeroResolucion').val(respuesta.proceso.resolucion.numResolucion);
-                    $('#fechaLimite').val(respuesta.proceso.declaracionGastos.fechaLimite.split('T')[0]);
-                    $('#diasRestantes').val(fecha2.diff(fecha1, 'days'));
+                    $('#fechaLimite').val(fechaLimite);
+                    $('#diasRestantes').val(moment(fechaLimite).diff(moment(fechaActual), 'days'));
                     $('#totalSolicitado').val(formatoNumero(respuesta.proceso.solicitud.monto));
                     $('#totalDocumentos').val(formatoNumero(respuesta.proceso.declaracionGastos.totalDocumentacion));
                     $('#totalRendido').val(formatoNumero(respuesta.proceso.declaracionGastos.totalRendido));
-                    $('#unidad').val(respuesta.proceso.direccion.nombreInstitucion);
+                    $('#unidad').val(respuesta.proceso.direccion.institucion.nombre);
                     $('#jefeDirecto').val(respuesta.proceso.direccion.nombre);
                     $('#fonoAnexo').val(respuesta.proceso.direccion.fonoAnexo);
                     $('#responsable').val(respuesta.proceso.responsable.nombre);
@@ -485,9 +486,11 @@
             $('#modal-alerta-informacion').modal('hide');
             $.ajax({
                 async: false,
-                url: "/DeclaracionGastos/ActualizarEstadoProceso",
+                //url: "/DeclaracionGastos/ActualizarEstadoProceso",
+                url: "/DeclaracionGastos/FinalizarDG",
                 method: "POST",
-                data: {'Estado':5},
+                data: "", 
+                //data: {'Estado':5},
                 success: function (respuesta)
                 {
                     if (respuesta == true)
@@ -527,9 +530,11 @@
             $('#modal-alerta-informacion').modal('hide');
             $.ajax({
                 async: false,
-                url: "/DeclaracionGastos/ActualizarEstadoProceso",
+                //url: "/DeclaracionGastos/ActualizarEstadoProceso",
+                url: "/DeclaracionGastos/RechazarDG",
                 method: "POST",
-                data: { 'Estado': 4 },
+                //data: { 'Estado': 4 },
+                data: "",
                 success: function (respuesta)
                 {
                     if (respuesta == true)
@@ -569,9 +574,11 @@
             $('#modal-alerta-informacion').modal('hide');
             $.ajax({
                 async: false,
-                url: "/DeclaracionGastos/ActualizarEstadoProceso",
+                //url: "/DeclaracionGastos/ActualizarEstadoProceso",
+                url: "/DeclaracionGastos/AceptarDG",
                 method: "POST",
-                data: { 'Estado': 6 },
+                //data: { 'Estado': 6 },
+                data: "",
                 success: function (respuesta)
                 {
                     if (respuesta == true)

@@ -12,5 +12,6 @@ namespace SimRend.Models
         public String Sexo { get; set; }
         public Institucion Institucion { get; set; }
         public String Cargo { get; set; }
+        public int FonoAnexo { get; set; }
     }
 }

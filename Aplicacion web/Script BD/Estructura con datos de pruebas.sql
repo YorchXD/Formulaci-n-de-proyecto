@@ -11,7 +11,7 @@
  Target Server Version : 100136
  File Encoding         : 65001
 
- Date: 13/09/2021 01:34:52
+ Date: 15/09/2021 01:11:29
 */
 
 SET NAMES utf8mb4;
@@ -79,7 +79,7 @@ INSERT INTO `declaraciondegastos` VALUES (3, '2021-01-19', 345345, 0);
 INSERT INTO `declaraciondegastos` VALUES (4, '2020-10-13', 0, 0);
 INSERT INTO `declaraciondegastos` VALUES (5, '2020-09-30', 0, 0);
 INSERT INTO `declaraciondegastos` VALUES (6, '2020-10-15', 0, 0);
-INSERT INTO `declaraciondegastos` VALUES (11, '2021-03-10', 1352308, 1352308);
+INSERT INTO `declaraciondegastos` VALUES (11, '2021-10-04', 1352308, 1352308);
 INSERT INTO `declaraciondegastos` VALUES (12, '2020-09-17', 24180, 22790);
 
 -- ----------------------------
@@ -126,6 +126,26 @@ INSERT INTO `documento` VALUES (58, 'adfsdfg67654rgh', 'Yorch', '2021-02-17', 43
 INSERT INTO `documento` VALUES (59, 'adfggnbrrt456789plkj', 'Yorch', '2021-02-17', 35632, 'afgadfg', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\-1\\1.pdf', 2, NULL, 11, 1);
 INSERT INTO `documento` VALUES (60, 'sfdshgjklk6rfgbnmm', 'Utalca', '2021-02-17', 254524, 'fadgdafg', 'Factura', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\-1\\2.pdf', 4, NULL, 11, 1);
 INSERT INTO `documento` VALUES (61, 'adfghgj324246', 'Yorch', '2021-02-18', 750000, 'asdasd', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\19043138-K\\1.pdf', 2, '19043138-K', 11, 1);
+
+-- ----------------------------
+-- Table structure for estadoproceso
+-- ----------------------------
+DROP TABLE IF EXISTS `estadoproceso`;
+CREATE TABLE `estadoproceso`  (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `descripcion` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of estadoproceso
+-- ----------------------------
+INSERT INTO `estadoproceso` VALUES (1, 'Edición solicitud');
+INSERT INTO `estadoproceso` VALUES (2, 'Solicitud finalizada');
+INSERT INTO `estadoproceso` VALUES (3, 'Resoluión creada');
+INSERT INTO `estadoproceso` VALUES (4, 'Declaración de gastos en edición (con al menos 1 documento asociado)');
+INSERT INTO `estadoproceso` VALUES (5, 'Declaración de gastos finalizada a espera de su posterior aceptación o rechazo');
+INSERT INTO `estadoproceso` VALUES (6, 'Declaración de gastos aceptada y finalizada');
 
 -- ----------------------------
 -- Table structure for institucion
@@ -352,12 +372,14 @@ CREATE TABLE `procesofondo`  (
   INDEX `procesofondo_ibfk_5`(`refUsuarioRepresentante`) USING BTREE,
   INDEX `procesofondo_ibfk_6`(`refUsuarioDirector`) USING BTREE,
   INDEX `procesofondo_ibk_7`(`refUsuarioVicerector`) USING BTREE,
+  INDEX `procesofondo_ibfk_8`(`estado`) USING BTREE,
   CONSTRAINT `procesofondo_ibfk_1` FOREIGN KEY (`refDeclaracionGastos`) REFERENCES `declaraciondegastos` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibfk_2` FOREIGN KEY (`refOrganizacion`) REFERENCES `organizacion_estudiantil` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibfk_3` FOREIGN KEY (`refResolucion`) REFERENCES `resolucion` (`id`) ON DELETE SET NULL ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibfk_4` FOREIGN KEY (`refSolicitud`) REFERENCES `solicitud` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibfk_5` FOREIGN KEY (`refUsuarioRepresentante`) REFERENCES `usuario_representante` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibfk_6` FOREIGN KEY (`refUsuarioDirector`) REFERENCES `usuario_director` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `procesofondo_ibfk_8` FOREIGN KEY (`estado`) REFERENCES `estadoproceso` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibk_7` FOREIGN KEY (`refUsuarioVicerector`) REFERENCES `usuario_vicerector` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 63 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
@@ -863,6 +885,29 @@ BEGIN
 			WHERE refDeclaracionGastos=in_refProceso;
 		END IF;
 	END IF;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for Actualizar_FechaLimite_DG
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `Actualizar_FechaLimite_DG`;
+delimiter ;;
+CREATE PROCEDURE `Actualizar_FechaLimite_DG`(`in_idDG` INTEGER)
+BEGIN
+
+	SET @fechaActual = DATE(NOW());
+	SET @fechaLimite = (SELECT fechaLimite
+											FROM declaraciondegastos
+											WHERE id = in_idDG);
+	SET @dif = TIMESTAMPDIFF(DAY, @fechaActual, @fechaLimite);
+	SET @diasAumentados = 20-@dif;
+	SET @nuevaFechaLimite = DATE_ADD(@fechaLimite, INTERVAL (@diasAumentados) DAY);
+	
+	UPDATE declaraciondegastos
+	SET fechaLimite = @nuevaFechaLimite
+	WHERE id = in_idDG;
 END
 ;;
 delimiter ;

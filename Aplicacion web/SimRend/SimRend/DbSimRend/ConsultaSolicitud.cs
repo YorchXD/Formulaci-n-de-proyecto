@@ -379,7 +379,8 @@ namespace SimRend.DbSimRend
                             Id = Convert.ToInt32(prodData["refInstitucion"]),
                             Nombre = prodData["nombreInstitucion"].ToString(),
                             Abreviacion = prodData["abreviacionInstitucion"].ToString(),
-                        }
+                        },
+                        FonoAnexo = Convert.ToInt32(prodData["fonoAnexo"]),
                     };
 
                     return direccion;

@@ -233,6 +233,22 @@ namespace SimRend.DbSimRend
             return -1;
         }
 
+        public static bool ActualizarFechaLimiteDG(int id)
+        {
+            try
+            {
+                var command = new MySqlCommand() { CommandText = "Actualizar_FechaLimite_DG", CommandType = System.Data.CommandType.StoredProcedure };
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idDG", Direction = System.Data.ParameterDirection.Input, Value = id });
+                ContexDb.ExecuteProcedure(command);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return false;
+        }
+
 
         /*###########################################Fin leer####################################################*/
     }
