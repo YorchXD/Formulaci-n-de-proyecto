@@ -203,7 +203,6 @@
             </div><!-- modal-content -->
         </div><!-- modal-dialog -->
     </div><!-- modal -->
-
     <!-- MODAL INFORMACION -->
     <div id="modal-alerta-informacion" class="modal fade" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -219,9 +218,37 @@
             </div><!-- modal-content -->
         </div><!-- modal-dialog -->
     </div><!-- modal -->
+
+    <div id="modal-montoExcedente" class="modal fade" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body tx-center pd-y-20 pd-x-20">
+                    <i class="icon fa fa-money-bill-wave tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>
+                    <h4 class="tx-success  tx-semibold mg-b-20">Monto Excedente</h4>
+                    <div class="form-group wd-auto col-lg-12 col-md-12">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text wd-xs-45">
+                                    <i class="fa fa-money-bill-wave tx-16 lh-0 op-6 fa-fw"></i>
+                                </div>
+                            </div>
+                            <input name="monto" class="form-control" id="monto" required="required" type="text" placeholder="¿Cuanto será el monto que puede exceder la declaración de gastos?" data-parsley-error-message="El monto no debe estar vacio y debe ser mayor o igual a cero." data-parsley-errors-container="#errorMonto">
+                        </div>
+                        <div id="errorMonto"></div>
+                    </div>
+                    <button type="button" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" onclick="seleccionarDocumentacionAutomatica()">
+                        Aceptar
+                    </button>
+                </div><!-- modal-body -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
 </div><!-- br-pagebody -->
 
 @section scripts{
+    <script src="~/lib/parsleyjs/parsley.min.js"></script>
+    <script src="~/lib/parsleyjs/i18n/es.js"></script>
+    <script src="~/lib/jquery.maskedinput/jquery.maskedinput.js"></script>
     <script>
         $(document).ready(function ()
         {
@@ -253,7 +280,20 @@
             return runAux;
         };
 
-
+        $("#monto").on({
+            "focus": function (event)
+            {
+                $(event.target).select();
+            },
+            "keyup": function (event)
+            {
+                $(event.target).val(function (index, value)
+                {
+                    return value.replace(/\D/g, "")
+                        .replace(/\B(?=(\d{3})+(?!\d)\.?)/g, ".");
+                });
+            }
+        });
 
         function obtenerDatos()
         {
@@ -289,7 +329,7 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
 
         }
@@ -378,13 +418,15 @@
                 $('#body-alerta-informacion').text("¿Está seguro que desea que el sistema seleccione la documentación a declarar?");
 
                 var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
-                var botonAceptar = '<button type="button" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="seleccionarDocumentacionAutomatica()">Aceptar</button>';
+                var botonAceptar = '<button type="button" id="solicitarExcedente" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="solicitarExcedente()">Aceptar</button>';
 
                 $('#actions-alerta-informacion').empty().append(botonCancelar);
                 $('#actions-alerta-informacion').append(botonAceptar);
                 $('#modal-alerta-informacion').modal('show');
-                
+
             });
+
+
 
             $('#finalizar').click(function (e)
             {
@@ -439,46 +481,65 @@
 
         }
 
-        function seleccionarDocumentacionAutomatica()
+        function solicitarExcedente()
         {
             $('#modal-alerta-informacion').modal('hide');
-            $.ajax({
-                async: false,
-                url: "/DeclaracionGastos/GenerarDG",
-                method: "POST",
-                data: "",
-                success: function (respuesta)
-                {
-                    if (respuesta == true)
-                    {
-                        $('#icono-alerta-informacion').empty().append('<i class="icon icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>');
-                        $('#title-alerta-informacion').text("Declaración de gastos realizada");
-                        $('#body-alerta-informacion').text("La selección de documentación automatica para la declaración de gastos se ha realizado exitosamente.");
+            $('#modal-montoExcedente').modal('show');
+        };
 
-                        var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="CerrarModalAlertaInfo()">Aceptar</button >';
+        function seleccionarDocumentacionAutomatica()
+        {
+            //$('#modal-alerta-informacion').modal('hide');
 
-                        $('#actions-alerta-informacion').empty().append(botonAceptar);
-                        $('#modal-alerta-informacion').modal('show');
-                    }
-                    else
+            var monto = $('#monto').parsley();
+            if (monto.isValid() && parseInt($("#monto").val().replace(/\D/g, ""), 10) > 0)
+            {
+                $('#modal-montoExcedente').modal('hide');
+                $.ajax({
+                    async: false,
+                    url: "/DeclaracionGastos/GenerarDG",
+                    method: "POST",
+                    data: { "Excedente": $("#monto").val().replace(/\D/g, "") },
+                    success: function (respuesta)
                     {
-                        $('#icono-alerta').empty().append('<i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>');
-                        $('#title-alerta').text("Alerta");
-                        $('#body-alerta').text("No se han seleccionado documentos automaticamente para generar la declaración de gastos. Favor de volver a intentarlo y si el problema persiste, contactese con soporte.");
+
+                        if (respuesta == true)
+                        {
+                            $('#icono-alerta-informacion').empty().append('<i class="icon icon ion-ios-checkmark-outline tx-100 tx-success lh-1 mg-t-20 d-inline-block"></i>');
+                            $('#title-alerta-informacion').text("Declaración de gastos realizada");
+                            $('#body-alerta-informacion').text("La selección de documentación automatica para la declaración de gastos se ha realizado exitosamente.");
+
+                            var botonAceptar = '<button type="button" data-dismiss="modal" class="btn btn-success tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5" onclick="CerrarModalAlertaInfo()">Aceptar</button >';
+
+                            $('#actions-alerta-informacion').empty().append(botonAceptar);
+                            $('#modal-alerta-informacion').modal('show');
+                        }
+                        else
+                        {
+                            $('#icono-alerta').empty().append('<i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>');
+                            $('#title-alerta').text("Alerta");
+                            $('#body-alerta').text("No se han seleccionado documentos automaticamente para generar la declaración de gastos. Favor de volver a intentarlo y si el problema persiste, contactese con soporte.");
+                            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+                            $('#actions-alerta').empty().append(boton);
+                            $('#modal-alerta').modal('show');
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown)
+                    {
+                        $('#title-alerta').text(textStatus);
+                        $('#body-alerta').text(errorThrown);
                         var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                         $('#actions-alerta').empty().append(boton);
                         $('#modal-alerta').modal('show');
                     }
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown)
-                {
-                    $('#title-alerta').text(textStatus);
-                    $('#body-alerta').text(errorThrown);
-                    var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
-                    $('#actions-alerta').empty().append(boton);
-                    $('#modal-alerta').modal('show');
-                } 
-            });
+                });
+            }
+            else
+            {
+                $('#monto').val('');
+                monto.validate();
+            }
+
         }
 
         function FinalizarDG()
@@ -489,7 +550,7 @@
                 //url: "/DeclaracionGastos/ActualizarEstadoProceso",
                 url: "/DeclaracionGastos/FinalizarDG",
                 method: "POST",
-                data: "", 
+                data: "",
                 //data: {'Estado':5},
                 success: function (respuesta)
                 {
@@ -521,7 +582,7 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
         }
 
@@ -565,7 +626,7 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
         }
 
@@ -609,7 +670,7 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
         }
 
@@ -652,7 +713,7 @@
                             var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                             $('#actions-alerta').empty().append(boton);
                             $('#modal-alerta').modal('show');
-                        } 
+                        }
                     });
                     break;
             }
@@ -713,7 +774,7 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
         }
 

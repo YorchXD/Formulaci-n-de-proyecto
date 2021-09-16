@@ -745,12 +745,11 @@ namespace SimRend.DbSimRend
 
         /*################################### SELECCION DE DOCUMENTOS ###############################################*/
         [AutorizacionUsuarioJS(idOperacion: 11)]
-        public JsonResult GenerarDG()
+        public JsonResult GenerarDG(int Excedente)
         {
             try
             {
                 Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
-
                 proceso.Solicitud.Participantes = ConsultaDeclaracionGastos.LeerDocumentos(proceso.DeclaracionGastos.Id, proceso.Solicitud.Participantes, proceso.Solicitud.Categorias);
                 List<Persona> participantes = proceso.Solicitud.Participantes.FindAll(participante => participante.RUN != "-1");
                 
@@ -758,40 +757,34 @@ namespace SimRend.DbSimRend
                 Persona participanteAux = proceso.Solicitud.Participantes.Find(participante => participante.RUN == "-1");
                 int cantParticipantes = participantes.Count();
                 int totalRendido = proceso.DeclaracionGastos.TotalRendido;
-                int montoMaxParticipante = 0, totalRendidoParticipante = 0, faltanteRendir = 0, totalGrupalRendido=0;
-                
-                /*Calcula el monto total a rendir por persona. En caso de existir documento seleccionados dentro del usuario "-1" (documentos realizados en conjunto), se debe restar al monto 
-                 * solicitado y luego se debe dividir ese resultado se debe dividir por la cantidad de participantes del evento */
+                int montoMaxParticipante = 0, 
+                    totalRendidoParticipante = 0, 
+                    faltanteRendir = 0, 
+                    totalGrupalRendido=0, 
+                    montoMaximoRendir= proceso.Solicitud.Monto + Excedente;
+
+                /*Calcula el monto total a rendir por persona. En caso de existir documento seleccionados dentro del usuario "-1" (documentos realizados en conjunto), 
+                 * se debe restar al monto solicitado y luego se debe dividir ese resultado se debe dividir por la cantidad de participantes del evento */
                 if (cantParticipantes > 0)
                 {
+                    /*Verifica si existen documentos en comun seleccionados*/
                     totalGrupalRendido = participanteAux.Documentos.Where(doc => doc.Estado == 1).Sum(doc => doc.Monto);
-                    montoMaxParticipante = (proceso.Solicitud.Monto - totalGrupalRendido)/ cantParticipantes;
+                    montoMaxParticipante = (montoMaximoRendir - totalGrupalRendido)/ cantParticipantes;
                 }
 
-                for (int i = 0; i < cantParticipantes && totalRendido < proceso.Solicitud.Monto; i++)
+                /*Selecciona boletas por participante. En caso de que la actividad sea masiva, no pasara por esta seccion*/
+                for (int i = 0; i < cantParticipantes && totalRendido < montoMaximoRendir; i++)
                 {
-                    if(participantes[i].Documentos!=null && participantes[i].Documentos.Count()!=0)
-                    {
-                        totalRendidoParticipante = participantes[i].Documentos.Where(doc => doc.Estado == 1).Sum(doc => doc.Monto);
-                        faltanteRendir = montoMaxParticipante - totalRendidoParticipante;
-                        List<Documento> documentos = participantes[i].Documentos.FindAll(documento => documento.Estado == 0);
-                        List<Documento> documentosAux = SeleccionDocumentos(documentos, faltanteRendir);
-                        totalRendido += documentosAux.Where(documento => documento.Estado == 1).Sum(documento => documento.Monto);
-                    }
-                    
+                    faltanteRendir = montoMaxParticipante - totalRendidoParticipante;
+                    totalRendido += seleccionarDocumentosParticipante(faltanteRendir, participantes[i].Documentos);
                 }
 
-                if (totalRendido < proceso.Solicitud.Monto)
+                /*Si falta dinero por rendir se seleccionan boletas en comun que tienen los participantes en comun. En caso
+                 de que la actividad sea masiva, siempre pasara por esta seccion*/
+                if (totalRendido < montoMaximoRendir)
                 {
-                    if (participanteAux.Documentos != null && participanteAux.Documentos.Count() != 0)
-                    {
-                        totalRendidoParticipante = participanteAux.Documentos.Where(doc => doc.Estado == 1).Sum(doc => doc.Monto);
-                        faltanteRendir = proceso.Solicitud.Monto - totalRendido;
-                        List<Documento> documentos = participanteAux.Documentos.FindAll(doc => doc.Estado == 0);
-                        List<Documento> documentosAux = SeleccionDocumentos(documentos, faltanteRendir);
-                        totalRendido += documentosAux.Where(documento => documento.Estado == 1).Sum(documento => documento.Monto);
-                    }
-                    
+                    faltanteRendir = montoMaximoRendir - totalRendido;
+                    totalRendido = seleccionarDocumentosParticipante(faltanteRendir, participanteAux.Documentos);
                 }
                 return Json(true);
             }
@@ -802,60 +795,120 @@ namespace SimRend.DbSimRend
             return Json(false);
         }
 
-        public List<Documento> SeleccionDocumentos(List<Documento> documentos, int monto)
+        private int seleccionarDocumentosParticipante(int faltanteRendir, List<Documento> documentosParticipante)
         {
-            int t = monto;
+            int totalRendido = 0;
+            if (documentosParticipante != null && documentosParticipante.Count() != 0 && faltanteRendir > 0)
+            {
+                /*Suma de todos los documentos seleccionado del participante*/
+                int totalRendidoParticipante = documentosParticipante.Where(doc => doc.Estado == 1).Sum(doc => doc.Monto);
+
+                /*Se obtienen todos los documentos que no se encuentran seleccionados del participante*/
+                List<Documento> documentosNoSeleccionados = documentosParticipante.FindAll(documento => documento.Estado == 0);
+
+                /*Si la cantidad de documentos no seleccionados es mayor a cero se envian al algoritmo de la mochila 
+                para ver si existen documentos que se ajusten al presupuesto dado y despues la sumas de estos
+                se registren al total rendido*/
+                if (documentosNoSeleccionados.Count() != 0)
+                {
+                    List<Documento> documentosProcesados = algoritmoMochila(documentosNoSeleccionados, faltanteRendir);
+                    totalRendido += documentosProcesados.Where(documento => documento.Estado == 1).Sum(documento => documento.Monto);
+                }
+            }
+            return totalRendido;
+        }
+
+
+        /*Programacion dinamica - Algoritmo de la mochila 0 - 1 (no seleccionada - seleccionada)*/
+        private List<Documento> algoritmoMochila(List<Documento> documentos, int monto)
+        {
+            /*El algoritmo de la mochila requiere que cada documento tenga un peso y un beneficio. Para ajustarlo
+             a la problematica de seleccion de documento el peso(Wi) es el mismo que el beneficio(Bi) y todo esto sera
+            igual al monto que tiene cada documento(boleta/factura)*/
+
+            /*W es la cantidad total de pesos maximo que puede tener la mochila*/
+            int W = monto;
+           
+            /*Documentos ordenados*/
             List<Documento> docsOrdenados = documentos.OrderBy(documento => documento.Monto).ToList();
-            int n = docsOrdenados.Count(), i, w;
-            int[,] p = new int[n + 1, t + 1];
+
+            /*n es la cantidad total de documentos*/
+            /*wi es el peso que tiene el documento*/
+            /*bi es el beneficio que tiene el documento*/
+            /*w es el peso que se esta evaluando*/
+            /*i sera el documento que se esta evaluando dentro de la matriz*/
+            int n = docsOrdenados.Count(), i, wi, w, bi;
+
+            /*Inicializacion de la matriz*/
+
+            // v[i][w] representa el valor máximo de la mochila con capacidad w después de combinar los primeros elementos i
+            int[,] V = new int[n + 1, W + 1];
 
             /*Algoritmo de internet modificado*/
-            for (i = 0; i <= t; i++)
+            /*Llenando la matriz*/
+
+            /*Primera fila con ceros*/
+            for (i = 0; i <= W; i++)
             {
-                p[0, i] = 0;
+                V[0, i] = 0;
             }
 
+            /*Primera coluna con ceros*/
             for (i = 0; i <= n; i++)
             {
-                p[i, 0] = 0;
+                V[i, 0] = 0;
             }
 
+            /*Llenando la matriz segun el criterio del algoritmo de la mochila*/
+            // Logra el valor máximo de los documentos en la mochila 0-1
+            // i se puede entender como: el elemento i-ésimo (la fila representa los elementos no utilizados con peso y valor)
+            // w puede entenderse como: diferentes capacidades de mochilas (las columnas representan mochilas de diferentes capacidades)
+            // v [i] [w] representa el valor máximo de la mochila con capacidad w después de combinar los primeros elementos i
             for (i = 1; i <= n; i++)
             {
-                for (w = 0; w <= t; w++)
+                for (w= 1; w <= W; w++)
                 {
-                    if (docsOrdenados[i - 1].Monto <= w)
+                    wi = docsOrdenados[i - 1].Monto;
+                    bi = docsOrdenados[i - 1].Monto;
+
+                    //El peso del elemento i-ésimo es menor o igual que la capacidad actual de la mochila 
+                    if (wi <= w)
                     {
-                        if ((docsOrdenados[i - 1].Monto + p[i - 1, w - docsOrdenados[i - 1].Monto]) > p[i - 1, w])
+                        if ((bi + V[i-1, w-wi]) > V[i-1, w])
                         {
-                            p[i, w] = docsOrdenados[i - 1].Monto + p[i - 1, w - docsOrdenados[i - 1].Monto];
+                            V[i, w] = bi + V[i-1, w-wi];
                         }
                         else
                         {
-                            p[i, w] = p[i - 1, w];
+                            V[i, w] = V[i-1, w];
                         }
                     }
                     else
                     {
-                        p[i, w] = p[i - 1, w];
+                        V[i, w] = V[i-1, w];
                     }
                 }
             }
 
-            i = n;
-            int k = t;
+            registrarDocumentosSeleccionados(n, W, V, docsOrdenados);
+
+            return docsOrdenados;
+        }
+
+        private void registrarDocumentosSeleccionados(int n, int W, int[,] V, List<Documento> documentos)
+        {
+            int i = n;
+            int k = W;
             while (i > 0 && k > 0)
             {
-                if (p[i, k] != p[i - 1, k])
+                if (V[i, k] != V[i - 1, k])
                 {
-                    docsOrdenados[i - 1].Estado = 1;
-                    ConsultaDeclaracionGastos.DocumentoSeleccionado(1, docsOrdenados[i - 1].Id);
-                    k = k - docsOrdenados[i - 1].Monto;
+                    documentos[i - 1].Estado = 1;
+                    ConsultaDeclaracionGastos.DocumentoSeleccionado(1, documentos[i - 1].Id);
+                    k = k - documentos[i - 1].Monto;
                 }
                 i = i - 1;
             }
-
-            return docsOrdenados;
         }
     }
 }
