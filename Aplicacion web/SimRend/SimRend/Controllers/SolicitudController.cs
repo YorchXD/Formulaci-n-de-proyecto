@@ -581,7 +581,18 @@ namespace SimRend.Controllers
         public FileResult DescargarSolicitud()
         {
             Proceso proceso = obtenerProceso();
-            //var convertidor = new SynchronizedConverter(new PdfTools());
+            GeneradorPDF generadorPDF = new GeneradorPDF(_converter);
+            return File(generadorPDF.PDF(proceso, "Solicitud"), "application/pdf", "Soliciud.pdf");
+
+
+
+
+
+
+
+
+
+            /*//var convertidor = new SynchronizedConverter(new PdfTools());
             //var convertidor = new BasicConverter(new PdfTools());
             var globalSettings = new GlobalSettings
             {
@@ -589,18 +600,19 @@ namespace SimRend.Controllers
                 Orientation = Orientation.Portrait,
                 PaperSize = PaperKind.Letter,
 
-                /*ColorMode = ColorMode.Color,
-                Orientation = Orientation.Portrait,
-                PaperSize = PaperKind.A4,
-                Margins = new MarginSettings { Top = 10 },*/
+                //ColorMode = ColorMode.Color,
+                //Orientation = Orientation.Portrait,
+                //PaperSize = PaperKind.A4,
+                //Margins = new MarginSettings { Top = 10 },
                 DocumentTitle = "PDF Solicitud"
             };
             var objectSettings = new ObjectSettings
             {
                 PagesCount = true,
                 HtmlContent = @"" + TemplatePDF.SolicitudPdf(proceso),
-                WebSettings ={DefaultEncoding = "utf-8"},
-                //WebSettings = { DefaultEncoding = "utf-8", UserStyleSheet = Path.Combine(Directory.GetCurrentDirectory(), "assets", "styles.css") },
+                //HtmlContent = TemplatePDF.SolicitudPdf(proceso),
+                //WebSettings ={DefaultEncoding = "utf-8"},
+                WebSettings = { DefaultEncoding = "utf-8", UserStyleSheet = Path.Combine(Directory.GetCurrentDirectory(), "assets", "estiloPDF.css") },
                 //HeaderSettings = { FontName = "Arial", FontSize = 9, Right = "Page [page] of [toPage]", Line = true },
                 //FooterSettings = { FontName = "Arial", FontSize = 9, Line = true, Center = "Report Footer" }
             };
@@ -612,7 +624,7 @@ namespace SimRend.Controllers
             //var file = _converter.Convert(pdf);
             byte[] file = _converter.Convert(pdf);
             //byte[] file = convertidor.Convert(pdf);
-            return File(file, "application/pdf", "Soliciud.pdf");
+            return File(file, "application/pdf", "Soliciud.pdf");*/
         }
 
         private Proceso obtenerProceso()

@@ -426,6 +426,11 @@ namespace SimRend.DbSimRend
                                 Id = Convert.ToInt32(prodData["idCampus"]),
                                 Nombre = prodData["nombreCampus"].ToString()
                             },
+                            TipoOE = new TipoOE { 
+                                Id = Convert.ToInt32(prodData["idTipoOE"]),
+                                Nombre = prodData["tipoOE"].ToString(),
+                                NombreExtendido = prodData["tipoOENombreExt"].ToString()
+                            },
 
                             Institucion = new Institucion
                             {

@@ -446,7 +446,7 @@
             $('#descargar').click(function (e)
             {
                 e.preventDefault();
-                alert('Descargar documentación de la declaración de gastos');
+                window.location.href = '/DeclaracionGastos/DescargarDG';
             });
 
             $('#rechazar').click(function (e)
@@ -492,7 +492,7 @@
             //$('#modal-alerta-informacion').modal('hide');
 
             var monto = $('#monto').parsley();
-            if (monto.isValid() && parseInt($("#monto").val().replace(/\D/g, ""), 10) > 0)
+            if (monto.isValid() && parseInt($("#monto").val().replace(/\D/g, ""), 10) >= 0)
             {
                 $('#modal-montoExcedente').modal('hide');
                 $.ajax({

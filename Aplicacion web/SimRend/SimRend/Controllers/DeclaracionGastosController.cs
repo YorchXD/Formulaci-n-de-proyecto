@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SimRend.Filters;
 using SimRend.Models;
+using SimRend.Utility;
 
 namespace SimRend.DbSimRend
 {
     public class DeclaracionGastosController : Controller
     {
         private readonly IWebHostEnvironment _webHostEnvironment;
+        private IConverter _converter;
 
-        public DeclaracionGastosController(IWebHostEnvironment webHostEnvironment)
+        public DeclaracionGastosController(IWebHostEnvironment webHostEnvironment, IConverter converter)
         {
             _webHostEnvironment = webHostEnvironment;
+            _converter = converter;
         }
+        
 
         [AutorizacionUsuario(idOperacion: 10)]
         public IActionResult VerDeclaracionGastos()
@@ -909,6 +914,18 @@ namespace SimRend.DbSimRend
                 }
                 i = i - 1;
             }
+        }
+
+        [HttpGet]
+        [AutorizacionUsuarioJS(idOperacion: 10)]
+        public FileResult DescargarDG()
+        {
+            //Proceso proceso = obtenerProceso();
+            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+            proceso.Solicitud.Participantes = ConsultaDeclaracionGastos.LeerDocumentos(proceso.DeclaracionGastos.Id, proceso.Solicitud.Participantes, proceso.Solicitud.Categorias);
+            //proceso.Organizacion = ConsultaSolicitud.LeerOrganizacion(proceso.Solicitud.Id);
+            GeneradorPDF generadorPDF = new GeneradorPDF(_converter);
+            return File(generadorPDF.PDF(proceso, "Declaración de gastos"), "application/pdf", "DeclaracionDeGastos.pdf");
         }
     }
 }
