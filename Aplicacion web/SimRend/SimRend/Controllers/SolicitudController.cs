@@ -211,7 +211,7 @@ namespace SimRend.Controllers
         {
             //Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
             String tipoUsuario = HttpContext.Session.GetString("TipoUsuario");
-            if (tipoUsuario.Equals("Representante"))
+            if (tipoUsuario.Equals("Estudiante dirigente"))
             {
                 Usuario usuario = HttpContext.Session.GetComplexData<Usuario>("DatosUsuario");
                 List<Organizacion> organizaciones = ConsultaUsuario.LeerOrganizacion(usuario.Id, tipoUsuario);
@@ -221,7 +221,7 @@ namespace SimRend.Controllers
                 if (representantes != null)
                 {
                     UsuarioRepresentante representanteSelec = representantes.Find(responsable => responsable.Id == IdResponsable);
-                    representantes = representantes.Where(responsable => !responsable.CrearSolicitud.Equals("Desabilitado")).ToList();
+                    representantes = representantes.Where(responsable => !responsable.CrearSolicitud.Equals("Deshabilitado")).ToList();
                     representantes.Add(representanteSelec);
                     return Json(representantes);
                 }

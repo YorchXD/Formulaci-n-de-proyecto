@@ -315,7 +315,7 @@ namespace SimRend.Utility
 
             List<Persona> participantesAux = participantes.FindAll(participante => !participante.RUN.Equals("-1"));
             Boolean primero = true;
-
+            int montoTotal = 0;
             for (int i = 0; i < participantesAux.Count(); i++)
             {
                 String paddingTop = "";
@@ -332,6 +332,7 @@ namespace SimRend.Utility
                     }
                     pagina += "<div style='" + paddingTop + " padding-bottom:10px;'><B>Nombre: </B>" + participantesAux[i].Nombre + "</div>";
                     pagina = GenerarTabla(pagina, FormatoMoneda, participantesAux[i].Documentos.FindAll(documento => documento.TipoDocumento.Equals("Boleta")));
+                    montoTotal += participantesAux[i].Documentos.FindAll(documento => documento.TipoDocumento.Equals("Boleta") && documento.Estado==1).Sum(documento=>documento.Monto);
                 }
 
             }
@@ -354,16 +355,16 @@ namespace SimRend.Utility
             /*Sumar todas las boletas que tienen en comun y dividirla por la cantidad de participante*/
             int porcionBoletasComun = participanteAux.Documentos.FindAll(documento => documento.TipoDocumento.Equals("Boleta") && documento.Estado==1).Sum(doc => doc.Monto) / participantesAux.Count();
             /*Sumar todas las boletas de cada participante y agregarle la porcion de boletas compartidas*/
-            int montoTotal = 0;
+            //int montoTotal = 0;
             foreach(var participante in participantesAux)
             {
                 int monto = participante.Documentos.FindAll(documento => documento.TipoDocumento.Equals("Boleta") && documento.Estado==1).Sum(documento => documento.Monto) + porcionBoletasComun;
-                montoTotal += monto;
+                //montoTotal += monto;
 
                 if(monto>0)
                 {
                     pagina += "<tr>";
-                    pagina += "<td><b>" + participante.Nombre + "</b></td>";
+                    pagina += "<td>" + participante.Nombre + "</td>";
                     pagina += "<td>" + monto.ToString("C0", FormatoMoneda) + "</td>";
                     pagina += "</tr>";
                 }                
@@ -372,7 +373,7 @@ namespace SimRend.Utility
             /*Sumar el total de boletas compartidas y de cada participante*/
             pagina += "<tr>";
             pagina += "<td><b>Total</b></td>";
-            pagina += "<td>" + montoTotal.ToString("C0", FormatoMoneda) + "</td>";
+            pagina += "<td><b>" + montoTotal.ToString("C0", FormatoMoneda) + "</b></td>";
             pagina += "</tr>";
             pagina += "</tbody></table>";
 
@@ -387,7 +388,6 @@ namespace SimRend.Utility
                         "<th>Nombre proveedor</th>" +
                         "<th>Descripción</th>" +
                         "<th>Monto</th>" +
-                        "<th>C. Costo</th>" +
                         "</tr></thead>";
             pagina += "<tbody>";
             foreach (var documento in documentos)
@@ -400,7 +400,6 @@ namespace SimRend.Utility
                     pagina += "<td>" + documento.Proveedor + "</td>";
                     pagina += "<td>" + documento.DescripcionDocumento + "</td>";
                     pagina += "<td>" + documento.Monto.ToString("C0", FormatoMoneda) + "</td>";
-                    pagina += "<td> </td>";
                     pagina += "</tr>";
                 }
             }

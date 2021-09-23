@@ -10,6 +10,23 @@ table {
     display: table;
 }
 
+table {
+    page-break-inside: auto
+}
+
+tr {
+    page-break-inside: avoid;
+    page-break-after: auto
+}
+
+thead {
+    display: table-header-group
+}
+
+tfoot {
+    display: table-footer-group
+}
+
 /*table * {position: relative;}*/
 table td, table th {padding-left: 8px;}
 

@@ -90,6 +90,7 @@ $('#wizard6').steps({
         if (currentIndex < newIndex) 
         {
             // Step 1: creacion de los datos principales de la solicitud
+            var val = false;
             if (currentIndex === 0) {
                 var nombreEvento = $('#nombreEvento').parsley();
                 var lugarEvento = $('#lugarEvento').parsley();
@@ -130,13 +131,16 @@ $('#wizard6').steps({
                                 else {
                                     $("#wizard6").steps('unskip', 2);
                                 }
-                                return true;
+                                val = true;
+                                //return true;
                                 
                             }
                             else
                             {
                                 toastr.error(respuesta.mensaje, 'Error Critico!');
+                                //return false;
                             }
+                            
                         },
                         error: function (XMLHttpRequest, textStatus, errorThrown)
                         {
@@ -146,9 +150,15 @@ $('#wizard6').steps({
                             var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                             $('#actions-alerta').empty().append(boton);
                             $('#modal-alerta').modal('show');
-                        } 
+                            //return false;
+                        }
                     });
-                    return false;
+
+                    if (val == true)
+                    {
+                        return val;
+                    }
+                    
                 }
                 else {
                     nombreEvento.validate();
@@ -183,6 +193,7 @@ $('#wizard6').steps({
                 {
                     toastr.error('No ha registrado ninguna categoría. Para continuar debe indicar en que se va a desembolsar los gastos del evento.', 'Error Critico!');
                 }
+                //return false;
             }
 
             // Step 3: Se agregan los participantes del evento en caso de que el evento sea grupal o para una persona en particular
@@ -194,6 +205,7 @@ $('#wizard6').steps({
                 else {
                     toastr.error('No ha registrado ningun participante. Debe registrar a todos los participantes del evento debido a que usted seleccionó que la actividad es grupal.', 'Error Critico!');
                 }
+                //return false;
             }
             // Step 4: Muestra todos los datos ingresados para la solicitud y se podrá descargar y finalizar solicitud
             if (currentIndex === 3) {
