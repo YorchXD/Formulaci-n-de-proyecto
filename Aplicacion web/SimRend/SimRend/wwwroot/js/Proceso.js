@@ -58,7 +58,7 @@ function obtenerProcesos()
     $('#tablaSolicitudes').DataTable({
         'destroy': true,
         'bLengthChange': false,
-        'searching': false,
+        'searching': true,
         'dom': "Bfrtip",
         'responsive': true,
         'language': {
@@ -72,7 +72,9 @@ function obtenerProcesos()
             "lengthMenu": "Mostrar _MENU_ Entradas",
             "loadingRecords": "Cargando...",
             "processing": "Procesando...",
-            "search": "Buscar:",
+            /*"search": "Buscar...",*/
+            "searchPlaceholder": "Buscar...",
+            "sSearch": "",
             "zeroRecords": "Sin resultados encontrados",
             "paginate": {
                 "first": "Primero",

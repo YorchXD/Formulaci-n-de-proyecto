@@ -11,7 +11,7 @@
  Target Server Version : 100136
  File Encoding         : 65001
 
- Date: 23/09/2021 02:53:24
+ Date: 23/09/2021 19:03:42
 */
 
 SET NAMES utf8mb4;
@@ -69,19 +69,20 @@ CREATE TABLE `declaraciondegastos`  (
   `totalDocumentacion` int NOT NULL DEFAULT 0,
   `totalRendido` int NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of declaraciondegastos
 -- ----------------------------
-INSERT INTO `declaraciondegastos` VALUES (1, '2020-12-16', 150000, 150000);
 INSERT INTO `declaraciondegastos` VALUES (3, '2021-01-19', 345345, 0);
 INSERT INTO `declaraciondegastos` VALUES (4, '2020-10-13', 0, 0);
 INSERT INTO `declaraciondegastos` VALUES (5, '2020-09-30', 0, 0);
 INSERT INTO `declaraciondegastos` VALUES (6, '2020-10-15', 0, 0);
-INSERT INTO `declaraciondegastos` VALUES (11, '2021-10-13', 1352308, 1352308);
 INSERT INTO `declaraciondegastos` VALUES (12, '2020-09-17', 24180, 22790);
-INSERT INTO `declaraciondegastos` VALUES (13, '2021-10-14', 381750, 381750);
+INSERT INTO `declaraciondegastos` VALUES (13, '2021-10-13', 381750, 381750);
+INSERT INTO `declaraciondegastos` VALUES (16, '2021-10-14', 0, 0);
+INSERT INTO `declaraciondegastos` VALUES (17, '2021-10-14', 0, 0);
+INSERT INTO `declaraciondegastos` VALUES (18, '2021-10-14', 0, 0);
 
 -- ----------------------------
 -- Table structure for documento
@@ -121,16 +122,6 @@ INSERT INTO `documento` VALUES (52, 'zmcvld', 'Restaurant', '2020-08-27', 1350, 
 INSERT INTO `documento` VALUES (53, 'lkdfkjkl345678', 'Andimar', '2020-08-26', 4000, 'Pasajes', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\DeclaracionGastos\\17824523-6\\1.pdf', 3, '17824523-6', 12, 1);
 INSERT INTO `documento` VALUES (54, 'lkdjfkwk567', 'Turbus', '2020-08-28', 5500, 'Pasajes', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\DeclaracionGastos\\17824523-6\\2.pdf', 3, '17824523-6', 12, 1);
 INSERT INTO `documento` VALUES (55, 'dsfghu6', 'Restaurant', '2020-08-27', 1720, 'Comida', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\DeclaracionGastos\\17824523-6\\3.pdf', 3, '17824523-6', 12, 1);
-INSERT INTO `documento` VALUES (56, 'ddzvfg', 'Yorch', '2021-02-18', 234332, 'SDFASDDFSAGFD', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\17820883-7\\1.pdf', 2, '17820883-7', 11, 1);
-INSERT INTO `documento` VALUES (57, '74y4mdkgi', 'Daniela', '2021-02-17', 34254, 'asgafdgdf', 'Factura', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\17820883-7\\2.pdf', 1, '17820883-7', 11, 1);
-INSERT INTO `documento` VALUES (58, 'adfsdfg67654rgh', 'Yorch', '2021-02-17', 43566, 'zxcvdgadf', 'Factura', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\17820883-7\\3.pdf', 5, '17820883-7', 11, 1);
-INSERT INTO `documento` VALUES (59, 'adfggnbrrt456789plkj', 'Yorch', '2021-02-17', 35632, 'afgadfg', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\-1\\1.pdf', 2, NULL, 11, 1);
-INSERT INTO `documento` VALUES (60, 'sfdshgjklk6rfgbnmm', 'Utalca', '2021-02-17', 254524, 'fadgdafg', 'Factura', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\-1\\2.pdf', 4, NULL, 11, 1);
-INSERT INTO `documento` VALUES (61, 'adfghgj324246', 'Yorch', '2021-02-18', 750000, 'asdasd', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\DeclaracionGastos\\19043138-K\\1.pdf', 2, '19043138-K', 11, 1);
-INSERT INTO `documento` VALUES (62, '324531201', 'El cura', '2020-11-26', 2500, 'Comprar pan', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\53\\DeclaracionGastos\\-1\\1.pdf', 2, NULL, 1, 1);
-INSERT INTO `documento` VALUES (63, 'pshf65421', 'El amarillo', '2020-11-26', 90500, 'Alojamiento', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\53\\DeclaracionGastos\\-1\\2.pdf', 2, NULL, 1, 1);
-INSERT INTO `documento` VALUES (64, 'szdxa243', 'ACM', '2020-11-26', 35000, 'Inscripción', 'Factura', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\53\\DeclaracionGastos\\-1\\3.pdf', 2, NULL, 1, 1);
-INSERT INTO `documento` VALUES (65, 'sdafr567', 'La tucan', '2020-11-26', 22000, 'Artículos de oficina', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\53\\DeclaracionGastos\\-1\\4.pdf', 2, NULL, 1, 1);
 INSERT INTO `documento` VALUES (66, '28', 'Sociedad Chilena de ciencias de la computación', '2021-09-23', 200000, 'Inscripción ACM', 'Factura', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\DeclaracionGastos\\-1\\1.png', 4, NULL, 13, 1);
 INSERT INTO `documento` VALUES (67, '079478', 'Merk Xpress', '2021-09-23', 1500, 'Alimentación', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\DeclaracionGastos\\17981314-9\\1.png', 1, '17981314-9', 13, 1);
 INSERT INTO `documento` VALUES (68, '000182A0B811F8', 'Andimar', '2021-09-24', 4000, 'Transporte Santiago-Curicó', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\DeclaracionGastos\\17981314-9\\2.png', 5, '17981314-9', 13, 1);
@@ -349,8 +340,11 @@ INSERT INTO `parsol` VALUES ('17824523-6', 29);
 INSERT INTO `parsol` VALUES ('17824523-6', 54);
 INSERT INTO `parsol` VALUES ('17981314-9', 63);
 INSERT INTO `parsol` VALUES ('17981314-9', 64);
+INSERT INTO `parsol` VALUES ('17981314-9', 65);
+INSERT INTO `parsol` VALUES ('17981314-9', 67);
 INSERT INTO `parsol` VALUES ('18594887-0', 63);
 INSERT INTO `parsol` VALUES ('18594887-0', 64);
+INSERT INTO `parsol` VALUES ('18594887-0', 67);
 INSERT INTO `parsol` VALUES ('19043138-K', 15);
 INSERT INTO `parsol` VALUES ('19043138-K', 20);
 INSERT INTO `parsol` VALUES ('19043138-K', 22);
@@ -360,12 +354,16 @@ INSERT INTO `parsol` VALUES ('19043138-K', 26);
 INSERT INTO `parsol` VALUES ('19043138-K', 58);
 INSERT INTO `parsol` VALUES ('19299415-2', 63);
 INSERT INTO `parsol` VALUES ('19299415-2', 64);
+INSERT INTO `parsol` VALUES ('19299415-2', 67);
 INSERT INTO `parsol` VALUES ('19862538-8', 63);
 INSERT INTO `parsol` VALUES ('19862538-8', 64);
+INSERT INTO `parsol` VALUES ('19862538-8', 67);
 INSERT INTO `parsol` VALUES ('19865856-1', 63);
 INSERT INTO `parsol` VALUES ('19865856-1', 64);
+INSERT INTO `parsol` VALUES ('19865856-1', 67);
 INSERT INTO `parsol` VALUES ('20090232-7', 63);
 INSERT INTO `parsol` VALUES ('20090232-7', 64);
+INSERT INTO `parsol` VALUES ('20090232-7', 67);
 
 -- ----------------------------
 -- Table structure for participante
@@ -424,7 +422,7 @@ CREATE TABLE `procesofondo`  (
   CONSTRAINT `procesofondo_ibfk_6` FOREIGN KEY (`refUsuarioDirector`) REFERENCES `usuario_director` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibfk_8` FOREIGN KEY (`estado`) REFERENCES `estadoproceso` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `procesofondo_ibk_7` FOREIGN KEY (`refUsuarioVicerector`) REFERENCES `usuario_vicerector` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 68 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 71 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of procesofondo
@@ -463,12 +461,10 @@ INSERT INTO `procesofondo` VALUES (48, 48, NULL, NULL, 2, 1, 'Abierto', 1, 1, NU
 INSERT INTO `procesofondo` VALUES (49, 49, 39, 5, 2, 1, 'Abierto', 2, 1, NULL);
 INSERT INTO `procesofondo` VALUES (50, 50, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
 INSERT INTO `procesofondo` VALUES (51, 51, 38, 4, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (53, 53, 31, 1, 5, 1, 'Abierto', 1, 1, NULL);
 INSERT INTO `procesofondo` VALUES (54, 54, 37, 3, 5, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (57, 57, NULL, NULL, 2, 1, 'Cerrado', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (60, 58, 45, 11, 5, 1, 'Abierto', 1, 1, NULL);
 INSERT INTO `procesofondo` VALUES (62, 60, NULL, NULL, 2, 2, 'Abierto', 7, NULL, 6);
 INSERT INTO `procesofondo` VALUES (67, 64, 47, 13, 5, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (70, 67, 52, 18, 3, 1, 'Abierto', 1, 1, NULL);
 
 -- ----------------------------
 -- Table structure for resolucion
@@ -482,19 +478,18 @@ CREATE TABLE `resolucion`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `numero`(`numero`) USING BTREE,
   INDEX `anio`(`anio`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 48 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of resolucion
 -- ----------------------------
-INSERT INTO `resolucion` VALUES (31, 202012, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\53\\Resolucion\\Resolucion.pdf');
 INSERT INTO `resolucion` VALUES (37, 236420, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\54\\Resolucion\\Resolucion.pdf');
 INSERT INTO `resolucion` VALUES (38, 365, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\51\\Resolucion\\Resolucion.pdf');
 INSERT INTO `resolucion` VALUES (39, 2136, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\49\\Resolucion\\Resolucion.pdf');
 INSERT INTO `resolucion` VALUES (40, 325, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\46\\Resolucion\\Resolucion.pdf');
-INSERT INTO `resolucion` VALUES (45, 2056452, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\58\\Resolucion\\Resolucion.pdf');
 INSERT INTO `resolucion` VALUES (46, 32451321, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\Resolucion\\Resolucion.pdf');
-INSERT INTO `resolucion` VALUES (47, 264, 2021, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\Resolucion\\Resolucion.pdf');
+INSERT INTO `resolucion` VALUES (47, 264, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\Resolucion\\Resolucion.pdf');
+INSERT INTO `resolucion` VALUES (52, 264, 2021, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\67\\Resolucion\\Resolucion.pdf');
 
 -- ----------------------------
 -- Table structure for rol
@@ -650,6 +645,12 @@ INSERT INTO `solcat` VALUES (64, 1);
 INSERT INTO `solcat` VALUES (64, 2);
 INSERT INTO `solcat` VALUES (64, 5);
 INSERT INTO `solcat` VALUES (64, 4);
+INSERT INTO `solcat` VALUES (65, 2);
+INSERT INTO `solcat` VALUES (66, 1);
+INSERT INTO `solcat` VALUES (67, 1);
+INSERT INTO `solcat` VALUES (67, 4);
+INSERT INTO `solcat` VALUES (67, 5);
+INSERT INTO `solcat` VALUES (67, 2);
 
 -- ----------------------------
 -- Table structure for solicitud
@@ -667,7 +668,7 @@ CREATE TABLE `solicitud`  (
   `fechaCreacionPDF` date NOT NULL,
   `fechaModificacion` date NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 65 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 68 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of solicitud
@@ -706,12 +707,10 @@ INSERT INTO `solicitud` VALUES (48, '2020-09-09', 3215654, 'prueba casi definiti
 INSERT INTO `solicitud` VALUES (49, '2020-09-09', 321545, 'prueba casi definitiva 2', '2020-09-10', '2020-09-10', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
 INSERT INTO `solicitud` VALUES (50, '2020-09-09', 321545, 'prueba casi casi 3', '2020-09-10', '2020-09-10', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
 INSERT INTO `solicitud` VALUES (51, '2020-09-09', 321545, 'prueba casi casi 2', '2020-09-23', '2020-09-23', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (53, '2020-09-09', 150000, 'Holi', '2020-11-26', '2020-11-26', 'Holi', 'Masiva', '2020-11-25', '2020-11-25');
 INSERT INTO `solicitud` VALUES (54, '2020-12-22', 316543513, 'evento navidad', '2020-12-24', '2020-12-30', 'casa 2', 'Grupal', '2020-12-27', '2020-12-27');
-INSERT INTO `solicitud` VALUES (57, '2021-01-13', 130000, 'cumpleaños', '2021-01-15', '2021-01-13', 'Mi casa', 'Grupal', '2021-03-22', '2021-03-22');
-INSERT INTO `solicitud` VALUES (58, '2021-02-14', 1324565, '2021 verano', '2021-02-17', '2021-02-18', 'mi casa', 'Grupal', '2021-04-09', '2021-04-09');
 INSERT INTO `solicitud` VALUES (60, '2021-09-10', 500000, 'Fiesta 18 de septiembre', '2021-09-15', '2021-09-15', 'Universidad de Talca Campus Curó', 'Masiva', '2021-09-10', '2021-09-10');
 INSERT INTO `solicitud` VALUES (64, '2021-09-22', 381990, 'Competencia ACM-ICPC', '2021-09-23', '2021-09-24', 'Universidad del Desarrollo, Campus Rector Ernesto Silva Bafalluy, San Carlos de Apoquindo, Las Condes, Santiago', 'Grupal', '2021-09-22', '2021-09-22');
+INSERT INTO `solicitud` VALUES (67, '2021-09-23', 381990, 'Competencia ACM-ICPC', '2021-09-23', '2021-09-24', 'Universidad del Desarrollo, Campus Rector Ernesto Silva Bafalluy, San Carlos de Apoquindo, Las Condes, Santiago', 'Grupal', '2021-09-23', '2021-09-23');
 
 -- ----------------------------
 -- Table structure for tipooe
@@ -2146,11 +2145,11 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `Leer_estado_proceso`;
 delimiter ;;
-CREATE PROCEDURE `Leer_estado_proceso`(`in_idProceso` INTEGER)
+CREATE PROCEDURE `Leer_estado_proceso`(`in_idSolicitud` INTEGER)
 BEGIN
 	SELECT estado, estadoFinal
 	FROM procesofondo
-	WHERE idFondo = in_idProceso;
+	WHERE refSolicitud = in_idSolicitud;
 END
 ;;
 delimiter ;
@@ -3179,7 +3178,7 @@ CREATE TRIGGER `TR_resolucion_before_delete` BEFORE DELETE ON `resolucion` FOR E
 	
 		/*Actualiza el estado del proceso del fondo que pertenece a la resolucion*/
 		UPDATE procesofondo 
-		SET estado = 2
+		SET estado = 2, procesofondo.refDeclaracionGastos = NULL, procesofondo.refResolucion = NULL
 		WHERE refResolucion = @idResolucion;
 		
 		/*Obtener id de la declaracion de gastos*/

@@ -1,0 +1,161 @@
+Uno de los grandes problemas que se pretende resolver en esta memoria es, disminuir el tiempo en escoger la cantidad de documentación y que se ajuste al monto solicitado.
+
+Inicialmente, se tiende a resolver esta problematica por Fuerza Bruta~\cite{22}, el cual busca todas las posibles combinaciones y obtiene la mejor opción. Para ello tenemos lo siguiente:
+
+\begin{itemize}
+    \item Dado que hay $n$ elementos, puede haber $2^n$ posibles combinaciones.
+    \item Luego de tener todas las combinaciones, se deben encontrar todas aquellas que su peso sea menor a la capacidad $W$ de la mochila y que maximice el valor o beneficio.
+\end{itemize}
+
+Sin embargo, el algoritmo que se diseñe para cumplir los puntos mencionados con anterioridad debe tener un tiempo de ejecución de $O(2^n)$ para obtener la solución óptima. Se sabe que, cualquier algoritmo que tenga tiempo mayor al polinomial (como es en este caso que es exponencial) no es posible implementarlo para problemas que tengan grandes valores de $n$.
+
+Otra solución es resolver el problema con programación dinámica para mejorar su desempeño y dado que, tiene un parecido al problema de la mochila~\cite{22} el cual dice, “Dada una serie de elementos (cada uno con un valor $p$ y un peso $w$), empacar una mochila que soporta un peso máximo $W$ con la finalidad de maximizar el valor de los elementos empacados”. Existen dos versiones del problema:
+
+\begin{itemize}
+    \item \textbf{0-1:} Los elementos no se pueden dividir y solo pueden colocar (1) o no colocar (0) dentro de la mochila.
+    \item \textbf{Fraccional:} Se pueden tomar valores se pueden dividir para llenar la mochila.
+\end{itemize}
+
+Ahora, dado que los documentos en una Rendición no se pueden dividir, esta memoria se centra en la versión del problema 0-1 y, para definir el problema de una manera mas formal, se puede decir que:
+
+\begin{itemize}
+    \item Se tiene una mochila con capacidad máxima $W$, y un conjunto $S$ de $n$ elementos.
+    \item Cada elemento $i$ tiene un peso $w_i$ y un valor o beneficio $b_i$ ($w_i$ y W son de tipo entero para acercarlo a la problemática de selección de documentación de la Rendición).
+    \item \textbf{Problema:} ¿Qué elementos guardar en la mochila para obtener un máximo valor o beneficio total?
+\end{itemize}
+
+Para ello se tiene que identificar la ecuación recursiva que asocie el problema con los subproblemas (principio de la optimalidad) que es la siguiente:
+
+\begin{equation}
+    V[i,w]  = \left\lbrace
+    \begin{array}{lcc}
+        V[i-1,w] & si & w_i>w\\
+        max(V[i-1],V[i-1,w-w_i]+b_i) & si & w_i \leq w
+    \end{array}
+    \right.
+\end{equation}
+
+\textbf{Nota:} $V[i,w]$ representa el valor máximo de la mochila con capacidad w después de combinar los primeros elementos $i$
+
+Esto significa que, el mejor subconjunto $S_i$ que tiene un peso total $w$ es:
+
+\begin{enumerate}
+    \item El mejor subconjunto $S_{i-1}$ que tiene un peto total menor o igual a $w$.
+    \item El mejor subconjunto $S_{i-1}$ que tiene un peso total menor o igual a $w-w_i$ más el valor o beneficio del elemento $i$.
+\end{enumerate}
+
+Dicho de otra forma, tenemos lo siguiente:
+\begin{itemize}
+    \item El mejor subconjunto $S_i$ que tiene peso total menor o igual a $w$, contiene el elemento $i$ o no.
+    \item Primer caso ($w_i>w$): El elemento $i$ no puede ser parte de la solución, porque si lo fuera, el peso total seria mayor que $w$, lo cual no es aceptable.
+    \item Segundo caso ($w_i \leq w$): El elemento $i$ \underline{puede} estar en la solución, y escogemos el caso con el mayor valor.
+\end{itemize}
+
+Dado lo anterior, se implementa el \textbf{Algoritmo \ref{fig: algortimoMochila}} para resolver el problema con un tiempo de ejecución $O(n*W)$ que podemos compararlo como $O(n^2)$, dado que es la multiplicación de dos variables y es polinomial, cumpliendo así con el principio de la optimalidad.
+
+
+\renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
+\renewcommand{\algorithmicensure}{\textbf{Salida:}}
+
+
+% Cuerpo
+\begin{algorithm}
+    \caption{\label{fig: algortimoMochila}Programación dinamica - \textit{Algoritmo de la mochila 0-1}}
+    \begin{algorithmic}[1]
+
+    % ENTRADA / SALIDA
+    \Require{\textit{documentos}: lista de documentos que serán evaluado, \textit{monto}: cantidad de dinero límite que se puede rendir}
+    \Ensure{\textit{docsOrdenados}: listado de documentos ordenados(con estado 0 o 1, no seleccionado o seleccionado)}
+
+    \vspace{3mm}
+    %W es la cantidad total de pesos maximo que puede tener la mochila
+    \State $W \gets monto$
+    %Documentos ordenados
+    \State $docsOrdenados\gets sort(documentos)$
+    %n es la cantidad total de documentos
+    \State $n \gets |docsOrdenados|$
+    %v[i][w] representa el valor máximo de la mochila con capacidad w después de combinar los primeros elementos i
+    \State $V \gets new$ $int[n + 1, W + 1]$
+
+    %Llenando la matriz*
+    \vspace{3mm}
+    \For{$i \gets 0;\ i<=W;\ i++$}
+        \State $V[0,i] \gets 0$
+    \EndFor
+
+    \vspace{3mm}
+    \For{$i \gets 0;\ i<=n;\ i++$}
+        \State $V[i,0] \gets 0$
+    \EndFor
+
+    \vspace{3mm}
+    %i se puede entender como: el elemento i-ésimo (la fila representa los elementos no utilizados con peso y valor)
+    \For{$i \gets 1;\ i<=n;\ i++$}
+        %w puede entenderse como: diferentes capacidades de mochilas (las columnas representan mochilas de diferentes capacidades)
+        \For{$w \gets 1;\ w<=W;\ i++$}
+            %wi es el peso que tiene el documento
+            \State $w_{i} \gets docsOrdenados[i-1].monto$
+            %bi es el beneficio que tiene el documento
+            \State $b_{i} \gets docsOrdenados[i-1].monto$
+
+            \If{$w_{i} <= w$}
+                \If{$(b_{i} + V[i-1, w-w_{i}]) > V[i-1, w]$}
+                    \State $V[i,w] \gets b_{i} + V[i-1, w-w_{i}]$
+                \Else
+                    \State $V[i,w] \gets V[i-1,w]$
+                \EndIf
+            \Else
+                \State $V[i,w] \gets V[i-1,w]$
+            \EndIf
+        \EndFor
+    \EndFor
+
+    \vspace{3mm}
+    \State seleccionarDocumentos(n, W, V, docsOrdenados);
+    \State{\textbf{return} \textit{docsOrdenados}}
+  \end{algorithmic}
+\end{algorithm}
+
+
+Tras lo expuesto, se aprecia que este algoritmo se ajusta mucho al problema que plantea resolver esta memoria, en donde la capacidad máxima que tiene la mochila ($W$), es el monto que se solicita para desarrollar una actividad y, los elementos ($i$), son los documentos que se deben evaluar para comprobar si se pueden colocar en la mochila, según su monto ($w_i$ y $b_i$).
+
+Sin embargo, el algoritmo solo encuentra el beneficio máximo posible que se puede cargar en la mochila (el valor que se encuentra en $V[n,W]$), es por ello que, para conocer los elementos  que maximizan el valor, se implementa el \textbf{Algoritmo \ref{fig: seleccionDocumentos}}. Dado que, toda la información se encuentra en la matriz ($V$) y se conoce el máximo beneficio ($V[n,W]$) el algoritmo implementa las siguientes condiciones para la selección de documentos que debe ir en la Rendición:
+
+
+\begin{itemize}
+    \item Sea $i=n$ y $k=W$
+    \item Mientras i y k sean mayores a cero, se debe realizar lo siguiente:
+    \begin{itemize}
+        \item Si $V[i,k]$ es distinto de $V[i-1,k]$ entonces marca el i-ésimo documento como presente en la Rendición y los se modifican de la siguiente manera: $i=i-1$, $k=k-w_i$
+        \item Sino, solo se modifica el valor i de la siguiente forma: $i=i-1$. Lo anterior asume que, el documento \underline{no} se debe considerar en la Rendición.
+    \end{itemize}
+    
+\end{itemize}
+
+
+% Cuerpo
+\begin{algorithm}
+    \caption{\label{fig: seleccionDocumentos}Selección de documentos}
+    \begin{algorithmic}[1]
+
+    % ENTRADA / SALIDA
+    \Require{\textit{n}: es la cantidad de documentos, \textit{W}: cantidad de dinero límite que se puede rendir, textit{V}: es la matriz que representa el valor máximo de la mochila con capacidad w después de combinar los primeros elementos i, \textit{documentos}: lista de documentos ordenados de menor a mayor según su monto}
+    %\Ensure{\textit{docsOrdenados}: listado de documentos ordenados(con estado 0 o 1, no seleccionado o seleccionado)}
+
+    \vspace{3mm}
+    %W es la cantidad total de pesos maximo que puede tener la mochila
+    \State $i \gets n$
+    %Documentos ordenados
+    \State $k \gets W$
+
+    \vspace{3mm}
+    %Seleccion de documentos*
+    \While{$i>0$ and $k>0$}
+        \If{$V[i, k] \neq V[i - 1, k]$}
+            \State $documentos[i - 1].Estado \gets 1$
+            \State $k \gets k - documentos[i - 1].Monto$
+        \EndIf
+        \State $i \gets i - 1$
+    \EndWhile
+  \end{algorithmic}
+\end{algorithm}

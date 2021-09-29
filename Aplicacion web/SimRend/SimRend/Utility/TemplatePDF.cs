@@ -342,6 +342,7 @@ namespace SimRend.Utility
             {
                 pagina += "<div style='padding-top:15px; padding-bottom:10px;'><B>Gastos compartidos </B></div>";
                 pagina = GenerarTabla(pagina, FormatoMoneda, participanteAux.Documentos.FindAll(documento => documento.TipoDocumento.Equals("Boleta")));
+                montoTotal += participanteAux.Documentos.FindAll(documento => documento.TipoDocumento.Equals("Boleta") && documento.Estado == 1).Sum(documento => documento.Monto);
             }
 
             pagina += "<div ALIGN='left'><ul>";

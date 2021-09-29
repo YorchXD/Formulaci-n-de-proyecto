@@ -171,7 +171,7 @@ namespace SimRend.DbSimRend
             try
             {
                 var command = new MySqlCommand() { CommandText = "Leer_estado_proceso", CommandType = System.Data.CommandType.StoredProcedure };
-                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idProceso", Direction = System.Data.ParameterDirection.Input, Value = Proceso.Solicitud.Id });
+                command.Parameters.Add(new MySqlParameter() { ParameterName = "in_idSolicitud", Direction = System.Data.ParameterDirection.Input, Value = Proceso.Solicitud.Id });
                 var datos = ContexDb.GetDataSet(command);
 
                 if (datos.Tables[0].Rows.Count == 1)
