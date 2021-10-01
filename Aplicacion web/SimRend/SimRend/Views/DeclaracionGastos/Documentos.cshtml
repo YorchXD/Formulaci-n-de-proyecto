@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+
+@{
     ViewData["Title"] = "Documentación";
 }
 
@@ -71,13 +74,21 @@
         </div><!-- row -->
 
         <div class="card pd-30 shadow-base bd-0 mg-t-20 mg-b-20">
+            
             <div class="d-lg-flex justify-content-lg-between align-items-lg-center mg-b-30">
                 <div class="mg-b-20 mg-lg-b-0">
                     <p class="tx-13 mg-b-0">Responsable de los documentos:</p>
                     <h4 class="tx-normal tx-roboto tx-inverse mg-b-5" id="datosResponsable"></h4>
                 </div>
-                <button class="modal-effect btn btn-info btn-oblong pd-x-25 pd-y-12" data-effect="effect-just-me" id="documentacion"><i class="fas fa-plus"></i> Agregar Documento</button>
+                @if (HttpContextAccessor.HttpContext.Session.GetString("TipoUsuario").Equals("Estudiante dirigente") &&
+                    HttpContextAccessor.HttpContext.Session.GetInt32("EstadoProceso")<5 &&
+                    HttpContextAccessor.HttpContext.Session.GetString("EstadoFinalProceso").Equals("Abierto"))
+                {
+                    <button class="modal-effect btn btn-info btn-oblong pd-x-25 pd-y-12" data-effect="effect-just-me" id="documentacion"><i class="fas fa-plus"></i> Agregar Documento</button>
+                }
             </div><!-- row -->
+            
+
 
             <div class="table-wrapper">
                 <table id="tablaDocumentacion" class="table display responsive nowrap" width="100%">
@@ -90,7 +101,7 @@
                             <th class="wd-auto" data-priority="1">Monto($)</th>
                             <th class="wd-auto" data-priority="3">Categoría del gasto</th>
                             <th class="wd-auto" data-priority="3">Tipo de documento</th>
-                            <th class="wd-auto" data-priority="2">Seleccionado</th>
+                            <th class="wd-auto" data-priority="0">Seleccionado</th>
                             <th class="wd-auto" data-priority="1">Acción</th>
                         </tr>
                     </thead>
@@ -118,7 +129,6 @@
             </div><!-- modal-content -->
         </div><!-- modal-dialog -->
     </div><!-- modal -->
-
     <!-- MODAL INFORMACION ELIMINACION -->
     <div id="modal-informacion-eliminacion" class="modal fade" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -134,7 +144,6 @@
             </div><!-- modal-content -->
         </div><!-- modal-dialog -->
     </div><!-- modal -->
-
     <!-- MODAL ALERTA -->
     <div id="modal-alerta" class="modal fade" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -226,7 +235,7 @@
 
                     if (respuesta.participante.documentos != null)
                     {
-                        insertarDocTabla(respuesta.participante.documentos );
+                        insertarDocTabla(respuesta.participante.documentos);
                     }
 
                     indicadoresDocumentosCreados(respuesta);
@@ -241,13 +250,13 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
         }
 
         function insertarDocTabla(documentos)
         {
-            //console.log(documentos);
+            console.log(documentos);
             table = $('#tablaDocumentacion').DataTable({
                 'data': documentos,
                 'order': [[0, "desc"]],
@@ -266,9 +275,9 @@
                         {
                             if (data)
                             {
-                                return '<input id="toggle" class="editor-active" type="checkbox" checked '+ disabled+'>';
+                                return '<input id="toggle" class="editor-active" type="checkbox" checked ' + disabled + '>';
                             }
-                            return '<input id="toggle" class="editor-active" type="checkbox" ' + disabled +'>';
+                            return '<input id="toggle" class="editor-active" type="checkbox" ' + disabled + '>';
                         }
                         return data;
                     }
@@ -294,6 +303,7 @@
                     {
                         "data": "categoria", render: function (d)
                         {
+                            console.log(d);
                             return d.nombre;
                         }
                     },
@@ -305,7 +315,7 @@
                         {
                             var id = data.id;
                             var estado = data.estado;
-                            if (estadoProceso == 4 && estadoFinalProceso=="Abierto")
+                            if (estadoProceso == 4 && estadoFinalProceso == "Abierto")
                             {
                                 return '<button class="btn btn-success btn-icon rounded-circle mg-r-5 mg-b-10" onclick="verDocumento(' + id + ')"><div><i class="fas fa-eye"></i></div></button>' +
                                     '<button class="btn btn-warning btn-icon rounded-circle mg-r-5 mg-b-10" onclick="modificarDocumento(' + id + ')"><div><i class="fas fa-edit"></i></div></button>' +
@@ -324,12 +334,13 @@
                         on: 'Si',
                         off: 'No',
                         onstyle: 'success',
-                        offstyle: 'secondary'});
+                        offstyle: 'secondary'
+                    });
                 },
             });
         }
 
-        
+
 
         $(document).on("change", "#toggle", function ()
         {
@@ -357,7 +368,7 @@
                     if (respuesta != 1)
                     {
 
-                        //En caso de que se selecciono o deselecciono el documento, se debe volver a su estado inicial 
+                        //En caso de que se selecciono o deselecciono el documento, se debe volver a su estado inicial
                         $('#title-alerta').text("Alerta");
                         $('#body-alerta').text("No se puede seleccionar el documento para la declaracion de gastos debido a que ha ocurrido un problema. Vuelva a intentarlo y si el persiste el conflicto, favor de ponerse en contacto con soporte.");
                         var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20" onclick="actualizarPaginaPorError()">Aceptar</button>';
@@ -377,7 +388,7 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
         });
 
@@ -444,7 +455,7 @@
                             {
                                 montoDocsSelecParticipante += datos.participante.documentos[j].monto;
                             }
-                            
+
                         }
                     }
                     var porcentajeDocsSelecParticipante = (montoDocsSelecParticipante / datos.montoSolicitado) * 100;
@@ -459,7 +470,7 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
         }
 
@@ -488,7 +499,7 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
         }
 
@@ -512,7 +523,7 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
         }
 
@@ -526,7 +537,7 @@
 
 
                 var botonCancelar = '<button type="button" data-dismiss="modal" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-r-5">Cancelar</button >';
-                var botonAceptar = '<button type="button" id="btnConfirmarEliminarDocumento" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5 onclick="eliminarDocumentos()">Aceptar</button>';
+                var botonAceptar = '<button type="button" id="btnConfirmarEliminarDocumento" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20 mg-l-5" onclick="confirmarEliminarDocumento()">Aceptar</button>';
 
                 $('#actions-alerta-eliminar-documento').empty().append(botonCancelar);
                 $('#actions-alerta-eliminar-documento').append(botonAceptar);
@@ -542,9 +553,8 @@
             }
         }
 
-        $('#btnConfirmarEliminarDocumento').click(function (e)
+        function confirmarEliminarDocumento()
         {
-            e.preventDefault();
             $('#modal-alerta-eliminar-documento').modal('hide');
             $.ajax({
                 async: false,
@@ -566,9 +576,9 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
-        });
+        }
 
         $('#btn-DocumentoEliminado').click(function (e)
         {
@@ -602,7 +612,7 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
 
         }
@@ -662,7 +672,7 @@
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
                     $('#actions-alerta').empty().append(boton);
                     $('#modal-alerta').modal('show');
-                } 
+                }
             });
         }
 

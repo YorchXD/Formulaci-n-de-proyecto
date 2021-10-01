@@ -41,6 +41,11 @@ namespace SimRend.DbSimRend
         [AutorizacionUsuario(idOperacion: 10)]
         public IActionResult Documentos()
         {
+            Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
+            proceso = ConsultasGenerales.LeerEstadoProceso(proceso);
+            HttpContext.Session.SetComplexData("Proceso", proceso);
+            HttpContext.Session.SetInt32("EstadoProceso", proceso.Estado);
+            HttpContext.Session.SetString("EstadoFinalProceso", proceso.EstadoFinal);
             HttpContext.Session.SetComplexData("IdDocumento", null);
             return View();
         }
@@ -198,11 +203,13 @@ namespace SimRend.DbSimRend
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
             proceso.DeclaracionGastos = ConsultaDeclaracionGastos.LeerDeclaracionGastos(proceso.DeclaracionGastos.Id);
             proceso = ConsultasGenerales.LeerEstadoProceso(proceso);
+            String tipoUsuario = HttpContext.Session.GetString("TipoUsuario");
             HttpContext.Session.SetComplexData("Proceso", proceso);
 
             var datos = new
             {
-                proceso
+                proceso,
+                tipoUsuario
             };
 
             return Json(datos);
@@ -242,6 +249,8 @@ namespace SimRend.DbSimRend
             Proceso proceso = HttpContext.Session.GetComplexData<Proceso>("Proceso");
             proceso = ConsultasGenerales.LeerEstadoProceso(proceso);
             HttpContext.Session.SetComplexData("Proceso", proceso);
+            HttpContext.Session.SetInt32("EstadoProceso", proceso.Estado);
+            HttpContext.Session.SetString("EstadoFinalProceso", proceso.EstadoFinal);
 
             if (IdParticipante != null)
             {

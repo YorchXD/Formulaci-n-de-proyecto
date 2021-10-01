@@ -584,14 +584,6 @@ namespace SimRend.Controllers
             GeneradorPDF generadorPDF = new GeneradorPDF(_converter);
             return File(generadorPDF.PDF(proceso, "Solicitud"), "application/pdf", "Soliciud.pdf");
 
-
-
-
-
-
-
-
-
             /*//var convertidor = new SynchronizedConverter(new PdfTools());
             //var convertidor = new BasicConverter(new PdfTools());
             var globalSettings = new GlobalSettings

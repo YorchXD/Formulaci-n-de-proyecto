@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor;
+@{
     ViewData["Title"] = "Ver Declaración de gastos";
 }
 
@@ -303,9 +305,7 @@
                 data: {},
                 success: function (respuesta)
                 {
-                    //console.log(respuesta); //se debe eliminar
-                    procesoAux = respuesta;;
-                    console.log(procesoAux)
+                    procesoAux = respuesta;
                     var fechaActual = moment().format('YYYY-MM-DD');
                     var fechaLimite = respuesta.proceso.declaracionGastos.fechaLimite.split('T')[0];
                     $('#numeroResolucion').val(respuesta.proceso.resolucion.numResolucion);
@@ -320,7 +320,7 @@
                     $('#responsable').val(respuesta.proceso.responsable.nombre);
                     $('#runResponsable').val(formatearRut(respuesta.proceso.responsable.run));
                     $('#emailResponsable').val(respuesta.proceso.responsable.email);
-                    verOpciones(respuesta.proceso.estado, respuesta.proceso.estadoFinal);
+                    verOpciones(respuesta.proceso.estado, respuesta.proceso.estadoFinal, respuesta.tipoUsuario);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown)
                 {
@@ -339,11 +339,11 @@
             return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
         }
 
-        function verOpciones(estado, estadoFinal)
+        function verOpciones(estado, estadoFinal, tipoUsuario)
         {
-            console.log(estado);
+            console.log(tipoUsuario);
             var acciones = "";
-            if (estadoFinal == "Abierto")
+            if (estadoFinal == "Abierto" && tipoUsuario == "Estudiante dirigente")
             {
                 switch (estado)
                 {
@@ -770,6 +770,7 @@
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown)
                 {
+                    $('#icono-alerta').empty().append('<i class="icon icon ion-ios-close-outline tx-100 tx-danger lh-1 mg-t-20 d-inline-block"></i>');
                     $('#title-alerta').text(textStatus);
                     $('#body-alerta').text(errorThrown);
                     var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';

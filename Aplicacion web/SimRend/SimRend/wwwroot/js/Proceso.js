@@ -218,7 +218,17 @@ function confirmarEliminarProceso()
                 $('#body-alerta').text(respuesta.msj);
                 $('#modal-alerta').modal('show');
             }
-        }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown)
+        {
+            //toastr.error(errorThrown, textStatus);
+            $('#modal-alerta-eliminar-proceso').modal('hide');
+            $('#title-alerta').text(textStatus);
+            $('#body-alerta').text(errorThrown);
+            var boton = '<button type="button" data-dismiss="modal" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium mg-b-20">Aceptar</button>';
+            $('#actions-alerta').empty().append(boton);
+            $('#modal-alerta').modal('show');
+        } 
     });
 }
 
