@@ -4,112 +4,113 @@
 \contentsline {chapter}{Agradecimientos}{\es@scroman {ii}}{}%
 \contentsline {chapter}{Tabla de Contenidos}{\es@scroman {iv}}{}%
 \contentsline {chapter}{Índice de Figuras}{\es@scroman {vii}}{}%
-\contentsline {chapter}{Índice de Tablas}{\es@scroman {ix}}{}%
-\contentsline {chapter}{Resumen}{\es@scroman {x}}{}%
-\contentsline {chapter}{\numberline {1}Introducción}{11}{}%
-\contentsline {section}{\numberline {1.1}Contexto del proyecto}{11}{}%
-\contentsline {section}{\numberline {1.2}Definición del problema}{14}{}%
-\contentsline {section}{\numberline {1.3}Presentación de la solución}{14}{}%
-\contentsline {section}{\numberline {1.4}Objetivos}{15}{}%
-\contentsline {subsection}{\numberline {1.4.1}Objetivo general}{15}{}%
-\contentsline {subsection}{\numberline {1.4.2}Objetivos específicos}{15}{}%
-\contentsline {section}{\numberline {1.5}Alcances}{16}{}%
-\contentsline {section}{\numberline {1.6}Limitaciones}{16}{}%
-\contentsline {section}{\numberline {1.7}Proyectos similares}{16}{}%
-\contentsline {section}{\numberline {1.8}Descripción de contenidos}{17}{}%
-\contentsline {chapter}{\numberline {2}Antecedentes}{19}{}%
-\contentsline {section}{\numberline {2.1}Conceptos}{19}{}%
-\contentsline {paragraph}{Evento}{19}{}%
-\contentsline {paragraph}{Solicitud}{19}{}%
-\contentsline {paragraph}{Resolución Universitaria (RU)}{20}{}%
-\contentsline {paragraph}{Rendición}{20}{}%
-\contentsline {section}{\numberline {2.2}Tecnologías utilizadas}{21}{}%
-\contentsline {subsection}{\numberline {2.2.1}Frameworks}{22}{}%
-\contentsline {subsection}{\numberline {2.2.2}Bibliotecas}{22}{}%
-\contentsline {section}{\numberline {2.3}Metodología de desarrollo de software}{23}{}%
-\contentsline {section}{\numberline {2.4}Metodología ágil}{25}{}%
-\contentsline {subsection}{\numberline {2.4.1}Scrum}{27}{}%
-\contentsline {subsection}{\numberline {2.4.2}Roles}{27}{}%
-\contentsline {subsection}{\numberline {2.4.3}Aptitudes requeridas}{28}{}%
-\contentsline {subsection}{\numberline {2.4.4}Artefactos}{29}{}%
-\contentsline {subsection}{\numberline {2.4.5}Reuniones}{30}{}%
-\contentsline {subsection}{\numberline {2.4.6}Ciclo de vida}{32}{}%
-\contentsline {subsubsection}{\numberline {2.4.6.1}El proyecto}{32}{}%
-\contentsline {subsubsection}{\numberline {2.4.6.2}Las fases}{33}{}%
-\contentsline {paragraph}{Fase de requisitos: }{34}{}%
-\contentsline {paragraph}{Fase de diseño: }{35}{}%
-\contentsline {paragraph}{Fase de planificación: }{35}{}%
-\contentsline {paragraph}{Fase de construcción: }{35}{}%
-\contentsline {paragraph}{Fase de pruebas: }{35}{}%
-\contentsline {subsection}{\numberline {2.4.7}Documentación}{35}{}%
-\contentsline {section}{\numberline {2.5}Validación de la aplicación}{35}{}%
-\contentsline {section}{\numberline {2.6}Herramientas de planificación}{36}{}%
-\contentsline {chapter}{\numberline {3}Metodología utilizada}{37}{}%
-\contentsline {section}{\numberline {3.1}Estudio del entorno}{37}{}%
-\contentsline {subsection}{\numberline {3.1.1}Las personas}{37}{}%
-\contentsline {subsection}{\numberline {3.1.2}La aplicación}{38}{}%
-\contentsline {subsection}{\numberline {3.1.3}Las herramientas}{38}{}%
-\contentsline {section}{\numberline {3.2}La metodología}{41}{}%
-\contentsline {subsection}{\numberline {3.2.1}Roles}{41}{}%
-\contentsline {subsection}{\numberline {3.2.2}El proceso}{42}{}%
-\contentsline {subsubsection}{\numberline {3.2.2.1}El proyecto}{42}{}%
-\contentsline {subsubsection}{\numberline {3.2.2.2}Iteraciones del proyecto}{43}{}%
-\contentsline {subsubsection}{\numberline {3.2.2.3}Reuniones}{45}{}%
-\contentsline {subsection}{\numberline {3.2.3}Cómo se trabajó}{45}{}%
-\contentsline {chapter}{\numberline {4}Características del sistema}{48}{}%
-\contentsline {section}{\numberline {4.1}Aspectos generales}{48}{}%
-\contentsline {section}{\numberline {4.2}Modelos de contexto de solicitudes}{49}{}%
-\contentsline {section}{\numberline {4.3}Características generales del software}{54}{}%
-\contentsline {section}{\numberline {4.4}Errores frecuentes de la Gestión Manual de Fondos}{57}{}%
-\contentsline {section}{\numberline {4.5}Planificación de las iteraciones}{59}{}%
-\contentsline {chapter}{\numberline {5}Diseño de la aplicación}{61}{}%
-\contentsline {section}{\numberline {5.1}Mapa de navegación}{61}{}%
-\contentsline {paragraph}{Buscar solicitudes de fondos: }{61}{}%
-\contentsline {paragraph}{Nueva solicitud de fondo: }{61}{}%
-\contentsline {paragraph}{Solicitudes pendientes: }{62}{}%
-\contentsline {paragraph}{Ayuda: }{62}{}%
-\contentsline {paragraph}{Perfil: }{62}{}%
-\contentsline {section}{\numberline {5.2}Interfaces de usuario}{62}{}%
-\contentsline {section}{\numberline {5.3}Arquitectura de la aplicación}{63}{}%
-\contentsline {subsection}{\numberline {5.3.1}Arquitectura física}{64}{}%
-\contentsline {subsection}{\numberline {5.3.2}Arquitectura lógica}{64}{}%
-\contentsline {section}{\numberline {5.4}Modelo de datos}{67}{}%
-\contentsline {section}{\numberline {5.5}Modelo Relacional}{69}{}%
-\contentsline {section}{\numberline {5.6}Algoritmo de solución}{70}{}%
-\contentsline {chapter}{\numberline {6}Construcción y validación}{74}{}%
-\contentsline {section}{\numberline {6.1}Herramientas Utilizadas}{74}{}%
-\contentsline {paragraph}{Entorno de trabajo: }{74}{}%
-\contentsline {paragraph}{Entorno y lenguajes de programación: }{74}{}%
-\contentsline {paragraph}{Motor y aplicación para base de datos: }{75}{}%
-\contentsline {section}{\numberline {6.2}Aplicación Obtenida}{75}{}%
-\contentsline {paragraph}{Autentificación de un usuario en el sistema: }{75}{}%
-\contentsline {paragraph}{Recuperación de acceso a una cuenta de una OE: }{75}{}%
-\contentsline {paragraph}{Búsqueda de solicitudes: }{75}{}%
-\contentsline {paragraph}{Solicitud: }{77}{}%
-\contentsline {subparagraph}{\emph {Datos principales de la Solicitud: }}{77}{}%
-\contentsline {subparagraph}{\emph {Categoría: }}{78}{}%
-\contentsline {subparagraph}{\emph {Participante: }}{78}{}%
-\contentsline {subparagraph}{\emph {Resumen: }}{78}{}%
-\contentsline {paragraph}{Resolución: }{79}{}%
-\contentsline {paragraph}{Rendición: }{80}{}%
-\contentsline {subparagraph}{\emph {Resumen de los gastos realizados por personas: }}{80}{}%
-\contentsline {subparagraph}{\emph {Documentos de una persona: }}{80}{}%
-\contentsline {subparagraph}{\emph {Documento: }}{81}{}%
-\contentsline {subparagraph}{\emph {Aceptar o Rechazar una Rendición: }}{82}{}%
-\contentsline {section}{\numberline {6.3}Pruebas}{83}{}%
-\contentsline {section}{\numberline {6.4}Resultados}{84}{}%
-\contentsline {paragraph}{Sección de preguntas generales sobre el sistema}{84}{}%
-\contentsline {paragraph}{Sección de preguntas sobre las funcionalidades del sistema}{85}{}%
-\contentsline {paragraph}{Sección de preguntas sobre usabilidad e interfaz de usuario}{85}{}%
-\contentsline {chapter}{\numberline {7}Conclusiones}{86}{}%
-\contentsline {chapter}{Glosario}{88}{}%
-\contentsline {chapter}{Bibliograf\'{\i }a}{91}{}%
+\contentsline {chapter}{Índice de Tablas}{\es@scroman {x}}{}%
+\contentsline {chapter}{Resumen}{\es@scroman {xi}}{}%
+\contentsline {chapter}{\numberline {1}Introducción}{12}{}%
+\contentsline {section}{\numberline {1.1}Contexto del proyecto}{12}{}%
+\contentsline {section}{\numberline {1.2}Definición del problema}{15}{}%
+\contentsline {section}{\numberline {1.3}Presentación de la solución}{15}{}%
+\contentsline {section}{\numberline {1.4}Objetivos}{16}{}%
+\contentsline {subsection}{\numberline {1.4.1}Objetivo general}{16}{}%
+\contentsline {subsection}{\numberline {1.4.2}Objetivos específicos}{16}{}%
+\contentsline {section}{\numberline {1.5}Alcances}{17}{}%
+\contentsline {section}{\numberline {1.6}Limitaciones}{17}{}%
+\contentsline {section}{\numberline {1.7}Proyectos similares}{17}{}%
+\contentsline {section}{\numberline {1.8}Descripción de contenidos}{18}{}%
+\contentsline {chapter}{\numberline {2}Antecedentes}{20}{}%
+\contentsline {section}{\numberline {2.1}Conceptos}{20}{}%
+\contentsline {paragraph}{Evento}{20}{}%
+\contentsline {paragraph}{Solicitud}{20}{}%
+\contentsline {paragraph}{Resolución Universitaria (RU)}{21}{}%
+\contentsline {paragraph}{Rendición}{21}{}%
+\contentsline {section}{\numberline {2.2}Tecnologías utilizadas}{22}{}%
+\contentsline {subsection}{\numberline {2.2.1}Frameworks}{23}{}%
+\contentsline {subsection}{\numberline {2.2.2}Bibliotecas}{23}{}%
+\contentsline {section}{\numberline {2.3}Metodología de desarrollo de software}{24}{}%
+\contentsline {section}{\numberline {2.4}Metodología ágil}{26}{}%
+\contentsline {subsection}{\numberline {2.4.1}Scrum}{28}{}%
+\contentsline {subsection}{\numberline {2.4.2}Roles}{28}{}%
+\contentsline {subsection}{\numberline {2.4.3}Aptitudes requeridas}{29}{}%
+\contentsline {subsection}{\numberline {2.4.4}Artefactos}{30}{}%
+\contentsline {subsection}{\numberline {2.4.5}Reuniones}{31}{}%
+\contentsline {subsection}{\numberline {2.4.6}Ciclo de vida}{33}{}%
+\contentsline {subsubsection}{\numberline {2.4.6.1}El proyecto}{33}{}%
+\contentsline {subsubsection}{\numberline {2.4.6.2}Las fases}{34}{}%
+\contentsline {paragraph}{Fase de requisitos: }{35}{}%
+\contentsline {paragraph}{Fase de diseño: }{36}{}%
+\contentsline {paragraph}{Fase de planificación: }{36}{}%
+\contentsline {paragraph}{Fase de construcción: }{36}{}%
+\contentsline {paragraph}{Fase de pruebas: }{36}{}%
+\contentsline {subsection}{\numberline {2.4.7}Documentación}{36}{}%
+\contentsline {section}{\numberline {2.5}Validación de la aplicación}{36}{}%
+\contentsline {section}{\numberline {2.6}Herramientas de planificación}{37}{}%
+\contentsline {chapter}{\numberline {3}Metodología utilizada}{38}{}%
+\contentsline {section}{\numberline {3.1}Estudio del entorno}{38}{}%
+\contentsline {subsection}{\numberline {3.1.1}Las personas}{38}{}%
+\contentsline {subsection}{\numberline {3.1.2}La aplicación}{39}{}%
+\contentsline {subsection}{\numberline {3.1.3}Las herramientas}{39}{}%
+\contentsline {section}{\numberline {3.2}La metodología}{42}{}%
+\contentsline {subsection}{\numberline {3.2.1}Roles}{42}{}%
+\contentsline {subsection}{\numberline {3.2.2}El proceso}{43}{}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}El proyecto}{43}{}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}Iteraciones del proyecto}{44}{}%
+\contentsline {subsubsection}{\numberline {3.2.2.3}Reuniones}{46}{}%
+\contentsline {subsection}{\numberline {3.2.3}Cómo se trabajó}{46}{}%
+\contentsline {chapter}{\numberline {4}Características del sistema}{49}{}%
+\contentsline {section}{\numberline {4.1}Aspectos generales}{49}{}%
+\contentsline {section}{\numberline {4.2}Modelos de contexto de solicitudes}{50}{}%
+\contentsline {section}{\numberline {4.3}Características generales del software}{55}{}%
+\contentsline {section}{\numberline {4.4}Errores frecuentes de la Gestión Manual de Fondos}{58}{}%
+\contentsline {section}{\numberline {4.5}Planificación de las iteraciones}{60}{}%
+\contentsline {chapter}{\numberline {5}Diseño de la aplicación}{62}{}%
+\contentsline {section}{\numberline {5.1}Mapa de navegación}{62}{}%
+\contentsline {paragraph}{Buscar solicitudes de fondos: }{62}{}%
+\contentsline {paragraph}{Nueva solicitud de fondo: }{62}{}%
+\contentsline {paragraph}{Solicitudes pendientes: }{63}{}%
+\contentsline {paragraph}{Ayuda: }{63}{}%
+\contentsline {paragraph}{Perfil: }{63}{}%
+\contentsline {section}{\numberline {5.2}Interfaces de usuario}{63}{}%
+\contentsline {section}{\numberline {5.3}Arquitectura de la aplicación}{64}{}%
+\contentsline {subsection}{\numberline {5.3.1}Arquitectura física}{65}{}%
+\contentsline {subsection}{\numberline {5.3.2}Arquitectura lógica}{65}{}%
+\contentsline {section}{\numberline {5.4}Modelo de datos}{68}{}%
+\contentsline {section}{\numberline {5.5}Modelo Relacional}{70}{}%
+\contentsline {section}{\numberline {5.6}Algoritmo de solución}{71}{}%
+\contentsline {chapter}{\numberline {6}Construcción y validación}{75}{}%
+\contentsline {section}{\numberline {6.1}Herramientas Utilizadas}{75}{}%
+\contentsline {paragraph}{Entorno de trabajo: }{75}{}%
+\contentsline {paragraph}{Entorno y lenguajes de programación: }{75}{}%
+\contentsline {paragraph}{Motor y aplicación para base de datos: }{76}{}%
+\contentsline {section}{\numberline {6.2}Aplicación Obtenida}{76}{}%
+\contentsline {paragraph}{Autentificación de un usuario en el sistema: }{76}{}%
+\contentsline {paragraph}{Recuperación de acceso a una cuenta de una OE: }{76}{}%
+\contentsline {paragraph}{Búsqueda de solicitudes: }{76}{}%
+\contentsline {paragraph}{Solicitud: }{78}{}%
+\contentsline {subparagraph}{\emph {Datos principales de la Solicitud: }}{78}{}%
+\contentsline {subparagraph}{\emph {Categoría: }}{79}{}%
+\contentsline {subparagraph}{\emph {Participante: }}{79}{}%
+\contentsline {subparagraph}{\emph {Resumen: }}{79}{}%
+\contentsline {paragraph}{Resolución: }{80}{}%
+\contentsline {paragraph}{Rendición: }{81}{}%
+\contentsline {subparagraph}{\emph {Resumen de los gastos realizados por personas: }}{81}{}%
+\contentsline {subparagraph}{\emph {Documentos de una persona: }}{81}{}%
+\contentsline {subparagraph}{\emph {Documento: }}{82}{}%
+\contentsline {subparagraph}{\emph {Aceptar o Rechazar una Rendición: }}{83}{}%
+\contentsline {section}{\numberline {6.3}Pruebas}{85}{}%
+\contentsline {section}{\numberline {6.4}Resultados}{86}{}%
+\contentsline {paragraph}{Sección de preguntas generales sobre el sistema}{86}{}%
+\contentsline {paragraph}{Sección de preguntas sobre las funcionalidades del sistema}{87}{}%
+\contentsline {paragraph}{Sección de preguntas sobre usabilidad e interfaz de usuario}{87}{}%
+\contentsline {chapter}{\numberline {7}Conclusiones}{88}{}%
+\contentsline {chapter}{Glosario}{90}{}%
+\contentsline {chapter}{Bibliograf\'{\i }a}{93}{}%
 \contentsline {chapter}{Anexos}{}
-\contentsline {chapter}{A:\hspace {1em}Pruebas de Caja Negra}{94}{}%
-\contentsline {section}{\numberline {A.1}Confección de una solicitud}{94}{}%
-\contentsline {section}{\numberline {A.2}Ingreso de RU}{96}{}%
-\contentsline {section}{\numberline {A.3}Confección de una rendición}{97}{}%
-\contentsline {chapter}{B:\hspace {1em}Encuesta a representantes de las OE}{99}{}%
-\contentsline {section}{\numberline {B.1}Sección de preguntas generales sobre el sistema}{99}{}%
-\contentsline {section}{\numberline {B.2}Sección de preguntas sobre las funcionalidades del sistema}{102}{}%
-\contentsline {section}{\numberline {B.3}Sección de preguntas sobre usabilidad e interfaz de usuario (En escala de 1 (En desacuerdo) a 5 (De acuerdo))}{103}{}%
+\contentsline {chapter}{A:\hspace {1em}Pruebas de Caja Negra}{96}{}%
+\contentsline {section}{\numberline {A.1}Confección de una solicitud}{96}{}%
+\contentsline {section}{\numberline {A.2}Ingreso de RU}{98}{}%
+\contentsline {section}{\numberline {A.3}Confección de una rendición}{99}{}%
+\contentsline {chapter}{B:\hspace {1em}Encuesta a representantes de las OE}{101}{}%
+\contentsline {section}{\numberline {B.1}Sección de preguntas generales sobre el sistema}{101}{}%
+\contentsline {section}{\numberline {B.2}Sección de preguntas sobre las funcionalidades del sistema}{104}{}%
+\contentsline {section}{\numberline {B.3}Sección de preguntas sobre usabilidad e interfaz de usuario (En escala de 1 (En desacuerdo) a 5 (De acuerdo))}{105}{}%
+\contentsline {chapter}{C:\hspace {1em}Funcionalidades extras}{107}{}%

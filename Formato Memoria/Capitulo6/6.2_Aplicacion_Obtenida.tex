@@ -140,3 +140,31 @@ A continuación se describe el producto obtenido, siguiendo las diferentes fases
         Documento & PBLM-4 y PBLM-6\\ \hline
         \end{tabular}
     \end{table}
+
+Adicionalmente se crean las funcionalidades de crear, modificar, eliminar y listar de los siguientes item:
+\begin{itemize}
+    \item Usuario:
+    \begin{itemize}
+        \item Administrador (vea \textbf{Anexo \ref{fig: CRUDAdministrador}})
+        \item Vicerrector (vea \textbf{Anexo \ref{fig: CRUDVicerrectores}})
+        \item Director (vea \textbf{Anexo \ref{fig: CRUDDirectores}})
+        \item Estudiante representante (vea \textbf{Anexo \ref{fig: CRUDRepresentante}})
+    \end{itemize}
+    \item Campus (vea \textbf{Anexo \ref{fig: CRUDCampus}})    
+    \item Institución (vea \textbf{Anexo \ref{fig: CRUDInstituciones}})    
+    \item Tipo de OE (vea \textbf{Anexo \ref{fig: CRUDTipoOE}})
+    \item Organización Estudiantil (vea \textbf{Anexo \ref{fig: CRUDOE}})
+    \item Categoría (vea \textbf{Anexo \ref{fig: CRUDCategoria}})      
+\end{itemize}
+
+Lo anterior se realiza con el fin de que la aplicación sea amigable con el usuario ante los cambios que puedan existir en un futuro en la Universidad como la creación de nuevas OE, Instituciones, Usuarios, entre otros. A estas funcionalidades, solo tienen acceso los usuarios de tipo Administrador.
+
+También se implementan opciones que un usuario puede realizar cuando tiene su sesión iniciada (vea \textbf{Anexo \ref{fig: EditarPerfilClave}}) tales como:
+  
+\begin{itemize}
+    \item Modificar perfil de usuario con sesión iniciada (vea \textbf{Anexo \ref{fig: EditarPerfil}})   
+    \item Modificar clave de usuario con sesión iniciada (vea \textbf{Anexo \ref{fig: EditarClave}})  
+\end{itemize}
+
+Finalmente, se implementa una vista especial para el Usuario Vicerector, ya que puede tener muchas OE a cargo. Por lo tanto, cuando inicia sesión, lo primero que visualiza es un listado de las OE que tiene a su cargo. Posteriormente, cuando seleccione una OE, puede ver los distintos procesos que ha realizado esta (vea \textbf{Anexo \ref{fig: PrincipalVicerector}}).
+

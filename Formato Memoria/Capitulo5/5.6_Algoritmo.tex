@@ -1,13 +1,15 @@
-Uno de los grandes problemas que se pretende resolver en esta memoria es, disminuir el tiempo en escoger la cantidad de documentación y que se ajuste al monto solicitado.
+Uno de los grandes problemas que se pretende resolver en esta memoria es, disminuir el tiempo en escoger la cantidad de documentación que se tienen para realizar la rendición y que se ajuste al monto solicitado.
 
-Inicialmente, se tiende a resolver esta problematica por Fuerza Bruta~\cite{22}, el cual busca todas las posibles combinaciones y obtiene la mejor opción. Para ello tenemos lo siguiente:
+Inicialmente, se tiende a resolver esta problematica por Fuerza Bruta~\cite{22}, el cual busca todas las posibles combinaciones y obtiene la mejor opción. Para ello se debe considerar lo siguiente:
 
 \begin{itemize}
-    \item Dado que hay $n$ elementos, puede haber $2^n$ posibles combinaciones.
-    \item Luego de tener todas las combinaciones, se deben encontrar todas aquellas que su peso sea menor a la capacidad $W$ de la mochila y que maximice el valor o beneficio.
+    \item $A$ es el conjunto de $n$ documentos que se tiene para realizar una rendición.
+    \item Se debe obtener el conjunto de potencia de $A$ el cual se denomina $\mathcal{P}(A)$ y está formado por todos los subconjuntos de $A$.
+    \item Para cada subconjunto de $A$, cada elemento de $A$ tiene dos opciones; \textit{pertenece} o \textit{no pertenece}. Por lo tanto, el número de subconjunto de $A$ es: $\underbrace{2\cdot \ldots \cdot 2}_{n\mbox{ veces }}=2^n$.
+    \item Tras obtener $\mathcal{P}(A)$, se debe encontrar todos aquellos subconjuntos tal que, su peso, sea menor a la capacidad $W$ de la mochila y que maximice el valor o beneficio.
 \end{itemize}
 
-Sin embargo, el algoritmo que se diseñe para cumplir los puntos mencionados con anterioridad debe tener un tiempo de ejecución de $O(2^n)$ para obtener la solución óptima. Se sabe que, cualquier algoritmo que tenga tiempo mayor al polinomial (como es en este caso que es exponencial) no es posible implementarlo para problemas que tengan grandes valores de $n$.
+Sin embargo, el algoritmo que se diseñe para cumplir los puntos mencionados, tiene un tiempo de ejecución de $O(2^n)$ para obtener la solución óptima. Se sabe que, cualquier algoritmo que tenga tiempo mayor al polinomial (como es en este caso que es exponencial), no es posible implementarlo para problemas que tengan grandes valores de $n$.
 
 Otra solución es resolver el problema con programación dinámica para mejorar su desempeño y dado que, tiene un parecido al problema de la mochila~\cite{22} el cual dice, “Dada una serie de elementos (cada uno con un valor $p$ y un peso $w$), empacar una mochila que soporta un peso máximo $W$ con la finalidad de maximizar el valor de los elementos empacados”. Existen dos versiones del problema:
 
