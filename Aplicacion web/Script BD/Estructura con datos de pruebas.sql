@@ -11,7 +11,7 @@
  Target Server Version : 100136
  File Encoding         : 65001
 
- Date: 23/09/2021 19:03:42
+ Date: 09/10/2021 04:43:01
 */
 
 SET NAMES utf8mb4;
@@ -69,20 +69,21 @@ CREATE TABLE `declaraciondegastos`  (
   `totalDocumentacion` int NOT NULL DEFAULT 0,
   `totalRendido` int NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of declaraciondegastos
 -- ----------------------------
-INSERT INTO `declaraciondegastos` VALUES (3, '2021-01-19', 345345, 0);
+INSERT INTO `declaraciondegastos` VALUES (3, '2021-01-19', 0, 0);
 INSERT INTO `declaraciondegastos` VALUES (4, '2020-10-13', 0, 0);
 INSERT INTO `declaraciondegastos` VALUES (5, '2020-09-30', 0, 0);
 INSERT INTO `declaraciondegastos` VALUES (6, '2020-10-15', 0, 0);
-INSERT INTO `declaraciondegastos` VALUES (12, '2020-09-17', 24180, 22790);
-INSERT INTO `declaraciondegastos` VALUES (13, '2021-10-13', 381750, 381750);
+INSERT INTO `declaraciondegastos` VALUES (12, '2020-09-17', 0, 0);
+INSERT INTO `declaraciondegastos` VALUES (13, '2021-10-21', 381990, 381990);
 INSERT INTO `declaraciondegastos` VALUES (16, '2021-10-14', 0, 0);
 INSERT INTO `declaraciondegastos` VALUES (17, '2021-10-14', 0, 0);
 INSERT INTO `declaraciondegastos` VALUES (18, '2021-10-14', 0, 0);
+INSERT INTO `declaraciondegastos` VALUES (19, '2021-10-20', 0, 0);
 
 -- ----------------------------
 -- Table structure for documento
@@ -108,20 +109,11 @@ CREATE TABLE `documento`  (
   CONSTRAINT `documento_ibfk_1` FOREIGN KEY (`refCategoria`) REFERENCES `categoria` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `documento_ibfk_2` FOREIGN KEY (`refDeclaracionDeGastos`) REFERENCES `declaraciondegastos` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `documento_ibfk_3` FOREIGN KEY (`refParticipante`) REFERENCES `participante` (`run`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 86 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 87 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of documento
 -- ----------------------------
-INSERT INTO `documento` VALUES (29, 'srtyj', 'sdfgs', '2020-12-25', 345345, 'sdfsfsfs', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\54\\DeclaracionGastos\\17824523-6\\1.pdf', 2, '17824523-6', 3, 0);
-INSERT INTO `documento` VALUES (48, 'sñldkfj4yu40', 'El cura', '2020-08-28', 1390, 'Bebidas', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\DeclaracionGastos\\-1\\1.pdf', 3, NULL, 12, 0);
-INSERT INTO `documento` VALUES (49, 'dfhlkmed40954o', 'El cura', '2020-08-28', 720, 'Galletas', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\DeclaracionGastos\\-1\\2.pdf', 3, NULL, 12, 1);
-INSERT INTO `documento` VALUES (50, 'LKXCJÑLKXJ565432', 'Andimar', '2020-08-26', 4000, 'Pasajes', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\DeclaracionGastos\\19043138-K\\1.pdf', 3, '19043138-K', 12, 1);
-INSERT INTO `documento` VALUES (51, 'kdsñfk34567', 'Turbus', '2020-08-28', 5500, 'Pasajes', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\DeclaracionGastos\\19043138-K\\2.pdf', 3, '19043138-K', 12, 1);
-INSERT INTO `documento` VALUES (52, 'zmcvld', 'Restaurant', '2020-08-27', 1350, 'Comida', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\DeclaracionGastos\\19043138-K\\3.pdf', 3, '19043138-K', 12, 1);
-INSERT INTO `documento` VALUES (53, 'lkdfkjkl345678', 'Andimar', '2020-08-26', 4000, 'Pasajes', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\DeclaracionGastos\\17824523-6\\1.pdf', 3, '17824523-6', 12, 1);
-INSERT INTO `documento` VALUES (54, 'lkdjfkwk567', 'Turbus', '2020-08-28', 5500, 'Pasajes', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\DeclaracionGastos\\17824523-6\\2.pdf', 3, '17824523-6', 12, 1);
-INSERT INTO `documento` VALUES (55, 'dsfghu6', 'Restaurant', '2020-08-27', 1720, 'Comida', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\DeclaracionGastos\\17824523-6\\3.pdf', 3, '17824523-6', 12, 1);
 INSERT INTO `documento` VALUES (66, '28', 'Sociedad Chilena de ciencias de la computación', '2021-09-23', 200000, 'Inscripción ACM', 'Factura', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\DeclaracionGastos\\-1\\1.png', 4, NULL, 13, 1);
 INSERT INTO `documento` VALUES (67, '079478', 'Merk Xpress', '2021-09-23', 1500, 'Alimentación', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\DeclaracionGastos\\17981314-9\\1.png', 1, '17981314-9', 13, 1);
 INSERT INTO `documento` VALUES (68, '000182A0B811F8', 'Andimar', '2021-09-24', 4000, 'Transporte Santiago-Curicó', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\DeclaracionGastos\\17981314-9\\2.png', 5, '17981314-9', 13, 1);
@@ -142,6 +134,7 @@ INSERT INTO `documento` VALUES (82, '628953', 'Andimar', '2021-09-23', 4000, 'Tr
 INSERT INTO `documento` VALUES (83, '16280705', 'Pulman del Sur', '2021-09-24', 3500, 'Transporte Santiago-Curicó', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\DeclaracionGastos\\20090232-7\\2.png', 5, '20090232-7', 13, 1);
 INSERT INTO `documento` VALUES (84, '70', 'Metro Santiago', '2021-09-23', 1000, 'Transporte Santiago', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\DeclaracionGastos\\20090232-7\\3.png', 5, '20090232-7', 13, 1);
 INSERT INTO `documento` VALUES (85, '6069', 'Albergue y Hospedaje Eco Hostel Chile Limitada', '2021-09-23', 128000, 'Alojamiento', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\DeclaracionGastos\\-1\\2.png', 2, NULL, 13, 1);
+INSERT INTO `documento` VALUES (86, '31', 'Yorch', '2021-09-24', 240, 'Alimentacion', 'Boleta', 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\DeclaracionGastos\\-1\\3.pdf', 1, NULL, 13, 1);
 
 -- ----------------------------
 -- Table structure for estadoproceso
@@ -180,7 +173,7 @@ CREATE TABLE `institucion`  (
 -- Records of institucion
 -- ----------------------------
 INSERT INTO `institucion` VALUES (1, 'Ingeniería Civil en Computación', 'ICC', 'HABILITADO', 'DESHABILITADO');
-INSERT INTO `institucion` VALUES (2, 'Ingeniería Civil de Minas', 'ICM', 'HABILITADO', 'DESHABILITADO');
+INSERT INTO `institucion` VALUES (2, 'Ingeniería Civil de Minas', 'ICM', 'HABILITADO', 'HABILITADO');
 INSERT INTO `institucion` VALUES (3, 'Ingeniería Civil en Obras Civiles', 'ICOC', 'HABILITADO', 'DESHABILITADO');
 INSERT INTO `institucion` VALUES (4, 'Dirección de Apoyo a Actividades Estudiantiles', 'DAAE', 'HABILITADO', 'DESHABILITADO');
 
@@ -205,7 +198,7 @@ INSERT INTO `modulo` VALUES (5, 'Campus');
 INSERT INTO `modulo` VALUES (6, 'Instituciones');
 INSERT INTO `modulo` VALUES (7, 'Tipo O.E.');
 INSERT INTO `modulo` VALUES (8, 'O.E.');
-INSERT INTO `modulo` VALUES (9, 'Categoía');
+INSERT INTO `modulo` VALUES (9, 'Categoría');
 
 -- ----------------------------
 -- Table structure for oe_vicerector
@@ -224,8 +217,6 @@ CREATE TABLE `oe_vicerector`  (
 -- Records of oe_vicerector
 -- ----------------------------
 INSERT INTO `oe_vicerector` VALUES (2, 4);
-INSERT INTO `oe_vicerector` VALUES (2, 6);
-INSERT INTO `oe_vicerector` VALUES (4, 6);
 
 -- ----------------------------
 -- Table structure for operaciones
@@ -307,8 +298,7 @@ CREATE TABLE `organizacion_estudiantil`  (
 -- ----------------------------
 INSERT INTO `organizacion_estudiantil` VALUES (1, 'CAAICC', 'caaicc2016@gmail.com', 1, 'Habilitado', 1, 'DESHABILITADO', 1);
 INSERT INTO `organizacion_estudiantil` VALUES (2, 'FEDEUT', 'fedeutcuricó@gmail.com', 1, 'Habilitado', 2, 'DESHABILITADO', 4);
-INSERT INTO `organizacion_estudiantil` VALUES (3, 'CAAICC', 'caaicctalca@gamil.com', 2, 'Habilitado', 1, 'HABILITADO', 1);
-INSERT INTO `organizacion_estudiantil` VALUES (4, 'FEUTAL', 'feutaltalca@gmail.com', 2, 'Habilitado', 2, 'DESHABILITADO', 4);
+INSERT INTO `organizacion_estudiantil` VALUES (4, 'FEUTAL', 'feutaltalca@gmail.com', 2, 'Habilitado', 2, 'HABILITADO', 4);
 
 -- ----------------------------
 -- Table structure for parsol
@@ -328,16 +318,6 @@ CREATE TABLE `parsol`  (
 -- Records of parsol
 -- ----------------------------
 INSERT INTO `parsol` VALUES ('17820883-7', 58);
-INSERT INTO `parsol` VALUES ('17824523-6', 15);
-INSERT INTO `parsol` VALUES ('17824523-6', 20);
-INSERT INTO `parsol` VALUES ('17824523-6', 21);
-INSERT INTO `parsol` VALUES ('17824523-6', 22);
-INSERT INTO `parsol` VALUES ('17824523-6', 23);
-INSERT INTO `parsol` VALUES ('17824523-6', 24);
-INSERT INTO `parsol` VALUES ('17824523-6', 25);
-INSERT INTO `parsol` VALUES ('17824523-6', 26);
-INSERT INTO `parsol` VALUES ('17824523-6', 29);
-INSERT INTO `parsol` VALUES ('17824523-6', 54);
 INSERT INTO `parsol` VALUES ('17981314-9', 63);
 INSERT INTO `parsol` VALUES ('17981314-9', 64);
 INSERT INTO `parsol` VALUES ('17981314-9', 65);
@@ -345,12 +325,6 @@ INSERT INTO `parsol` VALUES ('17981314-9', 67);
 INSERT INTO `parsol` VALUES ('18594887-0', 63);
 INSERT INTO `parsol` VALUES ('18594887-0', 64);
 INSERT INTO `parsol` VALUES ('18594887-0', 67);
-INSERT INTO `parsol` VALUES ('19043138-K', 15);
-INSERT INTO `parsol` VALUES ('19043138-K', 20);
-INSERT INTO `parsol` VALUES ('19043138-K', 22);
-INSERT INTO `parsol` VALUES ('19043138-K', 23);
-INSERT INTO `parsol` VALUES ('19043138-K', 24);
-INSERT INTO `parsol` VALUES ('19043138-K', 26);
 INSERT INTO `parsol` VALUES ('19043138-K', 58);
 INSERT INTO `parsol` VALUES ('19299415-2', 63);
 INSERT INTO `parsol` VALUES ('19299415-2', 64);
@@ -385,6 +359,7 @@ INSERT INTO `participante` VALUES ('Yorch Sepúlveda', '17824523-6', 0);
 INSERT INTO `participante` VALUES ('Matías Ignacio Erenchun Marquéz', '17981314-9', 0);
 INSERT INTO `participante` VALUES ('Daniel Eduardo Pavez Bravo', '18594887-0', 0);
 INSERT INTO `participante` VALUES ('Gregory Sepúlveda', '19043138-K', 0);
+INSERT INTO `participante` VALUES ('Vicente Rojas', '19254373-8', 1);
 INSERT INTO `participante` VALUES ('Victor Alejandro Reyes Bravo', '19299415-2', 0);
 INSERT INTO `participante` VALUES ('Ignacio Andrés Martínez Hernandez', '19862538-8', 0);
 INSERT INTO `participante` VALUES ('Nicolás Antonio Piña Navarro', '19865856-1', 0);
@@ -427,43 +402,7 @@ CREATE TABLE `procesofondo`  (
 -- ----------------------------
 -- Records of procesofondo
 -- ----------------------------
-INSERT INTO `procesofondo` VALUES (15, 15, 46, 12, 6, 1, 'Cerrado', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (16, 16, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (18, 18, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (19, 19, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (20, 20, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (21, 21, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (22, 22, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (23, 23, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (24, 24, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (25, 25, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (26, 26, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (27, 27, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (28, 28, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (29, 29, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (30, 30, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (31, 31, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (32, 32, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (33, 33, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (34, 34, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (35, 35, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (36, 36, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (37, 37, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (38, 38, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (39, 39, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (40, 40, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (41, 41, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (42, 42, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (43, 43, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (46, 46, 40, 6, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (47, 47, NULL, NULL, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (48, 48, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (49, 49, 39, 5, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (50, 50, NULL, NULL, 2, 1, 'Abierto', 1, 1, NULL);
-INSERT INTO `procesofondo` VALUES (51, 51, 38, 4, 2, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (54, 54, 37, 3, 5, 1, 'Abierto', 2, 1, NULL);
-INSERT INTO `procesofondo` VALUES (62, 60, NULL, NULL, 2, 2, 'Abierto', 7, NULL, 6);
-INSERT INTO `procesofondo` VALUES (67, 64, 47, 13, 5, 1, 'Abierto', 1, 1, NULL);
+INSERT INTO `procesofondo` VALUES (67, 64, 47, 13, 4, 1, 'Abierto', 2, 1, NULL);
 INSERT INTO `procesofondo` VALUES (70, 67, 52, 18, 3, 1, 'Abierto', 1, 1, NULL);
 
 -- ----------------------------
@@ -483,11 +422,6 @@ CREATE TABLE `resolucion`  (
 -- ----------------------------
 -- Records of resolucion
 -- ----------------------------
-INSERT INTO `resolucion` VALUES (37, 236420, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\54\\Resolucion\\Resolucion.pdf');
-INSERT INTO `resolucion` VALUES (38, 365, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\51\\Resolucion\\Resolucion.pdf');
-INSERT INTO `resolucion` VALUES (39, 2136, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\49\\Resolucion\\Resolucion.pdf');
-INSERT INTO `resolucion` VALUES (40, 325, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\46\\Resolucion\\Resolucion.pdf');
-INSERT INTO `resolucion` VALUES (46, 32451321, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2020\\15\\Resolucion\\Resolucion.pdf');
 INSERT INTO `resolucion` VALUES (47, 264, 2020, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\64\\Resolucion\\Resolucion.pdf');
 INSERT INTO `resolucion` VALUES (52, 264, 2021, 'D:\\Repositorios\\Formulación de proyecto\\Aplicacion web\\SimRend\\SimRend\\wwwroot\\Procesos\\CAAICC\\2021\\67\\Resolucion\\Resolucion.pdf');
 
@@ -523,7 +457,7 @@ CREATE TABLE `rol_operacion`  (
   INDEX `refOperacion_RO`(`idOperacion`) USING BTREE,
   CONSTRAINT `refOperacion_RO` FOREIGN KEY (`idOperacion`) REFERENCES `operaciones` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `refRol_RO` FOREIGN KEY (`idRol`) REFERENCES `rol` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 55 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of rol_operacion
@@ -578,6 +512,10 @@ INSERT INTO `rol_operacion` VALUES (47, 4, 12);
 INSERT INTO `rol_operacion` VALUES (48, 5, 2);
 INSERT INTO `rol_operacion` VALUES (49, 5, 6);
 INSERT INTO `rol_operacion` VALUES (50, 5, 10);
+INSERT INTO `rol_operacion` VALUES (51, 1, 33);
+INSERT INTO `rol_operacion` VALUES (52, 1, 34);
+INSERT INTO `rol_operacion` VALUES (53, 1, 35);
+INSERT INTO `rol_operacion` VALUES (54, 1, 36);
 
 -- ----------------------------
 -- Table structure for solcat
@@ -595,54 +533,14 @@ CREATE TABLE `solcat`  (
 -- ----------------------------
 -- Records of solcat
 -- ----------------------------
-INSERT INTO `solcat` VALUES (15, 3);
-INSERT INTO `solcat` VALUES (16, 2);
-INSERT INTO `solcat` VALUES (18, 2);
-INSERT INTO `solcat` VALUES (19, 1);
-INSERT INTO `solcat` VALUES (20, 2);
-INSERT INTO `solcat` VALUES (21, 3);
-INSERT INTO `solcat` VALUES (22, 1);
-INSERT INTO `solcat` VALUES (23, 1);
-INSERT INTO `solcat` VALUES (24, 1);
-INSERT INTO `solcat` VALUES (25, 2);
-INSERT INTO `solcat` VALUES (25, 5);
-INSERT INTO `solcat` VALUES (26, 1);
-INSERT INTO `solcat` VALUES (27, 2);
-INSERT INTO `solcat` VALUES (28, 2);
-INSERT INTO `solcat` VALUES (29, 2);
-INSERT INTO `solcat` VALUES (29, 4);
-INSERT INTO `solcat` VALUES (30, 1);
-INSERT INTO `solcat` VALUES (31, 3);
-INSERT INTO `solcat` VALUES (32, 2);
-INSERT INTO `solcat` VALUES (33, 2);
-INSERT INTO `solcat` VALUES (34, 2);
-INSERT INTO `solcat` VALUES (35, 2);
-INSERT INTO `solcat` VALUES (36, 1);
-INSERT INTO `solcat` VALUES (37, 2);
-INSERT INTO `solcat` VALUES (38, 1);
-INSERT INTO `solcat` VALUES (39, 1);
-INSERT INTO `solcat` VALUES (40, 1);
-INSERT INTO `solcat` VALUES (41, 2);
-INSERT INTO `solcat` VALUES (42, 1);
-INSERT INTO `solcat` VALUES (43, 3);
-INSERT INTO `solcat` VALUES (46, 1);
-INSERT INTO `solcat` VALUES (47, 1);
-INSERT INTO `solcat` VALUES (48, 1);
-INSERT INTO `solcat` VALUES (49, 1);
-INSERT INTO `solcat` VALUES (50, 1);
-INSERT INTO `solcat` VALUES (51, 1);
 INSERT INTO `solcat` VALUES (53, 2);
-INSERT INTO `solcat` VALUES (54, 2);
 INSERT INTO `solcat` VALUES (58, 4);
 INSERT INTO `solcat` VALUES (58, 1);
 INSERT INTO `solcat` VALUES (58, 2);
 INSERT INTO `solcat` VALUES (58, 5);
-INSERT INTO `solcat` VALUES (60, 1);
 INSERT INTO `solcat` VALUES (63, 1);
 INSERT INTO `solcat` VALUES (63, 2);
 INSERT INTO `solcat` VALUES (63, 5);
-INSERT INTO `solcat` VALUES (64, 1);
-INSERT INTO `solcat` VALUES (64, 2);
 INSERT INTO `solcat` VALUES (64, 5);
 INSERT INTO `solcat` VALUES (64, 4);
 INSERT INTO `solcat` VALUES (65, 2);
@@ -651,6 +549,8 @@ INSERT INTO `solcat` VALUES (67, 1);
 INSERT INTO `solcat` VALUES (67, 4);
 INSERT INTO `solcat` VALUES (67, 5);
 INSERT INTO `solcat` VALUES (67, 2);
+INSERT INTO `solcat` VALUES (64, 1);
+INSERT INTO `solcat` VALUES (64, 2);
 
 -- ----------------------------
 -- Table structure for solicitud
@@ -673,43 +573,7 @@ CREATE TABLE `solicitud`  (
 -- ----------------------------
 -- Records of solicitud
 -- ----------------------------
-INSERT INTO `solicitud` VALUES (15, '2020-08-13', 23456, 'zxcvbdsf', '2020-08-26', '2020-08-28', 'dsdfasdf', 'Grupal', '2021-04-18', '2021-04-18');
-INSERT INTO `solicitud` VALUES (16, '2020-08-13', 23456, 'zxcvbdsf', '2020-08-26', '2020-08-28', 'dsdfasdf', 'Masiva', '2020-08-13', '2020-08-13');
-INSERT INTO `solicitud` VALUES (18, '2020-08-13', 321354, 'Prueba 3 agregar y eliminar participante', '2020-08-26', '2020-08-26', 'Utalca', 'Grupal', '2020-08-13', '2020-08-13');
-INSERT INTO `solicitud` VALUES (19, '2020-08-13', 1235465, 'Prueba 4', '2020-08-28', '2020-08-28', 'Utalca', 'Grupal', '2020-08-13', '2020-08-13');
-INSERT INTO `solicitud` VALUES (20, '2020-08-13', 21545456, 'Prueba 6', '2020-08-28', '2020-08-28', 'sdlfjsdflksdj', 'Grupal', '2020-08-13', '2020-08-13');
-INSERT INTO `solicitud` VALUES (21, '2020-08-13', 2313513, 'Prueba 7', '2020-08-27', '2020-08-27', 'Utalca', 'Grupal', '2020-08-13', '2020-08-13');
-INSERT INTO `solicitud` VALUES (22, '2020-08-13', 21354315, 'Prueba 9', '2020-08-27', '2020-08-27', 'Utalca', 'Grupal', '2020-08-13', '2020-08-13');
-INSERT INTO `solicitud` VALUES (23, '2020-08-13', 1351315, 'Prueba 11', '2020-08-21', '2020-08-21', 'Utalca', 'Grupal', '2020-08-13', '2020-08-13');
-INSERT INTO `solicitud` VALUES (24, '2020-08-13', 161515, 'Prueba 15', '2020-08-20', '2020-08-20', 'Utalca', 'Grupal', '2020-08-13', '2020-08-13');
-INSERT INTO `solicitud` VALUES (25, '2020-08-13', 3181135, 'Prueba eliminar participante 1', '2020-08-27', '2020-08-27', 'Utalca', 'Grupal', '2020-08-13', '2020-08-13');
-INSERT INTO `solicitud` VALUES (26, '2020-08-13', 1321456, 'Prueba eliminar participante 2', '2020-08-27', '2020-08-27', 'Utalca', 'Grupal', '2021-07-25', '2021-07-25');
-INSERT INTO `solicitud` VALUES (27, '2020-08-16', 215216654, 'Prueba domingo', '2020-08-26', '2020-08-27', 'Casa', 'Grupal', '2020-08-16', '2020-08-16');
-INSERT INTO `solicitud` VALUES (28, '2020-08-16', 1235465, 'Prueba 2 Domingo', '2020-08-27', '2020-08-27', 'Casa', 'Grupal', '2020-08-16', '2020-08-16');
-INSERT INTO `solicitud` VALUES (29, '2020-08-16', 125456, 'Prueba 4', '2020-08-20', '2020-08-20', 'casa', 'Grupal', '2020-08-16', '2020-08-16');
-INSERT INTO `solicitud` VALUES (30, '2020-09-09', 150, 'Prueba 1 09-2020 ', '2020-09-10', '2020-09-10', 'Universidad de Talca', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (31, '2020-09-09', 126563, 'Prueba 2 09-2020', '2020-09-11', '2020-09-11', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (32, '2020-09-09', 1520, 'Prueba 4 09-2020', '2020-09-25', '2020-09-25', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (33, '2020-09-09', 0, 'aburrido', '2020-09-10', '2020-09-10', 'casa', 'Masiva', '2020-09-13', '2020-09-13');
-INSERT INTO `solicitud` VALUES (34, '2020-09-09', 15225, 'aburrido 2', '2020-09-23', '2020-09-23', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (35, '2020-09-09', 456234, 'ldskjfhskdfhj', '2020-09-24', '2020-09-24', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (36, '2020-09-09', 126545, 'prueba 20siempre', '2020-09-24', '2020-09-24', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (37, '2020-09-09', 2456, 'miri', '2020-09-24', '2020-09-24', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (38, '2020-09-09', 12354, 'hLA', '2020-09-23', '2020-09-23', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (39, '2020-09-09', 13545, 'prubea jquery nuevo', '2020-09-24', '2020-09-24', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (40, '2020-09-09', 321546, 'jquery 2', '2020-09-17', '2020-09-17', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (41, '2020-09-09', 123456, 'jquery prueba 4', '2020-09-16', '2020-09-16', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (42, '2020-09-09', 1234654, 'prueba 5', '2020-09-23', '2020-09-23', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (43, '2020-09-09', 1236545, 'prueba 6', '2020-09-23', '2020-09-23', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (46, '2020-09-09', 32145, 'prueba 21', '2020-09-25', '2020-09-25', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (47, '2020-09-09', 21515321, 'prueba 22', '2020-09-18', '2020-09-18', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (48, '2020-09-09', 3215654, 'prueba casi definitiva', '2020-09-18', '2020-09-18', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (49, '2020-09-09', 321545, 'prueba casi definitiva 2', '2020-09-10', '2020-09-10', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (50, '2020-09-09', 321545, 'prueba casi casi 3', '2020-09-10', '2020-09-10', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (51, '2020-09-09', 321545, 'prueba casi casi 2', '2020-09-23', '2020-09-23', 'casa', 'Masiva', '2020-09-09', '2020-09-09');
-INSERT INTO `solicitud` VALUES (54, '2020-12-22', 316543513, 'evento navidad', '2020-12-24', '2020-12-30', 'casa 2', 'Grupal', '2020-12-27', '2020-12-27');
-INSERT INTO `solicitud` VALUES (60, '2021-09-10', 500000, 'Fiesta 18 de septiembre', '2021-09-15', '2021-09-15', 'Universidad de Talca Campus Curó', 'Masiva', '2021-09-10', '2021-09-10');
-INSERT INTO `solicitud` VALUES (64, '2021-09-22', 381990, 'Competencia ACM-ICPC', '2021-09-23', '2021-09-24', 'Universidad del Desarrollo, Campus Rector Ernesto Silva Bafalluy, San Carlos de Apoquindo, Las Condes, Santiago', 'Grupal', '2021-09-22', '2021-09-22');
+INSERT INTO `solicitud` VALUES (64, '2021-09-22', 381990, 'Competencia ACM-ICPC', '2021-09-23', '2021-09-24', 'Universidad del Desarrollo, Campus Rector Ernesto Silva Bafalluy, San Carlos de Apoquindo, Las Condes, Santiago', 'Grupal', '2021-09-23', '2021-09-23');
 INSERT INTO `solicitud` VALUES (67, '2021-09-23', 381990, 'Competencia ACM-ICPC', '2021-09-23', '2021-09-24', 'Universidad del Desarrollo, Campus Rector Ernesto Silva Bafalluy, San Carlos de Apoquindo, Las Condes, Santiago', 'Grupal', '2021-09-23', '2021-09-23');
 
 -- ----------------------------
@@ -728,9 +592,9 @@ CREATE TABLE `tipooe`  (
 -- ----------------------------
 -- Records of tipooe
 -- ----------------------------
-INSERT INTO `tipooe` VALUES (1, 'CAA', 'Centro de alumnos', 'HABILITADO', 'HABILITADO');
+INSERT INTO `tipooe` VALUES (1, 'CAA', 'Centro de alumnos', 'HABILITADO', 'DESHABILITADO');
 INSERT INTO `tipooe` VALUES (2, 'FEDERACIÓN', 'Federación de estudiantes', 'HABILITADO', 'DESHABILITADO');
-INSERT INTO `tipooe` VALUES (3, 'GI', 'Grupo intermedio', 'HABILITADO', 'DESHABILITADO');
+INSERT INTO `tipooe` VALUES (3, 'GI', 'Grupo intermedio', 'HABILITADO', 'HABILITADO');
 
 -- ----------------------------
 -- Table structure for usuario_administrador
@@ -782,13 +646,12 @@ CREATE TABLE `usuario_director`  (
   CONSTRAINT `usuario_director_ibfk_1` FOREIGN KEY (`idOrganizacionEstudiantil`) REFERENCES `organizacion_estudiantil` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `usuario_director_ibfk_2` FOREIGN KEY (`refInstitucion`) REFERENCES `institucion` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `usuario_director_ibfk_3` FOREIGN KEY (`idRol`) REFERENCES `rol` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of usuario_director
 -- ----------------------------
 INSERT INTO `usuario_director` VALUES (1, 'rgarrido@utalca.cl', 'Ruth', 'Ruth Garrido', 'Femenino', 1, 'Directora de escuela', 'Habilitado', 2, 1, 0, 'DESHABILITADO');
-INSERT INTO `usuario_director` VALUES (2, 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'Yorch Sepúlveda Manríquez', 'Masculino', 1, 'Director de escuela', 'Deshabilitado', 2, 1, 12345, 'HABILITADO');
 
 -- ----------------------------
 -- Table structure for usuario_representante
@@ -815,14 +678,15 @@ CREATE TABLE `usuario_representante`  (
   CONSTRAINT `usuario_representante_ibfk_1` FOREIGN KEY (`refInstitucion`) REFERENCES `institucion` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `usuario_representante_ibfk_2` FOREIGN KEY (`idOrganizacionEstudiantil`) REFERENCES `organizacion_estudiantil` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `usuario_representante_ibfk_3` FOREIGN KEY (`idRol`) REFERENCES `rol` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = COMPACT;
 
 -- ----------------------------
 -- Records of usuario_representante
 -- ----------------------------
-INSERT INTO `usuario_representante` VALUES (1, 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'Yorch Sepúlveda Manríquez', '17824523-6', 'Masculino', 2011407070, 1, 'Habilitado', 3, 1, 'Deshabilitado', 'DESHABILITADO');
-INSERT INTO `usuario_representante` VALUES (2, 'dparedes09@alumnos.utalca.cl', 'Daniela', 'Daniela Paredes', '17820883-7', 'Femenino', 2009407826, 1, 'Habilitado', 4, 1, 'Deshabilitado', 'DESHABILITADO');
-INSERT INTO `usuario_representante` VALUES (7, 'mgonzales13@alumnos.utalca.cl', '123', 'Maria Soledad Gonzalez', '18801120-9', 'Femenino', 2013437888, 3, 'Habilitado', 3, 2, 'Deshabilitado', 'DESHABILITADO');
+INSERT INTO `usuario_representante` VALUES (1, 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'Yorch Sepúlveda Manríquez', '17824523-6', 'Masculino', 2011407070, 1, 'Deshabilitado', 3, 1, 'Habilitado', 'DESHABILITADO');
+INSERT INTO `usuario_representante` VALUES (2, 'dparedes09@alumnos.utalca.cl', 'Daniela', 'Daniela Paredes', '17820883-7', 'Femenino', 2009407826, 1, 'Habilitado', 4, 1, 'Deshabilitado', 'Deshabilitado');
+INSERT INTO `usuario_representante` VALUES (7, 'mgonzales13@alumnos.utalca.cl', '123', 'Maria Soledad Gonzalez', '18801120-9', 'Femenino', 2013437888, 3, 'Deshabilitado', 3, 2, 'Habilitado', 'HABILITADO');
+INSERT INTO `usuario_representante` VALUES (8, 'virojas15@alumnos.utalca.cl', 'Sh36Bes7', 'Vicente Rojas', '19254373-8', 'Masculino', 2015407054, 1, 'Habilitado', 3, 1, 'Habilitado', 'HABILITADO');
 
 -- ----------------------------
 -- Table structure for usuario_vicerector
@@ -845,13 +709,12 @@ CREATE TABLE `usuario_vicerector`  (
   INDEX `usuario_vicerector_ibfk_2`(`refRol`) USING BTREE,
   CONSTRAINT `usuario_vicerector_ibfk_1` FOREIGN KEY (`refInstitucion`) REFERENCES `institucion` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `usuario_vicerector_ibfk_2` FOREIGN KEY (`refRol`) REFERENCES `rol` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of usuario_vicerector
 -- ----------------------------
-INSERT INTO `usuario_vicerector` VALUES (4, 'pcaballero@utalca.cl', '12345', 'Paula Caballero', 'Femenino', 4, 'Vicerrectora de desarrollo estudiantil', 'Deshabilitado', 12345, 'HABILITADO', 5);
-INSERT INTO `usuario_vicerector` VALUES (6, 'yosepulveda11@alumnos.utalca.cl', 'Yorch', 'Yorch Sepúlveda M.', 'Masculino', 4, 'Vicerector de actividades académicas', 'Habilitado', 12345, 'DESHABILITADO', 5);
+INSERT INTO `usuario_vicerector` VALUES (4, 'pcaballero@utalca.cl', '12345', 'Paula Caballero', 'Femenino', 4, 'Vicerrectora de desarrollo estudiantil', 'Habilitado', 12345, 'HABILITADO', 5);
 
 -- ----------------------------
 -- Procedure structure for Actualizar_Campus
