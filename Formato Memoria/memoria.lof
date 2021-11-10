@@ -13,7 +13,7 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Proceso de Fondos por Rendir por parte de Fedeut.\relax }}{51}{}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Proceso fondos por rendir por parte de un CAA.\relax }}{52}{}%
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Diagrama de estado del proceso que debe simular la aplicación.\relax }}{54}{}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Proceso fondos con Solicirud de Reembolso por parte de un CAA.\relax }}{58}{}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Proceso fondos con Solicitud de Reembolso por parte de un CAA.\relax }}{58}{}%
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Proceso fondos con Solicitud de Reembolso por parte de Federación.\relax }}{59}{}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Mapa de navegación de la aplicación.\relax }}{63}{}%
@@ -52,15 +52,15 @@
 \contentsline {figure}{\numberline {B.10}{\ignorespaces Resultado de la pregunta diez.\relax }}{106}{}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {C.1}{\ignorespaces Vista para gestionar a los usuarios administradores.\relax }}{107}{}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces Vista para gestionar a los usuarios vicerectores.\relax }}{107}{}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces Vista para gestionar a los usuarios vicerrectores.\relax }}{107}{}%
 \contentsline {figure}{\numberline {C.3}{\ignorespaces Vista para gestionar a los usuarios directores.\relax }}{108}{}%
-\contentsline {figure}{\numberline {C.4}{\ignorespaces Vista para gestionar a los usuarios representates.\relax }}{108}{}%
-\contentsline {figure}{\numberline {C.5}{\ignorespaces Vista para gestionar a los distintos campus perteneciente a la Universidad.\relax }}{109}{}%
-\contentsline {figure}{\numberline {C.6}{\ignorespaces Vista para gestionar las distintas instituciones perteneciente a la Universidad.\relax }}{109}{}%
-\contentsline {figure}{\numberline {C.7}{\ignorespaces Vista para gestionar las distintos tipos de OE perteneciente a la Universidad.\relax }}{110}{}%
-\contentsline {figure}{\numberline {C.8}{\ignorespaces Vista para gestionar las distintas OE perteneciente a la Universidad.\relax }}{110}{}%
+\contentsline {figure}{\numberline {C.4}{\ignorespaces Vista para gestionar a los usuarios representantes.\relax }}{108}{}%
+\contentsline {figure}{\numberline {C.5}{\ignorespaces Vista para gestionar a los distintos campus pertenecientes a la Universidad.\relax }}{109}{}%
+\contentsline {figure}{\numberline {C.6}{\ignorespaces Vista para gestionar las distintas instituciones pertenecientes a la Universidad.\relax }}{109}{}%
+\contentsline {figure}{\numberline {C.7}{\ignorespaces Vista para gestionar las distintos tipos de OE pertenecientes a la Universidad.\relax }}{110}{}%
+\contentsline {figure}{\numberline {C.8}{\ignorespaces Vista para gestionar las distintas OE pertenecientes a la Universidad.\relax }}{110}{}%
 \contentsline {figure}{\numberline {C.9}{\ignorespaces Vista para gestionar las categorías para ser utilizadas en una solicitud de fondos o la respectiva categorización de un documento en la seccion de rendición.\relax }}{111}{}%
-\contentsline {figure}{\numberline {C.10}{\ignorespaces Botones para acceder a editar el perfil del usuario en sesión o la modificacion de la clave.\relax }}{112}{}%
+\contentsline {figure}{\numberline {C.10}{\ignorespaces Botones para acceder a editar el perfil del usuario en sesión o la modificación de la clave.\relax }}{112}{}%
 \contentsline {figure}{\numberline {C.11}{\ignorespaces Vista para modificar los datos del usuario que se encuentra con la sesión iniciada.\relax }}{113}{}%
 \contentsline {figure}{\numberline {C.12}{\ignorespaces Vista para modificar la clave del usuario que se encuentra con la sesión iniciada.\relax }}{113}{}%
-\contentsline {figure}{\numberline {C.13}{\ignorespaces Vista principal que visualiza el vicerector, en donde se encuentra un listado de las OE que tiene a su cargo.\relax }}{114}{}%
+\contentsline {figure}{\numberline {C.13}{\ignorespaces Vista principal que visualiza el vicerrector, en donde se encuentra un listado de las OE que tiene a su cargo.\relax }}{114}{}%
